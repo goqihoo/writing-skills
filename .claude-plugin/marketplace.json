@@ -3,18 +3,19 @@
   "owner": {
     "name": "Andrew"
   },
-  "description": "Skills for reusable knowledge and professional writing.",
+  "description": "Scribe skills for professional documents and technical visuals.",
   "plugins": [
     {
-      "name": "writing-skills",
+      "name": "scribe",
       "source": "./",
-      "description": "Composable skills for knowledge, product, and technical documents.",
+      "description": "Create knowledge, product, architecture, decision, and visual artifacts.",
       "category": "productivity",
       "keywords": [
         "writing",
         "documentation",
         "product",
-        "technical-design"
+        "architecture",
+        "diagrams"
       ]
     }
   ]

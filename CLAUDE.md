@@ -1,42 +1,46 @@
-# Writing Skills Repository
+# Scribe Repository
 
-This repository contains composable skills for writing reusable knowledge and professional work artifacts.
+This repository contains composable skills for professional documents and technical visuals.
 
 ## Skill buckets
 
-- `skills/foundations/` — shared writing discipline and the repository router.
-- `skills/knowledge/` — reusable knowledge documents.
+- `skills/foundations/` — the explicit router and shared methods.
+- `skills/knowledge/` — reusable knowledge artifacts.
 - `skills/product/` — product work artifacts.
-- `skills/technical/` — technical work artifacts.
+- `skills/technical/` — project delivery and decision artifacts.
+- `skills/visual/` — visual selection and production.
 
-Every skill directory must contain `SKILL.md` and `agents/openai.yaml`. Add assets or references only when the skill uses them.
+Every skill directory must contain `SKILL.md` and `agents/openai.yaml`. Add a resource only when the skill uses it.
 
 ## Invocation
 
-Classify every skill as either user-invoked or model-invoked:
+Classify every skill as user-invoked or model-invoked:
 
 - User-invoked skills set `disable-model-invocation: true` in `SKILL.md` and `policy.allow_implicit_invocation: false` in `agents/openai.yaml`.
-- Model-invoked skills omit both settings and use a description that states all trigger branches.
+- Model-invoked skills omit both settings and name every trigger branch in the description.
 
-`ask-writing` is model-invoked so it can answer skill-discovery and comparison questions without requiring the user to remember its name. Keep other writing and review skills model-invoked unless a concrete workflow requires explicit orchestration.
+`ask-scribe` is the user-invoked plugin index, like Ask Matt. Foundations and deliverable skills are model-invoked so the model and other skills can reach them.
 
-Use `$skill-name` for ready-to-type invocations in Agent Skills-compatible clients and `/skill-name` in Claude Code. Keep bare skill names in cross-client maps and comparisons.
+Use `$skill-name` for ready-to-type Agent Skills invocations and `/skill-name` for Claude Code.
 
 ## Ownership
 
-- `writing-docs` owns rules shared by every document: outcome, reader path, facts, reasoning, decisions, concrete language, boundaries, and completion checks.
-- Each deliverable skill owns its document-specific workflow, structure, completion criteria, and template.
-- Keep each rule in one place. Invoke `/writing-docs` from deliverable skills instead of copying shared rules.
-- Templates under `assets/` are output material. Detailed guidance under `references/` is loaded only when its branch applies.
+- `writing-docs` owns the writing method shared by all documents.
+- `architecture-foundations` owns the architecture method shared by architecture artifacts.
+- Each deliverable skill owns one artifact boundary, workflow, completion test, and output template.
+- `draw-technical-architecture-diagrams` owns visual routing and quality, not architecture meaning.
+- `ask-scribe` recommends a route and stops.
+
+Keep each rule in one place. Invoke a foundation instead of copying it. Store output templates under `assets/`; disclose branch-specific guidance through one-level `references/`.
 
 ## Repository updates
 
 When adding, renaming, or removing a skill:
 
-1. Update the matching bucket `README.md` and the top-level `README.md`.
-2. Update `.claude-plugin/plugin.json`.
-3. Re-read and update `ask-writing` so its routes stay accurate.
-4. Run the skill validator on every changed skill.
-5. Run `bash -n scripts/*.sh` and inspect `git diff --check`.
+1. Update its bucket README and the root README.
+2. Update `.claude-plugin/plugin.json` and marketplace metadata.
+3. Re-read and update `ask-scribe`.
+4. Validate every changed skill.
+5. Run `bash -n scripts/*.sh` and `git diff --check`.
 
-Write agent instructions in imperative form. Give every workflow step a checkable completion condition. Keep `SKILL.md` concise and disclose branch-specific detail through one-level references.
+Write agent instructions in imperative form. End every workflow with a checkable completion condition. Keep `SKILL.md` concise and move conditional detail behind direct pointers.

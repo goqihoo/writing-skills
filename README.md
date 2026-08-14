@@ -1,81 +1,73 @@
-# Writing Skills
+# Scribe
 
-Composable agent skills for writing reusable knowledge, product requirements, technical designs, and decision records.
-
-The set separates shared writing discipline from deliverable-specific structure. Start with `ask-writing` when the right skill is unclear.
+Composable agent skills for professional documents and technical visuals. Start with `ask-scribe` when you do not know which skill owns the work.
 
 ## Invocation
 
-Use `$ask-writing` in Agent Skills-compatible clients or `/ask-writing` in Claude Code. The router returns a ready-to-type invocation for the current client.
+Use `$ask-scribe` in Agent Skills-compatible clients or `/ask-scribe` in Claude Code. Ask Scribe recommends the smallest matching skill or short flow, then stops.
 
 ## Installation
 
-Choose one installation route. The Claude Code plugin is a managed bundle; `skills.sh` installs editable skill files for Codex and other Agent Skills-compatible clients. Installing both creates duplicate copies of every skill.
+Choose one route. The Claude Code plugin installs the complete bundle; [skills.sh](https://skills.sh/) lets Codex and other compatible agents select individual skills. Installing both creates duplicates.
 
 ### Claude Code
 
-Add this repository as a plugin marketplace, then install the bundle:
-
 ```bash
 claude plugin marketplace add goqihoo/writing-skills
-claude plugin install writing-skills@goqihoo
+claude plugin install scribe@goqihoo
 ```
 
-From inside Claude Code, use the equivalent commands:
+From Claude Code:
 
 ```text
 /plugin marketplace add goqihoo/writing-skills
-/plugin install writing-skills@goqihoo
+/plugin install scribe@goqihoo
 ```
 
 ### Codex and other agents
-
-Use [skills.sh](https://skills.sh/) to select the skills and agents you want:
 
 ```bash
 npx skills@latest add goqihoo/writing-skills
 ```
 
-The installer writes skills into your project so you can edit them. Run `npx skills@latest update` when you want the latest versions.
+Run `npx skills@latest update` to receive later revisions.
 
 ## Maintainer setup
 
-Run the development linker to expose every skill to Claude Code and Agent Skills-compatible harnesses:
+Expose every skill to local Claude Code and Agent Skills-compatible harnesses:
 
 ```bash
 scripts/link-skills.sh
 ```
 
-The script creates symlinks in `~/.claude/skills` and `~/.agents/skills`. It stops if a destination already contains a non-symlink with the same skill name.
+The linker refuses to replace a non-symlink with the same skill name.
 
 ## Skills
 
-### Foundations
+### Entry and foundations
 
-**Model-invoked**
-
-- [ask-writing](skills/foundations/ask-writing/SKILL.md) — Explain the available skills and recommend the next one to invoke.
-- [writing-docs](skills/foundations/writing-docs/SKILL.md) — Apply the shared workflow and clarity rules used by every document skill.
+- [ask-scribe](skills/foundations/ask-scribe/SKILL.md) — Route a document task to the right Scribe skill. Explicit invocation only.
+- [writing-docs](skills/foundations/writing-docs/SKILL.md) — Shared discipline for clear, grounded documents.
+- [architecture-foundations](skills/foundations/architecture-foundations/SKILL.md) — Shared architecture reasoning across four views.
 
 ### Knowledge
 
-**Model-invoked**
-
-- [write-knowledge-document](skills/knowledge/write-knowledge-document/SKILL.md) — Create, revise, or review reusable knowledge using the structure that matches its future use.
+- [write-knowledge-document](skills/knowledge/write-knowledge-document/SKILL.md) — Create durable knowledge by reader use.
+- [design-knowledge-architecture](skills/knowledge/design-knowledge-architecture/SKILL.md) — Build reusable architecture knowledge without making project commitments.
 
 ### Product
 
-**Model-invoked**
-
-- [write-product-requirements](skills/product/write-product-requirements/SKILL.md) — Create, revise, or review a PRD that aligns scope, behavior, and acceptance.
+- [write-product-requirements](skills/product/write-product-requirements/SKILL.md) — Align product scope, behavior, and acceptance.
 
 ### Technical
 
-**Model-invoked**
+- [design-delivery-architecture](skills/technical/design-delivery-architecture/SKILL.md) — Turn requirements into a project-specific architecture commitment. This replaces `write-technical-design`.
+- [write-decision-record](skills/technical/write-decision-record/SKILL.md) — Preserve one material decision and its review triggers.
 
-- [write-technical-design](skills/technical/write-technical-design/SKILL.md) — Create, revise, or review an implementation-ready technical design.
-- [write-decision-record](skills/technical/write-decision-record/SKILL.md) — Record one material decision, its alternatives, costs, and review triggers.
+### Visual
 
-## Adding a deliverable
+- [draw-technical-architecture-diagrams](skills/visual/draw-technical-architecture-diagrams/SKILL.md) — Select, create, and verify the smallest useful technical visual.
 
-Create a new skill when a document has a distinct reader decision, stable structure, and completion test. Keep variants inside an existing skill when they differ only in length or presentation.
+## Adding a skill
+
+Add a deliverable skill only when an artifact has a distinct reader decision, stable structure, and completion test. Put shared writing or architecture method in the matching foundation instead of copying it.

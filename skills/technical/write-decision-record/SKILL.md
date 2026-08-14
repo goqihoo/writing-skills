@@ -1,6 +1,6 @@
 ---
 name: write-decision-record
-description: Create, revise, or review a product or technical decision record, including architecture decision records. Use when one material choice needs durable context, real alternatives, rationale, costs, consequences, status, validation, and triggerable review conditions; use a technical-design skill when the whole solution is the subject.
+description: Create, revise, or review a product or technical decision record, including architecture decision records. Use when one material choice needs durable context, real alternatives, rationale, costs, consequences, status, validation, and triggerable review conditions; use design-delivery-architecture when the whole project solution is the subject.
 ---
 
 # Write Decision Record
@@ -9,7 +9,7 @@ Preserve enough context for a future reader to understand one decision without r
 
 ## Workflow
 
-1. Apply the `/writing-docs` skill.
+1. Apply `$writing-docs`.
 2. Confirm that the document owns one material decision. Split independent choices into separate records.
 3. Reconstruct the decision-time context: goal, constraints, evidence available, and consequences of delaying or avoiding the decision.
 4. State the decision directly. Record its status and decision date.
@@ -20,8 +20,8 @@ Preserve enough context for a future reader to understand one decision without r
 
 ## Boundaries
 
-- Use `/write-technical-design` when several choices must form an implementation-ready solution.
-- Use `/write-knowledge-document` when comparing a reusable family of patterns across many contexts.
+- Use `$design-delivery-architecture` when several choices must form one project solution.
+- Use `$design-knowledge-architecture` when comparing reusable architecture options across contexts; use `$write-knowledge-document` for a general pattern family.
 - Record the decision actually made, not the decision a later reader wishes had been made.
 
 ## Completion criteria

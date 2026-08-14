@@ -1,4 +1,4 @@
-# <System or Change> Technical Design
+# <System or Change> Delivery Architecture
 
 ## Document status
 
@@ -13,7 +13,7 @@
 
 Describe the current system behavior, the required change, and the evidence or decisions that establish the need.
 
-## Goals and non-goals
+## Goals, scope, and non-goals
 
 ### Goals
 
@@ -29,10 +29,6 @@ Describe the current system behavior, the required change, and the evidence or d
 |---|---|---|
 | <Requirement, quality goal, policy, platform fact, or deadline> | <Structural effect> | <Link or decision> |
 
-## Current state
-
-Describe only the current behavior needed to understand the change.
-
 ## Representative end-to-end scenario
 
 Trace one realistic request, event, or state change before introducing the component view.
@@ -42,29 +38,27 @@ Trace one realistic request, event, or state change before introducing the compo
 3. <Another component observes or acts>
 4. <Caller, user, or operator sees the result>
 
-## Proposed design
+## Architecture
 
-### Responsibilities and boundaries
+### System context and boundaries
 
-| Component or owner | Responsibility | Does not own |
-|---|---|---|
-| <Component> | <Behavior and state owned> | <Explicit boundary> |
+Describe users, the system boundary, external systems, and information crossing each boundary.
 
-### Runtime flows
+### Responsibilities and authoritative state
 
-Describe the main success path and link it to the representative scenario.
+| Owner or subsystem | Responsibility | Authoritative state | Does not own |
+|---|---|---|---|
+| <Owner> | <Behavior> | <Facts or state> | <Boundary> |
 
 ### Interfaces and contracts
 
-| Interface | Caller and provider | Input | Output | Errors and guarantees |
-|---|---|---|---|---|
-| <API, event, job, or library boundary> | <Parties> | <Semantics> | <Semantics> | <Observable behavior> |
-
-### Data and state
-
-| Data or state | Owner | Source of truth | Lifecycle and invariants |
+| Contract | Caller and owner | Semantics | Guarantees and failure behavior |
 |---|---|---|---|
-| <Object> | <Owner> | <System or store> | <Creation, change, retention, invariant> |
+| <Command, event, query, or job> | <Parties> | <Meaning> | <Ordering, idempotency, timeout, compatibility, or recovery> |
+
+### Main and failure flows
+
+Trace the primary success path, then timeout, retry, duplicate, stale, partial, conflicting, and unknown outcomes that matter.
 
 ## Failure, recovery, and degraded operation
 
@@ -72,14 +66,18 @@ Describe the main success path and link it to the representative scenario.
 |---|---|---|---|
 | <Timeout, retry, partial success, concurrency conflict, dependency failure, or corrupt state> | <Effect> | <Signal> | <Action> |
 
-## Security and privacy
+## Governance, security, and evidence
 
-- <Trust boundary, access control, sensitive data, abuse case, or audit requirement>
+| Control objective | Authority and owner | Control point and failure behavior | Evidence and validation |
+|---|---|---|---|
+| <Unsafe outcome to prevent> | <Who decides and executes> | <Where and how enforced> | <Durable evidence and test> |
 
-## Observability and operations
+## Runtime and operations
 
-- **Signals:** <Metrics, logs, traces, events>
-- **Operational action:** <Diagnosis, repair, replay, reconciliation, or capacity change>
+- **Deployment and failure domains:** <Placement and isolation>
+- **Signals:** <Metrics, logs, traces, and evidence>
+- **Recovery:** <Repair, replay, reconciliation, failover, or restore>
+- **Capacity and degradation:** <Limits and safe behavior>
 
 ## Deployment, migration, and compatibility
 
@@ -109,8 +107,8 @@ Describe the main success path and link it to the representative scenario.
 |---|---|---|---|
 | Risk / Assumption / Question | <Item> | <Role> | <Action, evidence, or date> |
 
-## Review checklist
+## Delivery check
 
 - [ ] Requirements map to the design or explicit non-goals.
-- [ ] The main and failure paths are traceable through interfaces, data, and state.
-- [ ] Ownership, rollout, rollback, observability, and validation are implementable.
+- [ ] The main and failure paths are traceable through ownership, contracts, controls, and state.
+- [ ] Rollout, rollback, operations, and validation are implementable.

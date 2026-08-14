@@ -1,8 +1,12 @@
 # Foundations
 
-Shared rules and routing for the writing skill set.
+The Scribe entry point and shared methods.
+
+## User-invoked
+
+- [ask-scribe](ask-scribe/SKILL.md) — Recommend the smallest matching skill or short flow, then stop.
 
 ## Model-invoked
 
-- [ask-writing](ask-writing/SKILL.md) — Explain the available skills and recommend the next one to invoke.
-- [writing-docs](writing-docs/SKILL.md) — Apply the shared workflow and clarity rules used by every document skill.
+- [writing-docs](writing-docs/SKILL.md) — Apply shared document reasoning and clarity rules.
+- [architecture-foundations](architecture-foundations/SKILL.md) — Apply the shared four-view architecture method.

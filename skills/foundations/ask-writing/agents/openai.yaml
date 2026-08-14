@@ -1,4 +1,0 @@
-interface:
-  display_name: "Ask Writing"
-  short_description: "Find the right writing skill and next prompt"
-  default_prompt: "Use $ask-writing to tell me which writing skill fits this document."

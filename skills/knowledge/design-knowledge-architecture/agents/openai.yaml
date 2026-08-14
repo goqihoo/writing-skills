@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Knowledge Architecture"
+  short_description: "Build reusable architecture knowledge"
+  default_prompt: "Use $design-knowledge-architecture to turn this domain into reusable architecture knowledge with options and evolution."

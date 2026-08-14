@@ -1,8 +1,6 @@
 # Technical
 
-Skills for technical work artifacts.
+Model-invoked skills for project commitments and durable decisions.
 
-## Model-invoked
-
-- [write-technical-design](write-technical-design/SKILL.md) — Turn agreed requirements into an implementation-ready design.
-- [write-decision-record](write-decision-record/SKILL.md) — Preserve one decision, its alternatives, costs, and review triggers.
+- [design-delivery-architecture](design-delivery-architecture/SKILL.md) — Turn requirements into a project-specific architecture ready for review and implementation.
+- [write-decision-record](write-decision-record/SKILL.md) — Preserve one decision, its real alternatives, costs, validation, and review triggers.

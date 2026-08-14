@@ -1,6 +1,6 @@
 ---
 name: write-product-requirements
-description: Create, revise, or review a product requirements document for a feature or product change. Use for PRDs that align the user problem, target outcome, scope, behavior, business rules, edge cases, dependencies, measurement, and acceptance; use a technical-design skill when implementation structure is the main subject.
+description: Create, revise, or review a product requirements document for a feature or product change. Use when stakeholders must align on the user problem, outcome, scope, observable behavior, business rules, edge states, measurement, and acceptance; use design-delivery-architecture when solution structure is the main subject.
 ---
 
 # Write Product Requirements
@@ -9,7 +9,7 @@ Produce a PRD that lets product, design, engineering, and business stakeholders 
 
 ## Workflow
 
-1. Apply the `/writing-docs` skill.
+1. Apply `$writing-docs`.
 2. Establish the available inputs: problem evidence, affected users, desired outcome, business constraints, existing behavior, and known decisions.
 3. Distinguish established facts from hypotheses. Preserve unresolved product decisions as open questions instead of inventing agreement.
 4. Define the problem and measurable outcome before listing features.
@@ -17,13 +17,13 @@ Produce a PRD that lets product, design, engineering, and business stakeholders 
 6. Describe representative user scenarios from trigger to observable result. Cover empty, failure, permission, cancellation, retry, and boundary states when they matter.
 7. Write requirements as observable behavior. Add acceptance criteria that another person can verify.
 8. Record business rules, data meaning, dependencies, risks, rollout, measurement, and remaining decisions.
-9. Adapt `assets/prd-template.md` to the artifact. Remove sections that do not affect the decision or delivery.
+9. Adapt `assets/prd-template.md`; remove sections that carry no decision or delivery value.
 
 ## Boundaries
 
 - Keep product intent, behavior, and acceptance in the PRD.
-- Move component structure, storage choices, protocols, deployment topology, and implementation algorithms to `/write-technical-design` unless a technical constraint changes product scope.
-- Use `/write-decision-record` when one product or technical decision needs its own durable rationale and review trigger.
+- Move component structure, storage choices, protocols, topology, and implementation algorithms to `$design-delivery-architecture` unless a technical constraint changes product scope.
+- Use `$write-decision-record` when one decision needs its own durable rationale and review trigger.
 
 ## Completion criteria
 

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Write Technical Design"
-  short_description: "Create implementation-ready technical designs"
-  default_prompt: "Use $write-technical-design to turn these requirements into a technical design."

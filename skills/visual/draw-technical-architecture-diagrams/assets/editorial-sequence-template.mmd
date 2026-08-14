@@ -1,0 +1,24 @@
+%%{init: {
+  "theme": "base",
+  "fontFamily": "Inter, Noto Sans SC, PingFang SC, sans-serif",
+  "themeVariables": {
+    "background": "#F8FAFC",
+    "primaryColor": "#FFFFFF",
+    "primaryTextColor": "#0F172A",
+    "primaryBorderColor": "#CBD5E1",
+    "lineColor": "#94A3B8",
+    "signalColor": "#2563EB",
+    "noteBkgColor": "#FFF7ED",
+    "noteBorderColor": "#D97706"
+  }
+}}%%
+sequenceDiagram
+    autonumber
+    participant C as Client
+    participant L as Leader
+    participant F as Follower
+
+    C->>L: Write
+    L->>F: Replicate
+    F-->>L: ACK
+    L-->>C: Success
