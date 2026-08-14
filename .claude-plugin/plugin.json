@@ -5,9 +5,10 @@
   "author": {
     "name": "Andrew"
   },
+  "repository": "https://github.com/goqihoo/writing-skills",
   "skills": [
     "./skills/foundations/ask-writing",
-    "./skills/foundations/writing-foundations",
+    "./skills/foundations/writing-docs",
     "./skills/knowledge/write-knowledge-document",
     "./skills/product/write-product-requirements",
     "./skills/technical/write-technical-design",

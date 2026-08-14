@@ -1,9 +1,9 @@
 ---
-name: writing-foundations
+name: writing-docs
 description: Apply the shared discipline for planning, drafting, revising, and reviewing human-readable documents. Use when a writing skill needs common rules for outcome, reader path, factual grounding, concrete language, boundaries, and completion checks, or when no artifact-specific writing skill fits.
 ---
 
-# Writing Foundations
+# Writing Docs
 
 Make the document give its reader a usable capability: understand, decide, act, verify, or find an answer.
 

@@ -9,7 +9,7 @@ Preserve enough context for a future reader to understand one decision without r
 
 ## Workflow
 
-1. Apply the `/writing-foundations` skill.
+1. Apply the `/writing-docs` skill.
 2. Confirm that the document owns one material decision. Split independent choices into separate records.
 3. Reconstruct the decision-time context: goal, constraints, evidence available, and consequences of delaying or avoiding the decision.
 4. State the decision directly. Record its status and decision date.

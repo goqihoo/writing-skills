@@ -9,7 +9,7 @@ Produce a PRD that lets product, design, engineering, and business stakeholders 
 
 ## Workflow
 
-1. Apply the `/writing-foundations` skill.
+1. Apply the `/writing-docs` skill.
 2. Establish the available inputs: problem evidence, affected users, desired outcome, business constraints, existing behavior, and known decisions.
 3. Distinguish established facts from hypotheses. Preserve unresolved product decisions as open questions instead of inventing agreement.
 4. Define the problem and measurable outcome before listing features.

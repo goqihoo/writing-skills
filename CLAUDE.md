@@ -24,9 +24,9 @@ Use `$skill-name` for ready-to-type invocations in Agent Skills-compatible clien
 
 ## Ownership
 
-- `writing-foundations` owns rules shared by every document: outcome, reader path, facts, reasoning, decisions, concrete language, boundaries, and completion checks.
+- `writing-docs` owns rules shared by every document: outcome, reader path, facts, reasoning, decisions, concrete language, boundaries, and completion checks.
 - Each deliverable skill owns its document-specific workflow, structure, completion criteria, and template.
-- Keep each rule in one place. Invoke `/writing-foundations` from deliverable skills instead of copying shared rules.
+- Keep each rule in one place. Invoke `/writing-docs` from deliverable skills instead of copying shared rules.
 - Templates under `assets/` are output material. Detailed guidance under `references/` is loaded only when its branch applies.
 
 ## Repository updates

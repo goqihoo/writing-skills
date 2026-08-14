@@ -9,7 +9,7 @@ Produce a design that reviewers can challenge and implementers can follow withou
 
 ## Workflow
 
-1. Apply the `/writing-foundations` skill.
+1. Apply the `/writing-docs` skill.
 2. Establish inputs: approved requirements, current system behavior, architecture constraints, quality goals, operational constraints, and unresolved decisions.
 3. Separate current facts, proposed changes, accepted decisions, assumptions, and open questions.
 4. Walk through one representative end-to-end scenario before decomposing the solution into components or layers.

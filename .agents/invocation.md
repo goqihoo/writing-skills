@@ -9,4 +9,4 @@ Use user invocation for explicit orchestration that must start only by direct re
 
 When giving a human a ready-to-type invocation, use `$skill-name` in Agent Skills-compatible clients and `/skill-name` in Claude Code. Keep bare skill names in cross-client maps and comparisons.
 
-Express dependencies as prose invocation, such as “Apply the `/writing-foundations` skill.” Do not link across skill directories. A skill owns its own references and templates.
+Express dependencies as prose invocation, such as “Apply the `/writing-docs` skill.” Do not link across skill directories. A skill owns its own references and templates.

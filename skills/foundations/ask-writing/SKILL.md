@@ -23,14 +23,14 @@ Route the user to the smallest writing skill that owns the document they need. R
 | A product requirements document that aligns problem, scope, behavior, and acceptance | `write-product-requirements` | The document defines what outcome and behavior the product needs, not the implementation design. |
 | A technical design that makes implementation and review possible | `write-technical-design` | The document explains how the system will meet agreed requirements across runtime, data, interfaces, failure, rollout, and validation. |
 | A record of one material decision and why it was made | `write-decision-record` | The decision is the subject. A full solution design belongs in `write-technical-design`. |
-| A human-readable document with no dedicated artifact skill | `writing-foundations` | Use the shared discipline without forcing the artifact into a structure that does not fit. |
+| A human-readable document with no dedicated artifact skill | `writing-docs` | Use the shared discipline without forcing the artifact into a structure that does not fit. |
 
 ## Close calls
 
 - Choose `write-product-requirements` when product behavior and acceptance remain the main question. Choose `write-technical-design` when the product requirement is stable and implementation is now the main question.
 - Choose `write-technical-design` when several related decisions must form one coherent solution. Choose `write-decision-record` when one decision needs a durable record and review trigger.
 - Choose `write-knowledge-document` for reusable understanding. Choose a delivery skill for a document tied to a specific initiative, status, approval, or handoff.
-- If no skill owns the artifact, say so. Recommend `writing-foundations` and name the missing deliverable skill that would be worth adding after repeated use.
+- If no skill owns the artifact, say so. Recommend `writing-docs` and name the missing deliverable skill that would be worth adding after repeated use.
 
 ## Response format
 

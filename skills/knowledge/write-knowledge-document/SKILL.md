@@ -9,7 +9,7 @@ Turn understanding, experience, and source material into knowledge that readers 
 
 ## Workflow
 
-1. Apply the `/writing-foundations` skill for the shared writing discipline.
+1. Apply the `/writing-docs` skill for the shared writing discipline.
 2. Read `references/knowledge-types.md` completely.
 3. Identify the reader action that will dominate future use. Select one primary knowledge type; treat other types as supporting content.
 4. State the document's scope and the concrete question it resolves. Do not add a mandatory goal section unless readers need it.
