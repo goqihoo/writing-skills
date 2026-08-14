@@ -1,6 +1,10 @@
 # Knowledge types
 
-Choose the primary type by the action readers need to perform after reading. A document may contain supporting material from other types, but its primary use controls the main structure.
+Choose the primary type by the action readers need to perform after reading. A document may contain supporting material from other types, but its primary use controls the reasoning.
+
+The parts below are reasoning obligations, not an outline or default heading sequence. For an artifact without an owning template, derive the structure from the subject's central claim, causal relationships, and important distinctions. Use the type questions as a coverage checklist: one section may answer several questions, and one question may be answered across several sections. Order the explanation by the subject's dependencies and use headings that express subject-specific claims, relationships, stages, or decisions.
+
+When an owning artifact skill selects an explicit output template, that template owns the heading names, order, hierarchy, and permitted branches. The structural freedom described here does not override a selected template.
 
 ## Contents
 

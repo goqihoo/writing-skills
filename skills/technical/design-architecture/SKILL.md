@@ -16,8 +16,8 @@ Produce a concise architecture document that reviewers can challenge and impleme
 5. Walk one representative end-to-end scenario before decomposing the design. Then define boundaries, authoritative state, responsibilities, contracts, controls, runtime behavior, and recovery.
 6. Compare material options against the same drivers. Ask the responsible stakeholder when the choice changes scope, ownership, contracts, controls, topology, cost, risk, or validation.
 7. Cover security, observability, deployment, migration, compatibility, rollout, rollback, and testing in proportion to risk.
-8. Adapt `assets/delivery-architecture-template.md`; keep only sections with review, implementation, or operating value.
-9. When creating or changing a visual, invoke `$draw-diagrams` after defining its architecture meaning. Do not invoke it when no visual changes.
+8. Use `assets/delivery-architecture-template.md` as the structure owner. Preserve its heading names, order, and hierarchy while replacing the title placeholder and filling each section. Keep a concise section and state why it is not applicable when no substantive content exists; do not delete, rename, reorder, or replace template sections.
+9. For each visual candidate identified by `$write-docs`, define its architecture meaning first, then invoke `$draw-diagrams`; retain no visual when the routing result is prose or a table.
 10. Verify the shared architecture completion checks and the delivery criteria below.
 
 ## Boundaries
@@ -34,3 +34,4 @@ Produce a concise architecture document that reviewers can challenge and impleme
 - The main and failure paths are traceable through owners, contracts, state, controls, and recovery.
 - Compatibility, rollout, rollback, operations, and validation are implementable.
 - Accepted costs, risks, assumptions, and open decisions remain visible.
+- The document retains the complete delivery-architecture template heading structure.

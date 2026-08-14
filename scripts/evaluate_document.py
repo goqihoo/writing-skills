@@ -68,6 +68,38 @@ def markdown_headings(text: str) -> list[str]:
     return headings
 
 
+def heading_parts(heading: str) -> tuple[int, str]:
+    level, title = heading.split(":", 1)
+    return int(level), title
+
+
+def object_field(contract: dict[str, Any], field: str) -> dict[str, Any] | None:
+    value = contract.get(field)
+    if value is None:
+        return None
+    if not isinstance(value, dict):
+        raise ContractError(f"{field} must be an object")
+    return value
+
+
+def boolean_option(config: dict[str, Any], field: str, default: bool) -> bool:
+    value = config.get(field, default)
+    if not isinstance(value, bool):
+        raise ContractError(f"{field} must be a boolean")
+    return value
+
+
+def ordered_subsequence(expected: list[str], actual: list[str]) -> bool:
+    expected_index = 0
+    for heading in actual:
+        while expected_index < len(expected) and expected[expected_index] != heading:
+            expected_index += 1
+        if expected_index == len(expected):
+            return False
+        expected_index += 1
+    return True
+
+
 def relative_markdown_links(text: str) -> Counter[str]:
     links: Counter[str] = Counter()
     for match in INLINE_LINK_PATTERN.finditer(text):
@@ -128,6 +160,108 @@ def evaluate(source: str, candidate: str, contract: dict[str, Any]) -> list[str]
                 "relative Markdown links changed\n"
                 f"  missing: {missing}\n"
                 f"  added:   {added}"
+            )
+
+    heading_match_limit = object_field(contract, "heading_match_limit")
+    if heading_match_limit is not None:
+        reference_headings = heading_match_limit.get("headings")
+        if not isinstance(reference_headings, list) or not all(
+            isinstance(heading, str) and heading for heading in reference_headings
+        ):
+            raise ContractError(
+                "heading_match_limit.headings must be a list of non-empty strings"
+            )
+
+        levels = heading_match_limit.get("levels", [2])
+        if not isinstance(levels, list) or not levels or not all(
+            isinstance(level, int) and not isinstance(level, bool) and 1 <= level <= 6
+            for level in levels
+        ):
+            raise ContractError(
+                "heading_match_limit.levels must be a non-empty list of levels 1-6"
+            )
+
+        max_matches = heading_match_limit.get("max_matches")
+        if (
+            not isinstance(max_matches, int)
+            or isinstance(max_matches, bool)
+            or max_matches < 0
+        ):
+            raise ContractError(
+                "heading_match_limit.max_matches must be a non-negative integer"
+            )
+
+        references = set(reference_headings)
+        level_set = set(levels)
+        matches = [
+            title
+            for level, title in map(heading_parts, markdown_headings(candidate))
+            if level in level_set and title in references
+        ]
+        if len(matches) > max_matches:
+            failures.append(
+                "heading match limit exceeded: "
+                f"{len(matches)} matches, maximum {max_matches}\n"
+                f"  matches: {matches}"
+            )
+
+    template_heading_sequence = object_field(
+        contract, "template_heading_sequence"
+    )
+    if template_heading_sequence is not None:
+        ignore_title = boolean_option(
+            template_heading_sequence, "ignore_title", True
+        )
+        allow_omissions = boolean_option(
+            template_heading_sequence, "allow_omissions", False
+        )
+        required_levels = template_heading_sequence.get("required_levels", [])
+        if not isinstance(required_levels, list) or not all(
+            isinstance(level, int) and not isinstance(level, bool) and 1 <= level <= 6
+            for level in required_levels
+        ):
+            raise ContractError(
+                "template_heading_sequence.required_levels must be a list of levels 1-6"
+            )
+        expected_headings = markdown_headings(source)
+        actual_headings = markdown_headings(candidate)
+        if ignore_title:
+            expected_headings = [
+                heading
+                for heading in expected_headings
+                if heading_parts(heading)[0] != 1
+            ]
+            actual_headings = [
+                heading
+                for heading in actual_headings
+                if heading_parts(heading)[0] != 1
+            ]
+
+        required_level_set = set(required_levels)
+        required_headings = Counter(
+            heading
+            for heading in expected_headings
+            if heading_parts(heading)[0] in required_level_set
+        )
+        missing_required_headings = list(
+            (required_headings - Counter(actual_headings)).elements()
+        )
+        if missing_required_headings:
+            failures.append(
+                "required template headings missing: "
+                f"{missing_required_headings}"
+            )
+
+        sequence_matches = (
+            ordered_subsequence(expected_headings, actual_headings)
+            if allow_omissions
+            else expected_headings == actual_headings
+        )
+        if not sequence_matches:
+            failures.append(
+                "template heading sequence changed\n"
+                f"  template:  {expected_headings}\n"
+                f"  candidate: {actual_headings}"
             )
 
     flags = re.MULTILINE | re.DOTALL

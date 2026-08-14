@@ -16,8 +16,8 @@ Build durable architecture knowledge that explains how to reason about a domain,
 5. Separate domain facts, invariants, constraints, principles, reusable options, architecture inference, project decisions, and examples. Cite externally verifiable claims; do not invent domain rules, scale, incidents, or implementation details.
 6. Analyze only the views needed by the selected type. Keep Domain meaning, Application ownership, Governance authority, and Runtime operation in their owning views.
 7. Compare options against common drivers. State fit, cost, failure behavior, validation, and transition triggers; do not present a later or more complex stage as automatically better.
-8. Adapt `assets/architecture-knowledge-template.md` using the selected type's required questions. Omit irrelevant sections; do not merge several primary types into one note.
-9. When creating or changing a visual, define its architecture meaning first, then invoke `$draw-diagrams`.
+8. Use `assets/architecture-knowledge-template.md` as the structure owner. Preserve its H2 heading names, order, and hierarchy. Within **Architecture model**, include only the Domain, Application, Governance, and Runtime H3 views required by the selected type, retain them in template order, and omit a view rather than renaming it. Fill the retained structure using the selected type's required questions; do not merge several primary types into one note.
+9. For each visual candidate identified by `$write-docs`, define its architecture meaning first, then invoke `$draw-diagrams`; retain no visual when the routing result is prose or a table.
 10. Update an existing README, MOC, or index when navigation changes. Verify links and the completion checks below.
 
 ## Boundaries
@@ -31,4 +31,5 @@ Build durable architecture knowledge that explains how to reason about a domain,
 - Each authoritative fact has one owner; controls do not become hidden business-state owners.
 - Options state fit, costs, failure modes, validation, and selection conditions.
 - Stable knowledge remains distinct from project choices and illustrative examples.
+- The document retains the architecture-knowledge template's H2 structure and only its permitted H3 view branches.
 - Readers can extract a delivery decision without treating the note as a ready-made project design.

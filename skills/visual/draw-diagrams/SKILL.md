@@ -9,7 +9,7 @@ Create the smallest visual that answers one important question. Own visual form 
 
 ## Workflow
 
-1. **Decide whether to draw.** Use prose for a single fact or short sequence and a Markdown table for compact repeated fields. Draw only when relationships, state, timing, hierarchy, ownership, failure, or quantitative shape is hard to understand linearly.
+1. **Decide whether to draw.** Draw when a visual materially reduces the relationships readers must reconstruct: a central model with four or more meaningful nodes or relationships; three or more dependent stages whose intermediate state matters; branching, convergence, cycles, or bidirectional correspondence; one source affecting three or more downstream consumers; or important state, timing, hierarchy, ownership, failure, or quantitative shape. Treat a central idea written as repeated arrows, nested indentation, or a prose tour through several relationships as a visual candidate. Use prose for one fact or two to three obvious linear steps, and use a Markdown table for compact repeated fields.
 2. **State one question.** Name the reader task: locate, compare, follow, inspect, recognize, or explore. Split visuals that mix questions or abstraction levels.
 3. **Choose the grammar.** Use the routing table below before choosing a file format.
 4. **Choose production and delivery formats.** Preserve an explicit requested output. If exact geometry matters but delivery must be PNG, create an exact diagram source and export it; do not generate it as conceptual artwork.
@@ -35,6 +35,8 @@ Create the smallest visual that answers one important question. Own visual form 
 | Verified quantitative comparison | Chart | Appropriate chart tool |
 | Abstract role or mental model without exact geometry | Editorial illustration | ImageGen |
 | Adjustable or layered exploration | Interactive explanation | HTML or visualization tool |
+
+The count is a trigger for inspection, not a command to decorate. Keep prose when the relationships remain easier to understand linearly, and keep a table when exact repeated fields matter more than geometry.
 
 ## Semantic rules
 
