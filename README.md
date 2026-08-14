@@ -47,26 +47,26 @@ The linker refuses to replace a non-symlink with the same skill name.
 ### Entry and foundations
 
 - [ask-scribe](skills/foundations/ask-scribe/SKILL.md) — Route a document task to the right Scribe skill. Explicit invocation only.
-- [writing-docs](skills/foundations/writing-docs/SKILL.md) — Shared discipline for clear, grounded documents.
-- [architecture-foundations](skills/foundations/architecture-foundations/SKILL.md) — Shared architecture reasoning across four views.
+- [write-docs](skills/foundations/write-docs/SKILL.md) — Apply the shared method for clear, grounded documents.
+- [reason-architecture](skills/foundations/reason-architecture/SKILL.md) — Reason about architecture across four views.
 
 ### Knowledge
 
-- [write-knowledge-document](skills/knowledge/write-knowledge-document/SKILL.md) — Create durable knowledge by reader use.
-- [design-knowledge-architecture](skills/knowledge/design-knowledge-architecture/SKILL.md) — Build reusable architecture knowledge without making project commitments.
+- [write-knowledge](skills/knowledge/write-knowledge/SKILL.md) — Create durable knowledge by reader use.
+- [study-architecture](skills/knowledge/study-architecture/SKILL.md) — Build reusable architecture knowledge without making project commitments.
 
 ### Product
 
-- [write-product-requirements](skills/product/write-product-requirements/SKILL.md) — Align product scope, behavior, and acceptance.
+- [write-prd](skills/product/write-prd/SKILL.md) — Align product scope, behavior, and acceptance.
 
 ### Technical
 
-- [design-delivery-architecture](skills/technical/design-delivery-architecture/SKILL.md) — Turn requirements into a project-specific architecture commitment. This replaces `write-technical-design`.
-- [write-decision-record](skills/technical/write-decision-record/SKILL.md) — Preserve one material decision and its review triggers.
+- [design-architecture](skills/technical/design-architecture/SKILL.md) — Turn requirements into a project-specific architecture commitment.
+- [record-decision](skills/technical/record-decision/SKILL.md) — Preserve one material decision and its review triggers.
 
 ### Visual
 
-- [draw-technical-architecture-diagrams](skills/visual/draw-technical-architecture-diagrams/SKILL.md) — Select, create, and verify the smallest useful technical visual.
+- [draw-diagrams](skills/visual/draw-diagrams/SKILL.md) — Select, create, and verify the smallest useful technical visual.
 
 ## Adding a skill
 

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Draw Technical Architecture Diagrams"
-  short_description: "Create clear, verified technical visuals"
-  default_prompt: "Use $draw-technical-architecture-diagrams to choose and create the clearest visual for this technical content."

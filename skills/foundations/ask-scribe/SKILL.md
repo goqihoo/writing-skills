@@ -19,22 +19,22 @@ Route the task to the smallest skill that owns the intended artifact. Recommend 
 
 | Intended result | Skill | Boundary |
 |---|---|---|
-| Reusable explanation, method, pattern, model, case, or reference | `write-knowledge-document` | General knowledge, not architecture ownership and controls. |
-| Reusable architecture knowledge or reference architecture | `design-knowledge-architecture` | Retain context-dependent options; do not choose for one project. |
-| Product requirements | `write-product-requirements` | Define product outcome and behavior, not solution structure. |
-| Project-specific technical, system, solution, or delivery architecture | `design-delivery-architecture` | Commit to boundaries, ownership, contracts, failure behavior, and validation. |
-| One material product or technical decision | `write-decision-record` | The decision, not the full solution, is the artifact. |
-| Architecture diagram, flow, sequence, state, topology, or technical illustration | `draw-technical-architecture-diagrams` | Own the visual form; the source skill owns the meaning. |
-| Another human-readable document | `writing-docs` | Apply the shared method without forcing a mismatched template. |
+| Reusable explanation, method, pattern, model, case, or reference | `write-knowledge` | General knowledge, not architecture ownership and controls. |
+| Reusable architecture knowledge or reference architecture | `study-architecture` | Retain context-dependent options; do not choose for one project. |
+| Product requirements | `write-prd` | Define product outcome and behavior, not solution structure. |
+| Project-specific technical, system, solution, or delivery architecture | `design-architecture` | Commit to boundaries, ownership, contracts, failure behavior, and validation. |
+| One material product or technical decision | `record-decision` | The decision, not the full solution, is the artifact. |
+| Architecture diagram, flow, sequence, state, topology, or technical illustration | `draw-diagrams` | Own the visual form; the source skill owns the meaning. |
+| Another human-readable document | `write-docs` | Apply the shared method without forcing a mismatched template. |
 
 ## Common flows
 
-- Product change: `write-product-requirements` → `design-delivery-architecture`; add `write-decision-record` only for a decision with its own lifecycle.
-- Reusable architecture to delivery: `design-knowledge-architecture` → `design-delivery-architecture`, explicitly adopting, adapting, deferring, or rejecting reusable options.
-- Visual inside another artifact: let the document skill define meaning, then use `draw-technical-architecture-diagrams` for visual form and quality.
+- Product change: `write-prd` → `design-architecture`; add `record-decision` only for a decision with its own lifecycle.
+- Reusable architecture to delivery: `study-architecture` → `design-architecture`, explicitly adopting, adapting, deferring, or rejecting reusable options.
+- Visual inside another artifact: let the document skill define meaning, then use `draw-diagrams` for visual form and quality.
 
 ## Foundations underneath
 
-`writing-docs` supplies shared writing discipline. `architecture-foundations` supplies shared architecture reasoning. Other skills invoke them; do not recommend an internal foundation when a deliverable skill owns the artifact.
+`write-docs` supplies shared writing discipline. `reason-architecture` supplies shared architecture reasoning. Other skills invoke them; do not recommend an internal foundation when a deliverable skill owns the artifact.
 
 The route is complete when the user can invoke the next skill without reading this map.

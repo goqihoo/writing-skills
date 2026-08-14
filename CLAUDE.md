@@ -25,10 +25,10 @@ Use `$skill-name` for ready-to-type Agent Skills invocations and `/skill-name` f
 
 ## Ownership
 
-- `writing-docs` owns the writing method shared by all documents.
-- `architecture-foundations` owns the architecture method shared by architecture artifacts.
+- `write-docs` owns the writing method shared by all documents.
+- `reason-architecture` owns the architecture method shared by architecture artifacts.
 - Each deliverable skill owns one artifact boundary, workflow, completion test, and output template.
-- `draw-technical-architecture-diagrams` owns visual routing and quality, not architecture meaning.
+- `draw-diagrams` owns visual routing and quality, not architecture meaning.
 - `ask-scribe` recommends a route and stops.
 
 Keep each rule in one place. Invoke a foundation instead of copying it. Store output templates under `assets/`; disclose branch-specific guidance through one-level `references/`.

@@ -7,8 +7,8 @@ Use two invocation policies:
 
 Use user invocation for explicit routers and orchestration that must start only by direct request. Use model invocation for reusable foundations and deliverable skills that the model should reach on its own.
 
-`ask-scribe` is user-invoked. It is the human-facing index for the Scribe plugin. `writing-docs` and `architecture-foundations` are model-invoked foundations and stay out of normal router recommendations unless the user needs their shared discipline directly.
+`ask-scribe` is user-invoked. It is the human-facing index for the Scribe plugin. `write-docs` and `reason-architecture` are model-invoked foundations and stay out of normal router recommendations unless the user needs their shared discipline directly.
 
 When giving a human a ready-to-type invocation, use `$skill-name` in Agent Skills-compatible clients and `/skill-name` in Claude Code. Keep bare skill names in cross-client maps and comparisons.
 
-Express dependencies as prose invocation, such as “Apply the `/writing-docs` skill.” Do not link across skill directories. A skill owns its own references and templates.
+Express dependencies as prose invocation, such as “Apply the `/write-docs` skill.” Do not link across skill directories. A skill owns its own references and templates.

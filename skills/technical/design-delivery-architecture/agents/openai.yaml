@@ -1,4 +1,0 @@
-interface:
-  display_name: "Design Delivery Architecture"
-  short_description: "Create project-ready software architecture"
-  default_prompt: "Use $design-delivery-architecture to turn these requirements into a reviewable project architecture."

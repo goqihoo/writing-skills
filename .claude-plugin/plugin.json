@@ -1,6 +1,6 @@
 {
   "name": "scribe",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Professional document and technical visual skills with one guided entry point.",
   "author": {
     "name": "Andrew"
@@ -8,13 +8,13 @@
   "repository": "https://github.com/goqihoo/writing-skills",
   "skills": [
     "./skills/foundations/ask-scribe",
-    "./skills/foundations/writing-docs",
-    "./skills/foundations/architecture-foundations",
-    "./skills/knowledge/write-knowledge-document",
-    "./skills/knowledge/design-knowledge-architecture",
-    "./skills/product/write-product-requirements",
-    "./skills/technical/design-delivery-architecture",
-    "./skills/technical/write-decision-record",
-    "./skills/visual/draw-technical-architecture-diagrams"
+    "./skills/foundations/write-docs",
+    "./skills/foundations/reason-architecture",
+    "./skills/knowledge/write-knowledge",
+    "./skills/knowledge/study-architecture",
+    "./skills/product/write-prd",
+    "./skills/technical/design-architecture",
+    "./skills/technical/record-decision",
+    "./skills/visual/draw-diagrams"
   ]
 }

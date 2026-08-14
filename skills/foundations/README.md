@@ -8,5 +8,5 @@ The Scribe entry point and shared methods.
 
 ## Model-invoked
 
-- [writing-docs](writing-docs/SKILL.md) — Apply shared document reasoning and clarity rules.
-- [architecture-foundations](architecture-foundations/SKILL.md) — Apply the shared four-view architecture method.
+- [write-docs](write-docs/SKILL.md) — Apply shared document reasoning and clarity rules.
+- [reason-architecture](reason-architecture/SKILL.md) — Apply the shared four-view architecture method.

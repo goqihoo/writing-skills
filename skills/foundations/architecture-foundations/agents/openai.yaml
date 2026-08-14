@@ -1,4 +1,0 @@
-interface:
-  display_name: "Architecture Foundations"
-  short_description: "Apply shared four-view architecture reasoning"
-  default_prompt: "Use $architecture-foundations to reason through this architecture problem across ownership, controls, failure, and validation."

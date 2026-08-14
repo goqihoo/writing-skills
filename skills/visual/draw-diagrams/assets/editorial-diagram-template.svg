@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200"
+     height="800"
+     viewBox="0 0 1200 800"
+     role="img"
+     aria-labelledby="diagram-title diagram-description">
+  <title id="diagram-title">Technical diagram template</title>
+  <desc id="diagram-description">Two components connected by a primary request flow.</desc>
+  <defs>
+    <style>
+      .title { font: 600 24px Inter, "Noto Sans SC", sans-serif; fill: #0F172A; }
+      .node-title { font: 600 15px Inter, "Noto Sans SC", sans-serif; fill: #0F172A; }
+      .detail { font: 400 12px Inter, "Noto Sans SC", sans-serif; fill: #64748B; }
+      .node { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 1.5; }
+      .focus { fill: #EFF6FF; stroke: #2563EB; stroke-width: 2; }
+      .flow { fill: none; stroke: #2563EB; stroke-width: 2.25; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" markerUnits="strokeWidth" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563EB"/>
+    </marker>
+  </defs>
+  <rect id="canvas" width="1200" height="800" fill="#F8FAFC"/>
+  <g id="title-block">
+    <text class="title" x="64" y="72">Question this diagram answers</text>
+  </g>
+  <g id="connectors">
+    <path id="request-flow" class="flow" d="M 464 376 H 736" marker-end="url(#arrow)"/>
+  </g>
+  <g id="nodes">
+    <g id="source-component">
+      <rect class="node" x="224" y="312" width="240" height="128" rx="12"/>
+      <text class="node-title" x="344" y="366" text-anchor="middle">Source component</text>
+      <text class="detail" x="344" y="394" text-anchor="middle">Short responsibility</text>
+    </g>
+    <g id="target-component">
+      <rect class="focus" x="736" y="312" width="240" height="128" rx="12"/>
+      <text class="node-title" x="856" y="366" text-anchor="middle">Focal component</text>
+      <text class="detail" x="856" y="394" text-anchor="middle">Short responsibility</text>
+    </g>
+  </g>
+</svg>

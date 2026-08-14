@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reason About Architecture"
+  short_description: "Apply shared four-view architecture reasoning"
+  default_prompt: "Use $reason-architecture to reason through this architecture problem across ownership, controls, failure, and validation."
