@@ -8,7 +8,14 @@ Use `$ask-scribe` in Agent Skills-compatible clients or `/ask-scribe` in Claude 
 
 ## Installation
 
-Choose one route. The Claude Code plugin installs the complete bundle; [skills.sh](https://skills.sh/) lets Codex and other compatible agents select individual skills. Installing both creates duplicates.
+Choose one route. The Codex and Claude Code plugins install the complete bundle; [skills.sh](https://skills.sh/) lets other compatible agents select individual skills. Installing more than one route creates duplicates.
+
+### Codex
+
+```bash
+codex plugin marketplace add goqihoo/writing-skills
+codex plugin add scribe@goqihoo
+```
 
 ### Claude Code
 
@@ -24,7 +31,7 @@ From Claude Code:
 /plugin install scribe@goqihoo
 ```
 
-### Codex and other agents
+### Other agents
 
 ```bash
 npx skills@latest add goqihoo/writing-skills
