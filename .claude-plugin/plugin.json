@@ -1,0 +1,16 @@
+{
+  "name": "writing-skills",
+  "version": "0.1.0",
+  "description": "Composable skills for reusable knowledge and professional product and technical documents.",
+  "author": {
+    "name": "Andrew"
+  },
+  "skills": [
+    "./skills/foundations/ask-writing",
+    "./skills/foundations/writing-foundations",
+    "./skills/knowledge/write-knowledge-document",
+    "./skills/product/write-product-requirements",
+    "./skills/technical/write-technical-design",
+    "./skills/technical/write-decision-record"
+  ]
+}

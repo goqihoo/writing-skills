@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write Product Requirements"
+  short_description: "Create or revise a decision-ready PRD"
+  default_prompt: "Use $write-product-requirements to draft a clear PRD from this product context."

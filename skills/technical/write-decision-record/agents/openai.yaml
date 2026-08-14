@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write Decision Record"
+  short_description: "Record one decision, rationale, and review triggers"
+  default_prompt: "Use $write-decision-record to capture this decision and its tradeoffs."

@@ -1,0 +1,21 @@
+{
+  "name": "writing-skills",
+  "owner": {
+    "name": "Andrew"
+  },
+  "description": "Skills for reusable knowledge and professional writing.",
+  "plugins": [
+    {
+      "name": "writing-skills",
+      "source": "./",
+      "description": "Composable skills for knowledge, product, and technical documents.",
+      "category": "productivity",
+      "keywords": [
+        "writing",
+        "documentation",
+        "product",
+        "technical-design"
+      ]
+    }
+  ]
+}
