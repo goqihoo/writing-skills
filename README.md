@@ -60,6 +60,8 @@ The linker refuses to replace a non-symlink with the same skill name.
 
 ### Knowledge
 
+- [structure-domain-docs](skills/knowledge/structure-domain-docs/SKILL.md) — Plan or scaffold one domain's directory, coverage map, and reading path.
+- [write-domain-doc](skills/knowledge/write-domain-doc/SKILL.md) — Select and create any common domain document, including the README and fixed-structure essence article.
 - [write-knowledge](skills/knowledge/write-knowledge/SKILL.md) — Create durable knowledge by reader use.
 - [study-architecture](skills/knowledge/study-architecture/SKILL.md) — Build reusable architecture knowledge without making project commitments.
 

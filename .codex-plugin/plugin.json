@@ -1,6 +1,6 @@
 {
   "name": "scribe",
-  "version": "0.3.0+codex.20260815050829",
+  "version": "0.3.0+codex.20260815074811",
   "description": "Professional documentation structure, writing, and technical visual skills with one guided entry point.",
   "author": {
     "name": "Andrew",
@@ -19,7 +19,7 @@
   "interface": {
     "displayName": "Scribe Skills",
     "shortDescription": "Structure and write clear professional documents.",
-    "longDescription": "Plan documentation structures and create knowledge documents, PRDs, architecture records, decisions, and technical diagrams through focused, composable skills.",
+    "longDescription": "Plan general and domain-specific documentation structures, then create domain knowledge sets, essence articles, knowledge documents, PRDs, architecture records, decisions, and technical diagrams through focused, composable skills.",
     "developerName": "goqihoo",
     "category": "Productivity",
     "capabilities": [
@@ -31,6 +31,9 @@
     "defaultPrompt": [
       "Use Ask Scribe to explain which Scribe skills fit my task and how to combine them.",
       "Plan a clear directory and file structure for this documentation set.",
+      "Create a coherent directory and reading path for this domain knowledge set.",
+      "Use Write Domain Doc to create the appropriate document for this domain directory.",
+      "Use Write Domain Doc to write a first-principles essence article for this domain.",
       "Draft a clear technical document from these notes.",
       "Turn this architecture into a concise diagram."
     ]

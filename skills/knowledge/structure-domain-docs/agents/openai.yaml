@@ -1,0 +1,4 @@
+interface:
+  display_name: "Structure Domain Docs"
+  short_description: "Design a coherent domain knowledge directory"
+  default_prompt: "Use $structure-domain-docs to create a clear directory and reading path for this domain knowledge set."
