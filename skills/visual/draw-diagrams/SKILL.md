@@ -16,7 +16,7 @@ Create the smallest visual that answers one important question. Own visual form 
 5. **Extract only supported content.** Include only the actors, boundaries, ownership, relationships, protocols, states, failure paths, labels, or data needed to answer the question. Do not invent architecture meaning.
 6. **Load guidance.** Read `references/style-guide.md`. Then read only `references/mermaid-guide.md` or `references/svg-guide.md` for the selected format. For conceptual raster art, invoke the available `imagegen` skill instead.
 7. **Create and inspect.** Render or preview at full size and roughly 736–900 px wide. Fix clipping, overlap, crossings, unreadable labels, false emphasis, and ambiguous direction.
-8. **Write accompanying prose.** When the result needs a title, caption, alt text, or explanation, stabilize the visual meaning first. Then apply the natural writing guidance from `$write-docs` while drafting those elements, and run its semantic recheck afterward. Keep exact diagram labels, Mermaid, SVG, code, commands, and structured data outside that guidance.
+8. **Write accompanying prose.** When the result needs a title, caption, alt text, or explanation, stabilize the visual meaning first. Then apply the natural writing guidance from `$write-doc` while drafting those elements, and run its semantic recheck afterward. Keep exact diagram labels, Mermaid, SVG, code, commands, and structured data outside that guidance.
 9. **Deliver editable source.** Keep Mermaid, SVG, chart data, or HTML beside exports when practical. Use stable descriptive filenames and accessible alt text.
 
 ## Visual routing

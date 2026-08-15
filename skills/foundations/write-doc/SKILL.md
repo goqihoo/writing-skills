@@ -1,9 +1,9 @@
 ---
-name: write-docs
-description: "Plan, draft, revise, or review a clear human-readable document. Use directly when no artifact skill fits, and as the shared writing foundation for every Scribe deliverable: reader outcome, factual grounding, concrete language, boundaries, and completion."
+name: write-doc
+description: "Plan, draft, revise, or review one clear human-readable document. Use directly when no artifact skill fits, and as the shared writing foundation for every Scribe deliverable: reader outcome, factual grounding, concrete language, boundaries, and completion."
 ---
 
-# Write Docs
+# Write Doc
 
 Make the document help one primary reader understand, decide, act, verify, or find an answer.
 

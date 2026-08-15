@@ -2,7 +2,7 @@
 set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-write_docs="$repo_root/skills/foundations/write-docs/SKILL.md"
+write_doc="$repo_root/skills/foundations/write-doc/SKILL.md"
 write_knowledge="$repo_root/skills/knowledge/write-knowledge/SKILL.md"
 knowledge_types="$repo_root/skills/knowledge/write-knowledge/references/knowledge-types.md"
 study_architecture="$repo_root/skills/knowledge/study-architecture/SKILL.md"
@@ -16,22 +16,22 @@ forbidden_patterns=(
 )
 
 for pattern in "${forbidden_patterns[@]}"; do
-  if rg -Fq "$pattern" "$write_docs"; then
+  if rg -Fq "$pattern" "$write_doc"; then
     printf 'FAIL: natural-writing guidance can change artifact planning or structure: %s\n' "$pattern" >&2
     exit 1
   fi
 done
 
-required_write_docs=(
+required_write_doc=(
   "Lock the artifact plan"
   "Do not add, remove, rename, or reorder locked sections"
   "Apply the natural writing guidance only after the artifact logic and substance are stable"
   "Compare the final heading sequence and section responsibilities with the locked artifact plan"
 )
 
-for pattern in "${required_write_docs[@]}"; do
-  if ! rg -Fq "$pattern" "$write_docs"; then
-    printf 'FAIL: write-docs is missing a structural guardrail: %s\n' "$pattern" >&2
+for pattern in "${required_write_doc[@]}"; do
+  if ! rg -Fq "$pattern" "$write_doc"; then
+    printf 'FAIL: write-doc is missing a structural guardrail: %s\n' "$pattern" >&2
     exit 1
   fi
 done
@@ -46,7 +46,7 @@ required_structure_ownership=(
   "$knowledge_types|that template owns the heading names, order, hierarchy, and permitted branches"
   "$write_knowledge|Derive the subject-specific reasoning spine"
   "$write_knowledge|selected type's questions as a coverage checklist"
-  "$write_docs|treat the template as the structure owner"
+  "$write_doc|treat the template as the structure owner"
   "$study_architecture|Preserve its H2 heading names, order, and hierarchy"
   "$design_architecture|Preserve its heading names, order, and hierarchy"
 )
@@ -66,12 +66,12 @@ if rg -Fq "primary use controls the main structure" "$knowledge_types"; then
 fi
 
 required_visual_routing=(
-  "$write_docs|Route visual questions"
-  "$write_docs|a model would otherwise require repeated arrows or indentation"
+  "$write_doc|Route visual questions"
+  "$write_doc|a model would otherwise require repeated arrows or indentation"
   "$draw_diagrams|a central model with four or more meaningful nodes or relationships"
   "$draw_diagrams|Treat a central idea written as repeated arrows, nested indentation, or a prose tour through several relationships as a visual candidate"
-  "$study_architecture|For each visual candidate identified by \`\$write-docs\`"
-  "$design_architecture|For each visual candidate identified by \`\$write-docs\`"
+  "$study_architecture|For each visual candidate identified by \`\$write-doc\`"
+  "$design_architecture|For each visual candidate identified by \`\$write-doc\`"
 )
 
 for requirement in "${required_visual_routing[@]}"; do

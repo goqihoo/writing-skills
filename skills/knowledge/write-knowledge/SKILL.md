@@ -9,7 +9,7 @@ Turn understanding, experience, and source material into knowledge that readers 
 
 ## Workflow
 
-1. Apply `$write-docs`.
+1. Apply `$write-doc`.
 2. Read `references/knowledge-types.md` and select one primary type by future reader action.
 3. Define the scope and concrete question. Treat other knowledge types as supporting material.
 4. **Derive the subject-specific reasoning spine.** State the central claim, the distinctions readers must preserve, the causal chain that supports the claim, the boundaries that limit it, and the role of any example or counterexample. Derive this spine from the subject rather than from the labels in the selected knowledge type.

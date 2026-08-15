@@ -25,7 +25,7 @@ Use `$skill-name` for ready-to-type Agent Skills invocations and `/skill-name` f
 
 ## Ownership
 
-- `write-docs` owns the writing method shared by all documents.
+- `write-doc` owns the writing method shared by all documents.
 - `reason-architecture` owns the architecture method shared by architecture artifacts.
 - `structure-docs` owns directory responsibilities, file placement, documentation navigation, and structure migrations.
 - Each deliverable skill owns one artifact boundary, workflow, completion test, and output template.

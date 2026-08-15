@@ -9,7 +9,7 @@ Produce a concise architecture document that reviewers can challenge and impleme
 
 ## Workflow
 
-1. Apply `$write-docs` and `$reason-architecture`.
+1. Apply `$write-doc` and `$reason-architecture`.
 2. Read `references/delivery-guide.md`. Read `references/decision-questions.md` when missing facts or authority create a material fork.
 3. Establish approved requirements, current behavior, constraints, ranked quality goals, operational conditions, reusable knowledge, and unresolved decisions.
 4. Separate facts, external constraints, proposals, accepted decisions, assumptions, and open questions.
@@ -17,7 +17,7 @@ Produce a concise architecture document that reviewers can challenge and impleme
 6. Compare material options against the same drivers. Ask the responsible stakeholder when the choice changes scope, ownership, contracts, controls, topology, cost, risk, or validation.
 7. Cover security, observability, deployment, migration, compatibility, rollout, rollback, and testing in proportion to risk.
 8. Use `assets/delivery-architecture-template.md` as the structure owner. Preserve its heading names, order, and hierarchy while replacing the title placeholder and filling each section. Keep a concise section and state why it is not applicable when no substantive content exists; do not delete, rename, reorder, or replace template sections.
-9. For each visual candidate identified by `$write-docs`, define its architecture meaning first, then invoke `$draw-diagrams`; retain no visual when the routing result is prose or a table.
+9. For each visual candidate identified by `$write-doc`, define its architecture meaning first, then invoke `$draw-diagrams`; retain no visual when the routing result is prose or a table.
 10. Verify the shared architecture completion checks and the delivery criteria below.
 
 ## Boundaries

@@ -29,7 +29,7 @@ Help the user understand Scribe and plan how to use it. Explain and recommend; l
 | Create project-specific technical, system, solution, or delivery architecture | `design-architecture` | Commit to boundaries, ownership, contracts, failure behavior, rollout, and validation. |
 | Record one material product or technical decision | `record-decision` | Give one decision its own rationale, consequences, validation, and review lifecycle. |
 | Create an architecture diagram, flow, sequence, state, topology, or technical illustration | `draw-diagrams` | Own the visual form; the source skill owns the meaning. |
-| Create another human-readable document | `write-docs` | Apply the shared writing method without forcing a mismatched artifact template. |
+| Create another human-readable document | `write-doc` | Apply the shared writing method without forcing a mismatched artifact template. |
 
 Explicit intent is the strongest evidence. “Where should these documents live?”, “how should this knowledge base be divided?”, and “is this business, domain, product, or technical content?” indicate `structure-docs`. “What is its essence?”, “how should I understand it?”, and “build a mental model” indicate `write-knowledge`. “Who owns what?”, “how do controls execute?”, and “how does failure recover?” indicate an architecture skill; use `study-architecture` for reusable knowledge and `design-architecture` for one project's commitments.
 
@@ -40,6 +40,6 @@ Explicit intent is the strongest evidence. “Where should these documents live?
 - Reusable architecture to delivery: `study-architecture` followed by `design-architecture`, explicitly adopting, adapting, deferring, or rejecting reusable options.
 - Visual inside another artifact: let the document skill define the meaning, then use `draw-diagrams` for visual form and quality.
 
-`write-docs` supplies shared writing discipline. `reason-architecture` supplies shared architecture reasoning. Explain these foundations when the user asks how Scribe works; recommend the artifact-owning skill when the user wants a deliverable.
+`write-doc` supplies shared writing discipline. `reason-architecture` supplies shared architecture reasoning. Explain these foundations when the user asks how Scribe works; recommend the artifact-owning skill when the user wants a deliverable.
 
 The guidance is complete when the user understands the relevant choices, their boundaries, and the invocation or sequence they can choose next, without Ask Scribe having executed that choice.

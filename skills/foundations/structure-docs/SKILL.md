@@ -9,7 +9,7 @@ Give every document one stable home and make each directory boundary explainable
 
 ## Workflow
 
-1. Apply `$write-docs` to the structure proposal and any README or navigation text produced.
+1. Apply `$write-doc` to the structure proposal and any README or navigation text produced.
 2. Read repository instructions and the README, index, or map files that define the existing structure. Preserve explicit local rules over this skill's defaults.
 3. Establish the scope and requested action: plan a new structure, place new material, review an existing structure, propose a migration, or apply an approved migration.
 4. Read `references/content-boundaries.md`. Classify the relevant material by subject, change authority, lifetime, and reader action. Record a taxonomy gap when a valid class has no honest home instead of forcing it into the nearest directory.

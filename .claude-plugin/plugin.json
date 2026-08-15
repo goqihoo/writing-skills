@@ -9,7 +9,7 @@
   "skills": [
     "./skills/foundations/ask-scribe",
     "./skills/foundations/structure-docs",
-    "./skills/foundations/write-docs",
+    "./skills/foundations/write-doc",
     "./skills/foundations/reason-architecture",
     "./skills/knowledge/write-knowledge",
     "./skills/knowledge/study-architecture",

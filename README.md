@@ -55,7 +55,7 @@ The linker refuses to replace a non-symlink with the same skill name.
 
 - [ask-scribe](skills/foundations/ask-scribe/SKILL.md) — Explain Scribe's skills, boundaries, and useful combinations without executing them. Explicit invocation only.
 - [structure-docs](skills/foundations/structure-docs/SKILL.md) — Plan directory boundaries, file placement, and documentation structure.
-- [write-docs](skills/foundations/write-docs/SKILL.md) — Apply the shared method for clear, grounded documents.
+- [write-doc](skills/foundations/write-doc/SKILL.md) — Apply the shared method for one clear, grounded document.
 - [reason-architecture](skills/foundations/reason-architecture/SKILL.md) — Reason about architecture across four views.
 
 ### Knowledge

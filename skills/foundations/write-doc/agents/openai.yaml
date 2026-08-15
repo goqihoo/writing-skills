@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write Doc"
+  short_description: "Apply shared structure and clarity rules"
+  default_prompt: "Use $write-doc to structure and improve this document."

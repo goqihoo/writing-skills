@@ -8,6 +8,6 @@ The Scribe guide and methods shared across document work.
 
 ## Model-invoked
 
-- [write-docs](write-docs/SKILL.md) — Apply shared document reasoning and clarity rules.
+- [write-doc](write-doc/SKILL.md) — Apply shared reasoning and clarity rules to one document.
 - [reason-architecture](reason-architecture/SKILL.md) — Apply the shared four-view architecture method.
 - [structure-docs](structure-docs/SKILL.md) — Plan and review directory boundaries, file placement, and documentation structure.
