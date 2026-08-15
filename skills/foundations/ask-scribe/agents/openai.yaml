@@ -1,6 +1,6 @@
 interface:
   display_name: "Ask Scribe"
-  short_description: "Find the right Scribe skill for your document"
-  default_prompt: "Use $ask-scribe to choose the right skill for this document task."
+  short_description: "Understand and plan how to use Scribe skills"
+  default_prompt: "Use $ask-scribe to explain which Scribe skills fit my task and how I can combine them."
 policy:
   allow_implicit_invocation: false

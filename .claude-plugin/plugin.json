@@ -1,13 +1,14 @@
 {
   "name": "scribe",
   "version": "0.3.0",
-  "description": "Professional document and technical visual skills with one guided entry point.",
+  "description": "Professional documentation structure, writing, and technical visual skills with one guided entry point.",
   "author": {
     "name": "Andrew"
   },
   "repository": "https://github.com/goqihoo/writing-skills",
   "skills": [
     "./skills/foundations/ask-scribe",
+    "./skills/foundations/structure-docs",
     "./skills/foundations/write-docs",
     "./skills/foundations/reason-architecture",
     "./skills/knowledge/write-knowledge",

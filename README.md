@@ -1,10 +1,10 @@
 # Scribe
 
-Composable agent skills for professional documents and technical visuals. Start with `ask-scribe` when you do not know which skill owns the work.
+Composable agent skills for professional documents, documentation structure, and technical visuals. Start with `ask-scribe` when you want to understand the available skills or plan how to combine them.
 
 ## Invocation
 
-Use `$ask-scribe` in Agent Skills-compatible clients or `/ask-scribe` in Claude Code. Ask Scribe recommends the smallest matching skill or short flow, then stops.
+Use `$ask-scribe` in Agent Skills-compatible clients or `/ask-scribe` in Claude Code. Ask Scribe explains the plugin's skills and rules, then helps you choose an invocation or sequence without executing it.
 
 ## Installation
 
@@ -53,7 +53,8 @@ The linker refuses to replace a non-symlink with the same skill name.
 
 ### Entry and foundations
 
-- [ask-scribe](skills/foundations/ask-scribe/SKILL.md) — Route a document task to the right Scribe skill. Explicit invocation only.
+- [ask-scribe](skills/foundations/ask-scribe/SKILL.md) — Explain Scribe's skills, boundaries, and useful combinations without executing them. Explicit invocation only.
+- [structure-docs](skills/foundations/structure-docs/SKILL.md) — Plan directory boundaries, file placement, and documentation structure.
 - [write-docs](skills/foundations/write-docs/SKILL.md) — Apply the shared method for clear, grounded documents.
 - [reason-architecture](skills/foundations/reason-architecture/SKILL.md) — Reason about architecture across four views.
 

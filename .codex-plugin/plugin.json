@@ -1,7 +1,7 @@
 {
   "name": "scribe",
-  "version": "0.3.0+codex.20260814095748",
-  "description": "Professional document and technical visual skills with one guided entry point.",
+  "version": "0.3.0+codex.20260815035313",
+  "description": "Professional documentation structure, writing, and technical visual skills with one guided entry point.",
   "author": {
     "name": "Andrew",
     "url": "https://github.com/goqihoo"
@@ -10,6 +10,7 @@
   "keywords": [
     "writing",
     "documentation",
+    "organization",
     "product",
     "architecture",
     "diagrams"
@@ -17,17 +18,19 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Scribe Skills",
-    "shortDescription": "Write clear documents and technical visuals.",
-    "longDescription": "Create knowledge documents, PRDs, architecture records, decisions, and technical diagrams through focused, composable skills.",
+    "shortDescription": "Structure and write clear professional documents.",
+    "longDescription": "Plan documentation structures and create knowledge documents, PRDs, architecture records, decisions, and technical diagrams through focused, composable skills.",
     "developerName": "goqihoo",
     "category": "Productivity",
     "capabilities": [
       "Write",
       "Review",
+      "Organize",
       "Diagram"
     ],
     "defaultPrompt": [
-      "Use Ask Scribe to choose the right skill for my document.",
+      "Use Ask Scribe to explain which Scribe skills fit my task and how to combine them.",
+      "Plan a clear directory and file structure for this documentation set.",
       "Draft a clear technical document from these notes.",
       "Turn this architecture into a concise diagram."
     ]

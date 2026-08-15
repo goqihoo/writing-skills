@@ -3,16 +3,17 @@
   "owner": {
     "name": "Andrew"
   },
-  "description": "Scribe skills for professional documents and technical visuals.",
+  "description": "Scribe skills for documentation structure, professional documents, and technical visuals.",
   "plugins": [
     {
       "name": "scribe",
       "source": "./",
-      "description": "Create knowledge, product, architecture, decision, and visual artifacts.",
+      "description": "Plan documentation structures and create knowledge, product, architecture, decision, and visual artifacts.",
       "category": "productivity",
       "keywords": [
         "writing",
         "documentation",
+        "organization",
         "product",
         "architecture",
         "diagrams"

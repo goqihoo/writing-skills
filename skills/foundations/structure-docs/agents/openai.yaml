@@ -1,0 +1,4 @@
+interface:
+  display_name: "Structure Docs"
+  short_description: "Plan clear directory and file boundaries"
+  default_prompt: "Use $structure-docs to plan the directory and file structure for this documentation set."
