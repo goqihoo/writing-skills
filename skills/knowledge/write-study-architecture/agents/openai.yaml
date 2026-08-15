@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write Study Architecture"
+  short_description: "Build reusable architecture knowledge"
+  default_prompt: "Use $write-study-architecture to turn this domain into reusable architecture knowledge with options and evolution."

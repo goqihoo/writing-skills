@@ -47,6 +47,6 @@ Preserve the reasoning or action order. Subject-specific headings may replace ge
 ## Boundary routes
 
 - Route directory design, subdomain boundaries, coverage planning, and scaffolding to `$structure-domain-docs`; keep the domain `README.md` prose and links in `$write-domain-doc`.
-- Route a reusable architecture document whose main question is ownership, contracts, controls, runtime failure, validation, or evolution to `$study-architecture`.
+- Route a reusable architecture document whose main question is ownership, contracts, controls, runtime failure, validation, or evolution to `$write-study-architecture`.
 - Route a general concept, mental model, comparison, or explanation that does not match these common domain artifacts to `$write-knowledge`.
 - Keep business lifecycle, product commitments, technical implementation, company policy, and project-specific decisions in their owning content classes even when they use domain knowledge.

@@ -5,8 +5,8 @@ repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 write_doc="$repo_root/skills/foundations/write-doc/SKILL.md"
 write_knowledge="$repo_root/skills/knowledge/write-knowledge/SKILL.md"
 knowledge_types="$repo_root/skills/knowledge/write-knowledge/references/knowledge-types.md"
-study_architecture="$repo_root/skills/knowledge/study-architecture/SKILL.md"
-design_architecture="$repo_root/skills/technical/design-architecture/SKILL.md"
+write_study_architecture="$repo_root/skills/knowledge/write-study-architecture/SKILL.md"
+write_delivery_architecture="$repo_root/skills/technical/write-delivery-architecture/SKILL.md"
 draw_diagrams="$repo_root/skills/visual/draw-diagrams/SKILL.md"
 
 forbidden_patterns=(
@@ -47,8 +47,8 @@ required_structure_ownership=(
   "$write_knowledge|Derive the subject-specific reasoning spine"
   "$write_knowledge|selected type's questions as a coverage checklist"
   "$write_doc|treat the template as the structure owner"
-  "$study_architecture|Preserve its H2 heading names, order, and hierarchy"
-  "$design_architecture|Preserve its heading names, order, and hierarchy"
+  "$write_study_architecture|Preserve its H2 heading names, order, and hierarchy"
+  "$write_delivery_architecture|Preserve its heading names, order, and hierarchy"
 )
 
 for requirement in "${required_structure_ownership[@]}"; do
@@ -70,8 +70,8 @@ required_visual_routing=(
   "$write_doc|a model would otherwise require repeated arrows or indentation"
   "$draw_diagrams|a central model with four or more meaningful nodes or relationships"
   "$draw_diagrams|Treat a central idea written as repeated arrows, nested indentation, or a prose tour through several relationships as a visual candidate"
-  "$study_architecture|For each visual candidate identified by \`\$write-doc\`"
-  "$design_architecture|For each visual candidate identified by \`\$write-doc\`"
+  "$write_study_architecture|For each visual candidate identified by \`\$write-doc\`"
+  "$write_delivery_architecture|For each visual candidate identified by \`\$write-doc\`"
 )
 
 for requirement in "${required_visual_routing[@]}"; do

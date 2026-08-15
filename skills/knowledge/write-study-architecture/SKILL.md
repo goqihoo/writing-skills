@@ -1,9 +1,9 @@
 ---
-name: study-architecture
-description: Create, revise, or review reusable architecture knowledge for a business, product, platform, or technical domain. Use for domain, application, subsystem, component, governance, runtime, control, engineering-strategy, system-mechanism, and reference-architecture documents that explain ownership, contracts, controls, failure, validation, options, and evolution without selecting one project's vendor, topology, schema, or implementation.
+name: write-study-architecture
+description: Create, revise, or review reusable architecture knowledge for a business, product, platform, or technical domain. Use for domain, application, subsystem, component, governance, runtime, control, engineering-strategy, system-mechanism, and reference-architecture documents that explain ownership, contracts, controls, failure, validation, options, and evolution without selecting one project's vendor, topology, schema, or implementation; use write-delivery-architecture for a project-specific commitment.
 ---
 
-# Study Architecture
+# Write Study Architecture
 
 Build durable architecture knowledge that explains how to reason about a domain, not one project's final solution.
 
@@ -23,7 +23,7 @@ Build durable architecture knowledge that explains how to reason about a domain,
 ## Boundaries
 
 - Keep reusable facts, option families, principles, validation, and evolution here.
-- Move selected project boundaries, contracts, controls, topology, rollout, and accepted costs to `$design-architecture`.
+- Move selected project boundaries, contracts, controls, topology, rollout, and accepted costs to `$write-delivery-architecture`.
 - Move general concepts and methods without architecture ownership or control concerns to `$write-knowledge`.
 
 ## Completion

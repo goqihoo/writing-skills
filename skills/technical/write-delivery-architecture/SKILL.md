@@ -1,9 +1,9 @@
 ---
-name: design-architecture
+name: write-delivery-architecture
 description: Create, revise, or review a project-specific software architecture commitment. Use for delivery architecture, solution architecture, system design, technical design, architecture proposals, arc42-style documents, and extraction from reusable architecture knowledge when stakeholders need aligned boundaries, ownership, contracts, controls, runtime behavior, rollout, and validation. Surface material unresolved decisions instead of silently choosing for the team.
 ---
 
-# Design Architecture
+# Write Delivery Architecture
 
 Produce a concise architecture document that reviewers can challenge and implementers and operators can follow.
 
@@ -23,8 +23,7 @@ Produce a concise architecture document that reviewers can challenge and impleme
 ## Boundaries
 
 - Product requirements define needed behavior; delivery architecture commits to how the project will provide it.
-- A decision record owns one decision; delivery architecture combines related decisions into one solution.
-- Invoke `$record-decision` when one accepted choice needs an independent lifecycle or review trigger.
+- Keep accepted architecture decisions, real alternatives, rationale, costs, validation, and review triggers in **Decisions and alternatives** so the delivery document remains the authoritative project record.
 - Reusable architecture knowledge retains options; this skill records what the project adopts, adapts, defers, or rejects.
 - Stop before field-level schemas, class design, task plans, vendor configuration, and runbook procedures unless they change an architecture decision.
 

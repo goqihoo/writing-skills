@@ -97,9 +97,9 @@ Trace the primary success path, then timeout, retry, duplicate, stale, partial, 
 
 ## Decisions and alternatives
 
-| Decision | Selected option | Alternatives | Rationale | Separate record |
-|---|---|---|---|---|
-| <Decision> | <Choice> | <Real alternatives> | <Drivers and tradeoffs> | <Link if needed> |
+| Decision | Selected option | Alternatives | Rationale, cost, and review trigger |
+|---|---|---|---|
+| <Decision> | <Choice> | <Real alternatives> | <Drivers, tradeoffs, validation, and condition for review> |
 
 ## Risks, assumptions, and open questions
 

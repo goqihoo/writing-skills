@@ -12,7 +12,7 @@ Select only sections that help stakeholders review, implement, or operate the ar
 | Runtime | Success, failure, consistency, evidence, and recovery paths |
 | Deployment | Placement, isolation, failure domains, and recovery when location matters |
 | Cross-cutting concerns | Controls, security, observability, compatibility, and data handling |
-| Decisions | Accepted choices, costs, status, and linked decision records |
+| Decisions | Accepted choices, alternatives, rationale, costs, validation, status, and review triggers |
 | Validation | Measurable quality scenarios and fitness checks |
 | Risks | Trigger, impact, mitigation, and owner |
 

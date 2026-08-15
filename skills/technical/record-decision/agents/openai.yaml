@@ -1,4 +1,0 @@
-interface:
-  display_name: "Record Decision"
-  short_description: "Record one decision, rationale, and review triggers"
-  default_prompt: "Use $record-decision to capture this decision and its tradeoffs."

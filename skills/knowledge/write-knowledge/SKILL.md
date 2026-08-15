@@ -1,6 +1,6 @@
 ---
 name: write-knowledge
-description: "Create, revise, or review general durable knowledge documents: concept explanations, mechanism explanations, methods, pattern comparisons, mental models, case studies, and references. Use when understanding must remain useful beyond one project and no common domain-document or stricter artifact skill owns the requested format; use write-domain-doc for every common artifact inside a domain knowledge directory, including first-principles essence documents, and study-architecture for reusable architecture ownership, contracts, controls, failure, or evolution."
+description: "Create, revise, or review general durable knowledge documents: concept explanations, mechanism explanations, methods, pattern comparisons, mental models, case studies, and references. Use when understanding must remain useful beyond one project and no common domain-document or stricter artifact skill owns the requested format; use write-domain-doc for every common artifact inside a domain knowledge directory, including first-principles essence documents, and write-study-architecture for reusable architecture ownership, contracts, controls, failure, or evolution."
 ---
 
 # Write Knowledge
@@ -24,6 +24,6 @@ Turn understanding, experience, and source material into knowledge that readers 
 
 A knowledge document remains useful after the immediate initiative ends. A work artifact coordinates a specific delivery, approval, implementation, or operational response. Preserve that distinction even when both contain similar facts.
 
-Route reusable system ownership, contracts, control, failure, and evolution to `$study-architecture`. Route project commitments to `$design-architecture`.
+Route reusable system ownership, contracts, control, failure, and evolution to `$write-study-architecture`. Route project commitments to `$write-delivery-architecture`.
 
 The work is complete when the selected type's reasoning obligations are satisfied without copying its part labels into a default outline, and a reader can perform the intended action without reconstructing the author's research process.

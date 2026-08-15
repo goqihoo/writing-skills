@@ -1,6 +1,6 @@
 ---
 name: write-prd
-description: Create, revise, or review a product requirements document for a feature or product change. Use when stakeholders must align on the user problem, outcome, scope, observable behavior, business rules, edge states, measurement, and acceptance; use design-architecture when solution structure is the main subject.
+description: Create, revise, or review a product requirements document for a feature or product change. Use when stakeholders must align on the user problem, outcome, scope, observable behavior, business rules, edge states, measurement, and acceptance; use write-delivery-architecture when solution structure is the main subject.
 ---
 
 # Write Product Requirements
@@ -22,8 +22,8 @@ Produce a PRD that lets product, design, engineering, and business stakeholders 
 ## Boundaries
 
 - Keep product intent, behavior, and acceptance in the PRD.
-- Move component structure, storage choices, protocols, topology, and implementation algorithms to `$design-architecture` unless a technical constraint changes product scope.
-- Use `$record-decision` when one decision needs its own durable rationale and review trigger.
+- Move component structure, storage choices, protocols, topology, and implementation algorithms to `$write-delivery-architecture` unless a technical constraint changes product scope.
+- Keep unresolved product decisions in **Open decisions** and accepted architecture decisions in the delivery architecture's **Decisions and alternatives** section.
 
 ## Completion criteria
 

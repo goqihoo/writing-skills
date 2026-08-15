@@ -14,10 +14,9 @@
     "./skills/knowledge/structure-domain-docs",
     "./skills/knowledge/write-domain-doc",
     "./skills/knowledge/write-knowledge",
-    "./skills/knowledge/study-architecture",
+    "./skills/knowledge/write-study-architecture",
     "./skills/product/write-prd",
-    "./skills/technical/design-architecture",
-    "./skills/technical/record-decision",
+    "./skills/technical/write-delivery-architecture",
     "./skills/visual/draw-diagrams"
   ]
 }
