@@ -1,6 +1,7 @@
 ---
 name: draw-diagrams
 description: Select, create, revise, or restyle the visual that best explains technical, architecture, product, or business-system knowledge. Use for architecture diagrams, context and ownership maps, components, flows, sequences, states, deployment and failure views, technical illustrations or 配图, matrices, charts, and interactive explanations; choose among no visual, Markdown tables, Mermaid, editable SVG, raster ImageGen, charts, or HTML, then verify the rendered result.
+disable-model-invocation: true
 ---
 
 # Draw Diagrams
@@ -16,7 +17,7 @@ Create the smallest visual that answers one important question. Own visual form 
 5. **Extract only supported content.** Include only the actors, boundaries, ownership, relationships, protocols, states, failure paths, labels, or data needed to answer the question. Do not invent architecture meaning.
 6. **Load guidance.** Read `references/style-guide.md`. Read `references/svg-guide.md` for exact relational diagrams, or `references/mermaid-guide.md` when the user requested Mermaid. For an illustrated conceptual infographic, invoke the available `imagegen` skill instead.
 7. **Create and inspect.** Render or preview at full size and roughly 736–900 px wide. Fix clipping, overlap, crossings, unreadable labels, false emphasis, and ambiguous direction.
-8. **Add only requested prose.** Add only meaningful alt text by default. Do not append a visible title, caption, or explanation after the image unless the user requests it or the consuming document has an established caption convention. When such prose is required, stabilize the visual meaning first, apply the natural writing guidance from `$write-doc`, and run its semantic recheck afterward. Keep exact diagram labels, Mermaid, SVG, code, commands, and structured data outside that guidance.
+8. **Add only requested prose.** Add only meaningful alt text by default. Do not append a visible title, caption, or explanation after the image unless the user requests it or the consuming document has an established caption convention. When such prose is required, stabilize the visual meaning first, apply the shared prose contract from `$write-doc`, and run its semantic recheck afterward. Keep exact diagram labels, Mermaid, SVG, code, commands, and structured data outside that contract.
 9. **Deliver file outputs.** For file-based output, use the consuming document's sibling `_assets/` directory by default. When no consuming document exists, use `_assets/` under the current output directory. Follow an explicit user path or an established project convention instead. Keep Mermaid, SVG, chart data, or HTML beside exports when practical. Use stable descriptive filenames and accessible alt text. Keep the skill's bundled `assets/` directory for templates only.
 
 ## Visual routing

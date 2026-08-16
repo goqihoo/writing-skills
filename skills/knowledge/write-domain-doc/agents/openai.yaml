@@ -1,4 +1,6 @@
 interface:
   display_name: "Write Domain Doc"
   short_description: "Create common documents in a domain directory"
-  default_prompt: "Use $write-domain-doc to create the appropriate document for this domain directory."
+  default_prompt: "Use $write-domain-doc and $write-doc to create the appropriate document for this domain directory."
+policy:
+  allow_implicit_invocation: false

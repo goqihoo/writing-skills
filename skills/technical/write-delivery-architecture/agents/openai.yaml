@@ -1,4 +1,6 @@
 interface:
   display_name: "Write Delivery Architecture"
   short_description: "Create project-ready delivery architecture"
-  default_prompt: "Use $write-delivery-architecture to turn these requirements into a reviewable project architecture."
+  default_prompt: "Use $write-delivery-architecture, $write-doc, and $reason-architecture to turn these requirements into a reviewable project architecture."
+policy:
+  allow_implicit_invocation: false

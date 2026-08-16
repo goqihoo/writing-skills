@@ -1,4 +1,6 @@
 interface:
   display_name: "Draw Diagrams"
   short_description: "Create clear, verified technical visuals"
-  default_prompt: "Use $draw-diagrams to choose and create the clearest visual for this technical content."
+  default_prompt: "Use $draw-diagrams and $write-doc to choose and create the clearest visual for this technical content."
+policy:
+  allow_implicit_invocation: false

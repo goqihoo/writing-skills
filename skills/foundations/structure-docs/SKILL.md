@@ -1,6 +1,7 @@
 ---
 name: structure-docs
 description: Plan, review, or revise how a documentation set is divided into directories and files. Use when defining content boundaries, choosing where documents belong, designing a knowledge-base structure, proposing file and directory names, or detecting mixed responsibilities, taxonomy gaps, duplicate sources, and structural drift across business, domain, product, company, project, and technical content.
+disable-model-invocation: true
 ---
 
 # Structure Docs

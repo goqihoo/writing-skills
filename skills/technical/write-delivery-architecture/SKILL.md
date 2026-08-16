@@ -1,6 +1,7 @@
 ---
 name: write-delivery-architecture
 description: Create, revise, or review a project-specific software architecture commitment. Use for delivery architecture, solution architecture, system design, technical design, architecture proposals, arc42-style documents, and extraction from reusable architecture knowledge when stakeholders need aligned boundaries, ownership, contracts, controls, runtime behavior, rollout, and validation. Surface material unresolved decisions instead of silently choosing for the team.
+disable-model-invocation: true
 ---
 
 # Write Delivery Architecture

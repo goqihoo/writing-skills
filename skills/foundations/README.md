@@ -1,12 +1,12 @@
 # Foundations
 
-The Scribe guide and methods shared across document work.
+Explicitly invoked Scribe guide and methods shared across document work.
 
-## User-invoked
+## Guide
 
 - [ask-scribe](ask-scribe/SKILL.md) — Explain Scribe's skills, boundaries, and useful combinations without executing them.
 
-## Model-invoked
+## Shared methods
 
 - [write-doc](write-doc/SKILL.md) — Apply shared reasoning and clarity rules to one document.
 - [reason-architecture](reason-architecture/SKILL.md) — Apply the shared four-view architecture method.

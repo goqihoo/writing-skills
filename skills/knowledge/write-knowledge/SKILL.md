@@ -1,6 +1,7 @@
 ---
 name: write-knowledge
 description: "Create, revise, or review general durable knowledge documents: concept explanations, mechanism explanations, methods, pattern comparisons, mental models, case studies, and references. Use when understanding must remain useful beyond one project and no common domain-document or stricter artifact skill owns the requested format; use write-domain-doc for every common artifact inside a domain knowledge directory, including first-principles essence documents, and write-study-architecture for reusable architecture ownership, contracts, controls, failure, or evolution."
+disable-model-invocation: true
 ---
 
 # Write Knowledge

@@ -1,6 +1,7 @@
 ---
 name: write-domain-doc
 description: "Create, revise, or review any common document in a reusable domain knowledge directory, including the domain README, `{领域名称}本质.md`, terminology and concept relationships, core objects and lifecycles, participants and rules, mechanisms, capability and solution space, methods and practices, cases and failures, and references. Use the user prompt as the primary artifact-type signal, then load the matching internal module and template when one exists."
+disable-model-invocation: true
 ---
 
 # Write Domain Doc

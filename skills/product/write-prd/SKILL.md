@@ -1,6 +1,7 @@
 ---
 name: write-prd
 description: Create, revise, or review a product requirements document for a feature or product change. Use when stakeholders must align on the user problem, outcome, scope, observable behavior, business rules, edge states, measurement, and acceptance; use write-delivery-architecture when solution structure is the main subject.
+disable-model-invocation: true
 ---
 
 # Write Product Requirements

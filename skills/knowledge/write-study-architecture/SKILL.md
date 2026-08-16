@@ -1,6 +1,7 @@
 ---
 name: write-study-architecture
 description: Create, revise, or review reusable architecture knowledge for a business, product, platform, or technical domain. Use for domain, application, subsystem, component, governance, runtime, control, engineering-strategy, system-mechanism, and reference-architecture documents that explain ownership, contracts, controls, failure, validation, options, and evolution without selecting one project's vendor, topology, schema, or implementation; use write-delivery-architecture for a project-specific commitment.
+disable-model-invocation: true
 ---
 
 # Write Study Architecture

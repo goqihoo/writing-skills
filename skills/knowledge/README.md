@@ -1,6 +1,6 @@
 # Knowledge
 
-Model-invoked skills for durable, reusable knowledge.
+Explicitly invoked skills for durable, reusable knowledge.
 
 - [structure-domain-docs](structure-domain-docs/SKILL.md) — Plan or scaffold one domain's directory, coverage map, and reading path.
 - [write-domain-doc](write-domain-doc/SKILL.md) — Route and create every common document inside a domain knowledge directory, including README and essence artifacts.

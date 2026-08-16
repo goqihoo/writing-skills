@@ -1,6 +1,6 @@
 {
   "name": "scribe",
-  "version": "0.3.0+codex.20260815083811",
+  "version": "0.3.0+codex.20260816021539",
   "description": "Professional documentation structure, writing, and technical visual skills with one guided entry point.",
   "author": {
     "name": "Andrew",
@@ -29,13 +29,13 @@
       "Diagram"
     ],
     "defaultPrompt": [
-      "Use Ask Scribe to explain which Scribe skills fit my task and how to combine them.",
-      "Plan a clear directory and file structure for this documentation set.",
-      "Create a coherent directory and reading path for this domain knowledge set.",
-      "Use Write Domain Doc to create the appropriate document for this domain directory.",
-      "Use Write Domain Doc to write a first-principles essence article for this domain.",
-      "Draft a clear technical document from these notes.",
-      "Turn this architecture into a concise diagram."
+      "Use $ask-scribe to explain which Scribe skills fit my task and how to combine them.",
+      "Use $structure-docs and $write-doc to plan a clear directory and file structure for this documentation set.",
+      "Use $structure-domain-docs, $structure-docs, and $write-doc to create a coherent directory and reading path for this domain knowledge set.",
+      "Use $write-domain-doc and $write-doc to create the appropriate document for this domain directory.",
+      "Use $write-domain-doc and $write-doc to write a first-principles essence article for this domain.",
+      "Use $write-doc to draft a clear technical document from these notes.",
+      "Use $draw-diagrams and $write-doc to turn this architecture into a concise diagram."
     ]
   }
 }

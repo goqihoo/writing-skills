@@ -1,6 +1,7 @@
 ---
 name: structure-domain-docs
 description: "Plan, scaffold, review, or revise the directory and navigation structure for one reusable domain knowledge set. Use for 领域知识目录, a new professional discipline or subject directory, a domain README and reading path, deciding which common domain documents and subdirectories are needed, splitting a large domain into subdomains, auditing coverage, or correcting mixed domain-document responsibilities without designing product, technical, company, business, or project structures."
+disable-model-invocation: true
 ---
 
 # Structure Domain Docs
@@ -9,7 +10,7 @@ Give one domain a coherent knowledge map whose documents answer distinct reader 
 
 ## Workflow
 
-1. Apply `$structure-docs`.
+1. Apply `$structure-docs` and `$write-doc`.
 2. Read repository instructions, the domain-root README, the target domain README when present, and representative sibling domains. Preserve healthy local naming, link, numbering, and navigation conventions.
 3. **Confirm the domain boundary.** State the reusable professional subject, what changes its truth, and what it excludes. A domain claim should normally survive a company, product, implementation, customer, or project change. Surface a boundary conflict instead of silently absorbing business, product, technical, company, or project content.
 4. Read `references/domain-structure-model.md`. Use its knowledge forms as a coverage model, not as a command to create every possible file.
