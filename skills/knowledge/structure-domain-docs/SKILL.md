@@ -1,43 +1,35 @@
 ---
 name: structure-domain-docs
-description: "Plan, scaffold, review, or revise the directory and navigation structure for one reusable domain knowledge set. Use for 领域知识目录, a new professional discipline or subject directory, a domain README and reading path, deciding which common domain documents and subdirectories are needed, splitting a large domain into subdomains, auditing coverage, or correcting mixed domain-document responsibilities without designing product, technical, company, business, or project structures."
+description: Plan, audit, scaffold, or migrate the directory, coverage map, navigation, and materialization of one reusable domain knowledge set after its domain boundary has been assessed.
 disable-model-invocation: true
 ---
 
 # Structure Domain Docs
 
-Give one domain a coherent knowledge map whose documents answer distinct reader questions and can grow without becoming a single monolith.
+Turn an accepted domain boundary and real material into a knowledge map that can grow without changing its organizing logic.
 
 ## Workflow
 
-1. Apply `$structure-docs` and `$write-doc`.
-2. Read repository instructions, the domain-root README, the target domain README when present, and representative sibling domains. Preserve healthy local naming, link, numbering, and navigation conventions.
-3. **Confirm the domain boundary.** State the reusable professional subject, what changes its truth, and what it excludes. A domain claim should normally survive a company, product, implementation, customer, or project change. Surface a boundary conflict instead of silently absorbing business, product, technical, company, or project content.
-4. Read `references/domain-structure-model.md`. Use its knowledge forms as a coverage model, not as a command to create every possible file.
-5. **Inventory before designing.** Classify every existing or requested artifact by its primary reader question, change authority, and lifetime. Record missing knowledge forms, duplicate sources, mixed documents, broken reading paths, and unresolved placement choices.
-6. **Choose the scale.** Keep a small domain flat by knowledge form. For a complex domain, keep shared scope, essence, and language at the root, then use stable subdomains as the next directory dimension. Within each subdomain, organize by knowledge form. Maintain one dimension per directory level.
-7. **Choose what to materialize.** Create files and directories needed by current content or the user's explicit scaffold request. Do not create empty directories by default; show future knowledge forms as planned items in the domain README until content exists. If the user explicitly asks for a complete empty skeleton, create it without inventing document content.
-8. **Build the map contract.** Read `../write-domain-doc/assets/domain-readme-template.md` when no healthy local README structure exists. Define the boundary, reading path, existing and planned knowledge, subdomain entries, and valid link targets, then route the README prose and every requested document body to `$write-domain-doc`.
-9. **Present or apply the structure.** For a proposal, return the tree, each path's responsibility, planned versus existing items, and unresolved choices. For an authorized scaffold, create the directories and invoke `$write-domain-doc` for the README and requested document shells or bodies.
-10. **Protect existing knowledge.** Obtain confirmation before moving, renaming, merging, or deleting existing files or directories. When authorized, update navigation, relative links, assets, and application bindings in the same change.
-11. **Verify the result.** Confirm one primary home per artifact, coherent siblings at every level, valid local links, no accidental duplicate source, and no stale path after an applied migration.
+1. Apply `$reason-domain`, `$structure-docs`, and `$write-doc`.
+2. **Confirm the action and authority.** Classify the request as a proposal, audit, scaffold, or approved migration. Planning and audit are read-only. Obtain confirmation before moving, renaming, merging, deleting, or overwriting existing knowledge.
+3. **Read the local system.** Read repository instructions, the domain-root README, the target README when present, and one or two healthy sibling domains. Record naming, link, numbering, language, and navigation conventions that the result must preserve.
+4. **Consume the Domain Assessment.** Require an `Accept` decision with a supported boundary, exclusions and destinations, relationships, subdomain decisions, and unresolved questions from `$reason-domain`. For `Do not accept`, route cross-class restructuring to `$structure-docs`. For `Needs evidence` or an absent assessment, return a ready-to-type explicit invocation for `$reason-domain $write-doc` and stop before proposing a tree.
+5. **Inventory before designing.** Read `references/domain-structure-model.md`, `../write-domain-doc/references/domain-document-types.md`, and `assets/domain-inventory-template.md`. Account for every existing and requested artifact by reader question, change authority, lifetime, content class, domain document type, current state, primary home, and structural issue.
+6. **Choose the topology.** Use the assessed parent-or-child relationships and the topology tests in the structure model. Keep a valid small domain flat. Create subdomain directories only when both a real parent-child boundary and a current navigation need exist. Use links for related domains and handoffs.
+7. **Choose materialization.** Create only files and directories required by current content or an explicit full-scaffold request. Record absent knowledge forms as planned coverage without linking to nonexistent files. Upgrade a file to a directory only when several independent documents or a stable internal reading path need it.
+8. **Specify the map contract.** Read `../write-domain-doc/assets/domain-readme-template.md` when no healthy local README exists. Define the boundary statement, current and planned coverage, valid links, subdomain entries, default learning path, and task-based entry paths. Let `$write-domain-doc` own the README body.
+9. **Present or apply the structure.** Use `assets/domain-structure-plan-template.md`. For an authorized scaffold, create the approved directories and files. When a README or document body is required and `$write-domain-doc` was not explicitly invoked, leave the body ungenerated and return a ready-to-type explicit invocation for `$write-domain-doc $reason-domain $write-doc`.
+10. **Apply approved migrations atomically.** Record exact old-to-new paths, affected Markdown links, assets, and application bindings before editing. Update every approved path and reference in the same change.
+11. **Verify the result.** Confirm one primary home per material, one organizing dimension per sibling level, no unsupported subdomain, no accidental duplicate authority, no unrequested empty directory, valid local links, no link to planned content, and no stale path after migration.
 
 ## Boundaries
 
-- Own the structure of one domain knowledge set: its root, subdomains, knowledge-form homes, coverage map, and reading-path requirements. Let `$write-domain-doc` own the domain README artifact.
-- Let `$structure-docs` own repository-wide taxonomy, cross-class placement, and migrations involving domain, business, product, technical, project, or company roots.
-- Let `$write-domain-doc` own the internal structure and content of common domain documents.
-- Treat `{领域名称}本质.md` as the cognition anchor, not the container for every concept, mechanism, method, case, and reference.
-- Preserve a smaller healthy structure. Expand only when a document has an independent reader question or several children need their own navigation boundary.
+- Own the structure of one accepted domain knowledge set: inventory, topology, materialization, coverage, navigation requirements, scaffolding, and approved migration.
+- Let `$reason-domain` own admission, domain boundary, relationships, subdomain validity, high-level content ownership, maturity, and review triggers.
+- Let `$write-domain-doc` own the internal structure and content of the domain README and every other common domain document.
+- Let `$structure-docs` own repository-wide taxonomy and placement across business, domain, product, company, project, technical, and reference roots.
+- Treat `{领域名称}本质.md` as a cognition anchor, not a container for every knowledge responsibility.
 
 ## Completion test
 
-The work is complete only when:
-
-- the domain boundary states what belongs, what does not, and what authority changes its truth;
-- the structure distinguishes the domain map, cognition anchor, semantic model, causal explanations, reusable practices, evidence, and lookup material;
-- small and complex domain rules have been applied deliberately;
-- every created directory has current content or was explicitly requested as scaffold;
-- the README exposes a valid reading path and does not link to nonexistent planned files;
-- every artifact has one primary home and no sibling level mixes subdomains with knowledge forms without an explicit local rule;
-- applied moves or renames have confirmation, updated links, and no stale paths.
+The work is complete only when every assessed material has a state and primary home, the topology follows evidenced relationships, every materialized path has a current purpose, the README contract exposes only valid links and honest planned coverage, destructive changes have explicit approval and complete path mappings, and the verification reports all unresolved gaps.

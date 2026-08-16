@@ -1,45 +1,44 @@
 ---
 name: write-domain-doc
-description: "Create, revise, or review any common document in a reusable domain knowledge directory, including the domain README, `{领域名称}本质.md`, terminology and concept relationships, core objects and lifecycles, participants and rules, mechanisms, capability and solution space, methods and practices, cases and failures, and references. Use the user prompt as the primary artifact-type signal, then load the matching internal module and template when one exists."
+description: Create, revise, or review one common document inside an accepted reusable domain knowledge set, selecting the matching internal module and template from the requested artifact.
 disable-model-invocation: true
 ---
 
 # Write Domain Doc
 
-Use one public entry point for domain writing: determine the artifact from the prompt, then load the structure that matches it.
+Use one public interface for domain writing while keeping each document type responsible for one reader question.
 
 ## Workflow
 
-1. Apply `$write-doc`.
-2. Read repository instructions, the target domain's `README.md`, the target file when it exists, and representative sibling documents. Preserve healthy local terminology, links, title style, and navigation.
-3. **Classify from the prompt.** Treat the user prompt and explicit instructions as the highest-authority type signal. Use the target filename and title, target directory, primary reader question, current content, and sibling conventions only to confirm the prompt or infer a type when the prompt is underspecified. When the prompt and an existing target disagree, follow the prompt for the intended artifact and surface any rename or overwrite consequence before changing the file.
-4. Read `references/domain-document-types.md`. Select exactly one primary artifact type and its structure strength. When the selected type has a template, read and use that template. Read no unrelated type template.
-5. **Load the selected module.** For a domain essence document, read `references/essence-document-module.md` and `assets/essence-article-template.md`; this module owns the fixed twelve-section reasoning contract. For a domain `README.md`, read `assets/domain-readme-template.md` and `../structure-domain-docs/references/domain-structure-model.md` when directory coverage or reading order matters. Apply `$write-knowledge` when no common template-backed domain type fits. Keep architecture ownership, contracts, controls, runtime failure, and evolution with `$write-study-architecture` when architecture is the primary subject rather than general domain knowledge.
-6. **Lock the artifact plan.** State the primary reader question, included and excluded material, evidence needs, selected template, required section responsibilities, and permitted adaptations. A strict schema keeps exact headings and order. A stable lookup schema preserves required fields. A stable reasoning sequence preserves causal or procedural order while allowing subject-specific headings.
-7. **Ground the content.** Separate observed facts, external definitions, interpretation, choices, and open questions. Use the domain's preferred terms and link to their canonical definitions. Introduce an abstract model only after a representative object, event, decision, or result makes its need concrete.
-8. **Draft in the owned structure.** Use every applicable template selected in step 4; preserve its required headings, fields, or reasoning order according to its structure strength. If no template exists, derive a subject-specific structure through `$write-knowledge`. Fill every required section that the evidence supports and mark a material evidence gap instead of inventing content. Keep detailed terminology, object state, mechanism, procedure, case evidence, and lookup data in their owning artifacts rather than repeating the essence article.
-9. **Connect the set.** Add or repair the relative link from the domain README when creating or renaming an artifact. Add links to canonical sibling explanations when readers need prerequisite or deeper material. Do not create links to planned files that do not exist.
-10. **Verify the artifact.** Confirm the selected type still matches the reader question, its structure contract is intact, facts and interpretation remain distinct, links resolve, and the document does not mix another artifact's independent responsibility.
+1. Apply `$reason-domain` and `$write-doc`.
+2. **Read the local set.** Read repository instructions, the Domain Assessment, the target domain README, the target file when present, and representative siblings. Preserve healthy terminology, links, title style, and navigation.
+3. **Require a usable boundary.** Confirm the assessment records `Accept`, the requested material belongs to domain knowledge, and it has one primary home. For `Do not accept`, route the material to its owning content class. For `Needs evidence`, an absent assessment, or a materially stale boundary, return a ready-to-type explicit invocation for `$reason-domain $write-doc` and stop before drafting.
+4. **Classify from the prompt.** Treat the user's explicit request as the highest-authority artifact signal. Use the target filename and title, target path, primary reader question, existing content, and sibling conventions only to confirm the request or infer a type when it is underspecified. Surface a rename or overwrite consequence before changing a conflicting target.
+5. **Select one type.** Read `references/domain-document-types.md`. Select exactly one primary artifact type and its structure strength. Read its matching template and no unrelated template.
+6. **Load only the selected branch.** For a domain essence document, read `references/essence-document-module.md` and `assets/essence-article-template.md`. For a domain README, read `assets/domain-readme-template.md` and `../structure-domain-docs/references/domain-structure-model.md` when coverage or reading order matters. When no common domain type fits, return a ready-to-type explicit invocation for `$write-knowledge $write-doc`. When architecture ownership, contracts, controls, runtime failure, or evolution is primary, return one for `$write-study-architecture $reason-architecture $write-doc`.
+7. **Lock the artifact plan.** State the reader question, included and excluded material, evidence needs, selected template, required section responsibilities, canonical sibling sources, and permitted adaptations. Preserve exact headings for a strict schema, required fields for a stable lookup schema, and reasoning order for a stable reasoning sequence.
+8. **Ground the content.** Separate observed facts, external definitions, interpretation, choices, and open questions. Use preferred domain terms and link to canonical definitions. Mark a material evidence gap instead of inventing content.
+9. **Draft in the owned structure.** Fill every supported responsibility from the selected template. Keep terminology, object state, mechanisms, procedures, case evidence, reference data, and essence reasoning in their own artifacts instead of compressing the domain into one document.
+10. **Connect the set.** Add or repair the relative link from the domain README when creating or renaming an artifact. Link to canonical siblings for prerequisites or deeper explanations. Keep planned nonexistent content unlinked.
+11. **Verify the artifact.** Confirm the selected type still matches the reader question, its structure contract is intact, the Domain Assessment boundary is preserved, facts and interpretation remain distinct, links resolve, and no independent responsibility from another artifact has been absorbed.
 
 ## Routing guardrails
 
-- The prompt owns the artifact type. A filename ending in `本质.md` selects the essence module only when the prompt requests essence writing or leaves the type implicit. If the prompt requests another type, align the filename or target instead of silently applying the essence template.
-- A domain `README.md` is a domain document written here; `$structure-domain-docs` may request or scaffold it while remaining responsible for the surrounding directory design.
-- A document that defines several terms and their relationships is a concept artifact, even when one term dominates its title.
-- A lifecycle document owns state and transitions; a mechanism document owns why one state causes or enables another; a method owns what a practitioner does. Split them only when they serve independent reader actions.
-- A capability-and-solution document maps reusable response families. Product promises and project selections remain outside it.
-- A case document begins with observed facts. Interpretation and transferable lessons follow the evidence.
-- A reference document optimizes lookup and authority, not narrative explanation.
+- The prompt owns the artifact type. A filename ending in `本质.md` selects the essence module only when the request asks for essence writing or leaves the type implicit.
+- A domain README is written here; `$structure-domain-docs` owns the surrounding directory plan and map requirements.
+- A lifecycle document owns state and transitions. A mechanism owns why an outcome occurs. A method owns what a practitioner does. Split only for independent reader actions, change authorities, lifetimes, or citation needs.
+- A capability-and-solution document maps reusable response families. Product commitments and project selections remain outside it.
+- A case begins with observed facts. Interpretation, counterfactuals, and transferable lessons follow the evidence.
+- A reference artifact optimizes lookup, version, and authority rather than narrative explanation.
+
+## Boundaries
+
+- Own one domain README, essence, terminology, object-lifecycle, participant-and-rule, mechanism, capability-and-solution, method-and-practice, case-and-failure, or reference artifact.
+- Keep the ten artifact branches as internal modules and templates; do not expose one shallow public skill per document type.
+- Let `$reason-domain` own admission, boundary, relationships, subdomain validity, high-level content ownership, maturity, and review triggers.
+- Let `$structure-domain-docs` own inventory, topology, materialization, navigation requirements, scaffolding, and migration.
+- Let `$write-knowledge` own general durable knowledge outside the common domain artifact set, and architecture skills own architecture-primary material.
 
 ## Completion test
 
-The work is complete only when:
-
-- one artifact type owns the document and the evidence for that classification is clear;
-- the matching internal module and every available type template were applied at the required structure strength;
-- the document answers one primary reader question without becoming a compressed domain directory;
-- canonical terminology and sibling links replace duplicate definitions where practical;
-- factual claims, interpretations, choices, assumptions, and open questions are distinguishable;
-- required examples, cases, failure conditions, validation, sources, or revision triggers for that artifact type are present;
-- the domain README exposes the document through a valid relative link when appropriate;
-- no placeholder or template instruction remains in a delivered document.
+The work is complete only when one accepted domain boundary and one artifact type own the result, the matching template contract is satisfied, the document answers one primary reader question, evidence and interpretation remain distinguishable, canonical links replace duplicate definitions, the domain README exposes the artifact when appropriate, and no placeholder or foreign artifact responsibility remains.

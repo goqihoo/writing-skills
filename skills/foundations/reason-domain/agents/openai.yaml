@@ -1,0 +1,6 @@
+interface:
+  display_name: "Reason About Domains"
+  short_description: "Assess domain boundaries and knowledge ownership"
+  default_prompt: "Use $reason-domain and $write-doc to decide whether this subject forms a reusable domain and record its boundary."
+policy:
+  allow_implicit_invocation: false

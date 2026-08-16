@@ -13,36 +13,38 @@ class StructureDomainDocsContractTest(unittest.TestCase):
         metadata = (SKILL_ROOT / "agents/openai.yaml").read_text(encoding="utf-8")
 
         self.assertIn("name: structure-domain-docs", skill)
+        self.assertIn("`$reason-domain`", skill)
         self.assertIn("`$structure-docs`", skill)
         self.assertIn("references/domain-structure-model.md", skill)
+        self.assertIn("../write-domain-doc/references/domain-document-types.md", skill)
+        self.assertIn("assets/domain-inventory-template.md", skill)
+        self.assertIn("assets/domain-structure-plan-template.md", skill)
         self.assertIn("../write-domain-doc/assets/domain-readme-template.md", skill)
         self.assertIn('display_name: "Structure Domain Docs"', metadata)
         self.assertIn("$structure-domain-docs", metadata)
+        self.assertIn("$reason-domain", metadata)
 
-    def test_structure_model_has_stable_domain_knowledge_forms(self) -> None:
+    def test_topology_and_document_type_contracts_have_separate_owners(self) -> None:
         model = (SKILL_ROOT / "references/domain-structure-model.md").read_text(
             encoding="utf-8"
         )
+        document_types = (
+            REPO_ROOT
+            / "skills/knowledge/write-domain-doc/references/domain-document-types.md"
+        ).read_text(encoding="utf-8")
 
-        expected = [
-            "README.md",
-            "{领域名称}本质.md",
-            "术语与概念关系.md",
-            "核心对象与生命周期.md",
-            "参与者、职责与规则.md",
-            "机制/",
-            "能力与解法/",
-            "方法与实践/",
-            "案例与失败/",
-            "参考/",
-        ]
-        for item in expected:
-            self.assertIn(item, model)
-
-        self.assertIn("Small domain", model)
-        self.assertIn("Complex domain", model)
+        self.assertIn("single source of truth", document_types)
+        self.assertIn("Domain map and README", document_types)
+        self.assertIn("Domain essence", document_types)
+        self.assertIn("Mechanism", document_types)
+        self.assertIn("Method and practice", document_types)
+        self.assertIn("Flat domain", model)
+        self.assertIn("Domain with subdomains", model)
+        self.assertIn("Peer domains", model)
         self.assertIn("one dimension per directory level", model)
-        self.assertIn("Do not create empty directories by default", model)
+        self.assertIn("Create an empty directory only", model)
+        for state in ["Existing", "Create now", "Planned", "Unresolved"]:
+            self.assertIn(state, model)
 
     def test_domain_readme_template_is_a_map_and_reading_path(self) -> None:
         template = (

@@ -24,9 +24,10 @@ class WriteKnowledgeContractTest(unittest.TestCase):
             skill,
         )
         self.assertIn(
-            "Route every common domain-directory artifact, including essence documents, to `$write-domain-doc`",
+            "For every common domain-directory artifact, including essence documents, stop and return a ready-to-type explicit invocation",
             skill,
         )
+        self.assertIn("`$write-domain-doc $reason-domain $write-doc`", skill)
         self.assertNotIn("`$write-essence`", skill)
 
 

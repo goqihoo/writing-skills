@@ -13,16 +13,19 @@ class WriteDomainDocContractTest(unittest.TestCase):
         metadata = (SKILL_ROOT / "agents/openai.yaml").read_text(encoding="utf-8")
 
         self.assertIn("name: write-domain-doc", skill)
+        self.assertIn("`$reason-domain`", skill)
         self.assertIn("`$write-doc`", skill)
         self.assertIn("references/domain-document-types.md", skill)
-        self.assertIn("user prompt and explicit instructions", skill)
+        self.assertIn("user's explicit request", skill)
         self.assertIn("target filename and title", skill)
         self.assertIn("references/essence-document-module.md", skill)
         self.assertIn("assets/essence-article-template.md", skill)
         self.assertNotIn("`$write-essence`", skill)
         self.assertIn("`$write-knowledge`", skill)
+        self.assertIn("ready-to-type explicit invocation", skill)
         self.assertIn('display_name: "Write Domain Doc"', metadata)
         self.assertIn("$write-domain-doc", metadata)
+        self.assertIn("$reason-domain", metadata)
 
     def test_type_reference_defines_rigidity_and_template_routes(self) -> None:
         reference = (SKILL_ROOT / "references/domain-document-types.md").read_text(
@@ -138,9 +141,10 @@ class WriteDomainDocContractTest(unittest.TestCase):
             REPO_ROOT / "skills/knowledge/write-knowledge/SKILL.md"
         ).read_text(encoding="utf-8")
         self.assertIn(
-            "Route every common domain-directory artifact, including essence documents, to `$write-domain-doc`",
+            "For every common domain-directory artifact, including essence documents, stop and return a ready-to-type explicit invocation",
             general_knowledge,
         )
+        self.assertIn("`$write-domain-doc $reason-domain $write-doc`", general_knowledge)
 
 
 if __name__ == "__main__":

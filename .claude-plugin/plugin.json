@@ -11,6 +11,7 @@
     "./skills/foundations/structure-docs",
     "./skills/foundations/write-doc",
     "./skills/foundations/reason-architecture",
+    "./skills/foundations/reason-domain",
     "./skills/knowledge/structure-domain-docs",
     "./skills/knowledge/write-domain-doc",
     "./skills/knowledge/write-knowledge",

@@ -25,7 +25,7 @@ done
 required_write_doc=(
   "Lock the artifact plan"
   "Do not add, remove, rename, or reorder locked sections"
-  "Apply the natural writing guidance only after the artifact logic and substance are stable"
+  "Run the shared reader-flow pass after the artifact logic and substance are stable"
   "Compare the final heading sequence and section responsibilities with the locked artifact plan"
 )
 

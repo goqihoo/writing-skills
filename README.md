@@ -61,11 +61,12 @@ The linker refuses to replace a non-symlink with the same skill name.
 - [structure-docs](skills/foundations/structure-docs/SKILL.md) — Plan directory boundaries, file placement, and documentation structure.
 - [write-doc](skills/foundations/write-doc/SKILL.md) — Apply the shared method for one clear, grounded document.
 - [reason-architecture](skills/foundations/reason-architecture/SKILL.md) — Reason about architecture across four views.
+- [reason-domain](skills/foundations/reason-domain/SKILL.md) — Assess domain admission, boundaries, relationships, knowledge ownership, and maturity.
 
 ### Knowledge
 
-- [structure-domain-docs](skills/knowledge/structure-domain-docs/SKILL.md) — Plan or scaffold one domain's directory, coverage map, and reading path.
-- [write-domain-doc](skills/knowledge/write-domain-doc/SKILL.md) — Select and create any common domain document, including the README and fixed-structure essence article.
+- [structure-domain-docs](skills/knowledge/structure-domain-docs/SKILL.md) — Turn an accepted domain assessment into a directory, coverage map, reading path, scaffold, or migration.
+- [write-domain-doc](skills/knowledge/write-domain-doc/SKILL.md) — Select and create one common document inside an accepted domain knowledge set.
 - [write-knowledge](skills/knowledge/write-knowledge/SKILL.md) — Create durable knowledge by reader use.
 - [write-study-architecture](skills/knowledge/write-study-architecture/SKILL.md) — Build reusable architecture knowledge without making project commitments.
 
@@ -84,3 +85,5 @@ The linker refuses to replace a non-symlink with the same skill name.
 ## Adding a skill
 
 Add a deliverable skill only when an artifact has a distinct reader decision, stable structure, and completion test. Put shared writing or architecture method in the matching foundation instead of copying it.
+
+The accepted design for domain reasoning, knowledge-set structure, and single-document writing is recorded in [Domain Knowledge Skill Architecture](docs/domain-knowledge-skill-architecture.md).
