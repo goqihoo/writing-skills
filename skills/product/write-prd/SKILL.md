@@ -10,14 +10,14 @@ Produce a PRD that lets product, design, engineering, and business stakeholders 
 
 ## Workflow
 
-1. Establish the available inputs: problem evidence, affected users, desired outcome, business constraints, existing behavior, and known decisions.
+1. Read `../../methods/product-reasoning.md`, then establish the accepted product boundary and available inputs: problem evidence, affected users, desired outcome, business constraints, existing behavior, and known decisions. Stop only when the boundary remains materially unsupported; name the evidence or decision required.
 2. Distinguish established facts from hypotheses. Preserve unresolved product decisions as open questions instead of inventing agreement.
 3. Define the problem and measurable outcome before listing features.
 4. Set scope and non-goals. Make each requirement traceable to the problem, target outcome, or binding constraint.
 5. Describe representative user scenarios from trigger to observable result. Cover empty, failure, permission, cancellation, retry, and boundary states when they matter.
 6. Write requirements as observable behavior. Add acceptance criteria that another person can verify.
 7. Record business rules, data meaning, dependencies, risks, rollout, measurement, and remaining decisions.
-8. Adapt `assets/prd-template.md`; remove sections that carry no decision or delivery value.
+8. Read `../../methods/prose-quality.md`, then adapt `assets/prd-template.md`; remove sections that carry no decision or delivery value. Read `../../methods/visual-production.md` when the request includes a visual or the behavior and edge states are materially clearer as one.
 
 ## Boundaries
 

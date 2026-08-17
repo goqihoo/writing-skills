@@ -6,4 +6,6 @@ Treat the directory and frontmatter `name` as the canonical Skill ID. Treat `age
 
 Use `$Ask Scribe` or `$ask-scribe` in Agent Skills-compatible clients and `/Ask Scribe` or `/ask-scribe` in Claude Code. Preserve exact display-name capitalization and spacing. Keep Skill IDs in paths, manifests, code, and other machine-facing structures.
 
-Express required dependencies with their display-name invocation, such as “Apply `$Reason Domain`.” Present optional skills as additions rather than dependencies. Do not link across skill directories. A skill owns its own references and templates.
+Recommend one Public Skill for one requested result. Every Public Skill completes its core workflow without requiring another invocation. Multiple named skills represent multiple independently requested results, never implementation dependencies.
+
+Apply repository Shared Methods from `skills/methods/` internally. Do not expose those methods as skills or ask the user to invoke a reasoning, structure, prose, or visual skill to unblock another skill. A skill owns its artifact-specific references and templates; Shared Methods own their cross-skill implementation rules and supporting guides.

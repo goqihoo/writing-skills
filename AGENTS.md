@@ -4,7 +4,7 @@ This repository contains composable skills for professional documents and techni
 
 ## Skill buckets
 
-- `skills/foundations/` — the explicit Scribe guide and shared methods.
+- `skills/foundations/` — standalone guidance, reasoning, structure, and writing skills.
 - `skills/knowledge/` — reusable knowledge artifacts.
 - `skills/product/` — company Product Documentation artifacts and lifecycle assessment.
 - `skills/technical/` — company Technical Documentation artifacts.
@@ -14,9 +14,11 @@ Every skill directory must contain `SKILL.md` and `agents/openai.yaml`. Add a re
 
 ## Invocation
 
-Every skill is user-invoked. Set `disable-model-invocation: true` in every `SKILL.md` and `policy.allow_implicit_invocation: false` in every `agents/openai.yaml`.
+Every Public Skill is user-invoked, independently valuable, and complete for its core result. Set `disable-model-invocation: true` in every `SKILL.md` and `policy.allow_implicit_invocation: false` in every `agents/openai.yaml`.
 
-The user must name every skill required by a composed workflow. `ask-scribe` explains Scribe's skills, boundaries, composition rules, and complete invocation choices; it never invokes another skill, performs its workflow, modifies files, or produces another skill's artifact.
+Recommend one Public Skill for one requested result. Never require the user to invoke a reasoning, structure, prose, or visual skill so another Public Skill can work. Multiple named skills mean multiple independently requested results. `ask-scribe` explains Scribe's catalog and recommends a single end-to-end skill by default; it never invokes another skill, performs its workflow, modifies files, or produces another skill's artifact.
+
+Store cross-skill implementation rules under `skills/methods/`. Shared Methods are packaged with the public skills but are not skills themselves, have no skill metadata, and are never exposed as invocations. Public Skills apply the relevant Shared Methods internally.
 
 Every Public Skill has a canonical **Skill ID** from its directory and `SKILL.md` frontmatter plus a unique **Skill Display Name** from `agents/openai.yaml` `interface.display_name`. The exact Skill ID and exact Skill Display Name are both valid invocation names. Preserve the Skill ID in paths, frontmatter, manifests, and code. Use the Skill Display Name for recommended user-facing invocations and introduce catalog entries as `Skill Display Name` (`skill-id`).
 
@@ -38,10 +40,11 @@ This is a single-context repository using root `CONTEXT.md` and `docs/adr/`. See
 
 ## Ownership
 
-- `write-doc` owns an optional general-purpose prose workflow for reader flow, concrete language, sentence movement, emphasis, and formatting. Artifact skills remain complete without it and retain genre, structure, facts, and technical meaning.
-- `reason-architecture` owns the architecture method shared by architecture artifacts.
-- `reason-domain` owns domain admission, boundaries, relationships, subdomain validity, high-level knowledge ownership, maturity, and the Domain Assessment handoff.
-- `reason-product` owns product admission, boundaries, hierarchy, change and release authority, high-level knowledge ownership, and the Product Assessment handoff.
+- `skills/methods/prose-quality.md` owns the shared prose contract. Every Public Skill that creates, revises, reviews, or presents human-readable prose applies it proportionally.
+- `skills/methods/visual-production.md` owns shared visual routing and production. A Public Skill applies it internally when a visual is requested or materially improves the result.
+- Domain, product, technical, architecture, and documentation-structure Shared Methods own their cross-skill reasoning rules.
+- `write-doc` owns an optional general-purpose prose workflow as an independently valuable standalone result.
+- `draw-diagram`, the four `reason-*` skills, and `structure-docs` expose their concerns only as independently valuable standalone workflows.
 - `assess-product-lifecycle` owns product decision readiness, artifact coverage, evidence gaps, and the Product Lifecycle Assessment.
 - `structure-docs` owns directory responsibilities, file placement, documentation navigation, and structure migrations.
 - `structure-product-docs` owns the company Product core, accepted-product core, Type Extensions, Event Collections, navigation requirements, and product-structure migrations.
@@ -51,10 +54,10 @@ This is a single-context repository using root `CONTEXT.md` and `docs/adr/`. See
 - `write-technical-doc` owns standard Technical Internal Document Types.
 - `write-technical-architecture` owns company Technical Architecture across the Technical Landscape.
 - Each deliverable skill owns one artifact boundary, workflow, completion test, and output template.
-- `draw-diagram` owns one visual's routing and quality, not architecture meaning.
+- `draw-diagram` owns one independently requested visual, not architecture meaning.
 - `ask-scribe` explains and recommends; the user retains control of every subsequent invocation and execution.
 
-Keep each rule in one place. Compose an optional foundation when the user requests its additional workflow instead of copying it. Store output templates under `assets/`; disclose branch-specific guidance through one-level `references/`.
+Keep each shared rule in one method. Apply Shared Methods internally instead of copying them or exposing them as dependencies. Store output templates under `assets/`; disclose branch-specific guidance through one-level `references/`.
 
 ## Repository updates
 

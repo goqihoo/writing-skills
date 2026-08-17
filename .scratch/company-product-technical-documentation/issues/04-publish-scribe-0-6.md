@@ -4,7 +4,7 @@
 
 **Blocked by:** 02 — 完成公司 Product Documentation 体系；03 — 完成公司 Technical Documentation 与架构体系
 
-**Status:** ready-for-agent
+**Status:** wontfix
 
 - [ ] Scribe 总架构说明统一记录 Knowledge、Company Documentation、Project Documentation、技能角色、物化规则和公共技能准入原则。
 - [ ] Product Documentation、Technical Documentation 与 Domain Knowledge 分别拥有边界清晰的技能架构说明，旧 Product Knowledge 架构名称不再公开出现。
@@ -19,3 +19,7 @@
 - [ ] Company Documentation、Product、Technical、Architecture、显式调用和共享写作契约测试全部通过。
 - [ ] 每个新增或变更技能通过技能结构验证，全部测试、脚本语法检查和差异检查通过。
 - [ ] 最终公开内容不会把公司文档描述为代码仓库结构，不会把 Project Documentation 纳入本期技能，也不会引入 Readiness 文档或技能。
+
+## Comments
+
+This historical 0.6 release specification is superseded by issue 05 for Scribe 0.7.0. Its required-composition rules are not compatibility interfaces.

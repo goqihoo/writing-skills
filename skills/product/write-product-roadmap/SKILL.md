@@ -10,14 +10,14 @@ Translate strategy and evidence into an explicit sequence of product outcomes an
 
 ## Workflow
 
-1. Apply `$Reason Product`.
-2. Read the Product Assessment, accepted strategy, capability map, current product state, evidence, metrics, active initiatives, commitments, constraints, and previous roadmap decisions.
-3. Require an accepted product boundary and identify the roadmap horizon, decision-maker, audience, and commitment level.
+1. Read `../../methods/product-reasoning.md` and apply it inside this workflow.
+2. Read the Product Assessment when persisted, accepted strategy, capability map, current product state, evidence, metrics, active initiatives, commitments, constraints, and previous roadmap decisions.
+3. Establish an accepted product boundary from the available evidence and identify the roadmap horizon, decision-maker, audience, and commitment level. Stop when the boundary remains materially unsupported; name the evidence or decision required.
 4. Separate current capability truth, evidence-backed opportunity, product bet, accepted commitment, tentative sequence, and task backlog.
 5. Define prioritization principles before ordering work. Compare candidate outcomes against the same user value, strategic fit, evidence, dependency, cost, risk, and learning dimensions.
 6. Sequence outcomes and capability gaps. Show dependencies, confidence, decision gates, and what must be learned before stronger commitment.
 7. Keep implementation tasks and team sprint plans in their owning tools. Link PRDs after initiatives are accepted.
-8. Use `assets/product-roadmap-template.md` as the structure owner. Preserve its H2 headings, order, and responsibilities.
+8. Read `../../methods/prose-quality.md`, then use `assets/product-roadmap-template.md` as the structure owner. Preserve its H2 headings, order, and responsibilities. Read `../../methods/visual-production.md` when the request includes a visual or the sequence and gates are materially clearer as one.
 9. Verify traceability from strategy and evidence to every roadmap item, with no implied certainty beyond the recorded commitment.
 
 ## Boundaries

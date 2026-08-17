@@ -10,14 +10,14 @@ Use one Technical Common Writer for standard company technical documents without
 
 ## Workflow
 
-1. Apply `$Reason Tech Docs`.
+1. Read `../../methods/technical-reasoning.md` and apply it inside this workflow.
 2. Read company and Technical navigation, the Technical Assessment when persisted, the target file, evidence, and representative siblings.
-3. Confirm the named company, Technical Landscape scope, owner, and authority. If a required dependency was not explicitly invoked, stop and return the complete ready-to-type invocation.
+3. Establish the named company, Technical Landscape scope, owner, and authority from the available evidence. If the subject routes elsewhere or remains materially disputed, stop because drafting would create unsupported Technical Documentation; name the evidence or decision required.
 4. Read `references/technical-document-types.md`. Select exactly one Internal Document Type from the user's request and read only its matching template.
-5. Route company Technical Architecture to `$Write Tech Arch $Reason Tech Docs $Reason Arch` and stop before drafting.
+5. Route company Technical Architecture to `$Write Tech Arch` and stop before drafting.
 6. Lock the reader question, scope, validity, evidence, canonical sources, selected template, and excluded downstream detail.
 7. Separate observed facts, accepted policy, current technical truth, proposals, decisions, evidence, exceptions, and open questions.
-8. Draft with the selected template. Link detailed System Architecture and Machine Authority instead of copying code, schemas, configuration, protocols, tests, or runbooks.
+8. Read `../../methods/prose-quality.md`, then draft with the selected template. Read `../../methods/visual-production.md` when the request includes a visual or a central relationship is materially clearer as one. Link detailed System Architecture and Machine Authority instead of copying code, schemas, configuration, protocols, tests, or runbooks.
 9. A Responsibility README records responsibility, ownership, boundaries, real navigation, and external authority links; it never substitutes for authoritative body text.
 10. Add or repair real navigation when creating or renaming a document. Do not link planned nonexistent files.
 11. Verify the Internal Document Type, authority boundary, evidence, validity, links, completion profile, and absence of Technical Architecture or Project Documentation responsibilities.

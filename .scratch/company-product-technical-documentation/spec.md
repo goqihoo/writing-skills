@@ -8,7 +8,7 @@ Scribe 当前把 `Product Knowledge` 同时用于通用产品知识和某个具�
 
 现有 Product 体系主要围绕单个产品和七个默认目录构建，不能表达一家公司的产品组合、多个产品和产品治理。现有 Technical 体系则以项目或代码仓库的交付架构为中心，不能为一家公司建立技术战略、技术架构、系统版图和技术治理目录。部分事件型目录被预先创建，容易产生空目录和陈旧占位文档。
 
-技能目录还倾向于为每一种标准文档创建一个公共技能。随着 Product 和 Technical 文档类型增加，公共调用面会持续膨胀。技能之间的依赖也必须保持完全显式，不能因为建立协调技能或公共写作技能而引入自动调用。
+技能目录还倾向于为每一种标准文档创建一个公共技能。随着 Product 和 Technical 文档类型增加，公共调用面会持续膨胀。此前共享推理、结构、写作和视觉方法又被暴露为必须由用户组合的公共技能依赖，导致一个结果需要记住多个调用名。
 
 用户需要 Scribe 建立一套统一的公司文档模型：把非特定公司的通用 Knowledge 与特定公司的 Product Documentation、Technical Documentation 分开；让 Product 和 Technical 都能为一家公司生成默认目录和标准文档；默认创建高频稳定职责，按需创建类型扩展和事件集合；用少量公共技能覆盖高频任务，并通过内部文档类型覆盖其他标准文档。
 
@@ -55,7 +55,7 @@ Scribe 将采用以权威范围、主题和技能角色相互正交的模型：
 
 Product 的类型扩展包括 `Solutions/` 与 `Experience/`；事件集合包括 `Initiatives/`、`Evidence/`、`Releases/` 与 `Decisions/`。Technical 的类型扩展包括 `Platforms/`、`Engineering/`、`Data/`、`Security/`、`Quality/` 与 `Operations/`；事件集合放在相应稳定职责下，例如 Architecture Decisions、Governance Exceptions 和 Operations Incidents。
 
-公共技能只在任务跨公司或跨产品反复发生、具有独立推理或工作流，并且具有可检查完成条件时创建。低频标准文档作为 `write-product-doc` 或 `write-technical-doc` 的内部文档类型。所有公共技能保持用户显式调用；任何技能发现缺少依赖时必须停止并返回完整的显式调用，不能自动执行另一个技能。`draw-diagram` 继续作为跨 Knowledge、Product 和 Technical 的 Visual 技能，并且只有用户显式调用时才生成图表。
+公共技能只在任务跨公司或跨产品反复发生、具有独立推理或工作流，并且具有可检查完成条件时创建。低频标准文档作为 `write-product-doc` 或 `write-technical-doc` 的内部文档类型。所有公共技能保持用户显式调用，并独立完成自身核心结果；共享推理、结构、写作和视觉规则位于非公开 Shared Methods，由公共技能内部应用。`draw-diagram` 继续作为独立视觉结果的公共入口，其他技能在自身结果明确需要视觉时内部应用 Visual Production。
 
 ## User Stories
 
@@ -136,15 +136,15 @@ Product 的类型扩展包括 `Solutions/` 与 `Experience/`；事件集合包�
 75. 作为公司技术架构作者，我希望 write-technical-architecture 与 Architecture Knowledge 明确分开，从而不会把一般选项变成公司承诺。
 76. 作为 Scribe 使用者，我希望项目型 Delivery Architecture 暂时退出 Technical 技能，从而让 Technical 只服务公司文档范围。
 77. 作为 Scribe 使用者，我希望所有技能只能由我显式调用，从而始终知道哪些流程会运行。
-78. 作为 Scribe 使用者，我希望组合工作流中每个依赖技能都由我明确写出，从而不会发生隐式技能链。
-79. 作为 Scribe 使用者，我希望技能发现缺少依赖时停止并返回完整调用，从而可以自行决定是否继续。
+78. 作为 Scribe 使用者，我希望一个结果默认只需要调用一个拥有该结果的技能，从而不必暴露实现依赖。
+79. 作为 Scribe 使用者，我希望技能只因真实证据、批准或所有权缺口停止，而不会因缺少另一个技能调用而停止。
 80. 作为 Scribe 维护者，我希望所有技能的 frontmatter 和客户端策略都禁止隐式调用，从而让不同运行环境保持一致。
 81. 作为 Scribe 使用者，我希望 ask-scribe 只解释和推荐技能，从而不会在咨询时修改文件或生成其他技能的制品。
 82. 作为产品或技术文档作者，我希望内部文档类型选择不被误认为技能调用，从而允许公共写作技能完成自身的路由职责。
 83. 作为图表作者，我希望 draw-diagram 继续跨 Product、Technical 和 Knowledge 使用，从而不重复建设画图技能。
-84. 作为 Scribe 使用者，我希望只有显式包含 draw-diagram 时才生成图表，从而保留对视觉产出的控制。
-85. 作为文档作者，我希望在需要专门处理读者流、语言和格式质量时可以显式组合 write-doc，而制品技能本身仍能独立完成正文。
-86. 作为架构作者，我希望技术架构显式组合 reason-technical 与 reason-architecture，并可按需组合 write-doc 或 draw-diagram，从而让必需职责和可选处理清晰可见。
+84. 作为 Scribe 使用者，我希望独立视觉任务调用 draw-diagram，而文档技能只在我请求或结果确实需要视觉时内部制作图表。
+85. 作为文档作者，我希望 write-doc 保留为独立的专门写作任务，同时每个制品技能内部应用一致的 Prose Quality。
+86. 作为架构作者，我希望技术架构技能内部应用技术与架构推理，并按需要内部应用写作和视觉方法，从而一个调用即可得到完整结果。
 87. 作为 Scribe 维护者，我希望技能库有一份总架构文档，从而统一说明分类、准入、组合和显式调用原则。
 88. 作为 Product 技能维护者，我希望产品架构文档使用 Product Documentation 命名，从而不再把公司产品文档叫作 Product Knowledge。
 89. 作为 Technical 技能维护者，我希望有公司技术文档架构说明，从而固定 Technical 目录、技能和内部类型的边界。
@@ -182,7 +182,7 @@ Product 的类型扩展包括 `Solutions/` 与 `Experience/`；事件集合包�
 - Product 公共技能包括 reason-product、assess-product-lifecycle、structure-product-docs、write-product-doc、write-product-strategy、map-product-capabilities、write-product-roadmap、write-prd 与 design-product-metrics。
 - write-product-doc 是 Product Common Writer。其公司级内部类型包括 Product 导航、Product Portfolio、Products Registry、Product Operating Model 与 Product Governance。
 - write-product-doc 的单产品内部类型包括 Product Overview/Definition、Users and Roles、Product Terminology、Lifecycle Map、Capability Detail、Journey/Product Behavior、Product Solution、Initiative Record、Evidence Record、Product Decision、Product Release Plan、Release Notes 与 Product Review。
-- write-product-doc 将 Product Strategy、Capability Map、Product Roadmap、PRD 与 Product Metric System 路由到各自公共技能，并返回完整显式调用而不是执行它们。
+- write-product-doc 将 Product Strategy、Capability Map、Product Roadmap、PRD 与 Product Metric System 分别路由到单一拥有者公共技能，而不执行另一个公共技能。
 - Technical 首期公共技能只包括 reason-technical、structure-technical-docs、write-technical-doc 与 write-technical-architecture。
 - write-technical-doc 是 Technical Common Writer。稳定核心内部类型包括 Technical 导航、Technical Strategy、Technical Roadmap、System Landscape、System Profile、Technical Operating Model、Technical Governance 与 Technical Standard。
 - write-technical-doc 的 Type Extension 内部类型包括 Platform Definition、Engineering Practice、Data Governance、Security Governance、Quality Model 与 Operations Model。
@@ -191,42 +191,43 @@ Product 的类型扩展包括 `Solutions/` 与 `Experience/`；事件集合包�
 - System Profile 保留公司所需的目的、所有权、生命周期、关键依赖、治理状态和权威链接。详细 System Architecture、接口定义、部署、配置和实现留在下游权威位置。
 - Machine Authority 继续拥有字段、协议、行为、模式、迁移、配置和测试级事实；公司文档通过链接和人类语义导航引用它们。
 - write-knowledge 继续覆盖通用 Product Knowledge 与 Technical Knowledge；不添加仅为分类对称存在的 Product/Technical Knowledge 写作或结构技能。
-- 将通用架构知识技能重命名为 write-architecture-knowledge，并继续组合 reason-architecture。
+- 将通用架构知识技能重命名为 write-architecture-knowledge，并在内部应用 Architecture Reasoning Shared Method。
 - 将现有项目型交付架构技能替换为公司级 write-technical-architecture。项目型架构能力留待未来 Project Documentation 体系重新设计。
 - 将 Product Solution、Product Release Plan 与 Product Review 的现有独立技能合并为 write-product-doc 的内部类型。
 - 删除没有正式实现或不再属于当前范围的 Product Requirements、Delivery Architecture Design、Decision Record 与 Technical Design 技能占位目录。
 - 所有重命名和删除原子完成，不提供旧名称的兼容包装。
 - 每个 SKILL 都设置 `disable-model-invocation: true`，每个 OpenAI skill metadata 都设置 `allow_implicit_invocation: false`。
-- 用户必须显式命名组合工作流中的每个 Public Skill。技能不得调用其他技能；发现缺失依赖时停止并返回完整的 ready-to-type invocation。
+- 用户为每个独立请求结果显式命名一个 Public Skill。每个 Public Skill 独立完成核心工作流；多个技能名表示多个独立结果，不表示实现依赖。
+- Domain、Product、Technical、Architecture Reasoning、Documentation Structure、Prose Quality 与 Visual Production 作为 `skills/methods/` 下的 Shared Methods，不包含 `SKILL.md` 或客户端元数据，也不作为调用名公开。
 - Common Writer 在自身内部选择 Internal Document Type 不构成技能调用，也不需要把每个内部类型暴露为用户调用名。
 - ask-scribe 继续只解释 Scribe 的技能、边界、组合和完整调用，不执行工作流、不修改文件、不生成其他技能的制品。
-- write-doc 是可选的通用写作流程；制品技能不得把它作为创建、修订、审阅或呈现正文的强制依赖。
-- draw-diagram 保留在 Visual 技能类别，跨 Knowledge、Product 和 Technical 使用。只有显式调用 draw-diagram 时才能创建图表；否则保留最小可用的文字或表格表达。
+- write-doc 是独立的通用写作流程；所有产生人类可读内容的公共技能按比例内部应用 Prose Quality Shared Method。
+- draw-diagram 保留在 Visual 技能类别，拥有单个独立视觉结果。其他公共技能在用户请求视觉或视觉对自身结果有实质帮助时内部应用 Visual Production Shared Method。
 - 技能库内部建立总架构、Product Documentation 架构和 Technical Documentation 架构说明；Domain Knowledge 架构继续保留。旧的 Product Knowledge 架构名称被 Product Documentation 架构替代。
 - 在用户的产品知识库中生成一份面向人的划分依据文档，解释通用 Knowledge、公司 Product/Technical 文档、Project 文档、稳定职责、类型扩展、事件集合和技能准入原则。该文档与技能库自身的架构说明分开。
 - 更新所有公开说明、技能桶说明、Ask Scribe、插件清单、默认提示、marketplace metadata 与版本，使术语和技能清单一致。
-- 发布版本为 0.6.0；Codex 构建版本在 0.6.0 基础上使用仓库既有的构建后缀约定。
+- 发布版本为 0.7.0；Codex 构建版本在 0.7.0 基础上使用仓库既有的构建后缀约定。旧的必需多技能组合不提供兼容接口。
 
 ## Testing Decisions
 
-- 好的测试验证用户可以观察到的稳定契约：技能是否存在、名称是否一致、显式调用是否被强制、目录责任是否正确、路由边界是否明确、公开入口是否同步。测试不锁定技能内部步骤顺序或可自由改写的措辞。
+- 好的测试验证用户可以观察到的稳定契约：技能是否存在、名称是否一致、一个结果是否由一个技能独立完成、目录责任是否正确、路由边界是否明确、公开入口是否同步。测试不锁定技能内部步骤顺序或可自由改写的措辞。
 - 使用一个最高层的 Company Documentation contract 作为主要新接缝，联合验证 Company、Product 与 Technical 的结构模型、Public Skill 清单、Internal Document Type 路由和架构说明。
 - 将现有 Product Knowledge contract 重构为 Product Documentation contract，或者把其稳定检查并入 Company Documentation contract；移除对旧七目录核心和已合并公共技能的断言。
 - Product 结构测试验证公司级 Portfolio/Governance/Products、单产品 Definition/Capabilities/Planning/Measurement、两个 Type Extension 和四个 Event Collection 的物化分类。
 - Technical 结构测试验证 Strategy/Architecture/Systems/Governance、六个 Type Extension，以及事件集合只在对应责任下按需创建。
 - Common Writer 测试验证全部已确认 Internal Document Type 有唯一模板或完成 profile，并验证独立公共制品被路由而不是吸收。
 - 技能接口测试验证每个 Public Skill 都有 SKILL 与 OpenAI metadata、技能目录名与 frontmatter 名一致、默认提示显式包含自身技能名。
-- 复用并加强显式调用 contract：自动发现全部技能，验证 SKILL 禁止 model invocation、metadata 禁止 implicit invocation，并验证公开组合提示显式列出依赖。
-- 显式组合测试验证 ask-scribe 与各技能只返回调用，不使用表示自动执行其他技能的指令。Internal Document Type 路由被视为同一技能内部行为。
+- 复用并加强显式调用 contract：自动发现全部技能，验证 SKILL 禁止 model invocation、metadata 禁止 implicit invocation，并验证每个默认提示只调用自身显示名。
+- 独立技能测试验证 ask-scribe 默认只推荐一个端到端技能，各技能不声明其他技能为必需依赖，Shared Methods 不暴露技能元数据。Internal Document Type 路由被视为同一技能内部行为。
 - 可选写作 contract 测试验证 write-doc 保留独立职责，同时其他制品技能不把它声明为强制依赖。
 - 更新 architecture skill name contract，验证 write-architecture-knowledge 与 write-technical-architecture 的目录、frontmatter、显示名、默认提示和插件入口一致。
 - 迁移测试验证旧架构技能名、三个被合并的 Product 公共技能、已删除占位技能及旧 Product Knowledge 架构名称不再出现在公开入口。
 - 插件和导航测试验证根 README、技能桶 README、Ask Scribe、Claude manifest、Codex manifest 与 marketplace metadata 展示同一组公共技能和公司文档术语。
-- 版本测试验证正式插件版本为 0.6.0，并允许 Codex manifest 使用约定的 0.6.0 构建后缀。
+- 版本测试验证正式插件版本为 0.7.0，并允许 Codex manifest 使用约定的 0.7.0 构建后缀。
 - Responsibility README 和模板 contract 只验证稳定责任、必需决策字段、权威链接与完成条件，不锁定具体自然语言。
 - 结构 contract 验证默认 scaffold 不物化任何 Type Extension 或 Event Collection，不链接不存在的计划文档，也不创建无事实正文。
 - 权威边界测试验证 Product/Technical 技能明确引用而不复制 Machine Authority、项目交付事实或通用 Knowledge。
-- draw-diagram contract 继续验证 Visual 技能独立存在；Product 与 Technical 的推荐调用只有在需要图表时显式加入它，并且其他技能不隐式执行它。
+- draw-diagram contract 继续验证 Visual 技能独立存在并一次拥有一个视觉；其他技能按需引用同一个 Visual Production Shared Method。
 - 使用仓库现有的技能快速验证、完整单元测试、脚本语法检查和差异检查作为最终验证层。
 
 ## Out of Scope
@@ -247,8 +248,8 @@ Product 的类型扩展包括 `Solutions/` 与 `Experience/`；事件集合包�
 - 不复制代码、配置、schema、测试、运行参数或其他 Machine Authority 的详细事实。
 - 不提供旧技能名称的弃用期、别名或兼容包装。
 - 不允许技能自动调用、隐式调用或由其他技能代为执行。
-- 不在未显式调用 draw-diagram 时生成图表。
-- 不修改 Domain Knowledge 的现有 admission、structure 和 document contracts，除非统一术语需要最小同步。
+- 不把 Shared Methods 作为技能、调用名或必需用户依赖公开。
+- 不修改 Domain Knowledge 的制品边界；只把公共推理依赖迁移为内部 Shared Method。
 
 ## Further Notes
 

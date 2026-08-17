@@ -52,8 +52,7 @@ class TechnicalDocumentationContractTest(unittest.TestCase):
     def test_reason_technical_owns_company_scope_and_assessment(self) -> None:
         skill = read(FOUNDATIONS_ROOT / "reason-technical/SKILL.md")
         method = read(
-            FOUNDATIONS_ROOT
-            / "reason-technical/references/technical-reasoning-method.md"
+            REPO_ROOT / "skills/methods/technical-reasoning.md"
         )
         combined = skill + method
 

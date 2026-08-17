@@ -1,6 +1,6 @@
 interface:
   display_name: "Write Arch Knowledge"
   short_description: "Create reusable architecture knowledge"
-  default_prompt: "Use $Write Arch Knowledge and $Reason Arch to create reusable Architecture Knowledge not tied to one company."
+  default_prompt: "Use $Write Arch Knowledge to create reusable Architecture Knowledge not tied to one company."
 policy:
   allow_implicit_invocation: false

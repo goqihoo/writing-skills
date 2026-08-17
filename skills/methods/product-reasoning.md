@@ -1,6 +1,6 @@
 # Product reasoning method
 
-Use this method to distinguish the company product portfolio, product lines, accepted products, and responsibilities within a product.
+Use this method inside any Public Skill that must distinguish the company product portfolio, product lines, accepted products, and responsibilities within a product.
 
 ## Product decision
 

@@ -37,9 +37,9 @@ Technical/
 
 A System Profile retains company purpose, ownership, lifecycle, critical relationships, governance state, and authoritative links. It does not copy interface definitions, deployment, configuration, schemas, code, tests, or runbook procedures.
 
-## Explicit Skill Composition
+## Independent execution
 
-Technical artifacts explicitly include `$Reason Tech Docs`. Company Technical Architecture also explicitly includes `$Reason Arch`. Add `$Write Doc` for a dedicated prose-quality pass or `$Draw Diagram` when the user requests one visual. Internal Document Type selection stays inside `write-technical-doc`.
+Every Technical Public Skill applies technical reasoning, architecture reasoning, documentation structure, prose quality, and visual production internally as needed. Use the standalone foundation or visual skills only when their result is itself requested. Internal Document Type selection stays inside `write-technical-doc`; missing evidence, approval, or ownership may stop unsafe work, but missing skill invocations may not.
 
 ## Completion contract
 

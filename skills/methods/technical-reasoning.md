@@ -1,6 +1,6 @@
 # Technical reasoning method
 
-Use this method to decide what belongs in one company's Technical Documentation Set and which authority owns each fact.
+Use this method inside any Public Skill that must decide what belongs in one company's Technical Documentation Set and which authority owns each fact.
 
 ## Company technical scope
 

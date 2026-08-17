@@ -1,6 +1,6 @@
 # Foundations
 
-Explicitly invoked Scribe guidance, reasoning, structure, and shared writing methods.
+Standalone Scribe guidance, reasoning, structure, and writing skills. Cross-skill implementation rules live in repository Shared Methods and are applied internally.
 
 - [Ask Scribe](ask-scribe/SKILL.md) (`ask-scribe`) — Explain skills and complete invocations without executing them.
 - [Structure Docs](structure-docs/SKILL.md) (`structure-docs`) — Plan documentation placement, boundaries, navigation, and migration.

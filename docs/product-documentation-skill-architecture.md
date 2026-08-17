@@ -38,7 +38,7 @@ Product lines are classification views inside Portfolio, not default parents of 
 
 ## Common Writer boundary
 
-`write-product-doc` owns company navigation, Portfolio, Products Registry, Operating Model, Governance, product definition and reference documents, lifecycle maps, capability details, behavior, solutions, initiatives, evidence, decisions, release plans, release notes, and reviews. It routes Product Strategy, Capability Map, Product Roadmap, PRD, and Product Metric System to their Public Skills by returning a complete invocation and stopping.
+`write-product-doc` owns company navigation, Portfolio, Products Registry, Operating Model, Governance, product definition and reference documents, lifecycle maps, capability details, behavior, solutions, initiatives, evidence, decisions, release plans, release notes, and reviews. It routes Product Strategy, Capability Map, Product Roadmap, PRD, and Product Metric System to their single owning Public Skill.
 
 ## Lifecycle
 
@@ -48,9 +48,9 @@ Product Lifecycle is a governance view across existing authoritative documents, 
 
 Product Documentation links reusable Knowledge, Technical Documentation, Project Documentation, and Machine Authority. A Product Initiative changes shared product behavior; a delivery project coordinates customer, contract, plan, task, state, and acceptance.
 
-## Explicit Skill Composition
+## Independent execution
 
-Structure work explicitly includes `$Reason Product` and `$Structure Docs`; document work explicitly includes its artifact skill and `$Reason Product` when the artifact depends on an accepted product boundary. Add `$Write Doc` for a dedicated prose-quality pass or `$Draw Diagram` when the user requests one visual.
+Every Product Public Skill applies product reasoning, documentation structure, prose quality, and visual production internally as needed. Use `$Reason Product`, `$Structure Docs`, `$Write Doc`, or `$Draw Diagram` only when that standalone result is the user's goal. Evidence, approval, or ownership gaps may stop unsafe work; a missing skill invocation may not.
 
 ## Completion contract
 

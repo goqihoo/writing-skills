@@ -13,8 +13,8 @@ class StructureDomainDocsContractTest(unittest.TestCase):
         metadata = (SKILL_ROOT / "agents/openai.yaml").read_text(encoding="utf-8")
 
         self.assertIn("name: structure-domain-docs", skill)
-        self.assertIn("`$Reason Domain`", skill)
-        self.assertIn("`$Structure Docs`", skill)
+        self.assertIn("methods/domain-reasoning.md", skill)
+        self.assertIn("methods/documentation-structure.md", skill)
         self.assertIn("references/domain-structure-model.md", skill)
         self.assertIn("../write-domain-doc/references/domain-document-types.md", skill)
         self.assertIn("assets/domain-inventory-template.md", skill)
@@ -22,7 +22,9 @@ class StructureDomainDocsContractTest(unittest.TestCase):
         self.assertIn("../write-domain-doc/assets/domain-readme-template.md", skill)
         self.assertIn('display_name: "Structure Domain Docs"', metadata)
         self.assertIn("$Structure Domain Docs", metadata)
-        self.assertIn("$Reason Domain", metadata)
+        self.assertNotIn("$Reason Domain", metadata)
+        self.assertIn("without drafting the README body", skill)
+        self.assertIn("`$Write Domain Doc` owns the README body", skill)
 
     def test_topology_and_document_type_contracts_have_separate_owners(self) -> None:
         model = (SKILL_ROOT / "references/domain-structure-model.md").read_text(

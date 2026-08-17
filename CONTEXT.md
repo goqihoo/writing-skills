@@ -81,8 +81,20 @@ A user-invoked skill that owns either one high-frequency reader-facing artifact 
 _Avoid_: Coordinator, Foundation
 
 **Public Skill**:
-An explicit user-invoked interface justified by a recurring task, distinct reasoning or workflow, and a checkable completion contract. A directory responsibility, document title, or template does not by itself justify a Public Skill.
-_Avoid_: One skill per document type
+An explicit user-invoked interface that owns one independently valuable user result, justified by a recurring task, distinct workflow, and a checkable completion contract. It completes its core workflow without requiring the user to invoke implementation methods as additional Public Skills.
+_Avoid_: One skill per document type, exposing an implementation step as a required invocation
+
+**Shared Method**:
+An internal, non-invocable method that owns reusable reasoning, structure, prose quality, visual production, or another implementation rule set. Public Skills point directly to only the Shared Methods their workflows need while retaining ownership of user-visible results and completion conditions. A Shared Method has no Invocation Name, lives outside the public skill system, and never appears in the public skill catalog.
+_Avoid_: Internal Skill, required Public Skill dependency, Internal Document Type
+
+**Prose Quality Method**:
+The Shared Method every Public Skill applies proportionally to its human-readable prose. `$Write Doc` is the independent public entry for a dedicated prose revision or review, not a dependency of other skills.
+_Avoid_: Mandatory Write Doc composition, changing exact labels, code, commands, or structured data
+
+**Visual Production Method**:
+The Shared Method a Public Skill applies when its requested result includes or materially needs a visual. `$Draw Diagram` is the independent public entry for creating or revising one visual, not a dependency of other skills.
+_Avoid_: Mandatory Draw Diagram composition, decorative visual
 
 **Skill ID**:
 The canonical lower-case hyphenated name shared by a Public Skill's directory and `SKILL.md` frontmatter. It remains stable in paths, manifests, code, and machine-facing references and is also a valid invocation name.
@@ -113,8 +125,8 @@ A Public Artifact Skill that routes one coherent company-document family to Inte
 _Avoid_: Hidden invocation of another Public Skill, unbounded miscellaneous writer
 
 **Explicit Skill Composition**:
-A workflow in which the user explicitly names every required coordination, structure, and artifact Public Skill plus any optional writing or visual workflow they want. Every Public Skill disables model invocation and implicit invocation. A skill that detects a missing required dependency stops, explains the gap, and returns a complete ready-to-type invocation; it never invokes the missing skill itself. Selecting an Internal Document Type already owned by the invoked Common Writer is routing within that skill, not another skill invocation.
-_Avoid_: Implicit skill chaining
+A workflow in which the user names a Public Skill for each independently requested artifact or assessment. Every Public Skill disables model invocation and implicit invocation, completes its own core workflow with Shared Methods, and routes requests for a different owned artifact to that artifact's Public Skill. Selecting an Internal Document Type, applying Shared Methods, and creating a supporting Assessment Record required by the invoked workflow are internal behavior, not additional skill invocation.
+_Avoid_: Implicit skill chaining, exposing Shared Methods as required invocations
 
 **Stable Responsibility**:
 A documentation responsibility that exists continuously for the accepted company, product, or technical scope and therefore receives a default home.
@@ -133,8 +145,8 @@ A concise navigation and ownership map for one materialized documentation respon
 _Avoid_: Empty directory marker, duplicated document body
 
 **Assessment Record**:
-A persisted Product Assessment or Technical Assessment used when a disputed boundary, type extension, or migration decision needs durable traceability. Simple scaffolding may keep the assessment within the execution instead of creating a permanent file.
-_Avoid_: Readiness document, lifecycle event, mandatory scaffold artifact
+A persisted Domain, Product, or Technical Assessment used when a disputed boundary, type extension, or migration decision needs durable traceability. A Public Skill may create the supporting record by applying its Shared Method; routine reasoning remains within the execution.
+_Avoid_: Readiness document, lifecycle event, mandatory scaffold artifact, required Reason Skill invocation
 
 **Architecture Knowledge**:
 Reusable knowledge about architectural boundaries, ownership, contracts, controls, failure, validation, alternatives, and evolution without committing one concrete system to an implementation.

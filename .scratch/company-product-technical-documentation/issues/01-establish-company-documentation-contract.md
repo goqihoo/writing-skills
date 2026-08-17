@@ -1,6 +1,6 @@
 # 01 — 建立统一的 Company Documentation 契约
 
-**What to build:** 让 Scribe 在所有公共说明和结构判断中一致地区分通用 Knowledge、特定公司的 Product/Technical Documentation 与 Project Documentation，并用同一套 Stable Responsibility、Type Extension、Event Collection、Public Skill、Internal Document Type 和 Explicit Skill Composition 契约指导后续技能。
+**What to build:** 让 Scribe 在所有公共说明和结构判断中一致地区分通用 Knowledge、特定公司的 Product/Technical Documentation 与 Project Documentation，并用同一套 Stable Responsibility、Type Extension、Event Collection、Public Skill、Internal Document Type 和 Shared Method 契约指导后续技能。
 
 **Blocked by:** None — can start immediately
 
@@ -14,7 +14,7 @@
 - [ ] Responsibility README 只承担责任、所有权、边界和真实导航，不成为占位正文或权威内容副本。
 - [ ] Public Skill 只有在跨公司或产品反复使用、具有独立工作流并拥有可检查完成条件时成立。
 - [ ] Common Writer 与 Internal Document Type 的边界明确，内部路由不会被描述成调用另一个技能。
-- [ ] 所有公共技能继续禁止 model invocation 和 implicit invocation；缺少依赖时停止并返回完整显式调用。
+- [ ] 所有公共技能继续禁止 model invocation 和 implicit invocation，并独立完成核心结果；共享实现规则通过非公开 Shared Methods 内部复用。
 - [ ] 最高层 Company Documentation 契约测试只验证用户可见结构、技能接口与权威边界，不锁定内部步骤措辞。
 - [ ] 现有 Domain Knowledge 行为保持不变，除统一受控词汇所需的最小同步外不扩大改动范围。
 - [ ] 本票据完成后，公共说明、领域术语、架构决策与高层测试对上述概念没有冲突。

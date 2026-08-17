@@ -1,6 +1,6 @@
 interface:
   display_name: "Structure Tech Docs"
   short_description: "Structure company Technical Documentation"
-  default_prompt: "Use $Structure Tech Docs, $Reason Tech Docs, and $Structure Docs to propose, scaffold, audit, or migrate this company's Technical Documentation Set."
+  default_prompt: "Use $Structure Tech Docs to propose, scaffold, audit, or migrate this company's Technical Documentation Set."
 policy:
   allow_implicit_invocation: false

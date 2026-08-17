@@ -1,6 +1,6 @@
 # Domain reasoning method
 
-Use this method to decide whether a proposed domain, subdomain, relationship, or knowledge home is supportable. Produce a `Domain Assessment`; leave directories and document bodies to their owning skills.
+Use this method inside any Public Skill that must decide whether a proposed domain, subdomain, relationship, or knowledge home is supportable. Return the decision within the active workflow and persist a `Domain Assessment` only when the decision needs durable traceability.
 
 ## Contents
 

@@ -2,36 +2,61 @@
 set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-write_doc="$repo_root/skills/foundations/write-doc/SKILL.md"
-write_knowledge="$repo_root/skills/knowledge/write-knowledge/SKILL.md"
-knowledge_types="$repo_root/skills/knowledge/write-knowledge/references/knowledge-types.md"
-write_architecture_knowledge="$repo_root/skills/knowledge/write-architecture-knowledge/SKILL.md"
-write_technical_architecture="$repo_root/skills/technical/write-technical-architecture/SKILL.md"
-draw_diagram="$repo_root/skills/visual/draw-diagram/SKILL.md"
+skills_root="$repo_root/skills"
+methods_root="$repo_root/skills/methods"
+write_doc="$skills_root/foundations/write-doc/SKILL.md"
+write_knowledge="$skills_root/knowledge/write-knowledge/SKILL.md"
+knowledge_types="$skills_root/knowledge/write-knowledge/references/knowledge-types.md"
+write_architecture_knowledge="$skills_root/knowledge/write-architecture-knowledge/SKILL.md"
+write_technical_architecture="$skills_root/technical/write-technical-architecture/SKILL.md"
+prose_method="$methods_root/prose-quality.md"
+visual_method="$methods_root/visual-production.md"
 
-forbidden_patterns=(
-  "while planning, drafting, and revising"
-  "Use it from the first sentence instead of treating expression as a separate polishing pass"
-  "Use headings to advance the reader's questions"
-)
-
-for pattern in "${forbidden_patterns[@]}"; do
-  if rg -Fq "$pattern" "$write_doc"; then
-    printf 'FAIL: shared prose guidance can change artifact planning or structure: %s\n' "$pattern" >&2
+for method in \
+  domain-reasoning.md \
+  product-reasoning.md \
+  technical-reasoning.md \
+  architecture-reasoning.md \
+  documentation-structure.md \
+  prose-quality.md \
+  visual-production.md; do
+  if [[ ! -f "$methods_root/$method" ]]; then
+    printf 'FAIL: missing Shared Method: %s\n' "$method" >&2
     exit 1
   fi
 done
 
-required_write_doc=(
-  "Lock the artifact plan"
-  "Do not add, remove, rename, or reorder locked sections"
-  "Run the shared reader-flow pass after the artifact logic and substance are stable"
-  "Compare the final heading sequence and section responsibilities with the locked artifact plan"
+if find "$methods_root" -type f \( -name SKILL.md -o -name openai.yaml \) | rg -q .; then
+  printf 'FAIL: Shared Methods must not expose skill metadata\n' >&2
+  exit 1
+fi
+
+while IFS= read -r skill; do
+  if ! rg -Fq 'methods/prose-quality.md' "$skill"; then
+    printf 'FAIL: Public Skill does not apply Prose Quality: %s\n' "$skill" >&2
+    exit 1
+  fi
+
+  for forbidden in 'Apply `$' 'required dependency' 'missing dependency' 'was not explicitly invoked'; do
+    if rg -Fq "$forbidden" "$skill"; then
+      printf 'FAIL: Public Skill exposes an implementation dependency: %s (%s)\n' "$skill" "$forbidden" >&2
+      exit 1
+    fi
+  done
+done < <(find "$skills_root" -mindepth 3 -maxdepth 3 -name SKILL.md -type f | sort)
+
+required_prose_contract=(
+  'Lock the artifact plan before prose work'
+  'Revise reader-facing prose with the contract below after artifact logic and substance are stable'
+  'The heading sequence, section responsibilities, and reasoning path match the artifact plan'
+  '**Point first.**'
+  '**Concrete before abstract.**'
+  '**Causal movement.**'
 )
 
-for pattern in "${required_write_doc[@]}"; do
-  if ! rg -Fq "$pattern" "$write_doc"; then
-    printf 'FAIL: write-doc is missing a structural guardrail: %s\n' "$pattern" >&2
+for pattern in "${required_prose_contract[@]}"; do
+  if ! rg -Fq "$pattern" "$prose_method"; then
+    printf 'FAIL: Prose Quality is missing a shared contract rule: %s\n' "$pattern" >&2
     exit 1
   fi
 done
@@ -41,7 +66,7 @@ required_structure_ownership=(
   "$knowledge_types|that template owns the heading names, order, hierarchy, and permitted branches"
   "$write_knowledge|Derive the subject-specific reasoning spine"
   "$write_knowledge|selected type's questions as a coverage checklist"
-  "$write_doc|treat the template as the structure owner"
+  "$write_doc|Lock the artifact type, core question, reasoning path, outline, section responsibilities, and required material"
   "$write_architecture_knowledge|assets/architecture-knowledge-template.md"
   "$write_technical_architecture|assets/technical-architecture-template.md"
 )
@@ -55,26 +80,24 @@ for requirement in "${required_structure_ownership[@]}"; do
   fi
 done
 
-if rg -Fq "primary use controls the main structure" "$knowledge_types"; then
+if rg -Fq 'primary use controls the main structure' "$knowledge_types"; then
   printf 'FAIL: knowledge type is still presented as the document outline owner\n' >&2
   exit 1
 fi
 
-required_visual_routing=(
-  "$write_doc|Route visual questions"
-  "$write_doc|a model would otherwise require repeated arrows or indentation"
-  "$draw_diagram|a central model with four or more meaningful nodes or relationships"
-  "$write_architecture_knowledge|When \`\$Draw Diagram\` was explicitly invoked by the user"
-  "$write_technical_architecture|When \`\$Draw Diagram\` was explicitly invoked by the user"
+required_visual_contract=(
+  'when the user requests a visual or when the result would otherwise force readers to reconstruct a central relationship'
+  'four or more meaningful nodes or relationships'
+  'Choose the visual grammar before the file format'
+  'Use Mermaid only when the user explicitly requests Mermaid'
+  'Inspect the final render for clipping, overlap, unintended crop, malformed text, or watermark'
 )
 
-for requirement in "${required_visual_routing[@]}"; do
-  file="${requirement%%|*}"
-  pattern="${requirement#*|}"
-  if ! rg -Fq "$pattern" "$file"; then
-    printf 'FAIL: visual routing rule is missing: %s\n' "$pattern" >&2
+for pattern in "${required_visual_contract[@]}"; do
+  if ! rg -Fq "$pattern" "$visual_method"; then
+    printf 'FAIL: Visual Production is missing a shared contract rule: %s\n' "$pattern" >&2
     exit 1
   fi
 done
 
-printf 'PASS: prose, subject reasoning, explicit templates, and visuals retain separate ownership\n'
+printf 'PASS: Shared Methods, independent Public Skills, artifact structure, prose, and visuals retain separate ownership\n'

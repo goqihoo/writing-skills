@@ -55,8 +55,8 @@ class ArchitectureSkillNamesTest(unittest.TestCase):
         self.assertIn("not tied to one company", knowledge)
         self.assertIn("company Technical Architecture", technical)
         self.assertIn("Technical Landscape", technical)
-        self.assertIn("$Reason Tech Docs", technical)
-        self.assertIn("$Reason Arch", technical)
+        self.assertIn("methods/technical-reasoning.md", technical)
+        self.assertIn("methods/architecture-reasoning.md", technical)
 
 
 if __name__ == "__main__":

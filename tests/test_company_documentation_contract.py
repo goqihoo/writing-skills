@@ -128,12 +128,12 @@ class CompanyDocumentationContractTest(unittest.TestCase):
         ]:
             self.assertIn(term, combined)
 
-    def test_release_versions_match_the_0_6_contract(self) -> None:
+    def test_release_versions_match_the_0_7_contract(self) -> None:
         claude = json.loads(read(REPO_ROOT / ".claude-plugin/plugin.json"))
         codex = json.loads(read(REPO_ROOT / ".codex-plugin/plugin.json"))
 
-        self.assertEqual("0.6.0", claude["version"])
-        self.assertRegex(codex["version"], r"^0\.6\.0\+codex\.\d{14}$")
+        self.assertEqual("0.7.0", claude["version"])
+        self.assertRegex(codex["version"], r"^0\.7\.0\+codex\.\d{14}$")
 
 
 if __name__ == "__main__":

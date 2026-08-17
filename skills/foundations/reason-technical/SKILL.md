@@ -11,14 +11,14 @@ Establish the company technical scope and its authority before structure or pros
 ## Workflow
 
 1. Read company navigation, existing Technical Documentation, system registries, governance records, and representative downstream technical authorities.
-2. Read `references/technical-reasoning-method.md` completely.
+2. Read `../../methods/technical-reasoning.md` completely.
 3. Establish the named company, the Technical Landscape in scope, owners, governance authority, current systems or capabilities, and the decision requested.
 4. Separate Company Documentation from general Technical Knowledge, Project Documentation, System Architecture, and Machine Authority.
 5. Classify accepted responsibilities as Stable Responsibility, Type Extension, or Event Collection. Admit a Type Extension only when independent ownership, governance, or navigation is proven.
 6. Identify the authoritative owner for strategy, architecture, systems, governance, platforms, practices, data, security, quality, and operations. Keep detailed executable facts downstream.
 7. Persist `assets/technical-assessment-template.md` only when a disputed boundary, Type Extension, audit finding, or migration decision needs durable traceability.
 8. Record relationships, authority links, evidence, unresolved ownership, and review triggers without inventing systems, standards, or operating facts.
-9. Verify that scope, ownership, materialization decisions, and downstream authority links agree.
+9. Read `../../methods/prose-quality.md`, then verify that scope, ownership, materialization decisions, and downstream authority links agree. Read `../../methods/visual-production.md` when the user requests a visual or the Technical Landscape relationships are materially clearer as one.
 
 ## Boundaries
 

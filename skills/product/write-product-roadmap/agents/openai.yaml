@@ -1,6 +1,6 @@
 interface:
   display_name: "Write Product Roadmap"
   short_description: "Sequence outcomes, bets, and dependencies"
-  default_prompt: "Use $Write Product Roadmap and $Reason Product to sequence product outcomes, bets, dependencies, and review points."
+  default_prompt: "Use $Write Product Roadmap to sequence product outcomes, bets, dependencies, and review points."
 policy:
   allow_implicit_invocation: false

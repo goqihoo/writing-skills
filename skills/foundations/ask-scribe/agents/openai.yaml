@@ -1,6 +1,6 @@
 interface:
   display_name: "Ask Scribe"
   short_description: "Understand and plan how to use Scribe skills"
-  default_prompt: "Use $Ask Scribe to explain which Scribe skills fit my task and how I can combine them."
+  default_prompt: "Use $Ask Scribe to identify the single Scribe skill that owns my requested result; mention multiple skills only if I explicitly request multiple independent results."
 policy:
   allow_implicit_invocation: false

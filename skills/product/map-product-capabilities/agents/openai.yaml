@@ -1,6 +1,6 @@
 interface:
   display_name: "Map Product Capabilities"
   short_description: "Model stable product capabilities and ownership"
-  default_prompt: "Use $Map Product Capabilities and $Reason Product to model this product's stable capabilities and responsibility boundaries."
+  default_prompt: "Use $Map Product Capabilities to model this product's stable capabilities and responsibility boundaries."
 policy:
   allow_implicit_invocation: false

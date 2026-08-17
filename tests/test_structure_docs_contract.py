@@ -42,7 +42,7 @@ class StructureDocsContractTest(unittest.TestCase):
         ).read_text(encoding="utf-8")
         patterns = (
             REPO_ROOT
-            / "skills/foundations/structure-docs/references/structure-patterns.md"
+            / "skills/methods/documentation-structure.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("Record a taxonomy gap", skill)

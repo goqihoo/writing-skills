@@ -14,9 +14,9 @@ Explain and recommend. Leave every subsequent invocation and execution to the us
 2. Inspect the installed `SKILL.md` files before describing current behavior.
 3. Identify the intended result, authority scope, reader decision, artifact lifetime, and requested output.
 4. Distinguish reusable **Knowledge**, company-owned **Product Documentation** or **Technical Documentation**, and engagement-owned **Project Documentation**.
-5. Explain the smallest suitable skill or sequence. Name every required coordination, structure, and artifact skill plus any optional writing or visual skill that serves the request.
+5. Recommend the single Public Skill that owns the requested result. Recommend multiple Public Skills only when the user explicitly asks for multiple independently owned results.
 6. Return ready-to-type display-name invocations such as `$Ask Scribe` or `/Ask Scribe` when useful. Mention the canonical Skill ID as the compatible alternative when introducing a skill.
-7. Do not invoke another skill, perform its workflow, modify files, or produce an artifact owned by another skill.
+7. Read `../../methods/prose-quality.md`, then explain the choice. Read `../../methods/visual-production.md` only when the user asks for a visual explanation of Scribe or the catalog relationships are materially clearer as one. Do not invoke another skill, perform its workflow, modify files, or produce an artifact owned by another skill.
 
 ## Materialization and interface language
 
@@ -24,7 +24,8 @@ Explain and recommend. Leave every subsequent invocation and execution to the us
 - **Type Extension:** materialize only when independent ownership, governance, or navigation is proven.
 - **Event Collection:** materialize with the first real event document.
 - **Internal Document Type:** a standard artifact branch inside `write-product-doc` or `write-technical-doc`.
-- **Explicit Skill Composition:** the user names every required Public Skill; a missing dependency causes the invoked skill to stop and return the complete invocation.
+- **Shared Method:** an internal rule set a Public Skill applies directly; it has no invocation name and never appears in the catalog.
+- **Explicit Skill Composition:** the user names one Public Skill for each independently requested result; internal reasoning, structure, prose, and visual methods add no invocation.
 - **Skill ID:** the canonical machine name used by the directory, frontmatter, manifests, and code.
 - **Skill Display Name:** the exact user-facing invocation name from `agents/openai.yaml`; it is unique and equivalent to the Skill ID.
 
@@ -56,19 +57,21 @@ Explain and recommend. Leave every subsequent invocation and execution to the us
 | Define company Technical Architecture | **Write Tech Arch** (`write-technical-architecture`) | Own Technical Landscape structure, not detailed System Architecture. |
 | Create one technical visual | **Draw Diagram** (`draw-diagram`) | Own visual form; the source skill owns meaning. |
 
-## Common complete invocations
+## Complete invocations
 
-- Domain Knowledge structure: `$Structure Domain Docs $Reason Domain $Structure Docs`
-- Domain Knowledge document: `$Write Domain Doc $Reason Domain`
-- Architecture Knowledge: `$Write Arch Knowledge $Reason Arch`
-- Product Documentation structure: `$Structure Product Docs $Reason Product $Structure Docs`; add `$Write Product Doc` when navigation or Responsibility README bodies are requested.
-- Product Internal Document Type: `$Write Product Doc $Reason Product`
-- Product lifecycle assessment: `$Assess Product Lifecycle $Reason Product`
-- Technical Documentation structure: `$Structure Tech Docs $Reason Tech Docs $Structure Docs`; add `$Write Tech Doc` when navigation or Responsibility README bodies are requested.
-- Technical Internal Document Type: `$Write Tech Doc $Reason Tech Docs`
-- Company Technical Architecture: `$Write Tech Arch $Reason Tech Docs $Reason Arch`
-- Visual inside another artifact: add `$Draw Diagram` explicitly to the complete document invocation.
-- Dedicated prose-quality pass: add `$Write Doc` explicitly to any composition when wanted.
+- Domain Knowledge structure: `$Structure Domain Docs`
+- Domain Knowledge document: `$Write Domain Doc`
+- Architecture Knowledge: `$Write Arch Knowledge`
+- Product Documentation structure: `$Structure Product Docs`
+- Product Internal Document Type: `$Write Product Doc`
+- Product lifecycle assessment: `$Assess Product Lifecycle`
+- Technical Documentation structure: `$Structure Tech Docs`
+- Technical Internal Document Type: `$Write Tech Doc`
+- Company Technical Architecture: `$Write Tech Arch`
+- Dedicated prose revision or review: `$Write Doc`
+- Standalone visual creation or revision: `$Draw Diagram`
+
+Each Public Skill applies the reasoning, structure, prose-quality, and visual-production Shared Methods its own workflow needs. Do not present the former required multi-skill combinations as compatible alternatives.
 
 Product Strategy, Capability Map, Product Roadmap, PRD, and Product Metric System retain their named public skills. Product Solution, Product Release Plan, and Product Review are Internal Document Types of `write-product-doc`. Technical Strategy, Roadmap, System Landscape, System Profile, governance documents, standards, extension documents, and event records are Internal Document Types of `write-technical-doc`.
 

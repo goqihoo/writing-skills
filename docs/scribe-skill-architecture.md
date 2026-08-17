@@ -16,8 +16,10 @@ Moving an idea between authority scopes requires an explicit adoption or extract
 - assessment skills evaluate decision coverage;
 - structure skills own directory responsibilities, navigation, materialization, and approved migration;
 - artifact skills own one high-frequency artifact or one coherent document family;
-- `write-doc` offers an optional dedicated reader-flow and prose-quality pass;
-- `draw-diagram` owns visual selection and production when explicitly invoked.
+- `write-doc` exposes prose improvement as an independently requested result;
+- `draw-diagram` owns one independently requested visual.
+
+Cross-skill reasoning, documentation structure, prose quality, and visual production live in non-invocable Shared Methods under `skills/methods/`. Public Skills apply them internally and still own their end-to-end outcomes.
 
 Coordination is expressed by verbs. Scribe does not create Delivery or Coordination content buckets.
 
@@ -35,9 +37,11 @@ A Public Skill exists only when a task recurs across companies or products, has 
 
 Every Public Skill has one canonical Skill ID and one exact, unique Skill Display Name. Both invoke the same skill. Catalogs and ready-to-type examples prefer the display name; paths, manifests, frontmatter, and code retain the Skill ID.
 
-## Explicit Skill Composition
+## Independent Public Skills
 
-Every skill disables model invocation and implicit invocation. The user explicitly names every required coordination, structure, and artifact skill. Add `$Write Doc` for a dedicated prose-quality pass or `$Draw Diagram` for one visual. A skill that detects a missing required dependency stops and returns the complete ready-to-type invocation; it never invokes that skill itself. Selecting an Internal Document Type inside a Common Writer is internal routing, not skill invocation.
+Every Public Skill disables model invocation and implicit invocation, owns one independently valuable result, and completes its core workflow itself. One requested result maps to one recommended skill. Multiple invocations represent multiple independently requested results, not implementation dependencies. Selecting an Internal Document Type inside a Common Writer and applying a Shared Method are internal routing, not skill invocation.
+
+Missing evidence, approval, or ownership may stop a workflow when the result would otherwise be unsafe or false. A missing skill invocation never stops it. A skill may create a supporting assessment internally when traceability is needed.
 
 ## Company root
 
@@ -49,4 +53,4 @@ Company documents link detailed System Architecture and **Machine Authority** su
 
 ## Completion contract
 
-The architecture is satisfied when every artifact has one authority scope and owner, every directory has one materialization class, public skills and Internal Document Types remain distinct, every composition is explicit, and public catalog surfaces expose the same names and boundaries.
+The architecture is satisfied when every artifact has one authority scope and owner, every directory has one materialization class, Public Skills and Internal Document Types remain distinct, Shared Methods stay non-invocable, each Public Skill completes independently, and public catalog surfaces expose the same names and boundaries.

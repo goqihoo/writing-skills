@@ -46,7 +46,7 @@ Preserve the reasoning or action order. Subject-specific headings may replace ge
 
 ## Boundary routes
 
-- Return a ready-to-type explicit invocation using `$Structure Domain Docs $Reason Domain $Structure Docs` for directory design, coverage planning, and scaffolding; keep the domain `README.md` prose and links in `$Write Domain Doc`.
-- Return a ready-to-type explicit invocation using `$Write Arch Knowledge $Reason Arch` for a reusable architecture document whose main question is ownership, contracts, controls, runtime failure, validation, or evolution.
+- Route directory design, coverage planning, scaffolding, and domain navigation to `$Structure Domain Docs`.
+- Route a reusable architecture document whose main question is ownership, contracts, controls, runtime failure, validation, or evolution to `$Write Arch Knowledge`.
 - Return a ready-to-type explicit invocation using `$Write Knowledge` for a general concept, mental model, comparison, or explanation that does not match these common domain artifacts.
 - Keep business lifecycle, product commitments, technical implementation, company policy, and project-specific decisions in their owning content classes even when they use domain knowledge.

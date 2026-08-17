@@ -10,15 +10,15 @@ Build reusable Architecture Knowledge about boundaries, ownership, contracts, co
 
 ## Workflow
 
-1. Apply `$Reason Arch`.
+1. Read `../../methods/architecture-reasoning.md` and apply it inside this workflow.
 2. Read `references/architecture-knowledge-method.md`, relevant sources, the target knowledge set, navigation, and representative sibling documents.
 3. Establish the reader decision, applicability, evidence, concepts, constraints, and reusable architecture question.
 4. Separate general facts, principles, options, inference, examples, company decisions, and project commitments.
 5. Analyze only the Domain, Application, Governance, and Runtime views needed for the question.
 6. Compare material options against common drivers. State fit, cost, failure behavior, validation, transition conditions, and limits.
 7. Use `assets/architecture-knowledge-template.md`. Adapt its branches to the subject without turning an example into a universal prescription.
-8. When `$Draw Diagram` was explicitly invoked by the user, provide the architecture meaning and let it own visual form. Otherwise retain sufficient prose or a table.
-9. Update existing Knowledge navigation when the artifact is created or renamed.
+8. Read `../../methods/visual-production.md` when the request includes a visual or a central architecture relationship is materially clearer as one. Preserve architecture meaning while applying its visual form and quality rules.
+9. Read `../../methods/prose-quality.md`, then update existing Knowledge navigation when the artifact is created or renamed.
 10. Verify applicability, sources, authority, option tradeoffs, failure behavior, validation, and separation from company or project commitments.
 
 ## Boundaries

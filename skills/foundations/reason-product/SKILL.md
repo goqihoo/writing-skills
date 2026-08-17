@@ -11,14 +11,14 @@ Establish the company product portfolio and each accepted product boundary befor
 ## Workflow
 
 1. Read repository instructions, company and Product navigation, existing product definitions, portfolio records, and representative adjacent products or initiatives.
-2. Read `references/product-reasoning-method.md` completely.
+2. Read `../../methods/product-reasoning.md` completely.
 3. Establish the company scope, candidate product or product line, intended users, offered outcome, evidence, owner, and decision being requested. Separate facts, hypotheses, accepted decisions, proposals, and missing evidence.
 4. Test the company product portfolio boundary, minimum user outcome, offered value, change authority, release boundary, and sustained lifecycle. Return `Accept`, `Route as product line, product area, or capability`, `Route to another authority scope`, or `Needs evidence`.
 5. Resolve relationships among portfolio, product line, product, subproduct, product area, capability, solution, peer product, dependency, and handoff. Treat a product line as a Portfolio classification view, not a default physical parent.
 6. Classify every accepted responsibility as a Stable Responsibility, Type Extension, or Event Collection. Admit a Type Extension only when independent ownership, governance, or navigation is proven.
 7. Assign each material one primary authority scope and owner. Keep reusable Product Knowledge, Project Documentation, and technical implementation in their owning locations.
-8. Persist `assets/product-assessment-template.md` only when a disputed boundary, Type Extension, audit, or migration decision needs durable traceability. Keep straightforward scaffold reasoning within the execution.
-9. Verify that the decision, product boundary, portfolio relationships, ownership, materialization class, and review triggers agree with the evidence.
+8. Persist `assets/product-assessment-template.md` only when a disputed boundary, Type Extension, audit, or migration decision needs durable traceability. Keep straightforward reasoning within the execution.
+9. Read `../../methods/prose-quality.md`, then verify that the decision, product boundary, portfolio relationships, ownership, materialization class, and review triggers agree with the evidence. Read `../../methods/visual-production.md` when the user requests a visual or the product relationships are materially clearer as one.
 
 ## Boundaries
 

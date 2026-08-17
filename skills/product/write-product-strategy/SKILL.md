@@ -10,14 +10,14 @@ Produce an evidence-backed product strategy that makes durable choices without b
 
 ## Workflow
 
-1. Apply `$Reason Product`.
-2. Read the Product Assessment, available user and market evidence, company constraints, current product behavior, capability map, existing strategy, and material decisions.
-3. Require an accepted product boundary. For a missing or disputed assessment, return a ready-to-type explicit invocation for `$Reason Product` and stop.
+1. Read `../../methods/product-reasoning.md` and apply it inside this workflow.
+2. Read the Product Assessment when persisted, available user and market evidence, company constraints, current product behavior, capability map, existing strategy, and material decisions.
+3. Establish an accepted product boundary from the available evidence. If the boundary remains materially unsupported or disputed, stop because the strategy would create a false product commitment; name the evidence or decision required.
 4. Separate observed facts, external constraints, hypotheses, accepted choices, targets, and unresolved decisions.
 5. Define target users and context, the problem and outcome, offered value, positioning, strategic choices, explicit non-goals, and capability implications.
 6. Compare material choices against the same evidence and constraints. Expose the cost of the selected direction and the authority that accepts it.
 7. Define outcome signals, assumptions, risks, and observable review triggers. Keep delivery dates and initiative sequencing in the roadmap.
-8. Use `assets/product-strategy-template.md` as the structure owner. Preserve its H2 headings, order, and responsibilities.
+8. Read `../../methods/prose-quality.md`, then use `assets/product-strategy-template.md` as the structure owner. Preserve its H2 headings, order, and responsibilities. Read `../../methods/visual-production.md` when the request includes a visual or the strategic choices are materially clearer as one.
 9. Update the product map when the strategy's path or status changes.
 10. Verify internal consistency among users, value, boundary, choices, capability implications, outcomes, and non-goals.
 

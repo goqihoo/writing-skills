@@ -1,7 +1,7 @@
 {
   "name": "scribe",
-  "version": "0.6.0+codex.20260817100143",
-  "description": "Composable skills for reusable Knowledge, company Product and Technical Documentation, professional writing, and technical visuals.",
+  "version": "0.7.0+codex.20260817112315",
+  "description": "Independent end-to-end skills for reusable Knowledge, company Product and Technical Documentation, professional writing, and technical visuals.",
   "author": {
     "name": "Andrew",
     "url": "https://github.com/goqihoo"
@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "Scribe Skills",
     "shortDescription": "Structure and write governed documentation.",
-    "longDescription": "Distinguish reusable Knowledge from company Product and Technical Documentation, assess boundaries and authority, structure stable responsibilities and conditional material, and create standard and high-frequency artifacts through explicit skill composition.",
+    "longDescription": "Choose one independently complete skill to distinguish reusable Knowledge from company Product and Technical Documentation, assess boundaries and authority, structure stable responsibilities, or create a governed artifact. Shared reasoning, prose, structure, and visual methods are applied internally.",
     "developerName": "goqihoo",
     "category": "Productivity",
     "capabilities": [
@@ -30,21 +30,21 @@
       "Diagram"
     ],
     "defaultPrompt": [
-      "Use $Ask Scribe to explain which Scribe skills fit my task and return a complete explicit invocation.",
+      "Use $Ask Scribe to identify the single Scribe skill that owns my requested result and return its complete invocation.",
       "Use $Structure Docs to plan a coherent documentation structure and migration map.",
       "Use $Write Doc for a dedicated reader-flow and prose-quality pass on this document.",
       "Use $Reason Domain to assess this reusable Domain Knowledge boundary.",
-      "Use $Structure Domain Docs, $Reason Domain, and $Structure Docs to structure this Domain Knowledge set.",
-      "Use $Write Domain Doc and $Reason Domain to create the named Domain Knowledge document.",
-      "Use $Write Arch Knowledge and $Reason Arch to create reusable Architecture Knowledge.",
+      "Use $Structure Domain Docs to structure this Domain Knowledge set.",
+      "Use $Write Domain Doc to create the named Domain Knowledge document.",
+      "Use $Write Arch Knowledge to create reusable Architecture Knowledge.",
       "Use $Reason Product to assess this company portfolio, product line, product, or product responsibility.",
-      "Use $Structure Product Docs, $Reason Product, and $Structure Docs to structure this company's Product Documentation Set.",
-      "Use $Write Product Doc and $Reason Product to create the named Product Internal Document Type.",
-      "Use $Assess Product Lifecycle and $Reason Product to assess the next product decision and artifact coverage.",
+      "Use $Structure Product Docs to structure this company's Product Documentation Set.",
+      "Use $Write Product Doc to create the named Product Internal Document Type.",
+      "Use $Assess Product Lifecycle to assess the next product decision and artifact coverage.",
       "Use $Reason Tech Docs to assess this company's Technical Landscape and documentation responsibilities.",
-      "Use $Structure Tech Docs, $Reason Tech Docs, and $Structure Docs to structure this company's Technical Documentation Set.",
-      "Use $Write Tech Doc and $Reason Tech Docs to create the named Technical Internal Document Type.",
-      "Use $Write Tech Arch, $Reason Tech Docs, and $Reason Arch to define this company's Technical Architecture.",
+      "Use $Structure Tech Docs to structure this company's Technical Documentation Set.",
+      "Use $Write Tech Doc to create the named Technical Internal Document Type.",
+      "Use $Write Tech Arch to define this company's Technical Architecture.",
       "Use $Draw Diagram to create and verify one useful visual for this document."
     ]
   }

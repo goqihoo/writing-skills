@@ -1,5 +1,7 @@
 # Architecture reasoning method
 
+Use this method inside any Public Skill that must reason about architectural boundaries, ownership, controls, failure, options, evolution, or validation.
+
 ## Reasoning loop
 
 Apply this loop within each relevant view:

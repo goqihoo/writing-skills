@@ -4,17 +4,17 @@ Use lifecycle as a decision view over authoritative product files. A stage group
 
 ## Decision views
 
-| Decision view | Main question | Common evidence and artifacts | Owning skill |
+| Decision view | Main question | Common evidence and artifacts | Owning Public Skill or skills |
 | --- | --- | --- | --- |
-| Discovery | Is the problem real and worth further investment? | Hypotheses, interviews, experiments, decision record | `$Write Product Doc` |
-| Product boundary and strategy | For whom will this product create what value, and what will it not do? | Product Assessment, product strategy | `$Reason Product`, `$Write Product Strategy` |
-| Capability definition | What durable abilities and responsibilities must the product provide? | Capability map and capability details | `$Map Product Capabilities`, `$Write Product Doc` |
-| Solution definition | How will shared capabilities address a repeatable customer or partner situation? | Product Solution | `$Write Product Doc` |
-| Product planning | Which outcomes and capability gaps should be addressed next? | Product roadmap | `$Write Product Roadmap` |
-| Initiative definition | What changes now, with what behavior and acceptance? | PRD | `$Write PRD` |
-| Release decision | Can the product change be released, supported, observed, and stopped under explicit criteria? | Product Release Plan and linked evidence | `$Write Product Doc` |
-| Operate and learn | What happened, and which assumptions changed? | Metrics, evidence, release notes, Product Review | `$Design Product Metrics`, `$Write Product Doc` |
-| Iterate, merge, or retire | What should continue, change, combine, pause, or stop? | Product Review, Product Decision, revised strategy or roadmap | `$Write Product Doc` |
+| Discovery | Is the problem real and worth further investment? | Hypotheses, interviews, experiments, decision record | Write Product Doc |
+| Product boundary and strategy | For whom will this product create what value, and what will it not do? | Product Assessment, product strategy | Reason Product for the assessment; Write Product Strategy for the strategy |
+| Capability definition | What durable abilities and responsibilities must the product provide? | Capability map and capability details | Map Product Capabilities for the map; Write Product Doc for a detail |
+| Solution definition | How will shared capabilities address a repeatable customer or partner situation? | Product Solution | Write Product Doc |
+| Product planning | Which outcomes and capability gaps should be addressed next? | Product roadmap | Write Product Roadmap |
+| Initiative definition | What changes now, with what behavior and acceptance? | PRD | Write PRD |
+| Release decision | Can the product change be released, supported, observed, and stopped under explicit criteria? | Product Release Plan and linked evidence | Write Product Doc |
+| Operate and learn | What happened, and which assumptions changed? | Metrics, evidence, release notes, Product Review | Design Product Metrics for metrics; Write Product Doc for the records |
+| Iterate, merge, or retire | What should continue, change, combine, pause, or stop? | Product Review, Product Decision, revised strategy or roadmap | Write Product Doc |
 
 Activities can run in parallel, revisit earlier decisions, or require different depth by risk. Select the current decision from its consequence and uncertainty, not from a claimed phase number.
 
@@ -90,6 +90,6 @@ For each decision gate, expose:
 - evidence gaps and contradictory signals;
 - gate state;
 - next action, owner, and review date or trigger;
-- complete explicit invocations for missing Scribe artifacts.
+- one complete single-skill invocation for each missing Scribe artifact.
 
 Technical material remains linked from its owning location. The lifecycle map may record product-facing readiness and a link, but it does not copy technical content or define the technical directory.

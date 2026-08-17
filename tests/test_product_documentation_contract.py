@@ -75,10 +75,7 @@ class ProductDocumentationContractTest(unittest.TestCase):
 
     def test_reason_product_covers_company_portfolio_and_product_boundaries(self) -> None:
         skill = read(FOUNDATIONS_ROOT / "reason-product/SKILL.md")
-        method = read(
-            FOUNDATIONS_ROOT
-            / "reason-product/references/product-reasoning-method.md"
-        )
+        method = read(REPO_ROOT / "skills/methods/product-reasoning.md")
 
         for concept in [
             "company product portfolio",
@@ -124,11 +121,11 @@ class ProductDocumentationContractTest(unittest.TestCase):
             )
 
         for route in [
-            "$Write Product Strategy $Reason Product",
-            "$Map Product Capabilities $Reason Product",
-            "$Write Product Roadmap $Reason Product",
+            "$Write Product Strategy",
+            "$Map Product Capabilities",
+            "$Write Product Roadmap",
             "$Write PRD",
-            "$Design Product Metrics $Reason Product",
+            "$Design Product Metrics",
         ]:
             self.assertIn(route, reference)
 

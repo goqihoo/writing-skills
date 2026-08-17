@@ -5,18 +5,21 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SKILLS_ROOT = REPO_ROOT / "skills"
 WRITE_DOC = SKILLS_ROOT / "foundations/write-doc/SKILL.md"
+PROSE_METHOD = REPO_ROOT / "skills/methods/prose-quality.md"
 
 class SharedWritingContractTest(unittest.TestCase):
-    def test_write_doc_owns_the_reader_flow_contract(self) -> None:
+    def test_shared_method_owns_the_reader_flow_contract(self) -> None:
         skill = WRITE_DOC.read_text(encoding="utf-8")
+        method = PROSE_METHOD.read_text(encoding="utf-8")
 
-        self.assertIn("## Shared prose contract", skill)
-        self.assertIn("**Point first.**", skill)
-        self.assertIn("**Concrete before abstract.**", skill)
-        self.assertIn("**Causal movement.**", skill)
-        self.assertIn("**Human syntax.**", skill)
-        self.assertIn("**Selective structure.**", skill)
-        self.assertIn("reader-flow failures", skill)
+        self.assertIn("methods/prose-quality.md", skill)
+        self.assertIn("## Prose contract", method)
+        self.assertIn("**Point first.**", method)
+        self.assertIn("**Concrete before abstract.**", method)
+        self.assertIn("**Causal movement.**", method)
+        self.assertIn("**Human syntax.**", method)
+        self.assertIn("**Selective structure.**", method)
+        self.assertIn("reader-flow failures", method)
 
     def test_write_doc_is_optional_for_other_skills(self) -> None:
         required = []
@@ -50,14 +53,12 @@ class SharedWritingContractTest(unittest.TestCase):
             instructions,
         )
 
-    def test_no_other_skill_declares_a_competing_prose_contract(self) -> None:
+    def test_no_public_skill_declares_a_competing_prose_contract(self) -> None:
         competing = []
 
         for path in sorted(SKILLS_ROOT.glob("*/*/SKILL.md")):
-            if path == WRITE_DOC:
-                continue
             skill = path.read_text(encoding="utf-8")
-            if "## Shared prose contract" in skill:
+            if "## Prose contract" in skill or "## Shared prose contract" in skill:
                 competing.append(str(path.relative_to(REPO_ROOT)))
 
         self.assertEqual([], competing)

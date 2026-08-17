@@ -8,6 +8,7 @@ SKILL_ROOT = REPO_ROOT / "skills/foundations/reason-domain"
 STRUCTURE_ROOT = REPO_ROOT / "skills/knowledge/structure-domain-docs"
 WRITE_ROOT = REPO_ROOT / "skills/knowledge/write-domain-doc"
 ARCHITECTURE_DOC = REPO_ROOT / "docs/domain-knowledge-skill-architecture.md"
+DOMAIN_METHOD = REPO_ROOT / "skills/methods/domain-reasoning.md"
 
 
 class ReasonDomainContractTest(unittest.TestCase):
@@ -18,16 +19,14 @@ class ReasonDomainContractTest(unittest.TestCase):
         self.assertIn("name: reason-domain", skill)
         self.assertIn("disable-model-invocation: true", skill)
         self.assertNotIn("Apply `$Write Doc`", skill)
-        self.assertIn("references/domain-reasoning-method.md", skill)
+        self.assertIn("methods/domain-reasoning.md", skill)
         self.assertIn("assets/domain-assessment-template.md", skill)
         self.assertIn('display_name: "Reason Domain"', metadata)
         self.assertIn("$Reason Domain", metadata)
         self.assertIn("allow_implicit_invocation: false", metadata)
 
     def test_reasoning_method_defines_the_domain_decision_contract(self) -> None:
-        method = (SKILL_ROOT / "references/domain-reasoning-method.md").read_text(
-            encoding="utf-8"
-        )
+        method = DOMAIN_METHOD.read_text(encoding="utf-8")
 
         for criterion in [
             "Minimum purpose",
@@ -63,7 +62,7 @@ class ReasonDomainContractTest(unittest.TestCase):
         positions = [template.index(section) for section in required_sections]
         self.assertEqual(positions, sorted(positions))
 
-    def test_domain_structure_and_writing_require_explicit_domain_reasoning(self) -> None:
+    def test_domain_structure_and_writing_reuse_internal_domain_reasoning(self) -> None:
         structure_skill = (STRUCTURE_ROOT / "SKILL.md").read_text(encoding="utf-8")
         structure_metadata = (
             STRUCTURE_ROOT / "agents/openai.yaml"
@@ -73,12 +72,12 @@ class ReasonDomainContractTest(unittest.TestCase):
             encoding="utf-8"
         )
 
-        self.assertIn("`$Reason Domain`", structure_skill)
-        self.assertIn("$Reason Domain", structure_metadata)
-        self.assertIn("`$Reason Domain`", write_skill)
-        self.assertIn("$Reason Domain", write_metadata)
-        self.assertIn("ready-to-type explicit invocation", structure_skill)
-        self.assertIn("ready-to-type explicit invocation", write_skill)
+        self.assertIn("methods/domain-reasoning.md", structure_skill)
+        self.assertNotIn("$Reason Domain", structure_metadata)
+        self.assertIn("methods/domain-reasoning.md", write_skill)
+        self.assertNotIn("$Reason Domain", write_metadata)
+        self.assertNotIn("required dependency", structure_skill)
+        self.assertNotIn("required dependency", write_skill)
         self.assertNotIn("invoke `$Write Domain Doc`", structure_skill)
 
     def test_plugin_guides_and_architecture_expose_the_design(self) -> None:

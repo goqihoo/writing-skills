@@ -1,6 +1,6 @@
 interface:
   display_name: "Structure Product Docs"
   short_description: "Structure company Product Documentation"
-  default_prompt: "Use $Structure Product Docs, $Reason Product, and $Structure Docs to propose, scaffold, audit, or migrate this company's Product Documentation Set."
+  default_prompt: "Use $Structure Product Docs to propose, scaffold, audit, or migrate this company's Product Documentation Set."
 policy:
   allow_implicit_invocation: false

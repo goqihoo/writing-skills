@@ -25,12 +25,12 @@ Select exactly one Internal Document Type. The table is the source of truth for 
 
 ## Public artifact routes
 
-Return the complete invocation and stop before drafting:
+Route the requested independent result to its owning Public Skill and stop before drafting it here:
 
-- Product Strategy → `$Write Product Strategy $Reason Product`
-- Capability Map → `$Map Product Capabilities $Reason Product`
-- Product Roadmap → `$Write Product Roadmap $Reason Product`
+- Product Strategy → `$Write Product Strategy`
+- Capability Map → `$Map Product Capabilities`
+- Product Roadmap → `$Write Product Roadmap`
 - PRD → `$Write PRD`
-- Product Metric System → `$Design Product Metrics $Reason Product`
+- Product Metric System → `$Design Product Metrics`
 
-Return `$Structure Product Docs $Reason Product $Structure Docs` for proposal, scaffold, audit, or approved migration work. Add `$Write Product Doc` when the same request also creates navigation or Responsibility README bodies. Selecting an Internal Document Type is routing within this skill and never invokes another skill.
+Route proposal, scaffold, audit, approved migration, navigation, or Responsibility README work to `$Structure Product Docs`. Selecting an Internal Document Type is routing within this skill and never invokes another skill.

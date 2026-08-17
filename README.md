@@ -8,13 +8,13 @@ Scribe is a set of explicitly invoked skills for professional documents, Company
 - **Company Documentation** is owned and maintained by one named company. Scribe currently covers **Product Documentation** and **Technical Documentation**.
 - **Project Documentation** belongs to one customer, contract, initiative, engagement, plan, or acceptance boundary. Its directory and artifact system is outside this release.
 
-Company structures use **Stable Responsibility**, **Type Extension**, and **Event Collection** materialization rules. Lower-frequency standard documents remain an **Internal Document Type** within a Common Writer. **Explicit Skill Composition** means the user names every required skill; no Scribe skill invokes another skill.
+Company structures use **Stable Responsibility**, **Type Extension**, and **Event Collection** materialization rules. Lower-frequency standard documents remain an **Internal Document Type** within a Common Writer. Each Public Skill delivers one end-to-end result and applies cross-skill **Shared Methods** internally.
 
-Add **Write Doc** (`write-doc`) when you want a dedicated reader-flow and prose-quality workflow. Add **Draw Diagram** (`draw-diagram`) only when one visual is requested.
+Use **Write Doc** (`write-doc`) when prose improvement is itself the requested result. Use **Draw Diagram** (`draw-diagram`) when one visual is itself the requested result. Other skills already apply prose quality and visual production when their own result needs them.
 
 ## Invocation
 
-Every skill accepts its exact Skill Display Name and canonical Skill ID. Prefer the display name in user-facing calls: use `$Ask Scribe` or `$ask-scribe` in Agent Skills clients, and `/Ask Scribe` or `/ask-scribe` in Claude Code. Skill IDs remain stable in paths, manifests, and code.
+Every skill accepts its exact Skill Display Name and canonical Skill ID. Prefer the display name in user-facing calls: use `$Ask Scribe` or `$ask-scribe` in Agent Skills clients, and `/Ask Scribe` or `/ask-scribe` in Claude Code. Skill IDs remain stable in paths, manifests, and code. Invoke one skill for one result; naming multiple skills requests multiple independent results.
 
 ## Installation
 
@@ -35,8 +35,11 @@ claude plugin install scribe@goqihoo
 ### Other Agent Skills clients
 
 ```bash
-npx skills@latest add goqihoo/writing-skills
+git clone https://github.com/goqihoo/writing-skills.git
+bash writing-skills/scripts/link-skills.sh "$HOME/.agents/skills"
 ```
+
+The link script installs the 23 Public Skills and their non-invocable Shared Methods together.
 
 ## Skills
 
@@ -84,4 +87,4 @@ npx skills@latest add goqihoo/writing-skills
 - [Domain Knowledge Skill Architecture](docs/domain-knowledge-skill-architecture.md)
 - [Product Documentation Skill Architecture](docs/product-documentation-skill-architecture.md)
 - [Technical Documentation Skill Architecture](docs/technical-documentation-skill-architecture.md)
-- [Scribe 0.6.0 migration notes](docs/releases/0.6.0.md)
+- [Scribe 0.7.0 migration notes](docs/releases/0.7.0.md)

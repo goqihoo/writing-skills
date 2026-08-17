@@ -1,7 +1,7 @@
 {
   "name": "scribe",
-  "version": "0.6.0",
-  "description": "Composable skills for reusable Knowledge, company Product and Technical Documentation, professional writing, and technical visuals.",
+  "version": "0.7.0",
+  "description": "Independent end-to-end skills for reusable Knowledge, company Product and Technical Documentation, professional writing, and technical visuals.",
   "author": {
     "name": "Andrew"
   },
