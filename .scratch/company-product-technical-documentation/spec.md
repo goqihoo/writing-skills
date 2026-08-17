@@ -205,7 +205,7 @@ Product 的类型扩展包括 `Solutions/` 与 `Experience/`；事件集合包�
 - 技能库内部建立总架构、Product Documentation 架构和 Technical Documentation 架构说明；Domain Knowledge 架构继续保留。旧的 Product Knowledge 架构名称被 Product Documentation 架构替代。
 - 在用户的产品知识库中生成一份面向人的划分依据文档，解释通用 Knowledge、公司 Product/Technical 文档、Project 文档、稳定职责、类型扩展、事件集合和技能准入原则。该文档与技能库自身的架构说明分开。
 - 更新所有公开说明、技能桶说明、Ask Scribe、插件清单、默认提示、marketplace metadata 与版本，使术语和技能清单一致。
-- 发布版本为 0.5.0；Codex 构建版本在 0.5.0 基础上使用仓库既有的构建后缀约定。
+- 发布版本为 0.6.0；Codex 构建版本在 0.6.0 基础上使用仓库既有的构建后缀约定。
 
 ## Testing Decisions
 
@@ -222,7 +222,7 @@ Product 的类型扩展包括 `Solutions/` 与 `Experience/`；事件集合包�
 - 更新 architecture skill name contract，验证 write-architecture-knowledge 与 write-technical-architecture 的目录、frontmatter、显示名、默认提示和插件入口一致。
 - 迁移测试验证旧架构技能名、三个被合并的 Product 公共技能、已删除占位技能及旧 Product Knowledge 架构名称不再出现在公开入口。
 - 插件和导航测试验证根 README、技能桶 README、Ask Scribe、Claude manifest、Codex manifest 与 marketplace metadata 展示同一组公共技能和公司文档术语。
-- 版本测试验证正式插件版本为 0.5.0，并允许 Codex manifest 使用约定的 0.5.0 构建后缀。
+- 版本测试验证正式插件版本为 0.6.0，并允许 Codex manifest 使用约定的 0.6.0 构建后缀。
 - Responsibility README 和模板 contract 只验证稳定责任、必需决策字段、权威链接与完成条件，不锁定具体自然语言。
 - 结构 contract 验证默认 scaffold 不物化任何 Type Extension 或 Event Collection，不链接不存在的计划文档，也不创建无事实正文。
 - 权威边界测试验证 Product/Technical 技能明确引用而不复制 Machine Authority、项目交付事实或通用 Knowledge。

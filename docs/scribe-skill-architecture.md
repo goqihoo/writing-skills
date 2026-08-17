@@ -37,7 +37,7 @@ Every Public Skill has one canonical Skill ID and one exact, unique Skill Displa
 
 ## Explicit Skill Composition
 
-Every skill disables model invocation and implicit invocation. The user explicitly names every required coordination, structure, and artifact skill. Add `write-doc` for a dedicated prose-quality pass or `draw-diagram` for one visual. A skill that detects a missing required dependency stops and returns the complete ready-to-type invocation; it never invokes that skill itself. Selecting an Internal Document Type inside a Common Writer is internal routing, not skill invocation.
+Every skill disables model invocation and implicit invocation. The user explicitly names every required coordination, structure, and artifact skill. Add `$Write Doc` for a dedicated prose-quality pass or `$Draw Diagram` for one visual. A skill that detects a missing required dependency stops and returns the complete ready-to-type invocation; it never invokes that skill itself. Selecting an Internal Document Type inside a Common Writer is internal routing, not skill invocation.
 
 ## Company root
 
