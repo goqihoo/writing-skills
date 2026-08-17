@@ -5,7 +5,8 @@
 | Field | Value |
 |---|---|
 | Owner | <Name or role> |
-| Status | Draft / In review / Approved / Superseded |
+| Acceptance state | Draft / Accepted |
+| Currency state | Current / Needs review / Superseded |
 | Last updated | <Date> |
 | Decision deadline | <Date or not applicable> |
 

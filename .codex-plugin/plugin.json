@@ -1,7 +1,7 @@
 {
   "name": "scribe",
-  "version": "0.3.0+codex.20260816034833",
-  "description": "Professional documentation structure, writing, and technical visual skills with one guided entry point.",
+  "version": "0.4.0+codex.20260817050029",
+  "description": "Professional documentation structure, product lifecycle, writing, and technical visual skills with one guided entry point.",
   "author": {
     "name": "Andrew",
     "url": "https://github.com/goqihoo"
@@ -12,6 +12,7 @@
     "documentation",
     "organization",
     "product",
+    "product-lifecycle",
     "architecture",
     "diagrams"
   ],
@@ -19,7 +20,7 @@
   "interface": {
     "displayName": "Scribe Skills",
     "shortDescription": "Structure and write clear professional documents.",
-    "longDescription": "Assess domain boundaries, plan general and domain-specific documentation structures, then create domain knowledge sets, essence articles, knowledge documents, PRDs, reusable architecture studies, delivery architecture, and technical diagrams through focused, composable skills.",
+    "longDescription": "Assess domain and product boundaries, plan general, domain, and product knowledge structures, evaluate product lifecycle readiness, then create focused knowledge, strategy, capability, solution, roadmap, PRD, metric, release, review, architecture, and visual artifacts through explicit composable skills.",
     "developerName": "goqihoo",
     "category": "Productivity",
     "capabilities": [
@@ -35,6 +36,11 @@
       "Use $structure-domain-docs, $reason-domain, $structure-docs, and $write-doc to create a coherent directory and reading path for this domain knowledge set.",
       "Use $write-domain-doc, $reason-domain, and $write-doc to create the appropriate document for this accepted domain knowledge set.",
       "Use $write-domain-doc, $reason-domain, and $write-doc to write a first-principles essence article for this accepted domain.",
+      "Use $reason-product and $write-doc to decide whether this subject is a product, product area, capability, solution, or another content class.",
+      "Use $assess-product-lifecycle, $reason-product, and $write-doc to identify the current product decision, evidence gaps, artifact coverage, and next actions.",
+      "Use $structure-product-docs, $reason-product, $assess-product-lifecycle, $structure-docs, $write-product-doc, and $write-doc to scaffold the seven-directory product knowledge core and both navigation maps.",
+      "Use $write-product-strategy, $reason-product, and $write-doc to define this product's direction, choices, non-goals, and review triggers.",
+      "Use $map-product-capabilities, $reason-product, and $write-doc to model this product's durable capabilities and responsibility boundaries.",
       "Use $write-doc to draft a clear technical document from these notes.",
       "Use $draw-diagrams and $write-doc to turn this architecture into a concise diagram."
     ]

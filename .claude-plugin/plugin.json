@@ -1,7 +1,7 @@
 {
   "name": "scribe",
-  "version": "0.3.0",
-  "description": "Professional documentation structure, writing, and technical visual skills with one guided entry point.",
+  "version": "0.4.0",
+  "description": "Professional documentation structure, product lifecycle, writing, and technical visual skills with one guided entry point.",
   "author": {
     "name": "Andrew"
   },
@@ -12,11 +12,22 @@
     "./skills/foundations/write-doc",
     "./skills/foundations/reason-architecture",
     "./skills/foundations/reason-domain",
+    "./skills/foundations/reason-product",
     "./skills/knowledge/structure-domain-docs",
     "./skills/knowledge/write-domain-doc",
     "./skills/knowledge/write-knowledge",
     "./skills/knowledge/write-study-architecture",
+    "./skills/product/assess-product-lifecycle",
+    "./skills/product/structure-product-docs",
+    "./skills/product/write-product-doc",
+    "./skills/product/write-product-strategy",
+    "./skills/product/map-product-capabilities",
+    "./skills/product/write-solution-definition",
+    "./skills/product/write-product-roadmap",
     "./skills/product/write-prd",
+    "./skills/product/design-product-metrics",
+    "./skills/product/write-release-plan",
+    "./skills/product/write-product-review",
     "./skills/technical/write-delivery-architecture",
     "./skills/visual/draw-diagrams"
   ]

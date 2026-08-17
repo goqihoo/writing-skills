@@ -1,0 +1,6 @@
+interface:
+  display_name: "Write Product Doc"
+  short_description: "Create a common current-state product document"
+  default_prompt: "Use $write-product-doc, $reason-product, and $write-doc to create the appropriate common document for this product knowledge set."
+policy:
+  allow_implicit_invocation: false

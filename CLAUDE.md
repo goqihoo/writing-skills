@@ -25,7 +25,11 @@ Use `$skill-name` for ready-to-type Agent Skills invocations and `/skill-name` f
 - `write-doc` owns the single shared prose contract for all human-readable documents. It standardizes natural reader flow, concrete language, sentence movement, emphasis, and formatting while leaving genre, structure, facts, and technical meaning with the artifact skill.
 - `reason-architecture` owns the architecture method shared by architecture artifacts.
 - `reason-domain` owns domain admission, boundaries, relationships, subdomain validity, high-level knowledge ownership, maturity, and the Domain Assessment handoff.
+- `reason-product` owns product admission, boundaries, hierarchy, change and release authority, high-level knowledge ownership, and the Product Assessment handoff.
+- `assess-product-lifecycle` owns product decision readiness, artifact coverage, evidence gaps, and the Product Lifecycle Assessment.
 - `structure-docs` owns directory responsibilities, file placement, documentation navigation, and structure migrations.
+- `structure-product-docs` owns the seven-directory product core, product-type extensions, materialization, navigation requirements, and product-structure migrations.
+- `write-product-doc` owns common product maps, reference, evidence, decision, behavior, and release-note documents; standard lifecycle artifacts retain their independent public skills.
 - Each deliverable skill owns one artifact boundary, workflow, completion test, and output template.
 - `draw-diagrams` owns visual routing and quality, not architecture meaning.
 - `ask-scribe` explains and recommends; the user retains control of every subsequent invocation and execution.

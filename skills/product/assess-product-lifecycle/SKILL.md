@@ -1,0 +1,34 @@
+---
+name: assess-product-lifecycle
+description: Assess a product's next decision, evidence sufficiency, authoritative artifact coverage, and readiness without treating lifecycle stages as directories or creating another skill's artifact.
+disable-model-invocation: true
+---
+
+# Assess Product Lifecycle
+
+Turn lifecycle activity into an explicit decision-readiness view over one accepted product.
+
+## Workflow
+
+1. Apply `$reason-product` and `$write-doc`.
+2. Read repository instructions, the Product Assessment, product README, lifecycle map, current strategy, capability map, roadmap, active initiatives, evidence, metrics, and recent releases when present.
+3. Require an accepted product boundary. For a missing, stale, or disputed boundary, return a ready-to-type explicit invocation for `$reason-product $write-doc` and stop.
+4. Read `references/product-lifecycle-model.md` completely.
+5. Identify the decision being prepared rather than assigning a stage from document names. Record the responsible decision-maker, cost of acting, cost of delay, and uncertainty that must be reduced.
+6. Inventory the evidence and authoritative artifacts required for that decision. Distinguish absence, insufficiency, staleness, ownership conflict, and an artifact that is not yet applicable.
+7. Assign the structure state, artifact acceptance and currency states, and decision-gate state independently. Do not use one completion mark for all three state groups.
+8. Right-size the required artifacts to the decision and risk. Keep a missing decision visible instead of requiring every lifecycle template.
+9. Adapt `assets/product-lifecycle-assessment-template.md`. For each missing artifact, return the complete ready-to-type explicit invocation for its owning skill; do not invoke it.
+10. Verify that every readiness conclusion points to evidence, an authoritative artifact, or a named gap.
+
+## Boundaries
+
+- Own the Product Lifecycle Assessment, decision-gate matrix, evidence sufficiency, artifact coverage, and next explicit invocations.
+- Treat stages as a navigation and governance view, not a product directory topology.
+- Let `$structure-product-docs` own paths, scaffolding, and migration.
+- Let product artifact skills own strategy, capabilities, solutions, roadmap, PRD, metrics, release plan, and review bodies.
+- Route technical readiness to the owning technical location without modeling its internal structure.
+
+## Completion
+
+The work is complete when one current decision and decision-maker are explicit, every required artifact has an authoritative link or named gap, all three state groups and their fields are assigned independently, evidence insufficiency is distinguishable from missing files, and each blocked next step has a complete explicit invocation without another skill having been executed.

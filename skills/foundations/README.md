@@ -11,4 +11,5 @@ Explicitly invoked Scribe guide and methods shared across document work.
 - [write-doc](write-doc/SKILL.md) — Apply shared reasoning and clarity rules to one document.
 - [reason-architecture](reason-architecture/SKILL.md) — Apply the shared four-view architecture method.
 - [reason-domain](reason-domain/SKILL.md) — Assess domain admission, boundaries, relationships, knowledge ownership, and maturity.
+- [reason-product](reason-product/SKILL.md) — Assess product admission, boundaries, hierarchy, ownership, lifecycle, and review triggers.
 - [structure-docs](structure-docs/SKILL.md) — Plan and review directory boundaries, file placement, and documentation structure.
