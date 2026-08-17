@@ -4,13 +4,13 @@ description: Propose, scaffold, audit, or apply an approved migration for one co
 disable-model-invocation: true
 ---
 
-# Structure Technical Docs
+# Structure Tech Docs
 
 Create a company Technical structure that exposes real ownership without mirroring a code repository or pre-creating speculative areas.
 
 ## Workflow
 
-1. Apply `$reason-technical`, `$structure-docs`, and `$write-doc`. Add `$write-technical-doc` when navigation or Responsibility README bodies are requested.
+1. Apply `$Reason Tech Docs` and `$Structure Docs`. Add `$Write Tech Doc` when navigation or Responsibility README bodies are requested.
 2. Classify the request as a `proposal`, `scaffold`, `audit`, or `approved migration`. Require explicit approval before moving, renaming, merging, deleting, or overwriting existing material.
 3. Read company navigation, the Technical Assessment when persisted, current Technical Documentation, and representative downstream authority links.
 4. Read `references/technical-structure-model.md` and inventory existing and requested material with `assets/technical-inventory-template.md`.
@@ -24,9 +24,9 @@ Create a company Technical structure that exposes real ownership without mirrori
 ## Boundaries
 
 - Own Technical Documentation topology, materialization, navigation requirements, scaffolding, audits, and approved migrations.
-- Let `$reason-technical` own scope, authority, ownership, and Type Extension admission.
-- Let `$write-technical-doc` and `$write-technical-architecture` own document bodies.
-- Let `$structure-docs` resolve placement across Company, Knowledge, and Project documentation.
+- Let `$Reason Tech Docs` own scope, authority, ownership, and Type Extension admission.
+- Let `$Write Tech Doc` and `$Write Tech Arch` own document bodies.
+- Let `$Structure Docs` resolve placement across Company, Knowledge, and Project documentation.
 
 ## Completion
 

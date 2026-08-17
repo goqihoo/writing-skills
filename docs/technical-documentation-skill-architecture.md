@@ -22,10 +22,10 @@ Technical/
 
 | Skill | Ownership |
 | --- | --- |
-| `reason-technical` | Company technical scope, Technical Landscape, ownership, authority, materialization admission, and Technical Assessment decisions. |
-| `structure-technical-docs` | Technical topology, navigation, materialization, scaffolding, audits, and approved migration. |
-| `write-technical-doc` | Technical Common Writer and its Internal Document Types. |
-| `write-technical-architecture` | Company Technical Architecture across principles, boundaries, relationships, constraints, decisions, and evolution. |
+| **Reason Tech Docs** (`reason-technical`) | Company technical scope, Technical Landscape, ownership, authority, materialization admission, and Technical Assessment decisions. |
+| **Structure Tech Docs** (`structure-technical-docs`) | Technical topology, navigation, materialization, scaffolding, audits, and approved migration. |
+| **Write Tech Doc** (`write-technical-doc`) | Technical Common Writer and its Internal Document Types. |
+| **Write Tech Arch** (`write-technical-architecture`) | Company Technical Architecture across principles, boundaries, relationships, constraints, decisions, and evolution. |
 
 ## Common Writer boundary
 
@@ -39,7 +39,7 @@ A System Profile retains company purpose, ownership, lifecycle, critical relatio
 
 ## Explicit Skill Composition
 
-Technical artifacts explicitly include `$write-doc` and `$reason-technical`. Company Technical Architecture also explicitly includes `$reason-architecture`. Add `$draw-diagrams` only when the user requests a visual. Internal Document Type selection stays inside `write-technical-doc`.
+Technical artifacts explicitly include `$Reason Tech Docs`. Company Technical Architecture also explicitly includes `$Reason Arch`. Add `$Write Doc` for a dedicated prose-quality pass or `$Draw Diagram` when the user requests one visual. Internal Document Type selection stays inside `write-technical-doc`.
 
 ## Completion contract
 

@@ -1,6 +1,6 @@
 interface:
   display_name: "Structure Domain Docs"
   short_description: "Design a coherent domain knowledge directory"
-  default_prompt: "Use $structure-domain-docs, $reason-domain, $structure-docs, and $write-doc to create a clear directory and reading path for this domain knowledge set."
+  default_prompt: "Use $Structure Domain Docs, $Reason Domain, and $Structure Docs to create a clear directory and reading path for this domain knowledge set."
 policy:
   allow_implicit_invocation: false

@@ -1,6 +1,6 @@
 interface:
-  display_name: "Reason About Technical Documentation"
+  display_name: "Reason Tech Docs"
   short_description: "Assess company technical scope and authority"
-  default_prompt: "Use $reason-technical and $write-doc to assess this company's Technical Landscape, ownership, authority boundaries, and documentation responsibilities."
+  default_prompt: "Use $Reason Tech Docs to assess this company's Technical Landscape, ownership, authority boundaries, and documentation responsibilities."
 policy:
   allow_implicit_invocation: false

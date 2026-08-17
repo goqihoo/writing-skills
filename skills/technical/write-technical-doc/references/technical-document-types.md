@@ -1,6 +1,6 @@
 # Technical Internal Document Types
 
-Select exactly one Internal Document Type. This table owns the template and completion profile for `$write-technical-doc`.
+Select exactly one Internal Document Type. This table owns the template and completion profile for `$Write Tech Doc`.
 
 | Internal Document Type | Template | Completion profile |
 | --- | --- | --- |
@@ -22,4 +22,4 @@ Select exactly one Internal Document Type. This table owns the template and comp
 | Governance Exception | governance-exception-template.md | Deviation, authority, scope, risk, controls, expiry, and remediation are traceable. |
 | Incident Record/Review | incident-review-template.md | Impact, timeline, evidence, contributing conditions, response, learning, and actions are distinguished. |
 
-Company Technical Architecture is independently owned. Return `$write-technical-architecture $reason-technical $reason-architecture $write-doc` and stop before drafting it. Selecting an Internal Document Type is routing within this skill, not another skill invocation.
+Company Technical Architecture is independently owned. Return `$Write Tech Arch $Reason Tech Docs $Reason Arch` and stop before drafting it. Selecting an Internal Document Type is routing within this skill, not another skill invocation.

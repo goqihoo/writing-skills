@@ -16,11 +16,11 @@
 - [ ] write-technical-doc 覆盖 Platform Definition、Engineering Practice、Data Governance、Security Governance、Quality Model 与 Operations Model 等条件内部类型。
 - [ ] write-technical-doc 覆盖 Architecture Decision、Governance Exception 与 Incident Record/Review 等事件内部类型。
 - [ ] System Profile 只保留公司需要的目的、所有权、生命周期、关键关系、治理状态和权威链接，不复制代码、配置或详细系统设计。
-- [ ] write-technical-architecture 独立拥有公司 Technical Architecture，并应用 reason-technical、reason-architecture 与 write-doc 的显式组合。
+- [ ] write-technical-architecture 独立拥有公司 Technical Architecture，并应用 reason-technical 与 reason-architecture 的显式组合。
 - [ ] 通用 Architecture Knowledge 由 write-architecture-knowledge 独立拥有，不形成公司实施承诺。
 - [ ] 旧的 Study Architecture 与 Delivery Architecture 名称被原子替换，项目型 Technical Design、Decision Record 和交付架构占位能力退出当前 Technical 范围。
 - [ ] 所有被替换或删除的技术技能不保留别名、兼容包装或旧公开标识。
-- [ ] draw-diagrams 继续作为独立 Visual 技能；只有用户显式包含它时，Technical 或 Architecture 工作流才生成图表。
-- [ ] 所有生成或审阅 Technical 正文的调用显式包含 write-doc，技能缺少依赖时返回完整调用并停止。
+- [ ] draw-diagram 继续作为独立 Visual 技能；只有用户显式包含它时，Technical 或 Architecture 工作流才生成图表。
+- [ ] Technical 制品技能能够独立完成正文；用户需要专门的读者流与文风处理时可额外包含 write-doc。
 - [ ] Technical 与 Architecture 契约测试覆盖稳定核心、条件扩展、事件集合、Common Writer 路由、Machine Authority 和新旧技能名称。
 - [ ] Technical、Knowledge 与 Visual 的公共说明、技能列表、客户端元数据和推荐调用在本票据完成后保持一致并通过验证。

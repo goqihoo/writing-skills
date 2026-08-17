@@ -124,11 +124,11 @@ class ProductDocumentationContractTest(unittest.TestCase):
             )
 
         for route in [
-            "$write-product-strategy $reason-product $write-doc",
-            "$map-product-capabilities $reason-product $write-doc",
-            "$write-product-roadmap $reason-product $write-doc",
-            "$write-prd $write-doc",
-            "$design-product-metrics $reason-product $write-doc",
+            "$Write Product Strategy $Reason Product",
+            "$Map Product Capabilities $Reason Product",
+            "$Write Product Roadmap $Reason Product",
+            "$Write PRD",
+            "$Design Product Metrics $Reason Product",
         ]:
             self.assertIn(route, reference)
 

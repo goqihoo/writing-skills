@@ -20,6 +20,6 @@
 - [ ] Product Strategy、Capability Map、Product Roadmap、PRD 与 Product Metric System 继续由各自高频公共技能拥有。
 - [ ] 被合并的低频公共技能和未实现的 Product Requirements 占位技能被移除，不保留别名或兼容包装。
 - [ ] Product Common Writer 遇到独立公共制品时返回完整显式调用并停止，不执行目标技能。
-- [ ] 所有生成或审阅 Product 正文的调用显式包含 write-doc；需要图表时由用户额外显式包含 draw-diagrams。
+- [ ] Product 制品技能能够独立完成正文；用户需要专门的读者流与文风处理时可额外包含 write-doc，需要图表时额外包含 draw-diagram。
 - [ ] Product 契约测试覆盖公司级核心、单产品核心、条件扩展、事件集合、内部类型路由、保留技能和移除技能。
 - [ ] Product 的公共说明、技能列表、客户端元数据和推荐调用在本票据完成后保持一致并通过验证。

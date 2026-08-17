@@ -10,9 +10,9 @@ Produce an evidence-backed product strategy that makes durable choices without b
 
 ## Workflow
 
-1. Apply `$reason-product` and `$write-doc`.
+1. Apply `$Reason Product`.
 2. Read the Product Assessment, available user and market evidence, company constraints, current product behavior, capability map, existing strategy, and material decisions.
-3. Require an accepted product boundary. For a missing or disputed assessment, return a ready-to-type explicit invocation for `$reason-product $write-doc` and stop.
+3. Require an accepted product boundary. For a missing or disputed assessment, return a ready-to-type explicit invocation for `$Reason Product` and stop.
 4. Separate observed facts, external constraints, hypotheses, accepted choices, targets, and unresolved decisions.
 5. Define target users and context, the problem and outcome, offered value, positioning, strategic choices, explicit non-goals, and capability implications.
 6. Compare material choices against the same evidence and constraints. Expose the cost of the selected direction and the authority that accepts it.
@@ -25,7 +25,7 @@ Produce an evidence-backed product strategy that makes durable choices without b
 
 - Own one product's strategic direction and durable product choices.
 - Keep company portfolio investment and organization policy in company strategy.
-- Let `$map-product-capabilities` own capability decomposition, `$write-product-roadmap` own sequence, and `$write-prd` own one change's behavior and acceptance.
+- Let `$Map Product Capabilities` own capability decomposition, `$Write Product Roadmap` own sequence, and `$Write PRD` own one change's behavior and acceptance.
 - Link business and market evidence rather than copying their authoritative explanations.
 
 ## Completion

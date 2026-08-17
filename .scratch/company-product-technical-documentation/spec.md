@@ -55,7 +55,7 @@ Scribe 将采用以权威范围、主题和技能角色相互正交的模型：
 
 Product 的类型扩展包括 `Solutions/` 与 `Experience/`；事件集合包括 `Initiatives/`、`Evidence/`、`Releases/` 与 `Decisions/`。Technical 的类型扩展包括 `Platforms/`、`Engineering/`、`Data/`、`Security/`、`Quality/` 与 `Operations/`；事件集合放在相应稳定职责下，例如 Architecture Decisions、Governance Exceptions 和 Operations Incidents。
 
-公共技能只在任务跨公司或跨产品反复发生、具有独立推理或工作流，并且具有可检查完成条件时创建。低频标准文档作为 `write-product-doc` 或 `write-technical-doc` 的内部文档类型。所有公共技能保持用户显式调用；任何技能发现缺少依赖时必须停止并返回完整的显式调用，不能自动执行另一个技能。`draw-diagrams` 继续作为跨 Knowledge、Product 和 Technical 的 Visual 技能，并且只有用户显式调用时才生成图表。
+公共技能只在任务跨公司或跨产品反复发生、具有独立推理或工作流，并且具有可检查完成条件时创建。低频标准文档作为 `write-product-doc` 或 `write-technical-doc` 的内部文档类型。所有公共技能保持用户显式调用；任何技能发现缺少依赖时必须停止并返回完整的显式调用，不能自动执行另一个技能。`draw-diagram` 继续作为跨 Knowledge、Product 和 Technical 的 Visual 技能，并且只有用户显式调用时才生成图表。
 
 ## User Stories
 
@@ -141,10 +141,10 @@ Product 的类型扩展包括 `Solutions/` 与 `Experience/`；事件集合包�
 80. 作为 Scribe 维护者，我希望所有技能的 frontmatter 和客户端策略都禁止隐式调用，从而让不同运行环境保持一致。
 81. 作为 Scribe 使用者，我希望 ask-scribe 只解释和推荐技能，从而不会在咨询时修改文件或生成其他技能的制品。
 82. 作为产品或技术文档作者，我希望内部文档类型选择不被误认为技能调用，从而允许公共写作技能完成自身的路由职责。
-83. 作为图表作者，我希望 draw-diagrams 继续跨 Product、Technical 和 Knowledge 使用，从而不重复建设画图技能。
-84. 作为 Scribe 使用者，我希望只有显式包含 draw-diagrams 时才生成图表，从而保留对视觉产出的控制。
-85. 作为文档作者，我希望所有人类可读正文显式组合 write-doc，从而统一读者流、语言和格式质量。
-86. 作为架构作者，我希望技术架构显式组合 reason-technical、reason-architecture、write-doc，并在需要时组合 draw-diagrams，从而让每项职责清晰可见。
+83. 作为图表作者，我希望 draw-diagram 继续跨 Product、Technical 和 Knowledge 使用，从而不重复建设画图技能。
+84. 作为 Scribe 使用者，我希望只有显式包含 draw-diagram 时才生成图表，从而保留对视觉产出的控制。
+85. 作为文档作者，我希望在需要专门处理读者流、语言和格式质量时可以显式组合 write-doc，而制品技能本身仍能独立完成正文。
+86. 作为架构作者，我希望技术架构显式组合 reason-technical 与 reason-architecture，并可按需组合 write-doc 或 draw-diagram，从而让必需职责和可选处理清晰可见。
 87. 作为 Scribe 维护者，我希望技能库有一份总架构文档，从而统一说明分类、准入、组合和显式调用原则。
 88. 作为 Product 技能维护者，我希望产品架构文档使用 Product Documentation 命名，从而不再把公司产品文档叫作 Product Knowledge。
 89. 作为 Technical 技能维护者，我希望有公司技术文档架构说明，从而固定 Technical 目录、技能和内部类型的边界。
@@ -200,8 +200,8 @@ Product 的类型扩展包括 `Solutions/` 与 `Experience/`；事件集合包�
 - 用户必须显式命名组合工作流中的每个 Public Skill。技能不得调用其他技能；发现缺失依赖时停止并返回完整的 ready-to-type invocation。
 - Common Writer 在自身内部选择 Internal Document Type 不构成技能调用，也不需要把每个内部类型暴露为用户调用名。
 - ask-scribe 继续只解释 Scribe 的技能、边界、组合和完整调用，不执行工作流、不修改文件、不生成其他技能的制品。
-- 所有创建、修订、审阅或呈现人类可读正文的工作流都要求用户显式包含 write-doc。
-- draw-diagrams 保留在 Visual 技能类别，跨 Knowledge、Product 和 Technical 使用。只有显式调用 draw-diagrams 时才能创建图表；否则保留最小可用的文字或表格表达。
+- write-doc 是可选的通用写作流程；制品技能不得把它作为创建、修订、审阅或呈现正文的强制依赖。
+- draw-diagram 保留在 Visual 技能类别，跨 Knowledge、Product 和 Technical 使用。只有显式调用 draw-diagram 时才能创建图表；否则保留最小可用的文字或表格表达。
 - 技能库内部建立总架构、Product Documentation 架构和 Technical Documentation 架构说明；Domain Knowledge 架构继续保留。旧的 Product Knowledge 架构名称被 Product Documentation 架构替代。
 - 在用户的产品知识库中生成一份面向人的划分依据文档，解释通用 Knowledge、公司 Product/Technical 文档、Project 文档、稳定职责、类型扩展、事件集合和技能准入原则。该文档与技能库自身的架构说明分开。
 - 更新所有公开说明、技能桶说明、Ask Scribe、插件清单、默认提示、marketplace metadata 与版本，使术语和技能清单一致。
@@ -218,7 +218,7 @@ Product 的类型扩展包括 `Solutions/` 与 `Experience/`；事件集合包�
 - 技能接口测试验证每个 Public Skill 都有 SKILL 与 OpenAI metadata、技能目录名与 frontmatter 名一致、默认提示显式包含自身技能名。
 - 复用并加强显式调用 contract：自动发现全部技能，验证 SKILL 禁止 model invocation、metadata 禁止 implicit invocation，并验证公开组合提示显式列出依赖。
 - 显式组合测试验证 ask-scribe 与各技能只返回调用，不使用表示自动执行其他技能的指令。Internal Document Type 路由被视为同一技能内部行为。
-- 复用共享写作 contract：除纯解释或共享方法技能外，每个产生人类可读正文的技能都显式包含 write-doc；任何技能不得复制共享 prose contract。
+- 可选写作 contract 测试验证 write-doc 保留独立职责，同时其他制品技能不把它声明为强制依赖。
 - 更新 architecture skill name contract，验证 write-architecture-knowledge 与 write-technical-architecture 的目录、frontmatter、显示名、默认提示和插件入口一致。
 - 迁移测试验证旧架构技能名、三个被合并的 Product 公共技能、已删除占位技能及旧 Product Knowledge 架构名称不再出现在公开入口。
 - 插件和导航测试验证根 README、技能桶 README、Ask Scribe、Claude manifest、Codex manifest 与 marketplace metadata 展示同一组公共技能和公司文档术语。
@@ -226,7 +226,7 @@ Product 的类型扩展包括 `Solutions/` 与 `Experience/`；事件集合包�
 - Responsibility README 和模板 contract 只验证稳定责任、必需决策字段、权威链接与完成条件，不锁定具体自然语言。
 - 结构 contract 验证默认 scaffold 不物化任何 Type Extension 或 Event Collection，不链接不存在的计划文档，也不创建无事实正文。
 - 权威边界测试验证 Product/Technical 技能明确引用而不复制 Machine Authority、项目交付事实或通用 Knowledge。
-- draw-diagrams contract 继续验证 Visual 技能独立存在；Product 与 Technical 的推荐调用只有在需要图表时显式加入它，并且其他技能不隐式执行它。
+- draw-diagram contract 继续验证 Visual 技能独立存在；Product 与 Technical 的推荐调用只有在需要图表时显式加入它，并且其他技能不隐式执行它。
 - 使用仓库现有的技能快速验证、完整单元测试、脚本语法检查和差异检查作为最终验证层。
 
 ## Out of Scope
@@ -247,7 +247,7 @@ Product 的类型扩展包括 `Solutions/` 与 `Experience/`；事件集合包�
 - 不复制代码、配置、schema、测试、运行参数或其他 Machine Authority 的详细事实。
 - 不提供旧技能名称的弃用期、别名或兼容包装。
 - 不允许技能自动调用、隐式调用或由其他技能代为执行。
-- 不在未显式调用 draw-diagrams 时生成图表。
+- 不在未显式调用 draw-diagram 时生成图表。
 - 不修改 Domain Knowledge 的现有 admission、structure 和 document contracts，除非统一术语需要最小同步。
 
 ## Further Notes

@@ -10,15 +10,14 @@ Produce a PRD that lets product, design, engineering, and business stakeholders 
 
 ## Workflow
 
-1. Apply `$write-doc`.
-2. Establish the available inputs: problem evidence, affected users, desired outcome, business constraints, existing behavior, and known decisions.
-3. Distinguish established facts from hypotheses. Preserve unresolved product decisions as open questions instead of inventing agreement.
-4. Define the problem and measurable outcome before listing features.
-5. Set scope and non-goals. Make each requirement traceable to the problem, target outcome, or binding constraint.
-6. Describe representative user scenarios from trigger to observable result. Cover empty, failure, permission, cancellation, retry, and boundary states when they matter.
-7. Write requirements as observable behavior. Add acceptance criteria that another person can verify.
-8. Record business rules, data meaning, dependencies, risks, rollout, measurement, and remaining decisions.
-9. Adapt `assets/prd-template.md`; remove sections that carry no decision or delivery value.
+1. Establish the available inputs: problem evidence, affected users, desired outcome, business constraints, existing behavior, and known decisions.
+2. Distinguish established facts from hypotheses. Preserve unresolved product decisions as open questions instead of inventing agreement.
+3. Define the problem and measurable outcome before listing features.
+4. Set scope and non-goals. Make each requirement traceable to the problem, target outcome, or binding constraint.
+5. Describe representative user scenarios from trigger to observable result. Cover empty, failure, permission, cancellation, retry, and boundary states when they matter.
+6. Write requirements as observable behavior. Add acceptance criteria that another person can verify.
+7. Record business rules, data meaning, dependencies, risks, rollout, measurement, and remaining decisions.
+8. Adapt `assets/prd-template.md`; remove sections that carry no decision or delivery value.
 
 ## Boundaries
 

@@ -10,12 +10,12 @@ Use one public interface for domain writing while keeping each document type res
 
 ## Workflow
 
-1. Apply `$reason-domain` and `$write-doc`.
+1. Apply `$Reason Domain`.
 2. **Read the local set.** Read repository instructions, the Domain Assessment, the target domain README, the target file when present, and representative siblings. Preserve healthy terminology, links, title style, and navigation.
-3. **Require a usable boundary.** Confirm the assessment records `Accept`, the requested material belongs to domain knowledge, and it has one primary home. For `Do not accept`, route the material to its owning content class. For `Needs evidence`, an absent assessment, or a materially stale boundary, return a ready-to-type explicit invocation for `$reason-domain $write-doc` and stop before drafting.
+3. **Require a usable boundary.** Confirm the assessment records `Accept`, the requested material belongs to domain knowledge, and it has one primary home. For `Do not accept`, route the material to its owning content class. For `Needs evidence`, an absent assessment, or a materially stale boundary, return a ready-to-type explicit invocation for `$Reason Domain` and stop before drafting.
 4. **Classify from the prompt.** Treat the user's explicit request as the highest-authority artifact signal. Use the target filename and title, target path, primary reader question, existing content, and sibling conventions only to confirm the request or infer a type when it is underspecified. Surface a rename or overwrite consequence before changing a conflicting target.
 5. **Select one type.** Read `references/domain-document-types.md`. Select exactly one primary artifact type and its structure strength. Read its matching template and no unrelated template.
-6. **Load only the selected branch.** For a domain essence document, read `references/essence-document-module.md` and `assets/essence-article-template.md`. For a domain README, read `assets/domain-readme-template.md` and `../structure-domain-docs/references/domain-structure-model.md` when coverage or reading order matters. When no common domain type fits, return a ready-to-type explicit invocation for `$write-knowledge $write-doc`. When architecture ownership, contracts, controls, runtime failure, or evolution is primary, return one for `$write-architecture-knowledge $reason-architecture $write-doc`.
+6. **Load only the selected branch.** For a domain essence document, read `references/essence-document-module.md` and `assets/essence-article-template.md`. For a domain README, read `assets/domain-readme-template.md` and `../structure-domain-docs/references/domain-structure-model.md` when coverage or reading order matters. When no common domain type fits, return a ready-to-type explicit invocation for `$Write Knowledge`. When architecture ownership, contracts, controls, runtime failure, or evolution is primary, return one for `$Write Arch Knowledge $Reason Arch`.
 7. **Lock the artifact plan.** State the reader question, included and excluded material, evidence needs, selected template, required section responsibilities, canonical sibling sources, and permitted adaptations. Preserve exact headings for a strict schema, required fields for a stable lookup schema, and reasoning order for a stable reasoning sequence.
 8. **Ground the content.** Separate observed facts, external definitions, interpretation, choices, and open questions. Use preferred domain terms and link to canonical definitions. Mark a material evidence gap instead of inventing content.
 9. **Draft in the owned structure.** Fill every supported responsibility from the selected template. Keep terminology, object state, mechanisms, procedures, case evidence, reference data, and essence reasoning in their own artifacts instead of compressing the domain into one document.
@@ -25,7 +25,7 @@ Use one public interface for domain writing while keeping each document type res
 ## Routing guardrails
 
 - The prompt owns the artifact type. A filename ending in `本质.md` selects the essence module only when the request asks for essence writing or leaves the type implicit.
-- A domain README is written here; `$structure-domain-docs` owns the surrounding directory plan and map requirements.
+- A domain README is written here; `$Structure Domain Docs` owns the surrounding directory plan and map requirements.
 - A lifecycle document owns state and transitions. A mechanism owns why an outcome occurs. A method owns what a practitioner does. Split only for independent reader actions, change authorities, lifetimes, or citation needs.
 - A capability-and-solution document maps reusable response families. Product commitments and project selections remain outside it.
 - A case begins with observed facts. Interpretation, counterfactuals, and transferable lessons follow the evidence.
@@ -35,9 +35,9 @@ Use one public interface for domain writing while keeping each document type res
 
 - Own one domain README, essence, terminology, object-lifecycle, participant-and-rule, mechanism, capability-and-solution, method-and-practice, case-and-failure, or reference artifact.
 - Keep the ten artifact branches as internal modules and templates; do not expose one shallow public skill per document type.
-- Let `$reason-domain` own admission, boundary, relationships, subdomain validity, high-level content ownership, maturity, and review triggers.
-- Let `$structure-domain-docs` own inventory, topology, materialization, navigation requirements, scaffolding, and migration.
-- Let `$write-knowledge` own general durable knowledge outside the common domain artifact set, and architecture skills own architecture-primary material.
+- Let `$Reason Domain` own admission, boundary, relationships, subdomain validity, high-level content ownership, maturity, and review triggers.
+- Let `$Structure Domain Docs` own inventory, topology, materialization, navigation requirements, scaffolding, and migration.
+- Let `$Write Knowledge` own general durable knowledge outside the common domain artifact set, and architecture skills own architecture-primary material.
 
 ## Completion test
 

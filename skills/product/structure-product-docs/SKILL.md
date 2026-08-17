@@ -12,7 +12,7 @@ A Stable Responsibility receives a default home; a Type Extension and an Event C
 
 ## Workflow
 
-1. Apply `$reason-product`, `$structure-docs`, and `$write-doc`. Add `$write-product-doc` when the request includes navigation or Responsibility README bodies.
+1. Apply `$Reason Product` and `$Structure Docs`. Add `$Write Product Doc` when the request includes navigation or Responsibility README bodies.
 2. Classify the request as a `proposal`, `scaffold`, `audit`, or `approved migration`. Require explicit approval before moving, renaming, merging, deleting, or overwriting existing material.
 3. Read company navigation, the Product Assessment when persisted, current Product Documentation, and representative adjacent structures.
 4. Read `references/product-structure-model.md`, `../write-product-doc/references/product-document-types.md`, and `assets/product-inventory-template.md`.
@@ -27,10 +27,10 @@ A Stable Responsibility receives a default home; a Type Extension and an Event C
 ## Boundaries
 
 - Own Product Documentation topology, materialization, navigation requirements, scaffolding, audits, and approved migrations.
-- Let `$reason-product` own portfolio, product, and Type Extension admission.
-- Let `$assess-product-lifecycle` own decision readiness for a specific product; do not require it for company Product scaffolding.
-- Let `$write-product-doc` and independent Product artifact skills own document bodies.
-- Let `$structure-docs` own placement when Company, Knowledge, and Project roots compete.
+- Let `$Reason Product` own portfolio, product, and Type Extension admission.
+- Let `$Assess Product Lifecycle` own decision readiness for a specific product; do not require it for company Product scaffolding.
+- Let `$Write Product Doc` and independent Product artifact skills own document bodies.
+- Let `$Structure Docs` own placement when Company, Knowledge, and Project roots compete.
 
 ## Completion
 

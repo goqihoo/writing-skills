@@ -1,6 +1,6 @@
 # Scribe
 
-Scribe is a set of explicitly invoked skills for professional documents, Company Documentation, reusable Knowledge, and technical visuals. Start with `ask-scribe` when you want the current catalog and a complete invocation without executing another workflow.
+Scribe is a set of explicitly invoked skills for professional documents, Company Documentation, reusable Knowledge, and technical visuals. Start with **Ask Scribe** (`ask-scribe`) when you want the current catalog and a complete invocation without executing another workflow.
 
 ## Documentation model
 
@@ -10,11 +10,11 @@ Scribe is a set of explicitly invoked skills for professional documents, Company
 
 Company structures use **Stable Responsibility**, **Type Extension**, and **Event Collection** materialization rules. Lower-frequency standard documents remain an **Internal Document Type** within a Common Writer. **Explicit Skill Composition** means the user names every required skill; no Scribe skill invokes another skill.
 
-Every human-readable artifact explicitly includes `write-doc`. Add `draw-diagrams` only when a visual is requested.
+Add **Write Doc** (`write-doc`) when you want a dedicated reader-flow and prose-quality workflow. Add **Draw Diagram** (`draw-diagram`) only when one visual is requested.
 
 ## Invocation
 
-Use `$skill-name` in Agent Skills clients or `/skill-name` in Claude Code. Name every coordination, structure, artifact, writing, and optional visual skill required by the workflow.
+Every skill accepts its exact Skill Display Name and canonical Skill ID. Prefer the display name in user-facing calls: use `$Ask Scribe` or `$ask-scribe` in Agent Skills clients, and `/Ask Scribe` or `/ask-scribe` in Claude Code. Skill IDs remain stable in paths, manifests, and code.
 
 ## Installation
 
@@ -42,41 +42,41 @@ npx skills@latest add goqihoo/writing-skills
 
 ### Entry and foundations
 
-- [ask-scribe](skills/foundations/ask-scribe/SKILL.md) — Explain the catalog, boundaries, and complete invocations without executing them.
-- [structure-docs](skills/foundations/structure-docs/SKILL.md) — Plan documentation placement, boundaries, navigation, and approved migrations.
-- [write-doc](skills/foundations/write-doc/SKILL.md) — Apply the shared prose contract.
-- [reason-architecture](skills/foundations/reason-architecture/SKILL.md) — Apply the shared four-view architecture method.
-- [reason-domain](skills/foundations/reason-domain/SKILL.md) — Assess reusable Domain Knowledge boundaries.
-- [reason-product](skills/foundations/reason-product/SKILL.md) — Assess company portfolios, product lines, products, and product responsibilities.
-- [reason-technical](skills/foundations/reason-technical/SKILL.md) — Assess company technical scope, ownership, authority, and responsibilities.
+- [Ask Scribe](skills/foundations/ask-scribe/SKILL.md) (`ask-scribe`) — Explain the catalog, boundaries, and complete invocations without executing them.
+- [Structure Docs](skills/foundations/structure-docs/SKILL.md) (`structure-docs`) — Plan documentation placement, boundaries, navigation, and approved migrations.
+- [Write Doc](skills/foundations/write-doc/SKILL.md) (`write-doc`) — Apply an optional reader-flow and prose-quality workflow.
+- [Reason Arch](skills/foundations/reason-architecture/SKILL.md) (`reason-architecture`) — Apply the shared four-view architecture method.
+- [Reason Domain](skills/foundations/reason-domain/SKILL.md) (`reason-domain`) — Assess reusable Domain Knowledge boundaries.
+- [Reason Product](skills/foundations/reason-product/SKILL.md) (`reason-product`) — Assess company portfolios, product lines, products, and product responsibilities.
+- [Reason Tech Docs](skills/foundations/reason-technical/SKILL.md) (`reason-technical`) — Assess company technical scope, ownership, authority, and responsibilities.
 
 ### Knowledge
 
-- [structure-domain-docs](skills/knowledge/structure-domain-docs/SKILL.md) — Structure an accepted Domain Knowledge set.
-- [write-domain-doc](skills/knowledge/write-domain-doc/SKILL.md) — Write one common Domain Knowledge document.
-- [write-knowledge](skills/knowledge/write-knowledge/SKILL.md) — Create durable reusable Knowledge.
-- [write-architecture-knowledge](skills/knowledge/write-architecture-knowledge/SKILL.md) — Create reusable Architecture Knowledge without a company commitment.
+- [Structure Domain Docs](skills/knowledge/structure-domain-docs/SKILL.md) (`structure-domain-docs`) — Structure an accepted Domain Knowledge set.
+- [Write Domain Doc](skills/knowledge/write-domain-doc/SKILL.md) (`write-domain-doc`) — Write one common Domain Knowledge document.
+- [Write Knowledge](skills/knowledge/write-knowledge/SKILL.md) (`write-knowledge`) — Create durable reusable Knowledge.
+- [Write Arch Knowledge](skills/knowledge/write-architecture-knowledge/SKILL.md) (`write-architecture-knowledge`) — Create reusable Architecture Knowledge without a company commitment.
 
 ### Product Documentation
 
-- [assess-product-lifecycle](skills/product/assess-product-lifecycle/SKILL.md) — Assess a product decision, evidence, and artifact coverage.
-- [structure-product-docs](skills/product/structure-product-docs/SKILL.md) — Propose, scaffold, audit, or migrate a company Product Documentation Set.
-- [write-product-doc](skills/product/write-product-doc/SKILL.md) — Write one standard Product Internal Document Type.
-- [write-product-strategy](skills/product/write-product-strategy/SKILL.md) — Define product direction and durable choices.
-- [map-product-capabilities](skills/product/map-product-capabilities/SKILL.md) — Model durable product capabilities.
-- [write-product-roadmap](skills/product/write-product-roadmap/SKILL.md) — Sequence outcomes and decisions.
-- [write-prd](skills/product/write-prd/SKILL.md) — Define one product change's behavior and acceptance.
-- [design-product-metrics](skills/product/design-product-metrics/SKILL.md) — Define outcome measures, semantics, and guardrails.
+- [Assess Product Lifecycle](skills/product/assess-product-lifecycle/SKILL.md) (`assess-product-lifecycle`) — Assess a product decision, evidence, and artifact coverage.
+- [Structure Product Docs](skills/product/structure-product-docs/SKILL.md) (`structure-product-docs`) — Propose, scaffold, audit, or migrate a company Product Documentation Set.
+- [Write Product Doc](skills/product/write-product-doc/SKILL.md) (`write-product-doc`) — Write one standard Product Internal Document Type.
+- [Write Product Strategy](skills/product/write-product-strategy/SKILL.md) (`write-product-strategy`) — Define product direction and durable choices.
+- [Map Product Capabilities](skills/product/map-product-capabilities/SKILL.md) (`map-product-capabilities`) — Model durable product capabilities.
+- [Write Product Roadmap](skills/product/write-product-roadmap/SKILL.md) (`write-product-roadmap`) — Sequence outcomes and decisions.
+- [Write PRD](skills/product/write-prd/SKILL.md) (`write-prd`) — Define one product change's behavior and acceptance.
+- [Design Product Metrics](skills/product/design-product-metrics/SKILL.md) (`design-product-metrics`) — Define outcome measures, semantics, and guardrails.
 
 ### Technical Documentation
 
-- [structure-technical-docs](skills/technical/structure-technical-docs/SKILL.md) — Propose, scaffold, audit, or migrate a company Technical Documentation Set.
-- [write-technical-doc](skills/technical/write-technical-doc/SKILL.md) — Write one standard Technical Internal Document Type.
-- [write-technical-architecture](skills/technical/write-technical-architecture/SKILL.md) — Define company Technical Architecture across its Technical Landscape.
+- [Structure Tech Docs](skills/technical/structure-technical-docs/SKILL.md) (`structure-technical-docs`) — Propose, scaffold, audit, or migrate a company Technical Documentation Set.
+- [Write Tech Doc](skills/technical/write-technical-doc/SKILL.md) (`write-technical-doc`) — Write one standard Technical Internal Document Type.
+- [Write Tech Arch](skills/technical/write-technical-architecture/SKILL.md) (`write-technical-architecture`) — Define company Technical Architecture across its Technical Landscape.
 
 ### Visual
 
-- [draw-diagrams](skills/visual/draw-diagrams/SKILL.md) — Select, create, and verify the smallest useful technical visual.
+- [Draw Diagram](skills/visual/draw-diagram/SKILL.md) (`draw-diagram`) — Select, create, and verify one useful technical visual.
 
 ## Architecture guides
 
@@ -84,3 +84,4 @@ npx skills@latest add goqihoo/writing-skills
 - [Domain Knowledge Skill Architecture](docs/domain-knowledge-skill-architecture.md)
 - [Product Documentation Skill Architecture](docs/product-documentation-skill-architecture.md)
 - [Technical Documentation Skill Architecture](docs/technical-documentation-skill-architecture.md)
+- [Scribe 0.6.0 migration notes](docs/releases/0.6.0.md)

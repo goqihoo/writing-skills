@@ -12,8 +12,8 @@ TECHNICAL_ROOT = REPO_ROOT / "skills/technical/write-technical-architecture"
 class ArchitectureSkillNamesTest(unittest.TestCase):
     def test_skill_directories_frontmatter_and_display_names_agree(self) -> None:
         expected = {
-            KNOWLEDGE_ROOT: "Write Architecture Knowledge",
-            TECHNICAL_ROOT: "Write Technical Architecture",
+            KNOWLEDGE_ROOT: "Write Arch Knowledge",
+            TECHNICAL_ROOT: "Write Tech Arch",
         }
 
         for skill_root, display_name in expected.items():
@@ -26,7 +26,7 @@ class ArchitectureSkillNamesTest(unittest.TestCase):
             self.assertIsNotNone(name)
             self.assertEqual(skill_root.name, name.group(1))
             self.assertIn(f'display_name: "{display_name}"', metadata)
-            self.assertIn(f"${skill_root.name}", metadata)
+            self.assertIn(f"${display_name}", metadata)
 
     def test_plugin_exposes_only_current_architecture_skill_names(self) -> None:
         manifest = json.loads(
@@ -55,9 +55,8 @@ class ArchitectureSkillNamesTest(unittest.TestCase):
         self.assertIn("not tied to one company", knowledge)
         self.assertIn("company Technical Architecture", technical)
         self.assertIn("Technical Landscape", technical)
-        self.assertIn("$reason-technical", technical)
-        self.assertIn("$reason-architecture", technical)
-        self.assertIn("$write-doc", technical)
+        self.assertIn("$Reason Tech Docs", technical)
+        self.assertIn("$Reason Arch", technical)
 
 
 if __name__ == "__main__":

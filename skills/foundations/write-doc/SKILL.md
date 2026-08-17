@@ -1,6 +1,6 @@
 ---
 name: write-doc
-description: "Plan, draft, revise, or review one clear human-readable document. Use directly when no artifact skill fits, and as the shared writing and natural-prose foundation for every Scribe deliverable: reader outcome, factual grounding, concrete language, reader flow, boundaries, and completion."
+description: "Plan, draft, revise, or review one clear human-readable document. Use directly when no artifact skill fits, or add it to another Scribe composition for a dedicated reader-flow and prose-quality pass."
 disable-model-invocation: true
 ---
 
@@ -14,7 +14,7 @@ Make the document help one primary reader understand, decide, act, verify, or fi
 2. **Respect the artifact.** Follow its owning skill and healthy local conventions. Preserve verified facts, links, decisions, and scope.
 3. **Lock the artifact plan.** Let the owning skill fix the artifact type, core question, reasoning path, outline, section responsibilities, and required material before prose work. When the owning skill selects an explicit output template, treat the template as the structure owner: preserve its heading names, order, hierarchy, and permitted branches, and apply only the omissions or additions that the template or owning skill authorizes. Without an owning template, let the owning skill derive a subject-specific outline instead of imposing a generic heading set. When revising an existing document, treat its healthy title, outline, and section responsibilities as locked unless the user explicitly asks for restructuring. Do not add, remove, rename, or reorder locked sections, change a section's job, or promote an example into the document's organizing spine for stylistic reasons.
 4. **Build within the plan.** Place facts, reasoning, and examples in the sections that own them. Treat a template as a coverage contract, not as a prose voice: satisfy its responsibilities without echoing its labels, symmetry, or field order in every paragraph. Give each paragraph one clear job and use examples or formatting only when they help this reader.
-5. **Route visual questions.** During the artifact plan, identify central relationships that prose would force readers to reconstruct. Treat it as a visual candidate when a model would otherwise require repeated arrows or indentation, four or more linked objects or relationships, three or more dependent stateful stages, branching or convergence, a cycle, bidirectional correspondence, hierarchy, ownership, timing, or failure paths. When the user explicitly included `$draw-diagrams`, let it decide whether the final form should be no visual, a table, Mermaid, SVG, a chart, or another format. Without that explicit invocation, preserve the smallest sufficient prose or table and return a complete invocation when the requested result materially requires a visual.
+5. **Route visual questions.** During the artifact plan, identify central relationships that prose would force readers to reconstruct. Treat it as a visual candidate when a model would otherwise require repeated arrows or indentation, four or more linked objects or relationships, three or more dependent stateful stages, branching or convergence, a cycle, bidirectional correspondence, hierarchy, ownership, timing, or failure paths. When the user explicitly included `$Draw Diagram`, let it decide whether the final form should be no visual, a table, Mermaid, SVG, a chart, or another format. Without that explicit invocation, preserve the smallest sufficient prose or table and return a complete invocation when the requested result materially requires a visual.
 6. **Support each claim.** Separate facts, interpretations, choices, assumptions, and open questions. Connect important claims to evidence, reasoning, or an example.
 7. **State boundaries.** Expose prerequisites, non-goals, exceptions, failure modes, uncertainty, and conditions that would change the conclusion.
 8. **Write concretely.** Name actors, actions, conditions, and observable results. Introduce an abstract term only after the reader has a familiar object, event, decision, or result to attach it to; then reuse one stable name.
@@ -24,7 +24,7 @@ Make the document help one primary reader understand, decide, act, verify, or fi
 
 ## Shared prose contract
 
-Apply this contract to every human-readable Scribe artifact. Keep the artifact's genre, structure, facts, and precision; share the same standard of natural reader flow rather than forcing every artifact into one tone.
+When this skill is invoked, apply the contract to the requested human-readable artifact. Keep the artifact's genre, structure, facts, and precision; improve natural reader flow without forcing every artifact into one tone.
 
 - **Point first.** Open a section or paragraph with the fact, action, judgment, or consequence the reader needs. Use document narration such as “this section explains” only when it changes how the reader should use the material.
 - **Concrete before abstract.** Let the reader encounter a recognizable object, event, decision, or result before naming the model that explains it. Explain each new term once in plain language, then reuse the stable term.
@@ -49,5 +49,5 @@ Keep code, commands, formulas, schemas, diagram syntax, structured data, quotati
 - No fact, agreement, or material decision is invented or hidden.
 - The heading sequence, section responsibilities, and reasoning path match the locked artifact plan.
 - Within that plan, the prose satisfies the shared prose contract: the point arrives early, abstractions have concrete anchors, sentences move through explicit relationships, and formatting serves the content instead of exposing the template.
-- Every central relationship that is expensive to reconstruct is clear in prose or a table, or has been routed through an explicitly invoked `$draw-diagrams`; retained visuals add information rather than decoration.
+- Every central relationship that is expensive to reconstruct is clear in prose or a table, or has been routed through an explicitly invoked `$Draw Diagram`; retained visuals add information rather than decoration.
 - Readers can tell when to act and when the document needs revision.

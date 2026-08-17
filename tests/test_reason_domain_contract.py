@@ -17,11 +17,11 @@ class ReasonDomainContractTest(unittest.TestCase):
 
         self.assertIn("name: reason-domain", skill)
         self.assertIn("disable-model-invocation: true", skill)
-        self.assertIn("`$write-doc`", skill)
+        self.assertNotIn("Apply `$Write Doc`", skill)
         self.assertIn("references/domain-reasoning-method.md", skill)
         self.assertIn("assets/domain-assessment-template.md", skill)
-        self.assertIn('display_name: "Reason About Domains"', metadata)
-        self.assertIn("$reason-domain", metadata)
+        self.assertIn('display_name: "Reason Domain"', metadata)
+        self.assertIn("$Reason Domain", metadata)
         self.assertIn("allow_implicit_invocation: false", metadata)
 
     def test_reasoning_method_defines_the_domain_decision_contract(self) -> None:
@@ -73,13 +73,13 @@ class ReasonDomainContractTest(unittest.TestCase):
             encoding="utf-8"
         )
 
-        self.assertIn("`$reason-domain`", structure_skill)
-        self.assertIn("$reason-domain", structure_metadata)
-        self.assertIn("`$reason-domain`", write_skill)
-        self.assertIn("$reason-domain", write_metadata)
+        self.assertIn("`$Reason Domain`", structure_skill)
+        self.assertIn("$Reason Domain", structure_metadata)
+        self.assertIn("`$Reason Domain`", write_skill)
+        self.assertIn("$Reason Domain", write_metadata)
         self.assertIn("ready-to-type explicit invocation", structure_skill)
         self.assertIn("ready-to-type explicit invocation", write_skill)
-        self.assertNotIn("invoke `$write-domain-doc`", structure_skill)
+        self.assertNotIn("invoke `$Write Domain Doc`", structure_skill)
 
     def test_plugin_guides_and_architecture_expose_the_design(self) -> None:
         manifest = json.loads(

@@ -1,6 +1,6 @@
 # Product Internal Document Types
 
-Select exactly one Internal Document Type. The table is the source of truth for templates and completion profiles owned by `$write-product-doc`.
+Select exactly one Internal Document Type. The table is the source of truth for templates and completion profiles owned by `$Write Product Doc`.
 
 | Internal Document Type | Template | Completion profile |
 | --- | --- | --- |
@@ -27,10 +27,10 @@ Select exactly one Internal Document Type. The table is the source of truth for 
 
 Return the complete invocation and stop before drafting:
 
-- Product Strategy → `$write-product-strategy $reason-product $write-doc`
-- Capability Map → `$map-product-capabilities $reason-product $write-doc`
-- Product Roadmap → `$write-product-roadmap $reason-product $write-doc`
-- PRD → `$write-prd $write-doc`
-- Product Metric System → `$design-product-metrics $reason-product $write-doc`
+- Product Strategy → `$Write Product Strategy $Reason Product`
+- Capability Map → `$Map Product Capabilities $Reason Product`
+- Product Roadmap → `$Write Product Roadmap $Reason Product`
+- PRD → `$Write PRD`
+- Product Metric System → `$Design Product Metrics $Reason Product`
 
-Return `$structure-product-docs $reason-product $structure-docs $write-doc` for proposal, scaffold, audit, or approved migration work. Add `$write-product-doc` when the same request also creates navigation or Responsibility README bodies. Selecting an Internal Document Type is routing within this skill and never invokes another skill.
+Return `$Structure Product Docs $Reason Product $Structure Docs` for proposal, scaffold, audit, or approved migration work. Add `$Write Product Doc` when the same request also creates navigation or Responsibility README bodies. Selecting an Internal Document Type is routing within this skill and never invokes another skill.

@@ -38,7 +38,7 @@ PUBLIC_SKILLS = {
         "write-technical-doc",
         "write-technical-architecture",
     },
-    "visual": {"draw-diagrams"},
+    "visual": {"draw-diagram"},
 }
 
 REMOVED_SKILLS = {
@@ -83,7 +83,7 @@ class CompanyDocumentationContractTest(unittest.TestCase):
                     self.assertEqual(name, frontmatter_name.group(1))
                     self.assertIn("disable-model-invocation: true", skill)
                     self.assertIn("allow_implicit_invocation: false", metadata)
-                    self.assertIn(f"${name}", metadata)
+                    self.assertIn("display_name:", metadata)
 
     def test_removed_skills_and_old_architecture_names_are_absent(self) -> None:
         for removed in REMOVED_SKILLS:
@@ -128,12 +128,12 @@ class CompanyDocumentationContractTest(unittest.TestCase):
         ]:
             self.assertIn(term, combined)
 
-    def test_release_versions_match_the_0_5_contract(self) -> None:
+    def test_release_versions_match_the_0_6_contract(self) -> None:
         claude = json.loads(read(REPO_ROOT / ".claude-plugin/plugin.json"))
         codex = json.loads(read(REPO_ROOT / ".codex-plugin/plugin.json"))
 
-        self.assertEqual("0.5.0", claude["version"])
-        self.assertRegex(codex["version"], r"^0\.5\.0\+codex\.\d{14}$")
+        self.assertEqual("0.6.0", claude["version"])
+        self.assertRegex(codex["version"], r"^0\.6\.0\+codex\.\d{14}$")
 
 
 if __name__ == "__main__":

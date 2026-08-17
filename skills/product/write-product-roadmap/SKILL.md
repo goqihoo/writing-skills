@@ -10,7 +10,7 @@ Translate strategy and evidence into an explicit sequence of product outcomes an
 
 ## Workflow
 
-1. Apply `$reason-product` and `$write-doc`.
+1. Apply `$Reason Product`.
 2. Read the Product Assessment, accepted strategy, capability map, current product state, evidence, metrics, active initiatives, commitments, constraints, and previous roadmap decisions.
 3. Require an accepted product boundary and identify the roadmap horizon, decision-maker, audience, and commitment level.
 4. Separate current capability truth, evidence-backed opportunity, product bet, accepted commitment, tentative sequence, and task backlog.
@@ -24,7 +24,7 @@ Translate strategy and evidence into an explicit sequence of product outcomes an
 
 - Own product outcome sequence, bets, capability gaps, confidence, commitments, and review points.
 - Let product strategy own durable direction and the capability map own what the product must be able to do.
-- Let `$write-prd` own one accepted change's detailed behavior and acceptance.
+- Let `$Write PRD` own one accepted change's detailed behavior and acceptance.
 - Keep team capacity plans, tasks, and technical sequencing externally owned unless they constrain the product decision.
 
 ## Completion

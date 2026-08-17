@@ -10,9 +10,9 @@ Turn lifecycle activity into an explicit decision-readiness view over one accept
 
 ## Workflow
 
-1. Apply `$reason-product` and `$write-doc`.
+1. Apply `$Reason Product`.
 2. Read repository instructions, the Product Assessment, product README, lifecycle map, current strategy, capability map, roadmap, active initiatives, evidence, metrics, and recent releases when present.
-3. Require an accepted product boundary. For a missing, stale, or disputed boundary, return a ready-to-type explicit invocation for `$reason-product $write-doc` and stop.
+3. Require an accepted product boundary. For a missing, stale, or disputed boundary, return a ready-to-type explicit invocation for `$Reason Product` and stop.
 4. Read `references/product-lifecycle-model.md` completely.
 5. Identify the decision being prepared rather than assigning a stage from document names. Record the responsible decision-maker, cost of acting, cost of delay, and uncertainty that must be reduced.
 6. Inventory the evidence and authoritative artifacts required for that decision. Distinguish absence, insufficiency, staleness, ownership conflict, and an artifact that is not yet applicable.
@@ -25,8 +25,8 @@ Turn lifecycle activity into an explicit decision-readiness view over one accept
 
 - Own the Product Lifecycle Assessment, decision-gate matrix, evidence sufficiency, artifact coverage, and next explicit invocations.
 - Treat stages as a navigation and governance view, not a product directory topology.
-- Let `$structure-product-docs` own paths, scaffolding, and migration.
-- Let Product artifact skills own strategy, capabilities, roadmap, PRD, and metrics; let `$write-product-doc` own Product Solution, Product Release Plan, and Product Review bodies as Internal Document Types.
+- Let `$Structure Product Docs` own paths, scaffolding, and migration.
+- Let Product artifact skills own strategy, capabilities, roadmap, PRD, and metrics; let `$Write Product Doc` own Product Solution, Product Release Plan, and Product Review bodies as Internal Document Types.
 - Route technical readiness to the owning technical location without modeling its internal structure.
 
 ## Completion

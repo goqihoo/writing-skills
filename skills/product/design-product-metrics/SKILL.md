@@ -10,9 +10,9 @@ Define product measures that support real decisions and retain stable meaning ac
 
 ## Workflow
 
-1. Apply `$reason-product` and `$write-doc`.
+1. Apply `$Reason Product`.
 2. Read the Product Assessment, product strategy, users and outcomes, capability map, current product behavior, available data, existing metrics, experiments, and material constraints.
-3. Require an accepted product boundary. For a missing, routed, or disputed Product Assessment, return `$reason-product $write-doc` and stop.
+3. Require an accepted product boundary. For a missing, routed, or disputed Product Assessment, return `$Reason Product` and stop.
 4. Identify the product decisions the metric system must support. Separate desired outcomes, observable product behavior, business results, operational health, and data availability.
 5. Build an outcome model before naming a north-star or dashboard metric. Record causal assumptions rather than presenting correlation as proof.
 6. Define the metric hierarchy, exact numerator and denominator, population, event or state semantics, time window, segmentation, exclusions, latency, and source owner.

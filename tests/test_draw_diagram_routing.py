@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DRAW_DIAGRAMS = REPO_ROOT / "skills" / "visual" / "draw-diagrams" / "SKILL.md"
+DRAW_DIAGRAM = REPO_ROOT / "skills" / "visual" / "draw-diagram" / "SKILL.md"
 
 
 def visual_routing_rows(instructions: str) -> list[list[str]]:
@@ -17,9 +17,9 @@ def visual_routing_rows(instructions: str) -> list[list[str]]:
     ]
 
 
-class DrawDiagramsRoutingTest(unittest.TestCase):
+class DrawDiagramRoutingTest(unittest.TestCase):
     def setUp(self) -> None:
-        self.instructions = DRAW_DIAGRAMS.read_text(encoding="utf-8")
+        self.instructions = DRAW_DIAGRAM.read_text(encoding="utf-8")
 
     def test_routes_concept_explanations_to_imagegen_infographics(self) -> None:
         rows = visual_routing_rows(self.instructions)

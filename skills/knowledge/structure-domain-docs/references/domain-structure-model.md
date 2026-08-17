@@ -1,6 +1,6 @@
 # Domain structure model
 
-Use this model only after `$reason-domain` has produced a usable Domain Assessment. Read `../write-domain-doc/references/domain-document-types.md` from the skill workflow for the canonical domain document types and their responsibilities.
+Use this model only after `$Reason Domain` has produced a usable Domain Assessment. Read `../write-domain-doc/references/domain-document-types.md` from the skill workflow for the canonical domain document types and their responsibilities.
 
 ## Topology decision
 

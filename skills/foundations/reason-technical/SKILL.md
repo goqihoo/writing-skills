@@ -4,28 +4,27 @@ description: Assess one company's technical scope, Technical Landscape, ownershi
 disable-model-invocation: true
 ---
 
-# Reason About Technical Documentation
+# Reason Tech Docs
 
 Establish the company technical scope and its authority before structure or prose turns implementation detail into company policy.
 
 ## Workflow
 
-1. Apply `$write-doc` when the result will be presented or persisted as a Technical Assessment.
-2. Read company navigation, existing Technical Documentation, system registries, governance records, and representative downstream technical authorities.
-3. Read `references/technical-reasoning-method.md` completely.
-4. Establish the named company, the Technical Landscape in scope, owners, governance authority, current systems or capabilities, and the decision requested.
-5. Separate Company Documentation from general Technical Knowledge, Project Documentation, System Architecture, and Machine Authority.
-6. Classify accepted responsibilities as Stable Responsibility, Type Extension, or Event Collection. Admit a Type Extension only when independent ownership, governance, or navigation is proven.
-7. Identify the authoritative owner for strategy, architecture, systems, governance, platforms, practices, data, security, quality, and operations. Keep detailed executable facts downstream.
-8. Persist `assets/technical-assessment-template.md` only when a disputed boundary, Type Extension, audit finding, or migration decision needs durable traceability.
-9. Record relationships, authority links, evidence, unresolved ownership, and review triggers without inventing systems, standards, or operating facts.
-10. Verify that scope, ownership, materialization decisions, and downstream authority links agree.
+1. Read company navigation, existing Technical Documentation, system registries, governance records, and representative downstream technical authorities.
+2. Read `references/technical-reasoning-method.md` completely.
+3. Establish the named company, the Technical Landscape in scope, owners, governance authority, current systems or capabilities, and the decision requested.
+4. Separate Company Documentation from general Technical Knowledge, Project Documentation, System Architecture, and Machine Authority.
+5. Classify accepted responsibilities as Stable Responsibility, Type Extension, or Event Collection. Admit a Type Extension only when independent ownership, governance, or navigation is proven.
+6. Identify the authoritative owner for strategy, architecture, systems, governance, platforms, practices, data, security, quality, and operations. Keep detailed executable facts downstream.
+7. Persist `assets/technical-assessment-template.md` only when a disputed boundary, Type Extension, audit finding, or migration decision needs durable traceability.
+8. Record relationships, authority links, evidence, unresolved ownership, and review triggers without inventing systems, standards, or operating facts.
+9. Verify that scope, ownership, materialization decisions, and downstream authority links agree.
 
 ## Boundaries
 
 - Own company technical scope, Technical Landscape boundaries, ownership, authority routing, Stable Responsibility and Type Extension admission, and the Technical Assessment handoff.
-- Let `$structure-technical-docs` own topology, scaffolding, audits, and approved migration.
-- Let `$write-technical-doc` and `$write-technical-architecture` own document bodies.
+- Let `$Structure Tech Docs` own topology, scaffolding, audits, and approved migration.
+- Let `$Write Tech Doc` and `$Write Tech Arch` own document bodies.
 - Do not design a code repository, one system's detailed architecture, or a delivery project.
 
 ## Completion

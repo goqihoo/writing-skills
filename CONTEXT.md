@@ -84,6 +84,22 @@ _Avoid_: Coordinator, Foundation
 An explicit user-invoked interface justified by a recurring task, distinct reasoning or workflow, and a checkable completion contract. A directory responsibility, document title, or template does not by itself justify a Public Skill.
 _Avoid_: One skill per document type
 
+**Skill ID**:
+The canonical lower-case hyphenated name shared by a Public Skill's directory and `SKILL.md` frontmatter. It remains stable in paths, manifests, code, and machine-facing references and is also a valid invocation name.
+_Avoid_: Skill Display Name, translated name, temporary alias
+
+**Skill Display Name**:
+The exact, unique user-facing name declared by `agents/openai.yaml` `interface.display_name`. It is the preferred invocation name in prompts, guides, and catalogs while the Skill ID remains the machine identifier.
+_Avoid_: Fuzzy label, localized variant, duplicate display name
+
+**Invocation Name**:
+Either the exact Skill ID or the exact Skill Display Name accepted to invoke one Public Skill. Client syntax adds `$` for Agent Skills clients or `/` for Claude Code.
+_Avoid_: Directory path, approximate spelling
+
+**Dual-name Invocation**:
+The Public Skill contract in which one stable Skill ID and one exact Skill Display Name are equivalent Invocation Names. It guarantees configured spelling, capitalization, and spacing only; previous display names and fuzzy normalization are not compatibility interfaces.
+_Avoid_: Alias collection, case-insensitive matching, automatic normalization
+
 **High-Frequency Documentation Task**:
 A documentation task that recurs across multiple companies or multiple products and repeatedly requires the same distinct reasoning, workflow, and completion contract. Frequency describes cross-scope recurrence, not how many times the document is edited in a month.
 _Avoid_: Treating importance, a directory, or a standard template alone as frequency
@@ -97,7 +113,7 @@ A Public Artifact Skill that routes one coherent company-document family to Inte
 _Avoid_: Hidden invocation of another Public Skill, unbounded miscellaneous writer
 
 **Explicit Skill Composition**:
-A workflow in which the user explicitly names every required coordination, structure, artifact, and shared-writing Public Skill. Every Public Skill disables model invocation and implicit invocation. A skill that detects a missing dependency stops, explains the gap, and returns a complete ready-to-type invocation; it never invokes the missing skill itself. Selecting an Internal Document Type already owned by the invoked Common Writer is routing within that skill, not another skill invocation.
+A workflow in which the user explicitly names every required coordination, structure, and artifact Public Skill plus any optional writing or visual workflow they want. Every Public Skill disables model invocation and implicit invocation. A skill that detects a missing required dependency stops, explains the gap, and returns a complete ready-to-type invocation; it never invokes the missing skill itself. Selecting an Internal Document Type already owned by the invoked Common Writer is routing within that skill, not another skill invocation.
 _Avoid_: Implicit skill chaining
 
 **Stable Responsibility**:

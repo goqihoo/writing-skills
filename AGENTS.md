@@ -18,7 +18,9 @@ Every skill is user-invoked. Set `disable-model-invocation: true` in every `SKIL
 
 The user must name every skill required by a composed workflow. `ask-scribe` explains Scribe's skills, boundaries, composition rules, and complete invocation choices; it never invokes another skill, performs its workflow, modifies files, or produces another skill's artifact.
 
-Use `$skill-name` for ready-to-type Agent Skills invocations and `/skill-name` for Claude Code.
+Every Public Skill has a canonical **Skill ID** from its directory and `SKILL.md` frontmatter plus a unique **Skill Display Name** from `agents/openai.yaml` `interface.display_name`. The exact Skill ID and exact Skill Display Name are both valid invocation names. Preserve the Skill ID in paths, frontmatter, manifests, and code. Use the Skill Display Name for recommended user-facing invocations and introduce catalog entries as `Skill Display Name` (`skill-id`).
+
+Use `$Ask Scribe` or `$ask-scribe` in Agent Skills clients and `/Ask Scribe` or `/ask-scribe` in Claude Code. Guarantee only the exact configured spelling, capitalization, and spacing; do not promise fuzzy matching or normalization.
 
 ## Agent skills
 
@@ -36,7 +38,7 @@ This is a single-context repository using root `CONTEXT.md` and `docs/adr/`. See
 
 ## Ownership
 
-- `write-doc` owns the single shared prose contract for all human-readable documents. It standardizes natural reader flow, concrete language, sentence movement, emphasis, and formatting while leaving genre, structure, facts, and technical meaning with the artifact skill.
+- `write-doc` owns an optional general-purpose prose workflow for reader flow, concrete language, sentence movement, emphasis, and formatting. Artifact skills remain complete without it and retain genre, structure, facts, and technical meaning.
 - `reason-architecture` owns the architecture method shared by architecture artifacts.
 - `reason-domain` owns domain admission, boundaries, relationships, subdomain validity, high-level knowledge ownership, maturity, and the Domain Assessment handoff.
 - `reason-product` owns product admission, boundaries, hierarchy, change and release authority, high-level knowledge ownership, and the Product Assessment handoff.
@@ -49,12 +51,10 @@ This is a single-context repository using root `CONTEXT.md` and `docs/adr/`. See
 - `write-technical-doc` owns standard Technical Internal Document Types.
 - `write-technical-architecture` owns company Technical Architecture across the Technical Landscape.
 - Each deliverable skill owns one artifact boundary, workflow, completion test, and output template.
-- `draw-diagrams` owns visual routing and quality, not architecture meaning.
+- `draw-diagram` owns one visual's routing and quality, not architecture meaning.
 - `ask-scribe` explains and recommends; the user retains control of every subsequent invocation and execution.
 
-Every explicit invocation that creates, revises, reviews, or presents human-readable prose must include `$write-doc` directly. A workflow may route a document body to another artifact skill only when the invocation includes `$write-doc`. Keep general prose and style rules exclusively in `write-doc`; artifact skills may add genre-specific requirements but must not copy or replace the shared prose contract.
-
-Keep each rule in one place. Invoke a foundation instead of copying it. Store output templates under `assets/`; disclose branch-specific guidance through one-level `references/`.
+Keep each rule in one place. Compose an optional foundation when the user requests its additional workflow instead of copying it. Store output templates under `assets/`; disclose branch-specific guidance through one-level `references/`.
 
 ## Repository updates
 
@@ -63,7 +63,7 @@ When adding, renaming, or removing a skill:
 1. Update its bucket README and the root README.
 2. Update `.claude-plugin/plugin.json` and marketplace metadata.
 3. Re-read and update `ask-scribe`.
-4. For every new prose-producing skill, require `$write-doc` in the skill and its recommended invocation; the shared-writing contract test discovers omissions automatically.
+4. Give every Public Skill a unique `interface.display_name`, recommend that exact display name in user-facing invocations, and preserve the canonical Skill ID for machine structure.
 5. Validate every changed skill.
 6. Run the test suite, `bash -n scripts/*.sh`, and `git diff --check`.
 

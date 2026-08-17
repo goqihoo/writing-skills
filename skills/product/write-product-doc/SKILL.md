@@ -10,7 +10,7 @@ Use one Product Common Writer for coherent company and product document types wi
 
 ## Workflow
 
-1. Apply `$reason-product` and `$write-doc`.
+1. Apply `$Reason Product`.
 2. Read company and Product navigation, the Product Assessment when persisted, the target file, authoritative evidence, and representative siblings.
 3. Confirm the named company and accepted portfolio or product boundary. If a required dependency was not explicitly invoked, stop and return the complete ready-to-type invocation.
 4. Read `references/product-document-types.md`. Select exactly one Internal Document Type from the user's request and read only its matching template.
@@ -25,7 +25,7 @@ Use one Product Common Writer for coherent company and product document types wi
 ## Boundaries
 
 - Own the Internal Document Types listed in `references/product-document-types.md`.
-- Let `$structure-product-docs` own whole-set topology and approved migration.
+- Let `$Structure Product Docs` own whole-set topology and approved migration.
 - Route independently owned high-frequency artifacts without invoking their skills.
 - Keep customer delivery and technical implementation in their owning authority scopes.
 

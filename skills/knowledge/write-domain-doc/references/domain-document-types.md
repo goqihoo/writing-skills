@@ -1,6 +1,6 @@
 # Domain document types
 
-This is the single source of truth for the ten common domain document responsibilities. `$structure-domain-docs` uses the types as a coverage model; `$write-domain-doc` uses them to select one artifact contract. Select from the user prompt and explicit instructions first. Use filename and title, directory, primary reader question, content, and sibling conventions only as confirmation or as fallback when the prompt is underspecified. Read the matching template whenever one exists, and read no unrelated template.
+This is the single source of truth for the ten common domain document responsibilities. `$Structure Domain Docs` uses the types as a coverage model; `$Write Domain Doc` uses them to select one artifact contract. Select from the user prompt and explicit instructions first. Use filename and title, directory, primary reader question, content, and sibling conventions only as confirmation or as fallback when the prompt is underspecified. Read the matching template whenever one exists, and read no unrelated template.
 
 ## Structure strength
 
@@ -46,7 +46,7 @@ Preserve the reasoning or action order. Subject-specific headings may replace ge
 
 ## Boundary routes
 
-- Return a ready-to-type explicit invocation using `$structure-domain-docs $reason-domain $structure-docs $write-doc` for directory design, coverage planning, and scaffolding; keep the domain `README.md` prose and links in `$write-domain-doc`.
-- Return a ready-to-type explicit invocation using `$write-architecture-knowledge $reason-architecture $write-doc` for a reusable architecture document whose main question is ownership, contracts, controls, runtime failure, validation, or evolution.
-- Return a ready-to-type explicit invocation using `$write-knowledge $write-doc` for a general concept, mental model, comparison, or explanation that does not match these common domain artifacts.
+- Return a ready-to-type explicit invocation using `$Structure Domain Docs $Reason Domain $Structure Docs` for directory design, coverage planning, and scaffolding; keep the domain `README.md` prose and links in `$Write Domain Doc`.
+- Return a ready-to-type explicit invocation using `$Write Arch Knowledge $Reason Arch` for a reusable architecture document whose main question is ownership, contracts, controls, runtime failure, validation, or evolution.
+- Return a ready-to-type explicit invocation using `$Write Knowledge` for a general concept, mental model, comparison, or explanation that does not match these common domain artifacts.
 - Keep business lifecycle, product commitments, technical implementation, company policy, and project-specific decisions in their owning content classes even when they use domain knowledge.

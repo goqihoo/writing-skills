@@ -1,6 +1,6 @@
 interface:
-  display_name: "Reason About Products"
+  display_name: "Reason Product"
   short_description: "Establish product boundaries and ownership"
-  default_prompt: "Use $reason-product and $write-doc to establish this product's boundary, relationships, ownership, and review triggers."
+  default_prompt: "Use $Reason Product to establish this product's boundary, relationships, ownership, and review triggers."
 policy:
   allow_implicit_invocation: false

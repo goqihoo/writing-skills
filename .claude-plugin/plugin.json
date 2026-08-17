@@ -1,6 +1,6 @@
 {
   "name": "scribe",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Composable skills for reusable Knowledge, company Product and Technical Documentation, professional writing, and technical visuals.",
   "author": {
     "name": "Andrew"
@@ -29,6 +29,6 @@
     "./skills/technical/structure-technical-docs",
     "./skills/technical/write-technical-doc",
     "./skills/technical/write-technical-architecture",
-    "./skills/visual/draw-diagrams"
+    "./skills/visual/draw-diagram"
   ]
 }

@@ -1,6 +1,6 @@
 interface:
-  display_name: "Write Technical Architecture"
+  display_name: "Write Tech Arch"
   short_description: "Define company Technical Architecture"
-  default_prompt: "Use $write-technical-architecture, $reason-technical, $reason-architecture, and $write-doc to define this company's Technical Architecture."
+  default_prompt: "Use $Write Tech Arch, $Reason Tech Docs, and $Reason Arch to define this company's Technical Architecture."
 policy:
   allow_implicit_invocation: false

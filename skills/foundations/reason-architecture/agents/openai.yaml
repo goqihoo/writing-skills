@@ -1,6 +1,6 @@
 interface:
-  display_name: "Reason About Architecture"
+  display_name: "Reason Arch"
   short_description: "Apply shared four-view architecture reasoning"
-  default_prompt: "Use $reason-architecture to reason through this architecture problem across ownership, controls, failure, and validation."
+  default_prompt: "Use $Reason Arch to reason through this architecture problem across ownership, controls, failure, and validation."
 policy:
   allow_implicit_invocation: false

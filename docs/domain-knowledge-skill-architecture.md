@@ -14,15 +14,15 @@ Use three domain-specific modules behind three explicit skill interfaces:
 
 | Skill | Interface | Owns | Excludes |
 | --- | --- | --- | --- |
-| `reason-domain` | Assess one candidate domain or disputed knowledge boundary | Admission, boundary, relationships, subdomain validity, high-level content ownership, maturity, review triggers, and the `Domain Assessment` handoff | Directory topology, file operations, and document bodies |
-| `structure-domain-docs` | Plan, audit, scaffold, or migrate one accepted domain knowledge set | Material inventory, topology, materialization, coverage, navigation requirements, scaffolding, migration mapping, and structural verification | Re-running domain admission and drafting artifact bodies |
-| `write-domain-doc` | Create, revise, or review one common domain document | Artifact classification, one internal document contract, evidence, content, canonical sibling links, and artifact verification | Domain admission and whole-set restructuring |
+| **Reason Domain** (`reason-domain`) | Assess one candidate domain or disputed knowledge boundary | Admission, boundary, relationships, subdomain validity, high-level content ownership, maturity, review triggers, and the `Domain Assessment` handoff | Directory topology, file operations, and document bodies |
+| **Structure Domain Docs** (`structure-domain-docs`) | Plan, audit, scaffold, or migrate one accepted domain knowledge set | Material inventory, topology, materialization, coverage, navigation requirements, scaffolding, migration mapping, and structural verification | Re-running domain admission and drafting artifact bodies |
+| **Write Domain Doc** (`write-domain-doc`) | Create, revise, or review one common domain document | Artifact classification, one internal document contract, evidence, content, canonical sibling links, and artifact verification | Domain admission and whole-set restructuring |
 
-Existing shared modules remain explicit dependencies:
+Existing shared modules retain separate responsibilities:
 
-- `write-doc` owns natural reader flow and prose quality.
-- `structure-docs` owns repository-wide taxonomy and cross-class placement.
-- `write-knowledge` owns durable knowledge outside the common domain artifact set.
+- **Write Doc** (`write-doc`) offers an optional dedicated reader-flow and prose-quality pass.
+- **Structure Docs** (`structure-docs`) owns repository-wide taxonomy and cross-class placement.
+- **Write Knowledge** (`write-knowledge`) owns durable knowledge outside the common domain artifact set.
 - Architecture, product, company, and project skills own material whose primary truth changes with those contexts.
 
 ## Why this seam
@@ -73,24 +73,26 @@ The essence branch remains an internal module because it has a demanding derivat
 Every Scribe skill is user-invoked. Recommended compositions must name every required skill:
 
 ```text
-$reason-domain $write-doc
+$Reason Domain
 ```
 
 Use this to assess a candidate domain or disputed ownership boundary.
 
 ```text
-$structure-domain-docs $reason-domain $structure-docs $write-doc
+$Structure Domain Docs $Reason Domain $Structure Docs
 ```
 
 Use this to propose or audit a domain knowledge structure.
 
 ```text
-$write-domain-doc $reason-domain $write-doc
+$Write Domain Doc $Reason Domain
 ```
 
 Use this to create or revise one accepted domain artifact.
 
-Add `$write-domain-doc` to the structure composition when the same authorized request must also produce the README or other document bodies. A skill never silently invokes another Scribe skill; it returns the complete next invocation when a required interface is missing.
+Add `$Write Domain Doc` to the structure composition when the same authorized request must also produce the README or other document bodies. A skill never silently invokes another Scribe skill; it returns the complete next invocation when a required interface is missing.
+
+Add `$Write Doc` to any composition when a dedicated reader-flow and prose-quality pass is wanted.
 
 ## Repository layout
 

@@ -4,14 +4,14 @@ Explicitly invoked skills for one company's Product Documentation, product decis
 
 ## Coordination and structure
 
-- [assess-product-lifecycle](assess-product-lifecycle/SKILL.md) — Assess a product decision, evidence, and artifact coverage.
-- [structure-product-docs](structure-product-docs/SKILL.md) — Propose, scaffold, audit, or migrate a Product Documentation Set.
+- [Assess Product Lifecycle](assess-product-lifecycle/SKILL.md) (`assess-product-lifecycle`) — Assess a product decision, evidence, and artifact coverage.
+- [Structure Product Docs](structure-product-docs/SKILL.md) (`structure-product-docs`) — Propose, scaffold, audit, or migrate a Product Documentation Set.
 
 ## Artifacts
 
-- [write-product-doc](write-product-doc/SKILL.md) — Write a standard Product Internal Document Type.
-- [write-product-strategy](write-product-strategy/SKILL.md) — Define product direction and durable choices.
-- [map-product-capabilities](map-product-capabilities/SKILL.md) — Model durable product capabilities.
-- [write-product-roadmap](write-product-roadmap/SKILL.md) — Sequence outcomes and decisions.
-- [write-prd](write-prd/SKILL.md) — Define one product change's behavior and acceptance.
-- [design-product-metrics](design-product-metrics/SKILL.md) — Define product outcome measures, semantics, and guardrails.
+- [Write Product Doc](write-product-doc/SKILL.md) (`write-product-doc`) — Write a standard Product Internal Document Type.
+- [Write Product Strategy](write-product-strategy/SKILL.md) (`write-product-strategy`) — Define product direction and durable choices.
+- [Map Product Capabilities](map-product-capabilities/SKILL.md) (`map-product-capabilities`) — Model durable product capabilities.
+- [Write Product Roadmap](write-product-roadmap/SKILL.md) (`write-product-roadmap`) — Sequence outcomes and decisions.
+- [Write PRD](write-prd/SKILL.md) (`write-prd`) — Define one product change's behavior and acceptance.
+- [Design Product Metrics](design-product-metrics/SKILL.md) (`design-product-metrics`) — Define product outcome measures, semantics, and guardrails.

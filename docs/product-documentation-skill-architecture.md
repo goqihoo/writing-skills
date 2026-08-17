@@ -26,15 +26,15 @@ Product lines are classification views inside Portfolio, not default parents of 
 
 | Skill | Ownership |
 | --- | --- |
-| `reason-product` | Company portfolio, product line, product, responsibility admission, and Product Assessment decisions. |
-| `assess-product-lifecycle` | Product decision, evidence, and artifact coverage. |
-| `structure-product-docs` | Product topology, materialization, navigation, scaffolding, audits, and approved migration. |
-| `write-product-doc` | Product Common Writer and its Internal Document Types. |
-| `write-product-strategy` | Durable product direction and choices. |
-| `map-product-capabilities` | Product capability responsibilities and relationships. |
-| `write-product-roadmap` | Product outcome and decision sequence. |
-| `write-prd` | One product change's behavior and acceptance. |
-| `design-product-metrics` | Metric semantics, hierarchy, guardrails, and governance. |
+| **Reason Product** (`reason-product`) | Company portfolio, product line, product, responsibility admission, and Product Assessment decisions. |
+| **Assess Product Lifecycle** (`assess-product-lifecycle`) | Product decision, evidence, and artifact coverage. |
+| **Structure Product Docs** (`structure-product-docs`) | Product topology, materialization, navigation, scaffolding, audits, and approved migration. |
+| **Write Product Doc** (`write-product-doc`) | Product Common Writer and its Internal Document Types. |
+| **Write Product Strategy** (`write-product-strategy`) | Durable product direction and choices. |
+| **Map Product Capabilities** (`map-product-capabilities`) | Product capability responsibilities and relationships. |
+| **Write Product Roadmap** (`write-product-roadmap`) | Product outcome and decision sequence. |
+| **Write PRD** (`write-prd`) | One product change's behavior and acceptance. |
+| **Design Product Metrics** (`design-product-metrics`) | Metric semantics, hierarchy, guardrails, and governance. |
 
 ## Common Writer boundary
 
@@ -50,7 +50,7 @@ Product Documentation links reusable Knowledge, Technical Documentation, Project
 
 ## Explicit Skill Composition
 
-Every document-producing invocation includes `$write-doc`. Structure work explicitly includes `$reason-product` and `$structure-docs`; document work explicitly includes its artifact skill and `$reason-product` when the artifact depends on an accepted product boundary. Add `$draw-diagrams` only when the user requests a visual.
+Structure work explicitly includes `$Reason Product` and `$Structure Docs`; document work explicitly includes its artifact skill and `$Reason Product` when the artifact depends on an accepted product boundary. Add `$Write Doc` for a dedicated prose-quality pass or `$Draw Diagram` when the user requests one visual.
 
 ## Completion contract
 

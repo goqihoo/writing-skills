@@ -4,17 +4,17 @@ description: Create, revise, or review one standard company Technical Documentat
 disable-model-invocation: true
 ---
 
-# Write Technical Doc
+# Write Tech Doc
 
 Use one Technical Common Writer for standard company technical documents without exposing one public skill per document type.
 
 ## Workflow
 
-1. Apply `$reason-technical` and `$write-doc`.
+1. Apply `$Reason Tech Docs`.
 2. Read company and Technical navigation, the Technical Assessment when persisted, the target file, evidence, and representative siblings.
 3. Confirm the named company, Technical Landscape scope, owner, and authority. If a required dependency was not explicitly invoked, stop and return the complete ready-to-type invocation.
 4. Read `references/technical-document-types.md`. Select exactly one Internal Document Type from the user's request and read only its matching template.
-5. Route company Technical Architecture to `$write-technical-architecture $reason-technical $reason-architecture $write-doc` and stop before drafting.
+5. Route company Technical Architecture to `$Write Tech Arch $Reason Tech Docs $Reason Arch` and stop before drafting.
 6. Lock the reader question, scope, validity, evidence, canonical sources, selected template, and excluded downstream detail.
 7. Separate observed facts, accepted policy, current technical truth, proposals, decisions, evidence, exceptions, and open questions.
 8. Draft with the selected template. Link detailed System Architecture and Machine Authority instead of copying code, schemas, configuration, protocols, tests, or runbooks.
@@ -25,8 +25,8 @@ Use one Technical Common Writer for standard company technical documents without
 ## Boundaries
 
 - Own the Internal Document Types listed in `references/technical-document-types.md`.
-- Let `$structure-technical-docs` own topology and approved migration.
-- Let `$write-technical-architecture` own company Technical Architecture.
+- Let `$Structure Tech Docs` own topology and approved migration.
+- Let `$Write Tech Arch` own company Technical Architecture.
 - Keep detailed system design, executable truth, and project delivery in their owning locations.
 
 ## Completion

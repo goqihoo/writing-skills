@@ -2,6 +2,6 @@
 
 Explicitly invoked skills for one company's Technical Documentation.
 
-- [structure-technical-docs](structure-technical-docs/SKILL.md) — Propose, scaffold, audit, or migrate the Technical Documentation Set.
-- [write-technical-doc](write-technical-doc/SKILL.md) — Write a standard Technical Internal Document Type.
-- [write-technical-architecture](write-technical-architecture/SKILL.md) — Define company Technical Architecture across its Technical Landscape.
+- [Structure Tech Docs](structure-technical-docs/SKILL.md) (`structure-technical-docs`) — Propose, scaffold, audit, or migrate the Technical Documentation Set.
+- [Write Tech Doc](write-technical-doc/SKILL.md) (`write-technical-doc`) — Write a standard Technical Internal Document Type.
+- [Write Tech Arch](write-technical-architecture/SKILL.md) (`write-technical-architecture`) — Define company Technical Architecture across its Technical Landscape.

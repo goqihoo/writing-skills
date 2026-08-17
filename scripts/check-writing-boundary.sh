@@ -7,7 +7,7 @@ write_knowledge="$repo_root/skills/knowledge/write-knowledge/SKILL.md"
 knowledge_types="$repo_root/skills/knowledge/write-knowledge/references/knowledge-types.md"
 write_architecture_knowledge="$repo_root/skills/knowledge/write-architecture-knowledge/SKILL.md"
 write_technical_architecture="$repo_root/skills/technical/write-technical-architecture/SKILL.md"
-draw_diagrams="$repo_root/skills/visual/draw-diagrams/SKILL.md"
+draw_diagram="$repo_root/skills/visual/draw-diagram/SKILL.md"
 
 forbidden_patterns=(
   "while planning, drafting, and revising"
@@ -63,9 +63,9 @@ fi
 required_visual_routing=(
   "$write_doc|Route visual questions"
   "$write_doc|a model would otherwise require repeated arrows or indentation"
-  "$draw_diagrams|a central model with four or more meaningful nodes or relationships"
-  "$write_architecture_knowledge|When \`\$draw-diagrams\` was explicitly invoked by the user"
-  "$write_technical_architecture|When \`\$draw-diagrams\` was explicitly invoked by the user"
+  "$draw_diagram|a central model with four or more meaningful nodes or relationships"
+  "$write_architecture_knowledge|When \`\$Draw Diagram\` was explicitly invoked by the user"
+  "$write_technical_architecture|When \`\$Draw Diagram\` was explicitly invoked by the user"
 )
 
 for requirement in "${required_visual_routing[@]}"; do

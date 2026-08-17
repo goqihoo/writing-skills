@@ -16,7 +16,7 @@ class WriteDocContractTest(unittest.TestCase):
         self.assertIn("name: write-doc", skill)
         self.assertIn("# Write Doc", skill)
         self.assertIn('display_name: "Write Doc"', metadata)
-        self.assertIn("$write-doc", metadata)
+        self.assertIn("$Write Doc", metadata)
         self.assertFalse((REPO_ROOT / "skills/foundations" / old_name).exists())
 
     def test_plugin_manifest_uses_singular_skill_path(self) -> None:

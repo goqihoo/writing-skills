@@ -16,8 +16,8 @@ Moving an idea between authority scopes requires an explicit adoption or extract
 - assessment skills evaluate decision coverage;
 - structure skills own directory responsibilities, navigation, materialization, and approved migration;
 - artifact skills own one high-frequency artifact or one coherent document family;
-- `write-doc` owns the shared prose contract;
-- `draw-diagrams` owns visual selection and production when explicitly invoked.
+- `write-doc` offers an optional dedicated reader-flow and prose-quality pass;
+- `draw-diagram` owns visual selection and production when explicitly invoked.
 
 Coordination is expressed by verbs. Scribe does not create Delivery or Coordination content buckets.
 
@@ -33,9 +33,11 @@ A Responsibility README exposes responsibility, owner, boundary, current real na
 
 A Public Skill exists only when a task recurs across companies or products, has distinct reasoning or workflow, and ends with a checkable completion condition. Lower-frequency standard documents remain an **Internal Document Type** within `write-product-doc` or `write-technical-doc`.
 
+Every Public Skill has one canonical Skill ID and one exact, unique Skill Display Name. Both invoke the same skill. Catalogs and ready-to-type examples prefer the display name; paths, manifests, frontmatter, and code retain the Skill ID.
+
 ## Explicit Skill Composition
 
-Every skill disables model invocation and implicit invocation. The user explicitly names every required coordination, structure, artifact, `write-doc`, and optional `draw-diagrams` skill. A skill that detects a missing dependency stops and returns the complete ready-to-type invocation; it never invokes that skill itself. Selecting an Internal Document Type inside a Common Writer is internal routing, not skill invocation.
+Every skill disables model invocation and implicit invocation. The user explicitly names every required coordination, structure, and artifact skill. Add `write-doc` for a dedicated prose-quality pass or `draw-diagram` for one visual. A skill that detects a missing required dependency stops and returns the complete ready-to-type invocation; it never invokes that skill itself. Selecting an Internal Document Type inside a Common Writer is internal routing, not skill invocation.
 
 ## Company root
 
