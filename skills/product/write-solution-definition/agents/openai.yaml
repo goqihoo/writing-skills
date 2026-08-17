@@ -1,6 +1,0 @@
-interface:
-  display_name: "Write Solution Definition"
-  short_description: "Define a reusable solution for a product scenario"
-  default_prompt: "Use $write-solution-definition, $reason-product, and $write-doc to define a reusable product solution for this scenario."
-policy:
-  allow_implicit_invocation: false

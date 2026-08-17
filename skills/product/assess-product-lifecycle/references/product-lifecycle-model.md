@@ -9,12 +9,12 @@ Use lifecycle as a decision view over authoritative product files. A stage group
 | Discovery | Is the problem real and worth further investment? | Hypotheses, interviews, experiments, decision record | `$write-product-doc` |
 | Product boundary and strategy | For whom will this product create what value, and what will it not do? | Product Assessment, product strategy | `$reason-product`, `$write-product-strategy` |
 | Capability definition | What durable abilities and responsibilities must the product provide? | Capability map and capability details | `$map-product-capabilities`, `$write-product-doc` |
-| Solution definition | How will shared capabilities address a repeatable customer or partner situation? | Solution definition | `$write-solution-definition` |
+| Solution definition | How will shared capabilities address a repeatable customer or partner situation? | Product Solution | `$write-product-doc` |
 | Product planning | Which outcomes and capability gaps should be addressed next? | Product roadmap | `$write-product-roadmap` |
 | Initiative definition | What changes now, with what behavior and acceptance? | PRD | `$write-prd` |
-| Launch readiness | Can the product change be released, supported, observed, and reversed by the owning teams? | Release plan and linked readiness evidence | `$write-release-plan` |
-| Operate and learn | What happened, and which assumptions changed? | Metrics, evidence, release notes, product review | `$design-product-metrics`, `$write-product-doc`, `$write-product-review` |
-| Iterate, merge, or retire | What should continue, change, combine, pause, or stop? | Review, product decision, revised strategy or roadmap | `$write-product-review`, `$write-product-doc` |
+| Release decision | Can the product change be released, supported, observed, and stopped under explicit criteria? | Product Release Plan and linked evidence | `$write-product-doc` |
+| Operate and learn | What happened, and which assumptions changed? | Metrics, evidence, release notes, Product Review | `$design-product-metrics`, `$write-product-doc` |
+| Iterate, merge, or retire | What should continue, change, combine, pause, or stop? | Product Review, Product Decision, revised strategy or roadmap | `$write-product-doc` |
 
 Activities can run in parallel, revisit earlier decisions, or require different depth by risk. Select the current decision from its consequence and uncertainty, not from a claimed phase number.
 

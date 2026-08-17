@@ -3,19 +3,19 @@
   "owner": {
     "name": "Andrew"
   },
-  "description": "Scribe skills for documentation structure, product lifecycle, professional documents, and technical visuals.",
+  "description": "Scribe skills for reusable Knowledge, Company Documentation, professional writing, and technical visuals.",
   "plugins": [
     {
       "name": "scribe",
       "source": "./",
-      "description": "Assess domain and product boundaries, plan knowledge structures and lifecycle artifacts, and create professional documents and technical visuals.",
+      "description": "Assess boundaries, structure company Product and Technical Documentation, and create governed documents and visuals through explicit skill composition.",
       "category": "productivity",
       "keywords": [
         "writing",
         "documentation",
-        "organization",
+        "knowledge",
         "product",
-        "product-lifecycle",
+        "technical",
         "architecture",
         "diagrams"
       ]

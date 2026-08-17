@@ -1,6 +1,0 @@
-interface:
-  display_name: "Write Release Plan"
-  short_description: "Plan product release readiness and coordination"
-  default_prompt: "Use $write-release-plan, $reason-product, and $write-doc to plan product release readiness, coordination, and decision criteria."
-policy:
-  allow_implicit_invocation: false

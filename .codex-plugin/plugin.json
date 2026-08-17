@@ -1,7 +1,7 @@
 {
   "name": "scribe",
-  "version": "0.4.0+codex.20260817050029",
-  "description": "Professional documentation structure, product lifecycle, writing, and technical visual skills with one guided entry point.",
+  "version": "0.5.0+codex.20260817170000",
+  "description": "Composable skills for reusable Knowledge, company Product and Technical Documentation, professional writing, and technical visuals.",
   "author": {
     "name": "Andrew",
     "url": "https://github.com/goqihoo"
@@ -10,17 +10,17 @@
   "keywords": [
     "writing",
     "documentation",
-    "organization",
+    "knowledge",
     "product",
-    "product-lifecycle",
+    "technical",
     "architecture",
     "diagrams"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Scribe Skills",
-    "shortDescription": "Structure and write clear professional documents.",
-    "longDescription": "Assess domain and product boundaries, plan general, domain, and product knowledge structures, evaluate product lifecycle readiness, then create focused knowledge, strategy, capability, solution, roadmap, PRD, metric, release, review, architecture, and visual artifacts through explicit composable skills.",
+    "shortDescription": "Structure and write governed documentation.",
+    "longDescription": "Distinguish reusable Knowledge from company Product and Technical Documentation, assess boundaries and authority, structure stable responsibilities and conditional material, and create standard and high-frequency artifacts through explicit skill composition.",
     "developerName": "goqihoo",
     "category": "Productivity",
     "capabilities": [
@@ -30,19 +30,21 @@
       "Diagram"
     ],
     "defaultPrompt": [
-      "Use $ask-scribe to explain which Scribe skills fit my task and how to combine them.",
-      "Use $structure-docs and $write-doc to plan a clear directory and file structure for this documentation set.",
-      "Use $reason-domain and $write-doc to decide whether this subject forms a reusable domain and record its boundary.",
-      "Use $structure-domain-docs, $reason-domain, $structure-docs, and $write-doc to create a coherent directory and reading path for this domain knowledge set.",
-      "Use $write-domain-doc, $reason-domain, and $write-doc to create the appropriate document for this accepted domain knowledge set.",
-      "Use $write-domain-doc, $reason-domain, and $write-doc to write a first-principles essence article for this accepted domain.",
-      "Use $reason-product and $write-doc to decide whether this subject is a product, product area, capability, solution, or another content class.",
-      "Use $assess-product-lifecycle, $reason-product, and $write-doc to identify the current product decision, evidence gaps, artifact coverage, and next actions.",
-      "Use $structure-product-docs, $reason-product, $assess-product-lifecycle, $structure-docs, $write-product-doc, and $write-doc to scaffold the seven-directory product knowledge core and both navigation maps.",
-      "Use $write-product-strategy, $reason-product, and $write-doc to define this product's direction, choices, non-goals, and review triggers.",
-      "Use $map-product-capabilities, $reason-product, and $write-doc to model this product's durable capabilities and responsibility boundaries.",
-      "Use $write-doc to draft a clear technical document from these notes.",
-      "Use $draw-diagrams and $write-doc to turn this architecture into a concise diagram."
+      "Use $ask-scribe to explain which Scribe skills fit my task and return a complete explicit invocation.",
+      "Use $structure-docs and $write-doc to plan a coherent documentation structure and migration map.",
+      "Use $reason-domain and $write-doc to assess this reusable Domain Knowledge boundary.",
+      "Use $structure-domain-docs, $reason-domain, $structure-docs, and $write-doc to structure this Domain Knowledge set.",
+      "Use $write-domain-doc, $reason-domain, and $write-doc to create the named Domain Knowledge document.",
+      "Use $write-architecture-knowledge, $reason-architecture, and $write-doc to create reusable Architecture Knowledge.",
+      "Use $reason-product and $write-doc to assess this company portfolio, product line, product, or product responsibility.",
+      "Use $structure-product-docs, $reason-product, $structure-docs, and $write-doc to structure this company's Product Documentation Set.",
+      "Use $write-product-doc, $reason-product, and $write-doc to create the named Product Internal Document Type.",
+      "Use $assess-product-lifecycle, $reason-product, and $write-doc to assess the next product decision and artifact coverage.",
+      "Use $reason-technical and $write-doc to assess this company's Technical Landscape and documentation responsibilities.",
+      "Use $structure-technical-docs, $reason-technical, $structure-docs, and $write-doc to structure this company's Technical Documentation Set.",
+      "Use $write-technical-doc, $reason-technical, and $write-doc to create the named Technical Internal Document Type.",
+      "Use $write-technical-architecture, $reason-technical, $reason-architecture, and $write-doc to define this company's Technical Architecture.",
+      "Use $draw-diagrams and $write-doc to create and verify the smallest useful visual for this document."
     ]
   }
 }

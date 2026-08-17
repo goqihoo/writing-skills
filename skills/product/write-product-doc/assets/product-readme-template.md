@@ -1,4 +1,12 @@
-# [Product]
+# [Company Product root, responsibility, or accepted Product]
+
+## Responsibility and ownership
+
+- Scope:
+- Owner:
+- Owns:
+- Excludes:
+- Excluded material goes to:
 
 ## Product boundary
 
@@ -9,26 +17,23 @@
 - Exclusions and destinations:
 - Product owner and release authority:
 
-## Current product knowledge
+## Current Product Documentation
 
 | Responsibility | Current authoritative document | Acceptance state | Currency state | Last verified |
 | --- | --- | --- | --- | --- |
 | Definition | | | | |
 | Capabilities | | | | |
 | Planning | | | | |
-| Initiatives | | | | |
-| Evidence | | | | |
 | Measurement | | | | |
-| Releases | | | | |
 
-## Lifecycle and active decisions
+## Current navigation and active decisions
 
 - Lifecycle map:
 - Current decision:
 - Active initiatives:
 - Next review trigger:
 
-## Product-type extensions
+## Materialized extensions and Event Collections
 
 - Solutions:
 - Experience:
@@ -49,3 +54,4 @@
 - Owner:
 - Update events:
 - Link and supersession rules:
+- Planned nonexistent documents remain unlinked.

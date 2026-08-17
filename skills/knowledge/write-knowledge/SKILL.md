@@ -1,6 +1,6 @@
 ---
 name: write-knowledge
-description: "Create, revise, or review general durable knowledge documents: concept explanations, mechanism explanations, methods, pattern comparisons, mental models, case studies, and references. Use when understanding must remain useful beyond one project and no common domain-document or stricter artifact skill owns the requested format; use write-domain-doc for every common artifact inside a domain knowledge directory, including first-principles essence documents, and write-study-architecture for reusable architecture ownership, contracts, controls, failure, or evolution."
+description: "Create, revise, or review general durable Knowledge: concept explanations, mechanisms, methods, pattern comparisons, mental models, case studies, and references. Route reusable architecture questions to write-architecture-knowledge."
 disable-model-invocation: true
 ---
 
@@ -25,6 +25,6 @@ Turn understanding, experience, and source material into knowledge that readers 
 
 A knowledge document remains useful after the immediate initiative ends. A work artifact coordinates a specific delivery, approval, implementation, or operational response. Preserve that distinction even when both contain similar facts.
 
-Route reusable system ownership, contracts, control, failure, and evolution to `$write-study-architecture`. Route project commitments to `$write-delivery-architecture`.
+Route reusable system ownership, contracts, control, failure, and evolution to `$write-architecture-knowledge $reason-architecture $write-doc`. Route company commitments to Product or Technical Documentation and keep Project Documentation outside the current Scribe artifact catalog.
 
 The work is complete when the selected type's reasoning obligations are satisfied without copying its part labels into a default outline, and a reader can perform the intended action without reconstructing the author's research process.

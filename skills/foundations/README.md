@@ -1,15 +1,11 @@
 # Foundations
 
-Explicitly invoked Scribe guide and methods shared across document work.
+Explicitly invoked Scribe guidance, reasoning, structure, and shared writing methods.
 
-## Guide
-
-- [ask-scribe](ask-scribe/SKILL.md) — Explain Scribe's skills, boundaries, and useful combinations without executing them.
-
-## Shared methods
-
-- [write-doc](write-doc/SKILL.md) — Apply shared reasoning and clarity rules to one document.
+- [ask-scribe](ask-scribe/SKILL.md) — Explain skills and complete invocations without executing them.
+- [structure-docs](structure-docs/SKILL.md) — Plan documentation placement, boundaries, navigation, and migration.
+- [write-doc](write-doc/SKILL.md) — Apply the shared prose contract.
 - [reason-architecture](reason-architecture/SKILL.md) — Apply the shared four-view architecture method.
-- [reason-domain](reason-domain/SKILL.md) — Assess domain admission, boundaries, relationships, knowledge ownership, and maturity.
-- [reason-product](reason-product/SKILL.md) — Assess product admission, boundaries, hierarchy, ownership, lifecycle, and review triggers.
-- [structure-docs](structure-docs/SKILL.md) — Plan and review directory boundaries, file placement, and documentation structure.
+- [reason-domain](reason-domain/SKILL.md) — Assess reusable Domain Knowledge boundaries.
+- [reason-product](reason-product/SKILL.md) — Assess company portfolios, products, and product responsibilities.
+- [reason-technical](reason-technical/SKILL.md) — Assess company technical scope, ownership, authority, and responsibilities.

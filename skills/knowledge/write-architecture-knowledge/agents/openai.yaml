@@ -1,0 +1,6 @@
+interface:
+  display_name: "Write Architecture Knowledge"
+  short_description: "Create reusable architecture knowledge"
+  default_prompt: "Use $write-architecture-knowledge, $reason-architecture, and $write-doc to create reusable Architecture Knowledge not tied to one company."
+policy:
+  allow_implicit_invocation: false

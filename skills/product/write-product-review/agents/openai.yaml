@@ -1,6 +1,0 @@
-interface:
-  display_name: "Write Product Review"
-  short_description: "Review evidence, outcomes, and next decisions"
-  default_prompt: "Use $write-product-review, $reason-product, and $write-doc to review product evidence, outcomes, and next decisions."
-policy:
-  allow_implicit_invocation: false

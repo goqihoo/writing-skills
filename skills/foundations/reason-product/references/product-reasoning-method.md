@@ -1,105 +1,69 @@
 # Product reasoning method
 
-Use this method to decide what deserves a product boundary and what belongs inside or outside it.
+Use this method to distinguish the company product portfolio, product lines, accepted products, and responsibilities within a product.
 
 ## Product decision
 
 Return one decision:
 
-- **Accept** — evidence supports an independently managed product boundary.
-- **Route as product area or capability** — the subject matters but does not have an independent product identity or release authority.
-- **Route to another content class** — the subject is primarily company strategy, business knowledge, reusable method knowledge, a customer project, or technical implementation.
-- **Needs evidence** — a material boundary decision depends on missing users, outcomes, authority, lifecycle, or relationship evidence.
+- **Accept** — evidence supports the portfolio or independently governed product boundary.
+- **Route as product line, product area, or capability** — the subject is a classification or responsibility inside an accepted product model.
+- **Route to another authority scope** — the subject belongs to general Knowledge, Project Documentation, Technical Documentation, or another company responsibility.
+- **Needs evidence** — a material decision depends on missing users, outcomes, authority, lifecycle, ownership, or navigation evidence.
 
-Do not use a folder, brand name, team, backlog, component, or customer request as proof that a product exists.
+Do not use a folder, brand, team, backlog, component, or customer request as proof that a product exists.
 
-## Boundary tests
+## Company product portfolio
 
-### Minimum user outcome
+Identify the named company that owns the Product Documentation Set. Establish who governs product admission, investment, lifecycle, shared constraints, and cross-product decisions. A product line is a classification view over accepted products in the Portfolio; it is not a default parent directory and one product may appear in more than one view.
 
-Name the smallest continuing outcome the product promises to make possible. A product can support several jobs, but it needs one coherent reason users or buyers choose it.
+## Product boundary tests
 
-### Users and context
-
-Identify the users, buyers, operators, partners, or other participants whose actions or decisions make the outcome real. State the contexts where the product applies and where it does not.
-
-### Offered value and capability
-
-Describe the value offered and the stable capabilities required to provide it. A product capability expresses a durable responsibility; a feature expresses one manifestation of it.
-
-### Change authority
-
-Name who may change product scope, offered behavior, priorities, and commitments. A subject governed entirely by another product is usually an area, capability, or solution rather than a product.
-
-### Product boundary
-
-State what belongs inside the product and which business, domain, company, project, and technical responsibilities remain outside. Record the handoff at each meaningful boundary.
-
-### Release boundary
-
-Determine whether the candidate can be versioned, launched, made available, measured, and retired on a meaningful boundary. Shared deployment does not disprove product identity, but an absent independent release decision is evidence against it.
-
-### Sustained lifecycle
-
-Identify how the subject is discovered, shaped, changed, measured, reviewed, and eventually retired. A one-time deliverable without continuing product decisions is usually an initiative or project.
+- **Minimum user outcome:** name the smallest continuing outcome the product promises.
+- **Users and context:** identify users, buyers, operators, partners, and applicable contexts.
+- **Offered value and capability:** distinguish stable capabilities from features or initiatives.
+- **Product boundary:** state included responsibilities, exclusions, and handoffs.
+- **Change authority:** name who may change scope and offered behavior.
+- **Release boundary:** identify meaningful availability, measurement, versioning, and retirement decisions.
+- **Sustained lifecycle:** show how the product is changed, measured, reviewed, and retired.
 
 ## Relationship tests
 
-Use the narrowest supported relationship:
+- **Portfolio and product:** the Portfolio governs investment and relationships; each product retains its outcome and lifecycle.
+- **Product line and product:** the line is a Portfolio classification view, not a mandatory physical hierarchy.
+- **Product and subproduct:** the child independently passes every product boundary test.
+- **Product area:** a navigational or planning partition without independent product authority.
+- **Capability:** a durable product ability, not a feature, system, or roadmap item.
+- **Solution:** a reusable composition of capabilities for a class of situations.
+- **Peer, dependency, or handoff:** another owner supplies an input, receives an output, or controls a decision.
 
-- **Product line and product:** the parent manages a coherent portfolio or shared promise while each product retains an independent outcome and lifecycle.
-- **Product and subproduct:** the child passes every boundary test and the parent owns a real shared product purpose rather than a convenient folder.
-- **Product area:** a navigational or planning partition inside one product without independent value, authority, and lifecycle.
-- **Capability:** a durable ability the product must provide; it is not a separately marketed or governed product by default.
-- **Solution:** a reusable composition of product capabilities for one class of customer or partner situation.
-- **Peer product:** another accepted product with a relationship but no valid parent-child boundary.
-- **Dependency or handoff:** another product, business process, external authority, or technical system provides an input, receives an output, or owns a decision.
+## Materialization classification
 
-Do not turn every capability into a subproduct or every solution into a product. A customer-specific solution remains a project unless its market, value, capabilities, and operating model become independently durable.
+- **Stable Responsibility:** persists for the accepted company or product scope and receives a default directory and Responsibility README.
+- **Type Extension:** appears only when independent ownership, governance, or navigation is proven.
+- **Event Collection:** appears with the first real initiative, evidence record, release, or decision, never as an empty default.
 
-## Knowledge ownership
+For Product Documentation, the company-level Stable Responsibilities are `Portfolio/`, `Governance/`, and `Products/`. Each accepted product receives `Definition/`, `Capabilities/`, `Planning/`, and `Measurement/`. `Solutions/` and `Experience/` are Type Extensions. `Initiatives/`, `Evidence/`, `Releases/`, and `Decisions/` are Event Collections.
 
-Classify material by subject, change authority, lifetime, and reader action:
+## Authority ownership
 
-| Content | Primary owner |
+| Material | Primary owner |
 | --- | --- |
-| Reusable product-management method | Product method knowledge |
-| Product users, value, capabilities, observable behavior, priorities, metrics, and releases | Product knowledge set |
-| Industry structure and value exchange independent of the product | Business knowledge |
-| Company portfolio choices, investment policy, and organization facts | Company knowledge |
-| One customer, contract, or delivery's scope and acceptance | Project or initiative records |
-| Components, interfaces, data, deployment, reliability, and operations | Technical documentation |
+| Reusable product concepts, methods, and cases | Product Knowledge |
+| One company's portfolio, governance, accepted products, and product truth | Product Documentation |
+| Customer, contract, delivery plan, tasks, status, and acceptance | Project Documentation |
+| Systems, technical standards, implementation, and operations | Technical Documentation or downstream Machine Authority |
 
-Link across boundaries. Keep one canonical explanation.
+Link across boundaries and keep one canonical explanation.
 
-## Evidence and status
+## Assessment persistence
 
-Separate:
-
-- observed user, market, product, and release facts;
-- external constraints and authoritative sources;
-- hypotheses still being tested;
-- accepted product decisions;
-- target states and proposals;
-- unresolved questions.
-
-Use explicit validity information for claims that change by product version, market, customer class, or time.
-
-## Lifecycle and review triggers
-
-Record the current lifecycle condition without forcing a linear stage. Review the boundary when:
-
-- the minimum user outcome or target market changes;
-- a capability gains independent users, authority, economics, or release decisions;
-- a product becomes only a feature or distribution surface of another product;
-- a reusable solution becomes customer-specific or a customer-specific solution becomes repeatable;
-- ownership, regulation, evidence, or commercial commitments change materially;
-- the product is merged, split, suspended, or retired.
+Persist a Product Assessment only for a disputed boundary, Type Extension, audit finding, or approved migration that needs durable traceability. For a straightforward accepted scaffold, retain the reasoning in the execution and create only real navigation and Responsibility READMEs.
 
 ## Completion checks
 
-- The decision follows the evidence rather than the requested folder name.
-- Minimum user outcome, Product boundary, Change authority, and Release boundary agree.
-- Relationships do not confuse products, areas, capabilities, solutions, projects, or technical systems.
-- Every material has one primary owner and an honest destination.
-- Review triggers name observable changes, not a generic calendar reminder.
+- The company portfolio and each accepted product have named authority.
+- Product lines remain classification views unless a separately justified structure is approved.
+- Minimum user outcome, product boundary, change authority, and release boundary agree.
+- Every proposed directory has exactly one materialization class.
+- Every material has one primary authority scope and honest destination.

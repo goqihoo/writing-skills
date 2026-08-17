@@ -1,47 +1,30 @@
-# Product Structure Plan: [Product]
+# Product Documentation Structure Plan: [Company]
 
 ## Decision basis
 
-- Product Assessment:
-- Product Lifecycle Assessment:
-- Requested action and authority:
-- Local conventions preserved:
+- Requested action: [proposal / scaffold / audit / approved migration]
+- Company and Product authority:
+- Product Assessment, when persisted:
+- Accepted products:
+- Allowed changes and local conventions:
 
-## Topology decision
+## Materialization decision
 
-- Core: [Seven-directory core / Existing compatible core]
-- Product-type extensions:
-- Evidence:
-- Navigation need:
+| Path | Responsibility | Classification | Evidence | Decision |
+| --- | --- | --- | --- | --- |
+| | | Stable Responsibility / Type Extension / Event Collection | | Create / Keep / Move / Do not create / Unresolved |
 
 ## Proposed tree
 
 ```text
-[Tree]
+[Capitalized company Product tree; omit unproven Type Extensions and empty Event Collections]
 ```
 
-## Path responsibilities and materialization
+## Responsibility README contracts
 
-| Path | Responsibility | State | Current material | Planned material | Notes |
+| Path | Owner | Owns | Excludes | Real current navigation | External authority links |
 | --- | --- | --- | --- | --- | --- |
-| | | Existing / Create now / Planned / Unresolved | | | |
-
-## Product README contract
-
-- Boundary and exclusions:
-- Current linked coverage:
-- Planned unlinked coverage:
-- Responsibility entries:
-- Related products and external handoffs:
-- Maintenance rules:
-
-## Lifecycle-map contract
-
-- Current decision and owner:
-- Decision gates and authoritative links:
-- Evidence gaps:
-- State fields:
-- Next review triggers:
+| | | | | | |
 
 ## Migration mapping
 
@@ -55,10 +38,10 @@
 
 ## Verification
 
-- [ ] Every material has one primary home and state.
-- [ ] The seven core responsibilities remain distinct.
-- [ ] Every extension has product-model and navigation evidence.
-- [ ] README and lifecycle maps reference the same authoritative files.
-- [ ] Planned content is unlinked.
-- [ ] Technical material remains externally owned.
+- [ ] Every accepted scope has its Stable Responsibilities and Responsibility READMEs.
+- [ ] Every Type Extension has independent ownership, governance, or navigation evidence.
+- [ ] Every Event Collection begins with a first real event document.
+- [ ] No strategy, roadmap, standard, or product fact was invented for the scaffold.
+- [ ] Product lines remain Portfolio classification views.
+- [ ] Product and Technical authorities are linked rather than copied.
 - [ ] No duplicate authority, broken link, or stale migrated path remains.

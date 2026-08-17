@@ -5,15 +5,15 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-STUDY_ROOT = REPO_ROOT / "skills/knowledge/write-study-architecture"
-DELIVERY_ROOT = REPO_ROOT / "skills/technical/write-delivery-architecture"
+KNOWLEDGE_ROOT = REPO_ROOT / "skills/knowledge/write-architecture-knowledge"
+TECHNICAL_ROOT = REPO_ROOT / "skills/technical/write-technical-architecture"
 
 
 class ArchitectureSkillNamesTest(unittest.TestCase):
     def test_skill_directories_frontmatter_and_display_names_agree(self) -> None:
         expected = {
-            STUDY_ROOT: "Write Study Architecture",
-            DELIVERY_ROOT: "Write Delivery Architecture",
+            KNOWLEDGE_ROOT: "Write Architecture Knowledge",
+            TECHNICAL_ROOT: "Write Technical Architecture",
         }
 
         for skill_root, display_name in expected.items():
@@ -28,45 +28,36 @@ class ArchitectureSkillNamesTest(unittest.TestCase):
             self.assertIn(f'display_name: "{display_name}"', metadata)
             self.assertIn(f"${skill_root.name}", metadata)
 
-    def test_plugin_exposes_only_the_new_architecture_skill_names(self) -> None:
+    def test_plugin_exposes_only_current_architecture_skill_names(self) -> None:
         manifest = json.loads(
             (REPO_ROOT / ".claude-plugin/plugin.json").read_text(encoding="utf-8")
         )
 
         self.assertIn(
-            "./skills/knowledge/write-study-architecture", manifest["skills"]
+            "./skills/knowledge/write-architecture-knowledge", manifest["skills"]
         )
         self.assertIn(
-            "./skills/technical/write-delivery-architecture", manifest["skills"]
+            "./skills/technical/write-technical-architecture", manifest["skills"]
         )
-        self.assertNotIn("./skills/knowledge/study-architecture", manifest["skills"])
-        self.assertNotIn("./skills/technical/design-architecture", manifest["skills"])
-        self.assertNotIn("./skills/technical/record-decision", manifest["skills"])
-
-    def test_removed_skill_and_old_public_identifiers_are_absent(self) -> None:
-        self.assertFalse((REPO_ROOT / "skills/technical/record-decision").exists())
-        self.assertFalse((REPO_ROOT / "skills/knowledge/study-architecture").exists())
-        self.assertFalse((REPO_ROOT / "skills/technical/design-architecture").exists())
-
-        tracked_text = []
-        for path in [
-            REPO_ROOT / "README.md",
-            REPO_ROOT / ".claude-plugin/plugin.json",
-            REPO_ROOT / "skills/foundations/ask-scribe/SKILL.md",
-            REPO_ROOT / "skills/knowledge/README.md",
-            REPO_ROOT / "skills/technical/README.md",
+        for old_path in [
+            "./skills/knowledge/write-study-architecture",
+            "./skills/technical/write-delivery-architecture",
+            "./skills/technical/design-architecture",
+            "./skills/technical/record-decision",
         ]:
-            tracked_text.append(path.read_text(encoding="utf-8"))
-        combined = "\n".join(tracked_text)
+            self.assertNotIn(old_path, manifest["skills"])
 
-        for old_identifier in [
-            "skills/knowledge/study-architecture",
-            "skills/technical/design-architecture",
-            "record-decision",
-            "`study-architecture`",
-            "`design-architecture`",
-        ]:
-            self.assertNotIn(old_identifier, combined)
+    def test_architecture_authority_boundaries_are_explicit(self) -> None:
+        knowledge = (KNOWLEDGE_ROOT / "SKILL.md").read_text(encoding="utf-8")
+        technical = (TECHNICAL_ROOT / "SKILL.md").read_text(encoding="utf-8")
+
+        self.assertIn("reusable Architecture Knowledge", knowledge)
+        self.assertIn("not tied to one company", knowledge)
+        self.assertIn("company Technical Architecture", technical)
+        self.assertIn("Technical Landscape", technical)
+        self.assertIn("$reason-technical", technical)
+        self.assertIn("$reason-architecture", technical)
+        self.assertIn("$write-doc", technical)
 
 
 if __name__ == "__main__":

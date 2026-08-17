@@ -1,34 +1,34 @@
 ---
 name: write-product-doc
-description: Create, revise, or review one common document inside an accepted product knowledge set, selecting the matching internal product map, lifecycle map, reference, evidence, decision, behavior, or release-notes contract.
+description: Create, revise, or review one standard Product Documentation artifact through a named Internal Document Type, while routing independently owned high-frequency artifacts to their public skills.
 disable-model-invocation: true
 ---
 
 # Write Product Doc
 
-Use one public interface for common product documents while routing major lifecycle artifacts to their independent owners.
+Use one Product Common Writer for coherent company and product document types without turning every standard document into a public skill.
 
 ## Workflow
 
 1. Apply `$reason-product` and `$write-doc`.
-2. Read repository instructions, the Product Assessment, product README, lifecycle map, target file when present, and representative siblings.
-3. Require an accepted and current product boundary. For a missing or disputed assessment, return a ready-to-type explicit invocation for `$reason-product $write-doc` and stop before drafting.
-4. Treat the user's explicit request as the highest-authority artifact signal. Use filename, path, reader question, existing content, and sibling conventions only to confirm or resolve an underspecified request.
-5. Read `references/product-document-types.md`. Select exactly one common document type and read only its matching template.
-6. Route product strategy, capability map, solution definition, roadmap, PRD, product metrics, release plan, and product review to their owning public skills. Return the complete ready-to-type explicit invocation and stop.
-7. Lock the artifact plan: reader question, included and excluded material, evidence needs, validity scope, selected template, canonical sources, and permitted adaptation.
-8. Separate observed facts, evidence, hypotheses, accepted decisions, current product truth, target state, and open questions. Record owner, applicability, last verification, and supersession when they matter.
-9. Draft in the selected template. Link to canonical strategy, capability, roadmap, initiative, evidence, metric, release, and externally owned material instead of repeating it.
-10. Add or repair the product or collection README link when creating or renaming a document. Keep planned nonexistent content unlinked.
-11. Verify the type, template responsibilities, Product Assessment boundary, authority, validity, evidence, links, and absence of another artifact's independent responsibility.
+2. Read company and Product navigation, the Product Assessment when persisted, the target file, authoritative evidence, and representative siblings.
+3. Confirm the named company and accepted portfolio or product boundary. If a required dependency was not explicitly invoked, stop and return the complete ready-to-type invocation.
+4. Read `references/product-document-types.md`. Select exactly one Internal Document Type from the user's request and read only its matching template.
+5. If the requested artifact is Product Strategy, Capability Map, Product Roadmap, PRD, or Product Metric System, return its complete public-skill invocation from the routing table and stop before drafting.
+6. Lock the reader question, scope, evidence, validity, canonical sources, selected template, and exclusions.
+7. Separate observed facts, evidence, hypotheses, accepted decisions, current company or product truth, target state, and open questions.
+8. Draft with the selected template. A Responsibility README records ownership, boundary, real navigation, and external authority links; it never substitutes for authoritative body text.
+9. Link Product Knowledge, Project Documentation, Technical Documentation, and Machine Authority rather than copying them.
+10. Add or repair real navigation when creating or renaming a document. Do not link planned nonexistent files.
+11. Verify the Internal Document Type, authority boundary, evidence, validity, links, completion profile, and absence of another public artifact's responsibility.
 
 ## Boundaries
 
-- Own product maps, lifecycle maps, collection maps, users and roles, product language, capability details, journeys and behavior, evidence records, product decision records, and release notes.
-- Let `$structure-product-docs` own whole-set topology and migration.
-- Let the standard artifact skills own product strategy, capability mapping, solution definition, roadmap, PRD, metrics, release planning, and product reviews.
-- Keep technical design and operations in their owning locations; retain product-facing constraints and links only.
+- Own the Internal Document Types listed in `references/product-document-types.md`.
+- Let `$structure-product-docs` own whole-set topology and approved migration.
+- Route independently owned high-frequency artifacts without invoking their skills.
+- Keep customer delivery and technical implementation in their owning authority scopes.
 
 ## Completion
 
-The work is complete when one accepted product and one common document type own the result, the matching template responsibilities are satisfied, current truth is distinguishable from evidence and proposals, validity and authority are visible, canonical links replace duplication, navigation exposes the artifact, and no standard artifact or technical responsibility has been absorbed.
+The work is complete when one named company or accepted product and one Internal Document Type own the result, the matching template responsibilities are satisfied, authority and validity are visible, canonical links replace duplication, real navigation exposes the artifact, and no public artifact responsibility has been absorbed.

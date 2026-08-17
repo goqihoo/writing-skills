@@ -1,34 +1,34 @@
 ---
 name: reason-product
-description: Assess a candidate product boundary and record its users, outcomes, value, relationships, change and release authority, content ownership, lifecycle, and review triggers in a Product Assessment.
+description: Assess company product portfolios, product lines, products, and product-level boundaries; record disputed, extension, audit, or migration decisions in a Product Assessment.
 disable-model-invocation: true
 ---
 
 # Reason About Products
 
-Establish what the product is before a directory, roadmap, or PRD makes an accidental boundary look authoritative.
+Establish the company product portfolio and each accepted product boundary before directory structure makes an accidental classification authoritative.
 
 ## Workflow
 
-1. Apply `$write-doc` to the Product Assessment.
-2. Read repository instructions, the product or project root README, existing product definitions, and representative adjacent products or initiatives. Preserve healthy local terms and ownership decisions.
+1. Apply `$write-doc` when the result will be presented or persisted as a Product Assessment.
+2. Read repository instructions, company and Product navigation, existing product definitions, portfolio records, and representative adjacent products or initiatives.
 3. Read `references/product-reasoning-method.md` completely.
-4. Establish the candidate product, intended users, offered outcome, available evidence, current owner, and decision being requested. Separate facts, hypotheses, accepted decisions, proposals, and missing evidence.
-5. Test the minimum user outcome, users and context, offered value and capability, change authority, release boundary, and sustained lifecycle. Return `Accept`, `Route as product area or capability`, `Route to another content class`, or `Needs evidence`.
-6. Resolve relationships among product line, product, subproduct, product area, capability, solution, peer product, dependency, and handoff. Test every proposed child independently.
-7. Assign each material one primary content class and owner. Keep reusable method knowledge, company strategy, customer projects, and technical implementation in their owning locations.
-8. Record lifecycle, maturity, evidence gaps, authority conflicts, and events that require review.
-9. Adapt `assets/product-assessment-template.md`. Keep unsupported conclusions visible as unresolved instead of inventing a coherent product.
-10. Verify that the decision, boundary, relationships, ownership, and review triggers agree with the evidence.
+4. Establish the company scope, candidate product or product line, intended users, offered outcome, evidence, owner, and decision being requested. Separate facts, hypotheses, accepted decisions, proposals, and missing evidence.
+5. Test the company product portfolio boundary, minimum user outcome, offered value, change authority, release boundary, and sustained lifecycle. Return `Accept`, `Route as product line, product area, or capability`, `Route to another authority scope`, or `Needs evidence`.
+6. Resolve relationships among portfolio, product line, product, subproduct, product area, capability, solution, peer product, dependency, and handoff. Treat a product line as a Portfolio classification view, not a default physical parent.
+7. Classify every accepted responsibility as a Stable Responsibility, Type Extension, or Event Collection. Admit a Type Extension only when independent ownership, governance, or navigation is proven.
+8. Assign each material one primary authority scope and owner. Keep reusable Product Knowledge, Project Documentation, and technical implementation in their owning locations.
+9. Persist `assets/product-assessment-template.md` only when a disputed boundary, Type Extension, audit, or migration decision needs durable traceability. Keep straightforward scaffold reasoning within the execution.
+10. Verify that the decision, product boundary, portfolio relationships, ownership, materialization class, and review triggers agree with the evidence.
 
 ## Boundaries
 
-- Own product admission, identity, boundary, hierarchy, relationships, change and release authority, high-level knowledge ownership, and the Product Assessment handoff.
-- Let `$assess-product-lifecycle` own decision readiness and artifact coverage.
+- Own company product portfolio admission, product lines, product boundaries, hierarchy, relationships, change and release authority, high-level knowledge ownership, and the Product Assessment handoff.
+- Let `$assess-product-lifecycle` own product decision readiness and artifact coverage.
 - Let `$structure-product-docs` own directory topology, materialization, navigation, scaffolding, and migration.
-- Let product artifact skills own their document bodies.
-- Treat a feature, team, customer, project, software component, or named solution as a product only when it passes the product tests.
+- Let Product artifact skills own document bodies.
+- Do not turn a feature, team, customer, project, software component, or named solution into a product without evidence.
 
 ## Completion
 
-The work is complete when one evidence-backed decision names the product boundary or correct route, every supported relationship and material has one primary owner, change and release authority are explicit, unresolved questions remain visible, and downstream skills can consume the Product Assessment without inferring a different product.
+The work is complete when one evidence-backed decision names the company portfolio or product boundary, every relationship and material has one primary owner, Stable Responsibilities and justified Type Extensions are explicit, unresolved questions remain visible, and downstream skills can proceed without inferring a different product model.

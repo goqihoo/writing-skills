@@ -24,7 +24,7 @@ Give every document one stable home and make each directory boundary explainable
 ## Boundaries
 
 - Own documentation-set information architecture: content classes, directory responsibilities, file placement, naming structure, navigation, and migration maps.
-- Let the relevant artifact skill own document purpose and internal reasoning: `$write-knowledge` for reusable knowledge, `$write-prd` for product requirements, `$write-study-architecture` for reusable architecture knowledge, and `$write-delivery-architecture` for project-specific architecture.
+- Let the relevant artifact skill own document purpose and internal reasoning: `$write-knowledge` for reusable Knowledge, `$write-prd` for product requirements, `$write-architecture-knowledge` for reusable Architecture Knowledge, and `$write-technical-architecture` for company Technical Architecture.
 - Treat software packages, runtime components, and deployment topology as technical architecture when the task is to design the system rather than organize its documentation.
 - Preserve a healthy local taxonomy. Recommend a change only when evidence shows mixed dimensions, unclear ownership, duplication, an unrepresented content class, or a structure that prevents readers from finding the authoritative source.
 

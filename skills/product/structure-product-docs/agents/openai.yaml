@@ -1,6 +1,6 @@
 interface:
   display_name: "Structure Product Docs"
-  short_description: "Plan and scaffold a product knowledge set"
-  default_prompt: "Use $structure-product-docs, $reason-product, $assess-product-lifecycle, $structure-docs, $write-product-doc, and $write-doc to plan and scaffold this product knowledge set."
+  short_description: "Structure company Product Documentation"
+  default_prompt: "Use $structure-product-docs, $reason-product, $structure-docs, and $write-doc to propose, scaffold, audit, or migrate this company's Product Documentation Set."
 policy:
   allow_implicit_invocation: false

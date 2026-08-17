@@ -5,8 +5,8 @@ repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 write_doc="$repo_root/skills/foundations/write-doc/SKILL.md"
 write_knowledge="$repo_root/skills/knowledge/write-knowledge/SKILL.md"
 knowledge_types="$repo_root/skills/knowledge/write-knowledge/references/knowledge-types.md"
-write_study_architecture="$repo_root/skills/knowledge/write-study-architecture/SKILL.md"
-write_delivery_architecture="$repo_root/skills/technical/write-delivery-architecture/SKILL.md"
+write_architecture_knowledge="$repo_root/skills/knowledge/write-architecture-knowledge/SKILL.md"
+write_technical_architecture="$repo_root/skills/technical/write-technical-architecture/SKILL.md"
 draw_diagrams="$repo_root/skills/visual/draw-diagrams/SKILL.md"
 
 forbidden_patterns=(
@@ -17,7 +17,7 @@ forbidden_patterns=(
 
 for pattern in "${forbidden_patterns[@]}"; do
   if rg -Fq "$pattern" "$write_doc"; then
-    printf 'FAIL: natural-writing guidance can change artifact planning or structure: %s\n' "$pattern" >&2
+    printf 'FAIL: shared prose guidance can change artifact planning or structure: %s\n' "$pattern" >&2
     exit 1
   fi
 done
@@ -36,19 +36,14 @@ for pattern in "${required_write_doc[@]}"; do
   fi
 done
 
-if ! rg -Fq "Lock the artifact plan" "$write_knowledge"; then
-  printf 'FAIL: write-knowledge does not lock the subject-specific reasoning before prose revision\n' >&2
-  exit 1
-fi
-
 required_structure_ownership=(
   "$knowledge_types|reasoning obligations, not an outline or default heading sequence"
   "$knowledge_types|that template owns the heading names, order, hierarchy, and permitted branches"
   "$write_knowledge|Derive the subject-specific reasoning spine"
   "$write_knowledge|selected type's questions as a coverage checklist"
   "$write_doc|treat the template as the structure owner"
-  "$write_study_architecture|Preserve its H2 heading names, order, and hierarchy"
-  "$write_delivery_architecture|Preserve its heading names, order, and hierarchy"
+  "$write_architecture_knowledge|assets/architecture-knowledge-template.md"
+  "$write_technical_architecture|assets/technical-architecture-template.md"
 )
 
 for requirement in "${required_structure_ownership[@]}"; do
@@ -69,9 +64,8 @@ required_visual_routing=(
   "$write_doc|Route visual questions"
   "$write_doc|a model would otherwise require repeated arrows or indentation"
   "$draw_diagrams|a central model with four or more meaningful nodes or relationships"
-  "$draw_diagrams|Treat a central idea written as repeated arrows, nested indentation, or a prose tour through several relationships as a visual candidate"
-  "$write_study_architecture|For each visual candidate identified by \`\$write-doc\`"
-  "$write_delivery_architecture|For each visual candidate identified by \`\$write-doc\`"
+  "$write_architecture_knowledge|When \`\$draw-diagrams\` was explicitly invoked by the user"
+  "$write_technical_architecture|When \`\$draw-diagrams\` was explicitly invoked by the user"
 )
 
 for requirement in "${required_visual_routing[@]}"; do

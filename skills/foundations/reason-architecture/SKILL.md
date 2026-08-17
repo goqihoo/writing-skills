@@ -1,6 +1,6 @@
 ---
 name: reason-architecture
-description: Apply the shared architecture reasoning method for domain facts, application ownership and contracts, governance authority and evidence, runtime failure and recovery, control traces, tradeoffs, and validation. Use when reasoning about software architecture, and whenever write-study-architecture or write-delivery-architecture needs the common method.
+description: Apply the shared architecture reasoning method for domain facts, application ownership and contracts, governance authority and evidence, runtime failure and recovery, control traces, tradeoffs, and validation. Use with write-architecture-knowledge and write-technical-architecture.
 disable-model-invocation: true
 ---
 

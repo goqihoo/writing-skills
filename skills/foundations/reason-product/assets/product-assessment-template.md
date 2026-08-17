@@ -1,5 +1,12 @@
 # Product Assessment: [Candidate]
 
+## Company and portfolio scope
+
+- Company:
+- Product Documentation Set:
+- Portfolio authority:
+- Candidate relationship: [Portfolio / Product line / Product / Subproduct / Product area / Capability / Solution]
+
 ## Decision
 
 - Decision: [Accept / Route as product area or capability / Route to another content class / Needs evidence]
@@ -27,6 +34,12 @@
 | Subject | Relationship | Evidence | Boundary or handoff |
 | --- | --- | --- | --- |
 | | Product line / Product / Subproduct / Product area / Capability / Solution / Peer / Dependency | | |
+
+## Responsibility classification
+
+| Responsibility | Classification | Ownership, governance, or navigation evidence | Decision |
+| --- | --- | --- | --- |
+| | Stable Responsibility / Type Extension / Event Collection | | |
 
 ## Knowledge ownership
 
