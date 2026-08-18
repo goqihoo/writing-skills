@@ -2,6 +2,17 @@
 
 Use this method inside any Public Skill that must reason about architectural boundaries, ownership, controls, failure, options, evolution, or validation.
 
+## Levels and views
+
+Separate the **Architecture Level** from the **Architecture View**:
+
+- Company, System, and Subsystem are Architecture Levels.
+- Domain, Application, Governance, and Runtime are Architecture Views that can be applied at any level.
+
+Use the four views as coverage checks. Do not turn them into directory levels, mandatory documents, or fixed headings.
+
+At System or Subsystem level, test responsibility and non-goals, context and boundaries, state and contracts, normal and failure behavior, authority and controls, runtime failure and recovery, decisions and accepted costs, validation, and evolution. Keep Project Technical Design and Machine Authority linked rather than copied.
+
 ## Reasoning loop
 
 Apply this loop within each relevant view:
@@ -19,7 +30,7 @@ Context → Drivers → Scenarios and flows → Risks → Decisions → Validati
 | Decisions | Boundaries, ownership, contracts, controls, patterns, or option families |
 | Validation | Tests, operating evidence, and signals that prove or challenge each judgment |
 
-## Four views
+## Four Architecture Views
 
 | View | Owns | Must not become |
 |---|---|---|

@@ -27,7 +27,7 @@ Turn lifecycle activity into an explicit decision-readiness view over one accept
 - Own the Product Lifecycle Assessment, decision-gate matrix, evidence sufficiency, artifact coverage, and single-skill next-result invocations.
 - Treat stages as a navigation and governance view, not a product directory topology.
 - Let `$Structure Product Docs` own paths, scaffolding, and migration.
-- Let Product artifact skills own strategy, capabilities, roadmap, PRD, and metrics; let `$Write Product Doc` own Product Solution, Product Release Plan, and Product Review bodies as Internal Document Types.
+- Let Product artifact skills own strategy, capabilities, roadmap, PRD, and metrics; let `$Write Product Doc` own Product Release Plan and Product Review as registered Internal Document Types and compatible Product Solution work as a Freeform Artifact.
 - Route technical readiness to the owning technical location without modeling its internal structure.
 
 ## Completion

@@ -98,6 +98,7 @@ class IndependentPublicSkillContractTest(unittest.TestCase):
             "architecture-reasoning.md",
             "documentation-structure.md",
             "domain-reasoning.md",
+            "internal-document-types.md",
             "product-reasoning.md",
             "prose-quality.md",
             "technical-reasoning.md",

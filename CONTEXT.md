@@ -52,6 +52,10 @@ _Avoid_: Product Knowledge Set
 The products and product lines that one company governs together as investments, including their relationships, ownership, lifecycle, and shared constraints.
 _Avoid_: Treating the company itself as one product
 
+**Product**:
+A company-governed value offering and commitment to users that may be realized by multiple Systems and may share those Systems with other Products.
+_Avoid_: System, Application, one-to-one Product-to-System mapping
+
 **Technical Documentation Set**:
 The governed collection of Technical Documentation for one company's technical capabilities and systems.
 _Avoid_: Technical Knowledge Set
@@ -65,8 +69,8 @@ The default stable responsibilities `Portfolio/`, `Governance/`, and `Products/`
 _Avoid_: Pre-creating event or type-extension directories
 
 **Company Technical Core**:
-The default stable responsibilities `Strategy/`, `Architecture/`, `Systems/`, and `Governance/` within one company's `Technical/` documentation root.
-_Avoid_: Treating a code repository's documentation layout as the company technical structure
+The logical stable responsibilities Strategy, Architecture, Systems, and Governance within one company's Technical documentation root. Their directory names follow the documentation set's language rather than mandatory English names.
+_Avoid_: Treating a code repository's layout or English directory spelling as the company technical structure
 
 **Project Documentation Set**:
 The governed collection of Project Documentation for one customer, contract, initiative, or engagement.
@@ -117,8 +121,28 @@ A documentation task that recurs across multiple companies or multiple products 
 _Avoid_: Treating importance, a directory, or a standard template alone as frequency
 
 **Internal Document Type**:
-A named artifact branch, template, or completion profile owned by a broader Artifact Skill rather than exposed as a separate invocation. Promote it to a Public Skill only after repeated use proves independent reasoning, workflow, and completion needs.
-_Avoid_: Treating every standard company document as a separate skill
+A registered artifact branch owned by a broader Artifact Skill rather than exposed as a separate invocation. Register it only when repeated use or audit-critical consistency justifies a stable identity, authority boundary, and completion profile; a template is optional, and a type without one defaults to Freeform Structure. Promote it to a Public Skill only after repeated use proves independent reasoning, workflow, and completion needs.
+_Avoid_: Cataloging every possible document, treating every standard company document as a separate skill, assuming every type requires a template
+
+**Internal Document Type Registry**:
+The authoritative configuration for an Artifact Skill's Internal Document Types, including stable identity, reader purpose, authority boundary, completion profile, and optional template assignment. Human guidance explains the registry contract without becoming a conflicting second source of configuration truth.
+_Avoid_: Inferring types from asset filenames, duplicating configuration across prose and metadata
+
+**Freeform Structure**:
+The default structure policy for an Internal Document Type without an assigned template. The Artifact Skill derives an outline from reader needs, evidence, local healthy conventions, authority boundaries, and the completion profile without asking the user to design routine headings.
+_Avoid_: Unbounded writing, missing completion contract, mandatory outline interview
+
+**Freeform Artifact**:
+An occasional artifact within an Artifact Skill's authority that does not yet justify a registered Internal Document Type. The owning skill uses its general authority and completion contract without refusing the work or inventing a permanent type; repeated use may later justify registration.
+_Avoid_: Miscellaneous dumping ground, automatic type creation, document outside the skill's authority
+
+**Templated Structure**:
+The structure policy for an Internal Document Type with an explicitly assigned template. The registry states how strongly the template binds the result; the template does not silently become mandatory merely because an asset file exists.
+_Avoid_: Inferring template ownership from filename, treating every template as a fixed schema
+
+**Template Policy**:
+The explicitly configured strength of a Templated Structure: `fixed` preserves exact headings, order, and fields; `sequence` preserves reasoning or action order while allowing subject-specific headings; `adaptive` preserves content responsibilities while allowing layout, merging, reordering, and visible omission.
+_Avoid_: Treating template presence as an exact-schema requirement, using document purpose as a template-strength label
 
 **Common Writer**:
 A Public Artifact Skill that routes one coherent company-document family to Internal Document Types. `write-product-doc` owns common Product Documentation types and `write-technical-doc` owns common Technical Documentation types while routing independently owned high-frequency artifacts to their Public Skills.
@@ -153,15 +177,67 @@ Reusable knowledge about architectural boundaries, ownership, contracts, control
 _Avoid_: Study Architecture, Technical Architecture
 
 **Technical Architecture**:
-The company-specific account of the accepted structure, principles, boundaries, relationships, constraints, and evolution of its technical landscape.
+The company-level account of the accepted structure, principles, boundaries, relationships, constraints, and evolution of one company's Technical Landscape. Its authority is company-level even when its title does not include the word “company.”
 _Avoid_: Delivery Architecture, Architecture Knowledge, one repository's implementation design
 
+**Product-System Map**:
+The company-level Technical Architecture authority for the many-to-many relationships among Products, Systems, and the capabilities they realize. It links Product and System authorities instead of redefining either one.
+_Avoid_: System Landscape, Product Portfolio, one-to-one Product-to-System hierarchy
+
+**Architecture Topic**:
+A company-level Technical Architecture artifact for an end-to-end concern whose state ownership, failure, recovery, release, or evolution crosses multiple Systems and cannot be owned by one System Architecture.
+_Avoid_: mandatory document per Product, System Architecture, Project Technical Design
+
+**Architecture Level**:
+The company, System, or Subsystem scope at which architectural responsibilities and decisions are owned. Architecture Levels form a responsibility hierarchy; they are independent of Architecture Views.
+_Avoid_: Architecture View, document directory named for a view
+
+**Architecture View**:
+A Domain, Application, Governance, or Runtime perspective applied as needed at any Architecture Level to test coverage and decisions. A view is an analysis lens, not a required directory, separate document, or fixed section heading.
+_Avoid_: Architecture Level, mandatory four-part output structure
+
+**System**:
+A stable technical responsibility boundary with an independently governed lifecycle. State ownership, external contracts, independent release, and failure boundaries are evidence for the boundary, but a System need not satisfy all of them; a System may support multiple Products and contain multiple Applications and Subsystems.
+_Avoid_: Product, Application, Codebase, Runtime Unit
+
+**Registered System**:
+A System admitted to the company System Landscape with a stable name, responsibility boundary, owner, and lifecycle status. It receives a System Responsibility README and System Architecture; candidates without this evidence remain assessments or open questions rather than formal System directories.
+_Avoid_: Product entry, repository inventory, unsupported System scaffold
+
+**Application**:
+A runnable or audience-specific entry within a System. It participates in the System's architecture without becoming a synonym for the System itself.
+_Avoid_: System, Product, Subsystem
+
+**Subsystem**:
+A logical boundary within a System that owns a stable group of responsibilities and may warrant independent architecture detail when its complexity and maintenance value justify it.
+_Avoid_: System, Application, Module or Component
+
+**Module or Component**:
+An implementation unit inside a Subsystem whose existence alone does not establish a System or Subsystem boundary.
+_Avoid_: System, Subsystem, Codebase
+
+**Codebase**:
+An implementation and version-management carrier that may implement several Modules, Subsystems, or Systems and does not define their architecture boundaries by itself.
+_Avoid_: System, Subsystem, Product
+
+**Runtime Unit**:
+A deployed or executed process, container, task, or equivalent runtime instance. Runtime Units realize architecture but do not own product or system meaning.
+_Avoid_: System, Application, Codebase
+
 **System Architecture**:
-The detailed architectural account of one concrete system. Company Technical Documentation may link to it while retaining only the company-level system profile, ownership, lifecycle, and cross-system relationships.
-_Avoid_: Technical Architecture, System Profile
+The Technical Documentation authority for the stable design of one concrete System, including its internal responsibilities, state, contracts, controls, runtime behavior, decisions, and evolution. It links Machine Authority and Project Technical Design instead of copying them.
+_Avoid_: Technical Architecture, System Profile, Subsystem Architecture, Machine Authority
+
+**Subsystem Architecture**:
+The Technical Documentation authority for one justified Subsystem within a System. Materialize it independently only when the Subsystem has a stable responsibility boundary, sufficient complexity, and continuing maintenance value.
+_Avoid_: System Architecture, Module or Component, Project Technical Design
+
+**Architecture Decision**:
+An accepted architectural choice owned at the narrowest Architecture Level that governs its consequences. Higher levels link or summarize the decision instead of duplicating its authoritative record.
+_Avoid_: centralizing every decision at company level, implementation task, unresolved option
 
 **System Profile**:
-The company-level record of one system's purpose, ownership, lifecycle, critical relationships, governance state, and authoritative downstream links without copying implementation detail.
+The concise identity and navigation record for one System, normally carried by that System's Responsibility README. It states purpose, ownership, lifecycle, critical relationships, governance state, and authoritative links without replacing System Architecture.
 _Avoid_: System Architecture, code or configuration inventory
 
 **Technical Design**:

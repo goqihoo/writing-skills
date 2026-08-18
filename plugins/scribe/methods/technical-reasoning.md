@@ -11,8 +11,7 @@ Name the company, governance authority, and Technical Landscape in scope. The Te
 | Candidate material | Primary authority |
 | --- | --- |
 | Reusable technical concept, pattern, or method not tied to one company | Technical Knowledge |
-| Company strategy, landscape, governance, standards, and high-level system profiles | Technical Documentation |
-| Detailed boundaries and behavior of one concrete system | System Architecture |
+| Company strategy, landscape, governance, standards, Registered System profiles, System Architecture, and Subsystem Architecture | Technical Documentation |
 | Customer, contract, delivery plan, tasks, status, and acceptance | Project Documentation |
 | Schemas, protocols, configuration, code behavior, migrations, and tests | Machine Authority |
 
@@ -24,7 +23,15 @@ Keep one canonical owner and link across boundaries.
 - **Type Extension:** appears only when independent ownership, governance, or navigation is proven.
 - **Event Collection:** appears with the first real decision, exception, or incident and only beneath an existing parent responsibility.
 
-The Stable Responsibilities are `Strategy/`, `Architecture/`, `Systems/`, and `Governance/`. The Type Extensions are `Platforms/`, `Engineering/`, `Data/`, `Security/`, `Quality/`, and `Operations/`. Event Collections are `Architecture/Decisions/`, `Governance/Exceptions/`, and `Operations/Incidents/`.
+The logical Stable Responsibilities are Strategy, Architecture, Systems, and Governance. Reuse the documentation set's language rather than imposing directory names. Type Extensions may include Platform, Engineering, Data, Security, Quality, and Operations when cross-System responsibility justifies them. Event Collections contain accepted Architecture Decisions, Governance Exceptions, or Operations Incidents beneath an existing parent.
+
+## System admission and architecture ownership
+
+Register a System only when evidence supports its stable name, responsibility boundary, owner, and lifecycle status. Preserve many-to-many Product-System relationships. Give every Registered System a System Responsibility README and System Architecture. Treat System Architecture and justified Subsystem Architecture as Technical Documentation; keep Project Technical Design and Machine Authority separate and linked.
+
+Require an architecture family to distinguish current facts, accepted target direction, evaluated proposals, compatibility and migration boundaries, validation and operating evidence, and explicit review triggers. The direct architecture document remains the coherent entry point even when justified supporting files exist.
+
+Use Company, System, and Subsystem as Architecture Levels. Place an Architecture Decision at the narrowest governing level and link it upward when needed.
 
 ## Ownership tests
 
@@ -47,6 +54,6 @@ Persist a Technical Assessment only when disputed scope, a Type Extension, an au
 
 - Company technical scope and Technical Landscape are named.
 - Every material has one authority scope and owner.
-- Each directory decision is classified as Stable Responsibility, Type Extension, or Event Collection.
-- Detailed Machine Authority and System Architecture are linked, not copied.
+- Each materialization decision is classified as Stable Responsibility, Registered System, Type Extension, or Event Collection.
+- System Architecture remains Technical Documentation; Project Technical Design and detailed Machine Authority are linked, not copied.
 - Unresolved ownership and review triggers remain visible.

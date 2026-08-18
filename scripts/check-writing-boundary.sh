@@ -17,6 +17,7 @@ for method in \
   product-reasoning.md \
   technical-reasoning.md \
   architecture-reasoning.md \
+  internal-document-types.md \
   documentation-structure.md \
   prose-quality.md \
   visual-production.md; do
@@ -68,7 +69,8 @@ required_structure_ownership=(
   "$write_knowledge|selected type's questions as a coverage checklist"
   "$write_doc|Lock the artifact type, core question, reasoning path, outline, section responsibilities, and required material"
   "$write_architecture_knowledge|assets/architecture-knowledge-template.md"
-  "$write_technical_architecture|assets/technical-architecture-template.md"
+  "$write_technical_architecture|references/internal-document-types.yaml"
+  "$write_technical_architecture|Freeform Artifact"
 )
 
 for requirement in "${required_structure_ownership[@]}"; do

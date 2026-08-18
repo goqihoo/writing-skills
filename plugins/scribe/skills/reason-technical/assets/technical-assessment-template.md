@@ -10,6 +10,8 @@
 ## Technical Landscape boundary
 
 - Included capabilities and systems:
+- Registered Systems and admission evidence:
+- Product-System relationships:
 - Exclusions and destinations:
 - Governance boundary:
 - Downstream authority links:
@@ -30,7 +32,7 @@
 
 | Material | Authority scope | Canonical owner or link | Reason |
 | --- | --- | --- | --- |
-| | Technical Documentation / Technical Knowledge / Project Documentation / System Architecture / Machine Authority | | |
+| | Technical Documentation / Technical Knowledge / Project Documentation / Machine Authority | | |
 
 ## Unresolved questions and review triggers
 

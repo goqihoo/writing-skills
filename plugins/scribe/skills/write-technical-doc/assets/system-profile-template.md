@@ -1,8 +1,11 @@
-# System Profile: [System]
+# [System]
+
+This is the Registered System's System Responsibility README and System Profile.
 
 ## Company-level profile
 
 - Purpose:
+- Responsibility and boundary:
 - Owner:
 - Lifecycle:
 - Governance status:

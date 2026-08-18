@@ -23,7 +23,8 @@ Explain and recommend. Leave every subsequent invocation and execution to the us
 - **Stable Responsibility:** default home for a continuing accepted responsibility.
 - **Type Extension:** materialize only when independent ownership, governance, or navigation is proven.
 - **Event Collection:** materialize with the first real event document.
-- **Internal Document Type:** a standard artifact branch inside `write-product-doc` or `write-technical-doc`.
+- **Internal Document Type:** a registered frequent or audit-sensitive artifact branch inside one Writer.
+- **Freeform Artifact:** a compatible occasional document owned by a Writer without creating a new registered type or forcing a template.
 - **Shared Method:** an internal rule set a Public Skill applies directly; it has no invocation name and never appears in the catalog.
 - **Explicit Skill Composition:** the user names one Public Skill for each independently requested result; internal reasoning, structure, prose, and visual methods add no invocation.
 - **Skill ID:** the canonical machine name used by the directory, frontmatter, manifests, and code.
@@ -46,15 +47,16 @@ Explain and recommend. Leave every subsequent invocation and execution to the us
 | Write reusable Architecture Knowledge | **Write Arch Knowledge** (`write-architecture-knowledge`) | Do not make one company's implementation commitment. |
 | Assess a product decision and artifact coverage | **Assess Product Lifecycle** (`assess-product-lifecycle`) | Own the Product Lifecycle Assessment, not missing artifacts. |
 | Structure company Product Documentation | **Structure Product Docs** (`structure-product-docs`) | Own Product topology and materialization. |
-| Write a standard Product document | **Write Product Doc** (`write-product-doc`) | Own its listed Internal Document Types and route public artifacts. |
+| Write a standard or occasional Product document | **Write Product Doc** (`write-product-doc`) | Own registered types and compatible Freeform Artifacts; route public artifacts. |
 | Define product direction | **Write Product Strategy** (`write-product-strategy`) | Own durable strategy. |
 | Model product capabilities | **Map Product Capabilities** (`map-product-capabilities`) | Own capability responsibility and relationships. |
 | Sequence product outcomes and decisions | **Write Product Roadmap** (`write-product-roadmap`) | Own product sequence, not tasks. |
 | Define one product change | **Write PRD** (`write-prd`) | Own observable behavior and acceptance. |
 | Define the product metric system | **Design Product Metrics** (`design-product-metrics`) | Own measure semantics and governance. |
 | Structure company Technical Documentation | **Structure Tech Docs** (`structure-technical-docs`) | Own Technical topology and materialization. |
-| Write a standard Technical document | **Write Tech Doc** (`write-technical-doc`) | Own its listed Internal Document Types. |
-| Define company Technical Architecture | **Write Tech Arch** (`write-technical-architecture`) | Own Technical Landscape structure, not detailed System Architecture. |
+| Write a standard or occasional Technical document, including System or Subsystem Architecture | **Write Tech Doc** (`write-technical-doc`) | Own registered Technical types at their declared levels and compatible Freeform Artifacts; route company-level architecture. |
+| Define company overall architecture, a Product-System Map, or a cross-System topic | **Write Tech Arch** (`write-technical-architecture`) | Own company-level Technical Landscape structure. |
+| Change a Technical directory, navigation, scaffold, audit, or migration | **Structure Tech Docs** (`structure-technical-docs`) | Own Technical topology and navigation, not document meaning. |
 | Create one technical visual | **Draw Diagram** (`draw-diagram`) | Own visual form; the source skill owns meaning. |
 
 ## Complete invocations
@@ -73,7 +75,15 @@ Explain and recommend. Leave every subsequent invocation and execution to the us
 
 Each Public Skill applies the reasoning, structure, prose-quality, and visual-production Shared Methods its own workflow needs. Do not present the former required multi-skill combinations as compatible alternatives.
 
-Product Strategy, Capability Map, Product Roadmap, PRD, and Product Metric System retain their named public skills. Product Solution, Product Release Plan, and Product Review are Internal Document Types of `write-product-doc`. Technical Strategy, Roadmap, System Landscape, System Profile, governance documents, standards, extension documents, and event records are Internal Document Types of `write-technical-doc`.
+Product Strategy, Capability Map, Product Roadmap, PRD, and Product Metric System retain their named public skills. Product Release Plan and Product Review remain registered Internal Document Types of `write-product-doc`; compatible removed or occasional Product artifacts use its Freeform fallback. Technical Strategy, Roadmap, System Landscape, System Profile, System and Subsystem Architecture, governance documents, standards, and event records are registered Internal Document Types of `write-technical-doc`; compatible occasional Technical artifacts use its Freeform fallback.
+
+Route natural requests without requiring the user to know a type name:
+
+- Route company overall architecture, Product-System Map, or a cross-System concern to `$Write Tech Arch`.
+- Route System or Subsystem Architecture to `$Write Tech Doc`.
+- Route a compatible occasional Product or Technical document to its owning Writer as a Freeform Artifact.
+- Route a Product directory, navigation, scaffold, audit, or migration to `$Structure Product Docs`.
+- Route a Technical directory, navigation, scaffold, audit, or migration to `$Structure Tech Docs`.
 
 ## Completion
 

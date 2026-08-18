@@ -43,7 +43,7 @@ A Responsibility README exposes responsibility, owner, boundary, current real na
 
 ## Public interfaces
 
-A Public Skill exists only when a task recurs across companies or products, has distinct reasoning or workflow, and ends with a checkable completion condition. Lower-frequency standard documents remain an **Internal Document Type** within `write-product-doc` or `write-technical-doc`.
+A Public Skill exists only when a task recurs across companies or products, has distinct reasoning or workflow, and ends with a checkable completion condition. Repeated or audit-sensitive writer artifacts may be registered as an **Internal Document Type**; compatible occasional work remains a **Freeform Artifact** until evidence justifies registration. Product and Technical Writers keep one YAML configuration authority per Writer, while `docs/internal-document-types.md` is generated for readers.
 
 Every Public Skill has one canonical Skill ID and one exact, unique Skill Display Name. Both invoke the same skill. Catalogs and ready-to-type examples prefer the display name; paths, manifests, frontmatter, and code retain the Skill ID.
 
@@ -55,11 +55,11 @@ Missing evidence, approval, or ownership may stop a workflow when the result wou
 
 ## Company root
 
-One company root may navigate both `Product/` and `Technical/`, and either may be materialized independently. Company Documentation directories use initial capitals. This convention does not govern code repositories.
+One company root may navigate both Product and Technical Documentation, and either may be materialized independently. Product conventions may use initial-capital English names. Technical structure treats Strategy, Architecture, Systems, and Governance as logical responsibilities and reuses the documentation set's language. Neither convention governs code repositories.
 
 ## Authority preservation
 
-Company documents link detailed System Architecture and **Machine Authority** such as schemas, configuration, code, migrations, and tests. They preserve company purpose, ownership, lifecycle, critical relationships, governance, and human navigation without copying executable truth.
+System Architecture and justified Subsystem Architecture are Technical Documentation. They link **Machine Authority** such as schemas, configuration, code, migrations, and tests, plus Project Technical Design, instead of copying executable truth. Company-level architecture links the governing System Architecture rather than replacing it.
 
 ## Completion contract
 

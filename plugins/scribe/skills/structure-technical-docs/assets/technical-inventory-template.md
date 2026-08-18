@@ -11,7 +11,7 @@
 
 | Material or path | Authority scope | Reader decision | Owner | Document type | Materialization class | State | Primary home | Issue |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| | Technical Documentation / Technical Knowledge / Project Documentation / System Architecture / Machine Authority | | | | Stable Responsibility / Type Extension / Event Collection | Existing / Create now / Planned / Unresolved | | |
+| | Technical Documentation / Technical Knowledge / Project Documentation / Machine Authority | | | | Stable Responsibility / Registered System / Type Extension / Event Collection | Existing / Create now / Planned / Unresolved | | |
 
 ## Duplicate or mixed authority
 

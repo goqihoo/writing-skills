@@ -1,6 +1,7 @@
-import re
 import unittest
 from pathlib import Path
+
+import yaml
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -89,36 +90,17 @@ class ProductDocumentationContractTest(unittest.TestCase):
         self.assertIn("persist", skill.lower())
         self.assertIn("disputed", skill.lower())
 
-    def test_common_writer_covers_internal_types_and_routes_public_artifacts(self) -> None:
-        reference = read(
-            PRODUCT_ROOT / "write-product-doc/references/product-document-types.md"
+    def test_common_writer_uses_the_registry_and_freeform_fallback(self) -> None:
+        root = PRODUCT_ROOT / "write-product-doc"
+        skill = read(root / "SKILL.md")
+        registry = yaml.safe_load(
+            read(root / "references/internal-document-types.yaml")
         )
 
-        internal_types = [
-            "Product navigation",
-            "Product Portfolio",
-            "Products Registry",
-            "Product Operating Model",
-            "Product Governance",
-            "Product Overview/Definition",
-            "Users and Roles",
-            "Product Terminology",
-            "Lifecycle Map",
-            "Capability Detail",
-            "Journey/Product Behavior",
-            "Product Solution",
-            "Initiative Record",
-            "Evidence Record",
-            "Product Decision",
-            "Product Release Plan",
-            "Release Notes",
-            "Product Review",
-        ]
-        for document_type in internal_types:
-            self.assertRegex(
-                reference,
-                rf"(?m)^\| {re.escape(document_type)} \| .*\.md \|",
-            )
+        self.assertEqual(10, len(registry["types"]))
+        self.assertIn("methods/internal-document-types.md", skill)
+        self.assertIn("references/internal-document-types.yaml", skill)
+        self.assertIn("Freeform Artifact", skill)
 
         for route in [
             "$Write Product Strategy",
@@ -127,21 +109,27 @@ class ProductDocumentationContractTest(unittest.TestCase):
             "$Write PRD",
             "$Design Product Metrics",
         ]:
-            self.assertIn(route, reference)
+            self.assertIn(route, skill)
 
-    def test_product_common_writer_has_every_routed_template(self) -> None:
-        root = PRODUCT_ROOT / "write-product-doc"
-        reference = read(root / "references/product-document-types.md")
-        routed_templates = set()
-        for line in reference.splitlines():
-            if line.startswith("|") and ".md |" in line:
-                routed_templates.add(line.split("|")[2].strip())
+        removed = {
+            "Product Navigation",
+            "Product Operating Model",
+            "Users and Roles",
+            "Product Terminology",
+            "Lifecycle Map",
+            "Journey/Product Behavior",
+            "Product Solution",
+            "Initiative Record",
+        }
+        self.assertTrue(removed.isdisjoint({entry["name"] for entry in registry["types"]}))
 
-        self.assertTrue(routed_templates)
-        self.assertEqual(
-            routed_templates,
-            {path.name for path in (root / "assets").glob("*.md")},
-        )
+    def test_structure_product_docs_owns_navigation_readmes(self) -> None:
+        structure_skill = read(PRODUCT_ROOT / "structure-product-docs/SKILL.md")
+        writer_skill = read(PRODUCT_ROOT / "write-product-doc/SKILL.md")
+
+        self.assertIn("Responsibility README", structure_skill)
+        self.assertIn("Product navigation", structure_skill)
+        self.assertIn("$Structure Product Docs", writer_skill)
 
 
 if __name__ == "__main__":

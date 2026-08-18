@@ -50,10 +50,11 @@ This is a single-context repository using root `CONTEXT.md` and `docs/adr/`. See
 - `structure-product-docs` owns the company Product core, accepted-product core, Type Extensions, Event Collections, navigation requirements, and product-structure migrations.
 - `write-product-doc` owns the Product Internal Document Types; Product Strategy, Capability Map, Product Roadmap, PRD, and Product Metric System retain independent public skills.
 - `reason-technical` owns company technical scope, Technical Landscape boundaries, responsibility admission, authority routing, and the Technical Assessment handoff.
-- `structure-technical-docs` owns the Technical stable core, Type Extensions, Event Collections, navigation requirements, and technical-structure migrations.
-- `write-technical-doc` owns standard Technical Internal Document Types.
-- `write-technical-architecture` owns company Technical Architecture across the Technical Landscape.
-- Each deliverable skill owns one artifact boundary, workflow, completion test, and output template.
+- `structure-technical-docs` owns the logical Technical stable responsibilities, Registered System topology, Type Extensions, Event Collections, navigation requirements, and technical-structure migrations.
+- `write-technical-doc` owns registered and freeform Technical artifacts, including System Architecture and Subsystem Architecture.
+- `write-technical-architecture` owns company-level Technical Architecture, Product-System Map, and cross-System Architecture Topics.
+- The per-Writer YAML files under `references/internal-document-types.yaml` are the configuration authorities for Product and Technical Internal Document Types. `docs/internal-document-types.md` is generated from them.
+- Each deliverable skill owns one artifact boundary, workflow, completion test, and output-structure contract; a template is optional.
 - `draw-diagram` owns one independently requested visual, not architecture meaning.
 - `ask-scribe` explains and recommends; the user retains control of every subsequent invocation and execution.
 
@@ -69,6 +70,6 @@ When adding, renaming, or removing a skill:
 4. Give every Public Skill a unique `interface.display_name`, recommend that exact display name in user-facing invocations, and preserve the canonical Skill ID for machine structure.
 5. Rebuild the Codex package with `scripts/build-codex-plugin.sh` and verify it with `scripts/build-codex-plugin.sh --check`.
 6. Validate canonical skills with `claude plugin validate .`; validate the generated Codex package with the Codex plugin validator. The generic Codex skill validator does not accept the Claude-only `disable-model-invocation` field in canonical sources.
-7. Run the test suite, `bash -n scripts/*.sh`, and `git diff --check`.
+7. Install `requirements-dev.txt` in a clean development environment, then run the test suite, `bash -n scripts/*.sh`, and `git diff --check`.
 
 Write agent instructions in imperative form. End every workflow with a checkable completion condition. Keep `SKILL.md` concise and move conditional detail behind direct pointers.

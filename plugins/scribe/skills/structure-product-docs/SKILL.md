@@ -14,7 +14,7 @@ A Stable Responsibility receives a default home; a Type Extension and an Event C
 1. Read `../../methods/product-reasoning.md` and `../../methods/documentation-structure.md`. Apply both methods inside this workflow.
 2. Classify the request as a `proposal`, `scaffold`, `audit`, or `approved migration`. Require explicit approval before moving, renaming, merging, deleting, or overwriting existing material.
 3. Read company navigation, the Product Assessment when persisted, current Product Documentation, and representative adjacent structures. Establish the company portfolio and each product boundary from the available evidence. Continue a proposal or audit with explicit assumptions when evidence is incomplete; stop a scaffold or migration that would formalize an unsupported boundary.
-4. Read `references/product-structure-model.md`, `../write-product-doc/references/product-document-types.md`, and `assets/product-inventory-template.md`.
+4. Read `references/product-structure-model.md`, `../write-product-doc/references/internal-document-types.yaml`, and `assets/product-inventory-template.md`.
 5. Inventory each existing or requested material by authority scope, reader question, change authority, document type, materialization class, state, primary home, and structural issue.
 6. For a default scaffold, create only the company Product Stable Responsibilities and stable responsibilities for each accepted product. Give every materialized responsibility a Responsibility README.
 7. Do not create a Type Extension without independent ownership, governance, or navigation evidence. Do not create an Event Collection before its first real event document.
@@ -25,7 +25,7 @@ A Stable Responsibility receives a default home; a Type Extension and an Event C
 
 ## Boundaries
 
-- Own Product Documentation topology, materialization, navigation requirements, scaffolding, audits, and approved migrations.
+- Own Product Documentation topology, Product navigation, materialization, navigation requirements, scaffolding, audits, and approved migrations.
 - Use the shared Product Reasoning Method for portfolio, product, and Type Extension admission.
 - Let `$Assess Product Lifecycle` own decision readiness for a specific product; do not require it for company Product scaffolding.
 - Own the Responsibility README and navigation prose needed to complete the requested structure; route other Product document bodies to `$Write Product Doc` or their independent Artifact Skill.

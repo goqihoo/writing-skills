@@ -38,7 +38,7 @@ Product lines are classification views inside Portfolio, not default parents of 
 
 ## Common Writer boundary
 
-`write-product-doc` owns company navigation, Portfolio, Products Registry, Operating Model, Governance, product definition and reference documents, lifecycle maps, capability details, behavior, solutions, initiatives, evidence, decisions, release plans, release notes, and reviews. It routes Product Strategy, Capability Map, Product Roadmap, PRD, and Product Metric System to their single owning Public Skill.
+`write-product-doc` owns the ten registered Product Internal Document Types listed in the generated catalog and compatible occasional Product Freeform Artifacts. `structure-product-docs` owns Product root and responsibility navigation. The Writer routes Product Strategy, Capability Map, Product Roadmap, PRD, and Product Metric System to their single owning Public Skill.
 
 ## Lifecycle
 
@@ -54,4 +54,4 @@ Every Product Public Skill applies product reasoning, documentation structure, p
 
 ## Completion contract
 
-The Product system is coherent when every accepted product appears directly below Products, Stable Responsibility homes exist, extensions and events are evidence-backed, each Internal Document Type has one completion profile, high-frequency artifacts retain public owners, and Product Knowledge is never presented as company commitment.
+The Product system is coherent when every accepted product appears directly below Products, Stable Responsibility homes exist, extensions and events are evidence-backed, the YAML registry is the sole type configuration authority, active templates exactly match configured assignments, high-frequency artifacts retain public owners, and Product Knowledge is never presented as company commitment.

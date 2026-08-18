@@ -9,7 +9,7 @@ Use lifecycle as a decision view over authoritative product files. A stage group
 | Discovery | Is the problem real and worth further investment? | Hypotheses, interviews, experiments, decision record | Write Product Doc |
 | Product boundary and strategy | For whom will this product create what value, and what will it not do? | Product Assessment, product strategy | Reason Product for the assessment; Write Product Strategy for the strategy |
 | Capability definition | What durable abilities and responsibilities must the product provide? | Capability map and capability details | Map Product Capabilities for the map; Write Product Doc for a detail |
-| Solution definition | How will shared capabilities address a repeatable customer or partner situation? | Product Solution | Write Product Doc |
+| Solution definition | How will shared capabilities address a repeatable customer or partner situation? | Product Solution Freeform Artifact | Write Product Doc |
 | Product planning | Which outcomes and capability gaps should be addressed next? | Product roadmap | Write Product Roadmap |
 | Initiative definition | What changes now, with what behavior and acceptance? | PRD | Write PRD |
 | Release decision | Can the product change be released, supported, observed, and stopped under explicit criteria? | Product Release Plan and linked evidence | Write Product Doc |

@@ -3,6 +3,8 @@
 ## Decision and authority
 
 - State: [Proposed / Accepted / Superseded]
+- Architecture Level: [Company / System / Subsystem]
+- narrowest governing scope:
 - Decision:
 - Decision-maker:
 - Scope and date:
