@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SKILL_ROOT = REPO_ROOT / "skills/foundations/write-doc"
+SKILL_ROOT = REPO_ROOT / "skills/write-doc"
 
 
 class WriteDocContractTest(unittest.TestCase):
@@ -17,14 +17,15 @@ class WriteDocContractTest(unittest.TestCase):
         self.assertIn("# Write Doc", skill)
         self.assertIn('display_name: "Write Doc"', metadata)
         self.assertIn("$Write Doc", metadata)
-        self.assertFalse((REPO_ROOT / "skills/foundations" / old_name).exists())
+        self.assertFalse((REPO_ROOT / "skills" / old_name).exists())
 
     def test_plugin_manifest_uses_singular_skill_path(self) -> None:
         manifest = json.loads(
             (REPO_ROOT / ".claude-plugin/plugin.json").read_text(encoding="utf-8")
         )
 
-        self.assertIn("./skills/foundations/write-doc", manifest["skills"])
+        self.assertEqual("./skills/", manifest["skills"])
+        self.assertTrue((REPO_ROOT / "skills/write-doc/SKILL.md").is_file())
 
     def test_old_skill_name_is_absent_from_tracked_text_contracts(self) -> None:
         old_name = "write-doc" + "s"

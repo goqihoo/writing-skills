@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SKILL_ROOT = REPO_ROOT / "skills/knowledge/structure-domain-docs"
+SKILL_ROOT = REPO_ROOT / "skills/structure-domain-docs"
 
 
 class StructureDomainDocsContractTest(unittest.TestCase):
@@ -32,7 +32,7 @@ class StructureDomainDocsContractTest(unittest.TestCase):
         )
         document_types = (
             REPO_ROOT
-            / "skills/knowledge/write-domain-doc/references/domain-document-types.md"
+            / "skills/write-domain-doc/references/domain-document-types.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("single source of truth", document_types)
@@ -51,7 +51,7 @@ class StructureDomainDocsContractTest(unittest.TestCase):
     def test_domain_readme_template_is_a_map_and_reading_path(self) -> None:
         template = (
             REPO_ROOT
-            / "skills/knowledge/write-domain-doc/assets/domain-readme-template.md"
+            / "skills/write-domain-doc/assets/domain-readme-template.md"
         ).read_text(encoding="utf-8")
 
         required_sections = [
@@ -69,16 +69,15 @@ class StructureDomainDocsContractTest(unittest.TestCase):
         manifest = json.loads(
             (REPO_ROOT / ".claude-plugin/plugin.json").read_text(encoding="utf-8")
         )
-        knowledge_readme = (
-            REPO_ROOT / "skills/knowledge/README.md"
-        ).read_text(encoding="utf-8")
         root_readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
         guide = (
-            REPO_ROOT / "skills/foundations/ask-scribe/SKILL.md"
+            REPO_ROOT / "skills/ask-scribe/SKILL.md"
         ).read_text(encoding="utf-8")
 
-        self.assertIn("./skills/knowledge/structure-domain-docs", manifest["skills"])
-        self.assertIn("structure-domain-docs", knowledge_readme)
+        self.assertEqual("./skills/", manifest["skills"])
+        self.assertTrue(
+            (REPO_ROOT / "skills/structure-domain-docs/SKILL.md").is_file()
+        )
         self.assertIn("structure-domain-docs", root_readme)
         self.assertIn("structure-domain-docs", guide)
 

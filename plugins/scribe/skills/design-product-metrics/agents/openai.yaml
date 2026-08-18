@@ -1,0 +1,6 @@
+interface:
+  display_name: "Design Product Metrics"
+  short_description: "Define outcomes, metrics, and guardrails"
+  default_prompt: "Use $Design Product Metrics to define product outcomes, metric semantics, and guardrails."
+policy:
+  allow_implicit_invocation: false

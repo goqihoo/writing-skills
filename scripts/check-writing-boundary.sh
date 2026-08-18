@@ -3,12 +3,12 @@ set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 skills_root="$repo_root/skills"
-methods_root="$repo_root/skills/methods"
-write_doc="$skills_root/foundations/write-doc/SKILL.md"
-write_knowledge="$skills_root/knowledge/write-knowledge/SKILL.md"
-knowledge_types="$skills_root/knowledge/write-knowledge/references/knowledge-types.md"
-write_architecture_knowledge="$skills_root/knowledge/write-architecture-knowledge/SKILL.md"
-write_technical_architecture="$skills_root/technical/write-technical-architecture/SKILL.md"
+methods_root="$repo_root/methods"
+write_doc="$skills_root/write-doc/SKILL.md"
+write_knowledge="$skills_root/write-knowledge/SKILL.md"
+knowledge_types="$skills_root/write-knowledge/references/knowledge-types.md"
+write_architecture_knowledge="$skills_root/write-architecture-knowledge/SKILL.md"
+write_technical_architecture="$skills_root/write-technical-architecture/SKILL.md"
 prose_method="$methods_root/prose-quality.md"
 visual_method="$methods_root/visual-production.md"
 
@@ -43,7 +43,7 @@ while IFS= read -r skill; do
       exit 1
     fi
   done
-done < <(find "$skills_root" -mindepth 3 -maxdepth 3 -name SKILL.md -type f | sort)
+done < <(find "$skills_root" -mindepth 2 -maxdepth 2 -name SKILL.md -type f | sort)
 
 required_prose_contract=(
   'Lock the artifact plan before prose work'

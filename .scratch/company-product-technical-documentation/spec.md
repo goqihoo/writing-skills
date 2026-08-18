@@ -198,7 +198,7 @@ Product 的类型扩展包括 `Solutions/` 与 `Experience/`；事件集合包�
 - 所有重命名和删除原子完成，不提供旧名称的兼容包装。
 - 每个 SKILL 都设置 `disable-model-invocation: true`，每个 OpenAI skill metadata 都设置 `allow_implicit_invocation: false`。
 - 用户为每个独立请求结果显式命名一个 Public Skill。每个 Public Skill 独立完成核心工作流；多个技能名表示多个独立结果，不表示实现依赖。
-- Domain、Product、Technical、Architecture Reasoning、Documentation Structure、Prose Quality 与 Visual Production 作为 `skills/methods/` 下的 Shared Methods，不包含 `SKILL.md` 或客户端元数据，也不作为调用名公开。
+- Domain、Product、Technical、Architecture Reasoning、Documentation Structure、Prose Quality 与 Visual Production 作为 `methods/` 下的 Shared Methods，不包含 `SKILL.md` 或客户端元数据，也不作为调用名公开。
 - Common Writer 在自身内部选择 Internal Document Type 不构成技能调用，也不需要把每个内部类型暴露为用户调用名。
 - ask-scribe 继续只解释 Scribe 的技能、边界、组合和完整调用，不执行工作流、不修改文件、不生成其他技能的制品。
 - write-doc 是独立的通用写作流程；所有产生人类可读内容的公共技能按比例内部应用 Prose Quality Shared Method。

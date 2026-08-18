@@ -10,7 +10,7 @@ fi
 
 names=()
 sources=()
-methods_source="$repo_root/skills/methods"
+methods_source="$repo_root/methods"
 while IFS= read -r -d '' skill_file; do
   skill_dir="$(dirname "$skill_file")"
   names+=("$(basename "$skill_dir")")

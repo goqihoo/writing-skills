@@ -4,8 +4,8 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-PRODUCT_ROOT = REPO_ROOT / "skills/product"
-FOUNDATIONS_ROOT = REPO_ROOT / "skills/foundations"
+PRODUCT_ROOT = REPO_ROOT / "skills"
+FOUNDATIONS_ROOT = REPO_ROOT / "skills"
 
 
 def read(path: Path) -> str:
@@ -75,7 +75,7 @@ class ProductDocumentationContractTest(unittest.TestCase):
 
     def test_reason_product_covers_company_portfolio_and_product_boundaries(self) -> None:
         skill = read(FOUNDATIONS_ROOT / "reason-product/SKILL.md")
-        method = read(REPO_ROOT / "skills/methods/product-reasoning.md")
+        method = read(REPO_ROOT / "methods/product-reasoning.md")
 
         for concept in [
             "company product portfolio",

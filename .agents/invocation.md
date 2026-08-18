@@ -8,4 +8,4 @@ Use `$Ask Scribe` or `$ask-scribe` in Agent Skills-compatible clients and `/Ask 
 
 Recommend one Public Skill for one requested result. Every Public Skill completes its core workflow without requiring another invocation. Multiple named skills represent multiple independently requested results, never implementation dependencies.
 
-Apply repository Shared Methods from `skills/methods/` internally. Do not expose those methods as skills or ask the user to invoke a reasoning, structure, prose, or visual skill to unblock another skill. A skill owns its artifact-specific references and templates; Shared Methods own their cross-skill implementation rules and supporting guides.
+Apply repository Shared Methods from `methods/` internally. Do not expose those methods as skills or ask the user to invoke a reasoning, structure, prose, or visual skill to unblock another skill. A skill owns its artifact-specific references and templates; Shared Methods own their cross-skill implementation rules and supporting guides.

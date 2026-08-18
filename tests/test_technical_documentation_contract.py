@@ -4,8 +4,8 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-TECHNICAL_ROOT = REPO_ROOT / "skills/technical"
-FOUNDATIONS_ROOT = REPO_ROOT / "skills/foundations"
+TECHNICAL_ROOT = REPO_ROOT / "skills"
+FOUNDATIONS_ROOT = REPO_ROOT / "skills"
 
 
 def read(path: Path) -> str:
@@ -52,7 +52,7 @@ class TechnicalDocumentationContractTest(unittest.TestCase):
     def test_reason_technical_owns_company_scope_and_assessment(self) -> None:
         skill = read(FOUNDATIONS_ROOT / "reason-technical/SKILL.md")
         method = read(
-            REPO_ROOT / "skills/methods/technical-reasoning.md"
+            REPO_ROOT / "methods/technical-reasoning.md"
         )
         combined = skill + method
 

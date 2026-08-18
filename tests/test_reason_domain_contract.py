@@ -4,11 +4,11 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SKILL_ROOT = REPO_ROOT / "skills/foundations/reason-domain"
-STRUCTURE_ROOT = REPO_ROOT / "skills/knowledge/structure-domain-docs"
-WRITE_ROOT = REPO_ROOT / "skills/knowledge/write-domain-doc"
+SKILL_ROOT = REPO_ROOT / "skills/reason-domain"
+STRUCTURE_ROOT = REPO_ROOT / "skills/structure-domain-docs"
+WRITE_ROOT = REPO_ROOT / "skills/write-domain-doc"
 ARCHITECTURE_DOC = REPO_ROOT / "docs/domain-knowledge-skill-architecture.md"
-DOMAIN_METHOD = REPO_ROOT / "skills/methods/domain-reasoning.md"
+DOMAIN_METHOD = REPO_ROOT / "methods/domain-reasoning.md"
 
 
 class ReasonDomainContractTest(unittest.TestCase):
@@ -88,13 +88,13 @@ class ReasonDomainContractTest(unittest.TestCase):
             path.read_text(encoding="utf-8")
             for path in [
                 REPO_ROOT / "README.md",
-                REPO_ROOT / "skills/foundations/README.md",
-                REPO_ROOT / "skills/foundations/ask-scribe/SKILL.md",
+                REPO_ROOT / "skills/ask-scribe/SKILL.md",
             ]
         )
         architecture = ARCHITECTURE_DOC.read_text(encoding="utf-8")
 
-        self.assertIn("./skills/foundations/reason-domain", manifest["skills"])
+        self.assertEqual("./skills/", manifest["skills"])
+        self.assertTrue((REPO_ROOT / "skills/reason-domain/SKILL.md").is_file())
         self.assertIn("reason-domain", surfaces)
         self.assertIn("Domain Assessment", architecture)
         self.assertIn("structure-domain-docs", architecture)

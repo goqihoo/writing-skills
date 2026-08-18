@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SKILL_ROOT = REPO_ROOT / "skills/knowledge/write-knowledge"
+SKILL_ROOT = REPO_ROOT / "skills/write-knowledge"
 
 
 class WriteKnowledgeContractTest(unittest.TestCase):

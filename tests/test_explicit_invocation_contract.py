@@ -12,7 +12,7 @@ class ExplicitInvocationContractTest(unittest.TestCase):
         missing_frontmatter = []
         missing_policy = []
 
-        for skill_path in sorted(SKILLS_ROOT.glob("*/*/SKILL.md")):
+        for skill_path in sorted(SKILLS_ROOT.glob("*/SKILL.md")):
             skill_root = skill_path.parent
             skill = skill_path.read_text(encoding="utf-8")
             metadata_path = skill_root / "agents/openai.yaml"
@@ -28,7 +28,9 @@ class ExplicitInvocationContractTest(unittest.TestCase):
 
     def test_codex_starter_prompts_name_skills_explicitly(self) -> None:
         manifest = json.loads(
-            (REPO_ROOT / ".codex-plugin/plugin.json").read_text(encoding="utf-8")
+            (REPO_ROOT / "plugins/scribe/.codex-plugin/plugin.json").read_text(
+                encoding="utf-8"
+            )
         )
 
         prompts = manifest["interface"]["defaultPrompt"]

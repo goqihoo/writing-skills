@@ -8,7 +8,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SKILLS_ROOT = REPO_ROOT / "skills"
-METHODS_ROOT = REPO_ROOT / "skills/methods"
+METHODS_ROOT = REPO_ROOT / "methods"
 
 
 def read(path: Path) -> str:
@@ -17,7 +17,7 @@ def read(path: Path) -> str:
 
 def public_skills() -> list[tuple[Path, str]]:
     result = []
-    for skill_path in sorted(SKILLS_ROOT.glob("*/*/SKILL.md")):
+    for skill_path in sorted(SKILLS_ROOT.glob("*/SKILL.md")):
         metadata = read(skill_path.parent / "agents/openai.yaml")
         display_name = re.search(r'display_name: "([^"]+)"', metadata)
         if display_name is None:
@@ -66,7 +66,7 @@ class IndependentPublicSkillContractTest(unittest.TestCase):
         self.assertEqual([], violations)
 
     def test_ask_scribe_examples_use_one_public_skill_each(self) -> None:
-        ask_scribe = read(SKILLS_ROOT / "foundations/ask-scribe/SKILL.md")
+        ask_scribe = read(SKILLS_ROOT / "ask-scribe/SKILL.md")
         catalog = [display_name for _, display_name in public_skills()]
         violations = []
 

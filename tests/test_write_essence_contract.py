@@ -4,14 +4,14 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DOMAIN_SKILL_ROOT = REPO_ROOT / "skills/knowledge/write-domain-doc"
+DOMAIN_SKILL_ROOT = REPO_ROOT / "skills/write-domain-doc"
 MODULE_PATH = DOMAIN_SKILL_ROOT / "references/essence-document-module.md"
 TEMPLATE_PATH = DOMAIN_SKILL_ROOT / "assets/essence-article-template.md"
 
 
 class EssenceModuleContractTest(unittest.TestCase):
     def test_essence_is_internal_to_write_domain_doc(self) -> None:
-        self.assertFalse((REPO_ROOT / "skills/knowledge/write-essence").exists())
+        self.assertFalse((REPO_ROOT / "skills/write-essence").exists())
         self.assertTrue(MODULE_PATH.is_file())
         self.assertTrue(TEMPLATE_PATH.is_file())
 
@@ -91,13 +91,13 @@ class EssenceModuleContractTest(unittest.TestCase):
         )
         surfaces = [
             (REPO_ROOT / "README.md").read_text(encoding="utf-8"),
-            (REPO_ROOT / "skills/knowledge/README.md").read_text(encoding="utf-8"),
-            (REPO_ROOT / "skills/foundations/ask-scribe/SKILL.md").read_text(
+            (REPO_ROOT / "skills/ask-scribe/SKILL.md").read_text(
                 encoding="utf-8"
             ),
         ]
 
-        self.assertNotIn("./skills/knowledge/write-essence", manifest["skills"])
+        self.assertEqual("./skills/", manifest["skills"])
+        self.assertFalse((REPO_ROOT / "skills/write-essence").exists())
         self.assertTrue(all("write-essence" not in surface for surface in surfaces))
 
         metadata = "\n".join(

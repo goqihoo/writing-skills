@@ -45,7 +45,7 @@ class DisplayNameInvocationContractTest(unittest.TestCase):
     def test_every_public_skill_has_the_exact_unique_display_name(self) -> None:
         actual = {}
 
-        for skill_path in sorted(SKILLS_ROOT.glob("*/*/SKILL.md")):
+        for skill_path in sorted(SKILLS_ROOT.glob("*/SKILL.md")):
             skill_id = skill_path.parent.name
             metadata = (skill_path.parent / "agents/openai.yaml").read_text(
                 encoding="utf-8"
@@ -56,7 +56,7 @@ class DisplayNameInvocationContractTest(unittest.TestCase):
         self.assertEqual(len(actual), len(set(actual.values())))
 
     def test_default_prompts_prefer_exact_display_names(self) -> None:
-        for skill_path in sorted(SKILLS_ROOT.glob("*/*/SKILL.md")):
+        for skill_path in sorted(SKILLS_ROOT.glob("*/SKILL.md")):
             skill_id = skill_path.parent.name
             metadata = (skill_path.parent / "agents/openai.yaml").read_text(
                 encoding="utf-8"
@@ -69,7 +69,9 @@ class DisplayNameInvocationContractTest(unittest.TestCase):
 
     def test_plugin_prompts_prefer_display_names(self) -> None:
         manifest = json.loads(
-            (REPO_ROOT / ".codex-plugin/plugin.json").read_text(encoding="utf-8")
+            (REPO_ROOT / "plugins/scribe/.codex-plugin/plugin.json").read_text(
+                encoding="utf-8"
+            )
         )
         prompts = manifest["interface"]["defaultPrompt"]
 
@@ -91,10 +93,9 @@ class DisplayNameInvocationContractTest(unittest.TestCase):
         )
         old_id = "draw-diagram" + "s"
 
-        self.assertTrue((SKILLS_ROOT / "visual/draw-diagram").is_dir())
-        self.assertFalse((SKILLS_ROOT / "visual" / old_id).exists())
-        self.assertIn("./skills/visual/draw-diagram", manifest["skills"])
-        self.assertNotIn(f"./skills/visual/{old_id}", manifest["skills"])
+        self.assertTrue((SKILLS_ROOT / "draw-diagram").is_dir())
+        self.assertFalse((SKILLS_ROOT / old_id).exists())
+        self.assertEqual("./skills/", manifest["skills"])
 
 
 if __name__ == "__main__":

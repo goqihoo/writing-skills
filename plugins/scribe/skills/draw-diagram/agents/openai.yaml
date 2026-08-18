@@ -1,0 +1,6 @@
+interface:
+  display_name: "Draw Diagram"
+  short_description: "Create one clear, verified technical visual"
+  default_prompt: "Use $Draw Diagram to choose and create the clearest visual for this technical content."
+policy:
+  allow_implicit_invocation: false

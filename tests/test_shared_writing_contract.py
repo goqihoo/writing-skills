@@ -4,8 +4,8 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SKILLS_ROOT = REPO_ROOT / "skills"
-WRITE_DOC = SKILLS_ROOT / "foundations/write-doc/SKILL.md"
-PROSE_METHOD = REPO_ROOT / "skills/methods/prose-quality.md"
+WRITE_DOC = SKILLS_ROOT / "write-doc/SKILL.md"
+PROSE_METHOD = REPO_ROOT / "methods/prose-quality.md"
 
 class SharedWritingContractTest(unittest.TestCase):
     def test_shared_method_owns_the_reader_flow_contract(self) -> None:
@@ -24,7 +24,7 @@ class SharedWritingContractTest(unittest.TestCase):
     def test_write_doc_is_optional_for_other_skills(self) -> None:
         required = []
 
-        for path in sorted(SKILLS_ROOT.glob("*/*/SKILL.md")):
+        for path in sorted(SKILLS_ROOT.glob("*/SKILL.md")):
             if path == WRITE_DOC:
                 continue
             skill = path.read_text(encoding="utf-8")
@@ -36,7 +36,7 @@ class SharedWritingContractTest(unittest.TestCase):
     def test_other_skill_prompts_do_not_require_write_doc(self) -> None:
         required = []
 
-        for path in sorted(SKILLS_ROOT.glob("*/*/agents/openai.yaml")):
+        for path in sorted(SKILLS_ROOT.glob("*/agents/openai.yaml")):
             if path.parent.parent == WRITE_DOC.parent:
                 continue
             if "$Write Doc" in path.read_text(encoding="utf-8"):
@@ -56,7 +56,7 @@ class SharedWritingContractTest(unittest.TestCase):
     def test_no_public_skill_declares_a_competing_prose_contract(self) -> None:
         competing = []
 
-        for path in sorted(SKILLS_ROOT.glob("*/*/SKILL.md")):
+        for path in sorted(SKILLS_ROOT.glob("*/SKILL.md")):
             skill = path.read_text(encoding="utf-8")
             if "## Prose contract" in skill or "## Shared prose contract" in skill:
                 competing.append(str(path.relative_to(REPO_ROOT)))

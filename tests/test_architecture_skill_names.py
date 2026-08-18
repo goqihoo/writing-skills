@@ -5,8 +5,8 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-KNOWLEDGE_ROOT = REPO_ROOT / "skills/knowledge/write-architecture-knowledge"
-TECHNICAL_ROOT = REPO_ROOT / "skills/technical/write-technical-architecture"
+KNOWLEDGE_ROOT = REPO_ROOT / "skills/write-architecture-knowledge"
+TECHNICAL_ROOT = REPO_ROOT / "skills/write-technical-architecture"
 
 
 class ArchitectureSkillNamesTest(unittest.TestCase):
@@ -33,19 +33,16 @@ class ArchitectureSkillNamesTest(unittest.TestCase):
             (REPO_ROOT / ".claude-plugin/plugin.json").read_text(encoding="utf-8")
         )
 
-        self.assertIn(
-            "./skills/knowledge/write-architecture-knowledge", manifest["skills"]
-        )
-        self.assertIn(
-            "./skills/technical/write-technical-architecture", manifest["skills"]
-        )
-        for old_path in [
-            "./skills/knowledge/write-study-architecture",
-            "./skills/technical/write-delivery-architecture",
-            "./skills/technical/design-architecture",
-            "./skills/technical/record-decision",
+        self.assertEqual("./skills/", manifest["skills"])
+        self.assertTrue((KNOWLEDGE_ROOT / "SKILL.md").is_file())
+        self.assertTrue((TECHNICAL_ROOT / "SKILL.md").is_file())
+        for old_name in [
+            "write-study-architecture",
+            "write-delivery-architecture",
+            "design-architecture",
+            "record-decision",
         ]:
-            self.assertNotIn(old_path, manifest["skills"])
+            self.assertFalse((REPO_ROOT / "skills" / old_name).exists())
 
     def test_architecture_authority_boundaries_are_explicit(self) -> None:
         knowledge = (KNOWLEDGE_ROOT / "SKILL.md").read_text(encoding="utf-8")

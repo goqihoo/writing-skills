@@ -14,7 +14,7 @@ This architecture separates three independently valuable user results: assess a 
 | **Structure Domain Docs** (`structure-domain-docs`) | A proposed, audited, scaffolded, or migrated Domain Knowledge structure with real navigation. |
 | **Write Domain Doc** (`write-domain-doc`) | One complete common Domain Knowledge document. |
 
-Each skill applies `skills/methods/domain-reasoning.md` internally when its result needs admission, boundaries, relationships, maturity, or content ownership. Structure work also applies `skills/methods/documentation-structure.md`. Every human-readable result applies `skills/methods/prose-quality.md`, and visual production applies `skills/methods/visual-production.md` when requested or materially useful.
+Each skill applies `methods/domain-reasoning.md` internally when its result needs admission, boundaries, relationships, maturity, or content ownership. Structure work also applies `methods/documentation-structure.md`. Every human-readable result applies `methods/prose-quality.md`, and visual production applies `methods/visual-production.md` when requested or materially useful.
 
 ## Domain Assessment
 
@@ -43,7 +43,7 @@ Every knowledge responsibility uses one state: `Existing`, `Create now`, `Planne
 
 ## Document branches
 
-`skills/knowledge/write-domain-doc/references/domain-document-types.md` owns the ten common artifact responsibilities and structure strengths. `Structure Domain Docs` reads them as a coverage model; `Write Domain Doc` selects exactly one branch.
+`skills/write-domain-doc/references/domain-document-types.md` owns the ten common artifact responsibilities and structure strengths. `Structure Domain Docs` reads them as a coverage model; `Write Domain Doc` selects exactly one branch.
 
 Domain README, essence, terminology, object lifecycle, participants and rules, mechanism, capability and solution space, method and practice, case and failure, and reference remain Internal Document Types. Promote one only when it gains a recurring independent task, workflow, and completion boundary.
 
@@ -70,18 +70,18 @@ Multiple skills mean the user requested multiple independently owned results. `$
 ## Repository layout
 
 ```text
-skills/methods/
+methods/
 ├── domain-reasoning.md
 ├── documentation-structure.md
 ├── prose-quality.md
 └── visual-production.md
 
-skills/foundations/reason-domain/
+skills/reason-domain/
 ├── SKILL.md
 ├── agents/openai.yaml
 └── assets/domain-assessment-template.md
 
-skills/knowledge/structure-domain-docs/
+skills/structure-domain-docs/
 ├── SKILL.md
 ├── agents/openai.yaml
 ├── references/domain-structure-model.md
@@ -89,7 +89,7 @@ skills/knowledge/structure-domain-docs/
     ├── domain-inventory-template.md
     └── domain-structure-plan-template.md
 
-skills/knowledge/write-domain-doc/
+skills/write-domain-doc/
 ├── SKILL.md
 ├── agents/openai.yaml
 ├── references/

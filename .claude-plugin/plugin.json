@@ -1,34 +1,10 @@
 {
   "name": "scribe",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Independent end-to-end skills for reusable Knowledge, company Product and Technical Documentation, professional writing, and technical visuals.",
   "author": {
     "name": "Andrew"
   },
   "repository": "https://github.com/goqihoo/writing-skills",
-  "skills": [
-    "./skills/foundations/ask-scribe",
-    "./skills/foundations/structure-docs",
-    "./skills/foundations/write-doc",
-    "./skills/foundations/reason-architecture",
-    "./skills/foundations/reason-domain",
-    "./skills/foundations/reason-product",
-    "./skills/foundations/reason-technical",
-    "./skills/knowledge/structure-domain-docs",
-    "./skills/knowledge/write-domain-doc",
-    "./skills/knowledge/write-knowledge",
-    "./skills/knowledge/write-architecture-knowledge",
-    "./skills/product/assess-product-lifecycle",
-    "./skills/product/structure-product-docs",
-    "./skills/product/write-product-doc",
-    "./skills/product/write-product-strategy",
-    "./skills/product/map-product-capabilities",
-    "./skills/product/write-product-roadmap",
-    "./skills/product/write-prd",
-    "./skills/product/design-product-metrics",
-    "./skills/technical/structure-technical-docs",
-    "./skills/technical/write-technical-doc",
-    "./skills/technical/write-technical-architecture",
-    "./skills/visual/draw-diagram"
-  ]
+  "skills": "./skills/"
 }

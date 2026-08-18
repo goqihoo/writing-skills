@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SKILL_ROOT = REPO_ROOT / "skills/knowledge/write-domain-doc"
+SKILL_ROOT = REPO_ROOT / "skills/write-domain-doc"
 
 
 class WriteDomainDocContractTest(unittest.TestCase):
@@ -123,21 +123,18 @@ class WriteDomainDocContractTest(unittest.TestCase):
         manifest = json.loads(
             (REPO_ROOT / ".claude-plugin/plugin.json").read_text(encoding="utf-8")
         )
-        knowledge_readme = (
-            REPO_ROOT / "skills/knowledge/README.md"
-        ).read_text(encoding="utf-8")
         root_readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
         guide = (
-            REPO_ROOT / "skills/foundations/ask-scribe/SKILL.md"
+            REPO_ROOT / "skills/ask-scribe/SKILL.md"
         ).read_text(encoding="utf-8")
 
-        self.assertIn("./skills/knowledge/write-domain-doc", manifest["skills"])
-        self.assertIn("write-domain-doc", knowledge_readme)
+        self.assertEqual("./skills/", manifest["skills"])
+        self.assertTrue((REPO_ROOT / "skills/write-domain-doc/SKILL.md").is_file())
         self.assertIn("write-domain-doc", root_readme)
         self.assertIn("write-domain-doc", guide)
 
         general_knowledge = (
-            REPO_ROOT / "skills/knowledge/write-knowledge/SKILL.md"
+            REPO_ROOT / "skills/write-knowledge/SKILL.md"
         ).read_text(encoding="utf-8")
         self.assertIn(
             "Route every common domain-directory artifact, including essence documents",

@@ -3,8 +3,8 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DRAW_DIAGRAM = REPO_ROOT / "skills" / "visual" / "draw-diagram" / "SKILL.md"
-VISUAL_METHOD = REPO_ROOT / "skills" / "methods" / "visual-production.md"
+DRAW_DIAGRAM = REPO_ROOT / "skills" / "draw-diagram" / "SKILL.md"
+VISUAL_METHOD = REPO_ROOT / "methods" / "visual-production.md"
 
 
 class DrawDiagramContractTest(unittest.TestCase):

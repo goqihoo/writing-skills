@@ -19,9 +19,19 @@ Moving an idea between authority scopes requires an explicit adoption or extract
 - `write-doc` exposes prose improvement as an independently requested result;
 - `draw-diagram` owns one independently requested visual.
 
-Cross-skill reasoning, documentation structure, prose quality, and visual production live in non-invocable Shared Methods under `skills/methods/`. Public Skills apply them internally and still own their end-to-end outcomes.
+Cross-skill reasoning, documentation structure, prose quality, and visual production live in non-invocable Shared Methods under `methods/`. Public Skills apply them internally and still own their end-to-end outcomes.
 
 Coordination is expressed by verbs. Scribe does not create Delivery or Coordination content buckets.
+
+## Catalog classifications
+
+- **Foundations** covers standalone catalog guidance, shared reasoning, general documentation structure, and general prose work.
+- **Knowledge** covers reusable understanding that is not owned by one company or project.
+- **Product Documentation** covers one company's product responsibilities, decisions, structure, and governed artifacts.
+- **Technical Documentation** covers one company's Technical Landscape, responsibilities, architecture, and governed artifacts.
+- **Visual** covers independently requested technical visual production.
+
+These classifications organize the catalog and explain authority boundaries. They do not create intermediate filesystem directories: every Public Skill remains directly under `skills/<skill-id>/`.
 
 ## Materialization contract
 
