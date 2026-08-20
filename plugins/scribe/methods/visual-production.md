@@ -1,6 +1,8 @@
 # Visual production method
 
-Apply this method inside a Public Skill when the user requests a visual or when the result would otherwise force readers to reconstruct a central relationship. Create the smallest visual that answers one important question, and retain prose or a table when either is clearer.
+Let the consuming Public Skill and selected template decide whether a visual is needed and what it must explain. Once they select a visual, use this Shared Method as the Draw Diagram production contract by default; no additional public invocation is required. Depart from this contract only when the user explicitly requests another production contract or a binding destination convention requires one. Treat the production choices routed below as part of this contract.
+
+Apply this method when the user requests a visual or when the result would otherwise force readers to reconstruct a central relationship. Create the smallest visual that answers one important question, and retain prose or a table when either is clearer.
 
 ## Decision
 

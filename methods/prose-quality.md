@@ -19,14 +19,14 @@ Apply this method proportionally to every human-readable passage produced by a P
 - **Concrete before abstract.** Give each new abstraction a recognizable object, event, decision, or result, then reuse one stable term.
 - **Causal movement.** Move adjacent sentences by cause, consequence, contrast, condition, or sequence. Name that relationship instead of merely announcing the next topic.
 - **Human syntax.** Name actors and use ordinary, exact verbs. Unpack noun chains and sentences carrying several independent relationships.
-- **Selective structure.** Preserve required headings and fields, but expose only useful scaffolding. Use prose for explanation, lists for genuine sets or actions, and tables for compact repeated fields or comparison.
+- **Selective structure.** Preserve required headings and fields, but expose only useful scaffolding. Use a table only when readers need to compare multiple peer items across the same compact repeated fields; otherwise use prose, lists, or a suitable visual.
 - **Proportionate emphasis.** Give more space to consequential or difficult ideas without manufacturing mirrored sections, uniform paragraphs, or formulaic lists.
 - **Grounded examples.** Use examples to clarify the claim owned by a section. Carry one example across sections only when the artifact plan gives it that job.
 - **Honest qualification.** Keep material uncertainty, exceptions, assumptions, and limits close to the claim they constrain.
 - **Consistent voice.** Treat a supplied writing sample as the strongest guide. Otherwise preserve the writer's relationship to the reader and level of formality without inventing anecdotes, emotions, opinions, quotations, or deliberate imperfections.
 - **Clean delivery.** Cut canned openings, generic importance claims, vague authority, promotional gloss, exposed template instructions, redundant summaries, and conversational handoffs the genre does not need.
 
-Scan for reader-flow failures before delivery: an opening about the document instead of the subject; several unexplained abstract nouns arriving together; consecutive paragraphs with the same sentence pattern; repeated template labels used as prose; transitions that announce sections instead of relationships; and table cells carrying multi-step reasoning. Rewrite each failure inside the locked artifact plan.
+Scan for reader-flow failures before delivery: an opening about the document instead of the subject; several unexplained abstract nouns arriving together; consecutive paragraphs with the same sentence pattern; repeated template labels used as prose; and transitions that announce sections instead of relationships. Rewrite each failure inside the locked artifact plan.
 
 Keep code, commands, formulas, schemas, exact diagram labels, diagram syntax, structured data, quotations, and exact-format text outside this method.
 

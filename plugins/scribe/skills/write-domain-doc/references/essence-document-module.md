@@ -13,7 +13,7 @@ Use it after `Write Domain Doc` has classified the requested artifact as a domai
    - a **control or governance domain** must keep actions or states within an acceptable boundary and make that control accountable or provable;
    - a **knowledge or practice domain** must make judgment or action repeatable and improvable across practitioners or situations.
 4. **Record unavoidable realities.** Identify pre-solution facts that remain true across at least three materially different situations. Number them `R1`, `R2`, and so on. A reality describes the world before a response is chosen; it is not a framework principle, desired outcome, control, or product feature.
-5. **Identify the core objects.** Name what is created, changed, transferred, valued, exposed, authorized, observed, or protected. For each object, state its identity, important states, ownership or authority, and the change that matters. Use domain objects rather than software modules or organization charts.
+5. **Identify the core objects.** Keep only the domain objects needed to understand the essence. Introduce how they relate, order them by the reader's natural questions, and summarize each object's meaning, role in the domain's main line, and necessary recognition boundary in one or two sentences. Explain how the objects connect and why they are not interchangeable. Defer detailed states and change conditions to Core Objects and Lifecycle, and defer who may confirm or change them to Participants, Responsibilities, and Rules or the relevant mechanism artifact. Prefer short paragraphs; use a table only for genuine horizontal comparison.
 6. **Map participants and interests.** Identify who acts, decides, benefits, bears cost or harm, supplies evidence, and can block or override action. State conflicting incentives and information asymmetries that make the domain non-trivial.
 7. **Stress-test the candidate essence.** Use the realities, objects, participants, anchor, and additional cases to revise the candidate claim:
    - **Domain-uniqueness test.** Replace the domain nouns with those of the closest adjacent domain. If the claim remains equally explanatory, it is too generic.
@@ -21,7 +21,7 @@ Use it after `Write Domain Doc` has classified the requested artifact as a domai
    - **Case-independence test.** Remove the anchor example. The realities and central relationship must still exist across the domain.
    - **Solution-stack test.** Reject a claim that only lists controls, lifecycle stages, outcomes, framework functions, or product capabilities. Restate the problem that makes those responses necessary.
    - **Adjacent-domain subtraction test.** Remove responsibilities owned by law, risk management, operations, resilience, architecture, or another neighboring domain. The remainder must still explain why this domain exists.
-8. **Compress the essence.** State one central transformation or control problem that connects the minimum purpose, unavoidable realities, objects, participants, and consequence of failure. It must explain why the domain exists without naming one preferred implementation.
+8. **Compress the essence.** Write the core essence sentence as a cognitive handle rather than the whole argument. Make it as concise and easy to understand as possible. Add a plain-language explanation immediately after it when needed, and let the following causal explanation carry the supporting argument.
 9. **Derive necessary constraints.** For each constraint, cite the reality or object that makes it necessary, state what must remain true, and give a concrete failure case when it is absent. Number constraints `C1`, `C2`, and so on. A regulation, framework, or familiar good practice becomes a necessary constraint only when the causal link is shown.
 10. **Map the solution or capability space.** Derive families of response from the constraints. Separate capabilities the domain must provide from optional frameworks, tools, organizations, and technologies. Ground each family with real-system coordinates: an actual system, protocol, product, institution, or operating model that shows where the response appears in practice.
 11. **Expose the core tensions.** Name goals that cannot all be maximized, who benefits or pays under each tradeoff, the boundary that must not be crossed, and the minimum acceptable result. A tension is not a generic advantages-and-disadvantages list.
@@ -43,9 +43,9 @@ The essence document is complete only when:
 - the anchor case is concrete enough to follow through the article but the same causal spine still holds without it;
 - the primary domain type and minimum purpose are explicit;
 - unavoidable realities are pre-solution facts supported across at least three materially different situations;
-- core objects have meaningful identity, state, ownership, or transformation;
+- core objects answer distinct reader questions, show their roles and recognition boundaries, and explain their relationships without absorbing lifecycle, authority, or mechanism detail owned by sibling artifacts;
 - participants' authority, interests, costs, and conflicts explain why the problem is non-trivial;
-- the essence states one domain-specific transformation or control problem and passes every stress test;
+- the core essence sentence is a concise, understandable cognitive handle rather than the whole argument; a plain-language explanation follows immediately when needed, and the following reasoning passes every stress test;
 - each necessary constraint traces to a reality or object and includes an observable failure case;
 - the capability space separates necessary capability families from replaceable implementations and includes proportionate real-system coordinates;
 - core tensions state what cannot be maximized together and what minimum result must be preserved;

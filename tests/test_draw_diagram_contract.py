@@ -25,6 +25,22 @@ class DrawDiagramContractTest(unittest.TestCase):
             instructions,
         )
 
+    def test_consuming_skill_decides_need_then_defaults_to_draw_diagram_contract(self) -> None:
+        instructions = VISUAL_METHOD.read_text(encoding="utf-8")
+
+        self.assertIn(
+            "Let the consuming Public Skill and selected template decide whether a visual is needed",
+            instructions,
+        )
+        self.assertIn(
+            "use this Shared Method as the Draw Diagram production contract by default",
+            instructions,
+        )
+        self.assertIn(
+            "Depart from this contract only when the user explicitly requests another production contract or a binding destination convention requires one",
+            instructions,
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

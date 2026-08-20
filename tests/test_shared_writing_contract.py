@@ -21,6 +21,16 @@ class SharedWritingContractTest(unittest.TestCase):
         self.assertIn("**Selective structure.**", method)
         self.assertIn("reader-flow failures", method)
 
+    def test_tables_require_compact_comparison_across_peer_items(self) -> None:
+        method = PROSE_METHOD.read_text(encoding="utf-8")
+
+        self.assertIn(
+            "Use a table only when readers need to compare multiple peer items "
+            "across the same compact repeated fields; otherwise use prose, lists, "
+            "or a suitable visual.",
+            method,
+        )
+
     def test_write_doc_is_optional_for_other_skills(self) -> None:
         required = []
 

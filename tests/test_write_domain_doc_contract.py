@@ -71,10 +71,14 @@ class WriteDomainDocContractTest(unittest.TestCase):
                 "## 易混淆概念",
             ],
             "core-objects-and-lifecycle-template.md": [
-                "## 代表性场景",
-                "## 核心对象",
-                "## 状态与转换",
-                "## 不变量与失败",
+                "## 适用范围",
+                "## 生命周期观察模型",
+                "## 生命周期总览",
+                "## 各对象的状态语义",
+                "## 关键生命周期事件",
+                "## 生命周期不变量",
+                "## 生命周期事件分析模板",
+                "## 文档边界与修订条件",
             ],
             "participants-responsibilities-and-rules-template.md": [
                 "## 参与者",
@@ -118,6 +122,34 @@ class WriteDomainDocContractTest(unittest.TestCase):
             template = (SKILL_ROOT / "assets" / filename).read_text(encoding="utf-8")
             positions = [template.index(marker) for marker in markers]
             self.assertEqual(positions, sorted(positions), filename)
+
+    def test_object_lifecycle_template_tracks_state_without_redefining_objects(self) -> None:
+        template = (
+            SKILL_ROOT / "assets/core-objects-and-lifecycle-template.md"
+        ).read_text(encoding="utf-8")
+
+        for responsibility in [
+            "跟踪什么",
+            "身份边界",
+            "状态关注",
+            "变化影响",
+            "并非所有核心概念都天然是“有状态的对象”",
+            "最小完成条件",
+            "中间与异常状态",
+            "残余事项",
+            "部分完成或失败时保留什么状态",
+            "一张生命周期总览图",
+            "只有状态存在明显分支、循环、回退或异常路径时才使用状态图",
+        ]:
+            self.assertIn(responsibility, template)
+
+        for displaced_detail in [
+            "**它是什么：**",
+            "**谁拥有或有权改变：**",
+            "**关键属性：**",
+            "**与其他对象的关系：**",
+        ]:
+            self.assertNotIn(displaced_detail, template)
 
     def test_plugin_and_guides_expose_the_skill(self) -> None:
         manifest = json.loads(

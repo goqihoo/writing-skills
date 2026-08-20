@@ -36,7 +36,7 @@ Preserve the reasoning or action order. Subject-specific headings may replace ge
 | Domain map and README | `README.md` at a domain or subdomain root | What does this domain contain, and how should I navigate it? | Current linked content versus planned unlinked coverage |
 | Domain essence | `{领域}本质.md`, `{子域}本质.md` | Why must this domain exist, and how can I analyze a new problem? | Essence versus implementation and adjacent-domain ownership |
 | Terminology and concept relationships | `术语与概念关系.md`, `概念模型.md`, `术语表.md` | What does each term mean here, and how do the concepts relate? | Concept versus label; preferred term versus alias |
-| Core objects and lifecycle | `核心对象与生命周期.md`, `对象与状态.md` | What has identity or state, and how can it change? | Domain object versus module; state transition versus causal mechanism |
+| Core objects and lifecycle | `核心对象与生命周期.md`, `对象与状态.md` | Which objects or matters vary independently, how do their states change, and when is a domain event complete? | Tracked item versus abstract concept; transition evidence versus participant authority |
 | Participants, responsibilities, and rules | `参与者、职责与规则.md`, `角色与规则.md` | Who may act or decide, under what rule, and with what evidence? | Domain authority versus company job description |
 | Mechanism | `机制/`, `*机制.md`, `*原理.md` | Why and through what causal chain does the result occur? | Causal explanation versus practitioner steps |
 | Capability and solution space | `能力与解法/`, `能力空间.md`, `模式与决策.md` | What reusable response families exist, and when should each be chosen? | Necessary capability versus optional implementation or product promise |

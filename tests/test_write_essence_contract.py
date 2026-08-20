@@ -85,6 +85,59 @@ class EssenceModuleContractTest(unittest.TestCase):
         self.assertIn("控制或治理型领域", template)
         self.assertIn("知识或实践型领域", template)
 
+    def test_core_essence_is_a_recallable_cognitive_handle(self) -> None:
+        template = TEMPLATE_PATH.read_text(encoding="utf-8")
+        core = template.split("## 六、核心本质", 1)[1].split(
+            "## 七、必然约束", 1
+        )[0]
+
+        for responsibility in [
+            "认知抓手",
+            "不承担完整论证",
+            "尽可能简洁好理解",
+            "需要时在后面紧接",
+            "通俗的解释",
+        ]:
+            self.assertIn(responsibility, core)
+
+        for overconstraint in [
+            "领域独有的核心关系",
+            "必须维持的结果",
+            "关键失配",
+            "前提、参与者、证据、授权、边界及失败后果",
+            "由哪些参与者，把什么状态变成什么可接受状态",
+        ]:
+            self.assertNotIn(overconstraint, core)
+
+    def test_core_objects_stay_conceptual_and_route_detail_outward(self) -> None:
+        template = TEMPLATE_PATH.read_text(encoding="utf-8")
+        core_objects = template.split("## 四、核心对象", 1)[1].split(
+            "## 五、参与者与利益", 1
+        )[0]
+
+        for responsibility in [
+            "必须分清的核心对象",
+            "共同构成什么关系",
+            "自然的认知顺序",
+            "它回答的核心问题",
+            "一至两句话",
+            "怎样连接",
+            "不能互相替代",
+            "默认按认知顺序使用短段落",
+            "只有确实需要横向比较时才使用表格",
+            "核心对象与生命周期",
+            "参与者、职责与规则",
+            "理解领域本质不可缺少的内容",
+        ]:
+            self.assertIn(responsibility, core_objects)
+
+        for displaced_detail in [
+            "**关键状态：**",
+            "**谁拥有或有权改变：**",
+            "**重要变化：**",
+        ]:
+            self.assertNotIn(displaced_detail, core_objects)
+
     def test_public_skill_surfaces_do_not_expose_write_essence(self) -> None:
         manifest = json.loads(
             (REPO_ROOT / ".claude-plugin/plugin.json").read_text(encoding="utf-8")
