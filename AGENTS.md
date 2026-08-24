@@ -1,6 +1,6 @@
 # Scribe Repository
 
-This repository contains composable skills for professional documents and technical visuals.
+This repository contains composable skills for professional documents, presentation manuscripts, and technical visuals.
 
 ## Repository layout
 
@@ -44,6 +44,7 @@ This is a single-context repository using root `CONTEXT.md` and `docs/adr/`. See
 - `methods/visual-production.md` owns shared visual routing and production. A Public Skill applies it internally when a visual is requested or materially improves the result.
 - Domain, product, technical, architecture, and documentation-structure Shared Methods own their cross-skill reasoning rules.
 - `write-doc` owns an optional general-purpose prose workflow as an independently valuable standalone result.
+- `write-deck` owns one audience-facing presentation manuscript in Markdown across business, product, technical, learning, planning, and mixed professional settings. It is a derived expression rather than an authority source or rendered presentation file.
 - `draw-diagram`, the four `reason-*` skills, and `structure-docs` expose their concerns only as independently valuable standalone workflows.
 - `assess-product-lifecycle` owns product decision readiness, artifact coverage, evidence gaps, and the Product Lifecycle Assessment.
 - `structure-docs` owns directory responsibilities, file placement, documentation navigation, and structure migrations.

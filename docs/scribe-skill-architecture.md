@@ -17,6 +17,7 @@ Moving an idea between authority scopes requires an explicit adoption or extract
 - structure skills own directory responsibilities, navigation, materialization, and approved migration;
 - artifact skills own one high-frequency artifact or one coherent document family;
 - `write-doc` exposes prose improvement as an independently requested result;
+- `write-deck` owns one audience-facing presentation manuscript in Markdown across professional subjects and settings;
 - `draw-diagram` owns one independently requested visual.
 
 Cross-skill reasoning, documentation structure, prose quality, and visual production live in non-invocable Shared Methods under `methods/`. Public Skills apply them internally and still own their end-to-end outcomes.
@@ -25,7 +26,7 @@ Coordination is expressed by verbs. Scribe does not create Delivery or Coordinat
 
 ## Catalog classifications
 
-- **Foundations** covers standalone catalog guidance, shared reasoning, general documentation structure, and general prose work.
+- **Foundations** covers standalone catalog guidance, shared reasoning, general documentation structure, general prose work, and general presentation-manuscript work.
 - **Knowledge** covers reusable understanding that is not owned by one company or project.
 - **Product Documentation** covers one company's product responsibilities, decisions, structure, and governed artifacts.
 - **Technical Documentation** covers one company's Technical Landscape, responsibilities, architecture, and governed artifacts.
@@ -47,6 +48,8 @@ A Public Skill exists only when a task recurs across companies or products, has 
 
 Every Public Skill has one canonical Skill ID and one exact, unique Skill Display Name. Both invoke the same skill. Catalogs and ready-to-type examples prefer the display name; paths, manifests, frontmatter, and code retain the Skill ID.
 
+`write-deck` treats a presentation manuscript as a derived expression: it may combine business, product, technical, learning, planning, and other supported material into one audience path, but the sources continue to own their facts, commitments, decisions, evidence, and technical truth. Its current artifact boundary is Markdown and supporting assets rather than PowerPoint, Keynote, PDF, or another rendered presentation file.
+
 ## Independent Public Skills
 
 Every Public Skill disables model invocation and implicit invocation, owns one independently valuable result, and completes its core workflow itself. One requested result maps to one recommended skill. Multiple invocations represent multiple independently requested results, not implementation dependencies. Selecting an Internal Document Type inside a Common Writer and applying a Shared Method are internal routing, not skill invocation.
@@ -63,4 +66,4 @@ System Architecture and justified Subsystem Architecture are Technical Documenta
 
 ## Completion contract
 
-The architecture is satisfied when every artifact has one authority scope and owner, every directory has one materialization class, Public Skills and Internal Document Types remain distinct, Shared Methods stay non-invocable, each Public Skill completes independently, and public catalog surfaces expose the same names and boundaries.
+The architecture is satisfied when every artifact has one authority scope and owner, presentation manuscripts preserve their source authorities as derived expressions, every directory has one materialization class, Public Skills and Internal Document Types remain distinct, Shared Methods stay non-invocable, each Public Skill completes independently, and public catalog surfaces expose the same names and boundaries.

@@ -1,6 +1,6 @@
 # Scribe
 
-Scribe is a set of explicitly invoked skills for professional documents, Company Documentation, reusable Knowledge, and technical visuals. Start with **Ask Scribe** (`ask-scribe`) when you want the current catalog and a complete invocation without executing another workflow.
+Scribe is a set of explicitly invoked skills for professional documents, presentation manuscripts, Company Documentation, reusable Knowledge, and technical visuals. Start with **Ask Scribe** (`ask-scribe`) when you want the current catalog and a complete invocation without executing another workflow.
 
 ## Documentation model
 
@@ -10,7 +10,7 @@ Scribe is a set of explicitly invoked skills for professional documents, Company
 
 Company structures use **Stable Responsibility**, **Type Extension**, and **Event Collection** materialization rules. Repeated or audit-sensitive writer artifacts are registered as **Internal Document Types**; compatible occasional work remains a **Freeform Artifact**. The generated [Internal Document Type catalog](docs/internal-document-types.md) describes the current Product and Technical registries. Each Public Skill delivers one end-to-end result and applies cross-skill **Shared Methods** internally.
 
-Use **Write Doc** (`write-doc`) when prose improvement is itself the requested result. Use **Draw Diagram** (`draw-diagram`) when one visual is itself the requested result. Other skills already apply prose quality and visual production when their own result needs them.
+Use **Write Doc** (`write-doc`) for a general linear document or when prose improvement is itself the requested result. Use **Write Deck** (`write-deck`) for an audience-facing presentation manuscript in Markdown. Use **Draw Diagram** (`draw-diagram`) when one visual is itself the requested result. Other skills already apply prose quality and visual production when their own result needs them.
 
 ## Invocation
 
@@ -39,7 +39,7 @@ git clone https://github.com/goqihoo/writing-skills.git
 bash writing-skills/scripts/link-skills.sh "$HOME/.agents/skills"
 ```
 
-The link script installs the 23 Public Skills and their non-invocable Shared Methods together.
+The link script installs the 24 Public Skills and their non-invocable Shared Methods together.
 
 ## Repository layout
 
@@ -52,6 +52,7 @@ All Public Skills use the standard flat `skills/<skill-id>/SKILL.md` layout. Fou
 - [Ask Scribe](skills/ask-scribe/SKILL.md) (`ask-scribe`) — Explain the catalog, boundaries, and complete invocations without executing them.
 - [Structure Docs](skills/structure-docs/SKILL.md) (`structure-docs`) — Plan documentation placement, boundaries, navigation, and approved migrations.
 - [Write Doc](skills/write-doc/SKILL.md) (`write-doc`) — Apply an optional reader-flow and prose-quality workflow.
+- [Write Deck](skills/write-deck/SKILL.md) (`write-deck`) — Create or revise an audience-facing presentation manuscript in Markdown.
 - [Reason Arch](skills/reason-architecture/SKILL.md) (`reason-architecture`) — Apply the shared four-view architecture method.
 - [Reason Domain](skills/reason-domain/SKILL.md) (`reason-domain`) — Assess reusable Domain Knowledge boundaries.
 - [Reason Product](skills/reason-product/SKILL.md) (`reason-product`) — Assess company portfolios, product lines, products, and product responsibilities.
@@ -94,3 +95,4 @@ All Public Skills use the standard flat `skills/<skill-id>/SKILL.md` layout. Fou
 - [Scribe 0.7.0 migration notes](docs/releases/0.7.0.md)
 - [Scribe 0.7.1 packaging notes](docs/releases/0.7.1.md)
 - [Scribe 0.8.0 architecture and document-type notes](docs/releases/0.8.0.md)
+- [Scribe 0.9.0 presentation-manuscript notes](docs/releases/0.9.0.md)

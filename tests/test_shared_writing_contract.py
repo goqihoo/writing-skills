@@ -5,6 +5,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SKILLS_ROOT = REPO_ROOT / "skills"
 WRITE_DOC = SKILLS_ROOT / "write-doc/SKILL.md"
+WRITE_DECK = SKILLS_ROOT / "write-deck/SKILL.md"
 PROSE_METHOD = REPO_ROOT / "methods/prose-quality.md"
 
 class SharedWritingContractTest(unittest.TestCase):
@@ -20,6 +21,19 @@ class SharedWritingContractTest(unittest.TestCase):
         self.assertIn("**Human syntax.**", method)
         self.assertIn("**Selective structure.**", method)
         self.assertIn("reader-flow failures", method)
+
+    def test_write_doc_and_write_deck_share_natural_expression(self) -> None:
+        method = PROSE_METHOD.read_text(encoding="utf-8")
+
+        self.assertIn(
+            "methods/prose-quality.md", WRITE_DOC.read_text(encoding="utf-8")
+        )
+        self.assertIn(
+            "methods/prose-quality.md", WRITE_DECK.read_text(encoding="utf-8")
+        )
+        self.assertIn("**Natural expression.**", method)
+        self.assertIn("actual relationship", method)
+        self.assertIn("prompt-like framing", method)
 
     def test_tables_require_compact_comparison_across_peer_items(self) -> None:
         method = PROSE_METHOD.read_text(encoding="utf-8")

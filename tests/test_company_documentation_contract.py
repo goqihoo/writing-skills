@@ -12,6 +12,7 @@ PUBLIC_SKILLS = {
         "ask-scribe",
         "structure-docs",
         "write-doc",
+        "write-deck",
         "reason-architecture",
         "reason-domain",
         "reason-product",
@@ -129,14 +130,17 @@ class CompanyDocumentationContractTest(unittest.TestCase):
         ]:
             self.assertIn(term, combined)
 
-    def test_release_versions_match_the_0_8_contract(self) -> None:
+    def test_release_versions_match_the_0_9_contract(self) -> None:
         claude = json.loads(read(REPO_ROOT / ".claude-plugin/plugin.json"))
         codex = json.loads(
             read(REPO_ROOT / "plugins/scribe/.codex-plugin/plugin.json")
         )
 
-        self.assertEqual("0.8.0", claude["version"])
-        self.assertRegex(codex["version"], r"^0\.8\.0\+codex\.\d{14}$")
+        self.assertEqual("0.9.0", claude["version"])
+        self.assertRegex(codex["version"], r"^0\.9\.0\+codex\.\d{14}$")
+        release = read(REPO_ROOT / "docs/releases/0.9.0.md")
+        self.assertIn("Write Deck", release)
+        self.assertIn("Natural expression", release)
 
 
 if __name__ == "__main__":

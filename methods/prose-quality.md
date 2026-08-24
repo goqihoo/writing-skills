@@ -19,6 +19,7 @@ Apply this method proportionally to every human-readable passage produced by a P
 - **Concrete before abstract.** Give each new abstraction a recognizable object, event, decision, or result, then reuse one stable term.
 - **Causal movement.** Move adjacent sentences by cause, consequence, contrast, condition, or sequence. Name that relationship instead of merely announcing the next topic.
 - **Human syntax.** Name actors and use ordinary, exact verbs. Unpack noun chains and sentences carrying several independent relationships.
+- **Natural expression.** Write as a competent human addressing the intended audience in the actual relationship and setting. Match the register to how the passage will be read or spoken. Remove prompt-like framing, mechanical parallelism, slogan fragments, and language that exposes the template or production process.
 - **Selective structure.** Preserve required headings and fields, but expose only useful scaffolding. Use a table only when readers need to compare multiple peer items across the same compact repeated fields; otherwise use prose, lists, or a suitable visual.
 - **Proportionate emphasis.** Give more space to consequential or difficult ideas without manufacturing mirrored sections, uniform paragraphs, or formulaic lists.
 - **Grounded examples.** Use examples to clarify the claim owned by a section. Carry one example across sections only when the artifact plan gives it that job.

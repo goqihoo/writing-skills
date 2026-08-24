@@ -14,6 +14,7 @@ DISPLAY_NAMES = {
     "reason-product": "Reason Product",
     "reason-technical": "Reason Tech Docs",
     "structure-docs": "Structure Docs",
+    "write-deck": "Write Deck",
     "write-doc": "Write Doc",
     "structure-domain-docs": "Structure Domain Docs",
     "write-architecture-knowledge": "Write Arch Knowledge",

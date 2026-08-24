@@ -24,6 +24,7 @@ PUBLIC_SKILLS = {
     "structure-product-docs",
     "structure-technical-docs",
     "write-architecture-knowledge",
+    "write-deck",
     "write-doc",
     "write-domain-doc",
     "write-knowledge",

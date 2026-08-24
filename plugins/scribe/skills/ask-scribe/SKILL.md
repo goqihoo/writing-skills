@@ -35,7 +35,8 @@ Explain and recommend. Leave every subsequent invocation and execution to the us
 | --- | --- | --- |
 | Understand Scribe or choose a workflow | **Ask Scribe** (`ask-scribe`) | Explain only; do not execute. |
 | Place files, define directory responsibilities, or plan a migration | **Structure Docs** (`structure-docs`) | Own information architecture, not artifact meaning. |
-| Run a dedicated reader-flow and prose-quality pass | **Write Doc** (`write-doc`) | Optional; own presentation, not genre meaning. |
+| Write a general linear document or run a dedicated prose-quality pass | **Write Doc** (`write-doc`) | Own linear document expression, not a presentation manuscript or another artifact's meaning. |
+| Write an audience-facing presentation manuscript in Markdown | **Write Deck** (`write-deck`) | Own the narrative and slide sequence; preserve source authority and do not create a rendered presentation file. |
 | Apply four-view architecture reasoning | **Reason Arch** (`reason-architecture`) | Own the method, not an artifact. |
 | Admit and bound reusable Domain Knowledge | **Reason Domain** (`reason-domain`) | Own the Domain Assessment. |
 | Resolve a company portfolio, product line, product, capability, or extension | **Reason Product** (`reason-product`) | Own Product Assessment decisions. |
@@ -70,6 +71,7 @@ Explain and recommend. Leave every subsequent invocation and execution to the us
 - Technical Internal Document Type: `$Write Tech Doc`
 - Company Technical Architecture: `$Write Tech Arch`
 - Dedicated prose revision or review: `$Write Doc`
+- Presentation manuscript: `$Write Deck`
 - Standalone visual creation or revision: `$Draw Diagram`
 
 Each Public Skill applies the reasoning, structure, prose-quality, and visual-production Shared Methods its own workflow needs. Do not present the former required multi-skill combinations as compatible alternatives.
@@ -78,6 +80,7 @@ Product Strategy, Capability Map, Product Roadmap, PRD, and Product Metric Syste
 
 Route natural requests without requiring the user to know a type name:
 
+- Route a presentation, slide-sequenced talk, course deck, business presentation, product introduction, technical explanation, or proposal manuscript to `$Write Deck` when the requested result is the audience-facing deck source rather than an authoritative document or rendered presentation file.
 - Route company overall architecture, Product-System Map, or a cross-System concern to `$Write Tech Arch`.
 - Route System or Subsystem Architecture to `$Write Tech Doc`.
 - Route a compatible occasional Product or Technical document to its owning Writer as a Freeform Artifact.
