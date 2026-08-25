@@ -7,23 +7,17 @@
 - Does not apply when:
 - Evidence and sources:
 
-## Architecture model
+## Architecture frame
 
-### Domain
+- Architecture Object or recurring problem:
+- Scope:
+- Relevant Architecture Domains: [Business / Data / Application / Technology]
+- Relevant Architecture Viewpoints: [Security / Governance / Runtime]
+- Correctness concerns to verify:
 
-- [Meaning, invariants, boundary, and state authority]
+## Architecture analysis
 
-### Application
-
-- [Responsibilities, contracts, dependencies, and orchestration]
-
-### Governance
-
-- [Decision rights, policies, controls, assurance, and exceptions]
-
-### Runtime
-
-- [Execution, failure, recovery, observability, and scaling]
+[Use subject-specific sections that expose the relevant model, responsibilities, authority, behavior, constraints, failure, and evidence. Omit domain or viewpoint headings that would exist only for coverage.]
 
 ## Options and tradeoffs
 
@@ -33,7 +27,7 @@
 
 ## Evolution and review triggers
 
-- [Evidence, scale, control, failure, or context change]
+- [Evidence, scale, control, failure, ownership, or context change]
 
 ## Examples and non-commitments
 

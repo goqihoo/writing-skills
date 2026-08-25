@@ -15,7 +15,7 @@ Use one Technical Common Writer for registered and occasional company technical 
 3. Establish the named company, Technical Landscape scope, owner, and authority from the available evidence. If the subject routes elsewhere or remains materially disputed, stop because drafting would create unsupported Technical Documentation; name the evidence or decision required.
 4. Route company-level Technical Architecture, Product-System Map, and a cross-System Architecture Topic to `$Write Tech Arch` and stop before drafting.
 5. Read `references/internal-document-types.yaml`. Select one registered Internal Document Type or classify the requested result as a Freeform Artifact. When the result is System Architecture or Subsystem Architecture, also read `../../methods/architecture-reasoning.md` and `references/system-architecture-method.md`.
-6. Lock the reader question, Architecture Level when applicable, structure mode, scope, validity, evidence, canonical sources, and excluded downstream detail.
+6. Lock the reader question, Architecture Object and Authority Level when applicable, structure mode, scope, validity, evidence, canonical sources, and excluded downstream detail.
 7. Separate observed facts, accepted policy, current technical truth, proposals, decisions, evidence, exceptions, and open questions.
 8. Read `../../methods/prose-quality.md`, then use only the template assigned by the registry. Draft a Freeform Artifact without forcing a template. Read `../../methods/visual-production.md` when the request includes a visual or a central relationship is materially clearer as one. Link Machine Authority instead of copying code, schemas, configuration, protocols, tests, or runbooks.
 9. A System Profile writes the Registered System's System Responsibility README. System Architecture and Subsystem Architecture may split supporting documents only when each has an independent reader question, authority, change cadence, and navigation need; update the direct architecture document otherwise.
@@ -31,4 +31,4 @@ Use one Technical Common Writer for registered and occasional company technical 
 
 ## Completion
 
-The work is complete when one company Technical scope owns one registered Internal Document Type or Freeform Artifact, any Architecture Level is explicit, the applicable completion profile is satisfied, authority and validity are visible, canonical links replace duplicated Machine or Project detail, and real navigation exposes the artifact.
+The work is complete when one company Technical scope owns one registered Internal Document Type or Freeform Artifact, any Architecture Object, Scope, and Authority Level are explicit, the applicable completion profile is satisfied, authority and validity are visible, canonical links replace duplicated Machine or Project detail, and real navigation exposes the artifact.

@@ -55,6 +55,29 @@ class ArchitectureSkillNamesTest(unittest.TestCase):
         self.assertIn("methods/technical-reasoning.md", technical)
         self.assertIn("methods/architecture-reasoning.md", technical)
 
+    def test_architecture_knowledge_template_selects_axes_without_fixed_view_headings(self) -> None:
+        template = (
+            KNOWLEDGE_ROOT / "assets/architecture-knowledge-template.md"
+        ).read_text(encoding="utf-8")
+
+        for concept in [
+            "Architecture Object",
+            "Scope",
+            "Architecture Domains",
+            "Architecture Viewpoints",
+            "Correctness concerns",
+            "subject-specific sections",
+        ]:
+            self.assertIn(concept, template)
+
+        for fixed_heading in [
+            "### Domain",
+            "### Application",
+            "### Governance",
+            "### Runtime",
+        ]:
+            self.assertNotIn(fixed_heading, template)
+
 
 if __name__ == "__main__":
     unittest.main()

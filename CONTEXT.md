@@ -177,7 +177,7 @@ Reusable knowledge about architectural boundaries, ownership, contracts, control
 _Avoid_: Study Architecture, Technical Architecture
 
 **Technical Architecture**:
-The company-level account of the accepted structure, principles, boundaries, relationships, constraints, and evolution of one company's Technical Landscape. Its authority is company-level even when its title does not include the word “company.”
+The company-level account of the accepted structure, principles, boundaries, relationships, constraints, and evolution of one company's Technical Landscape. Its Architecture Object is the named Technical Landscape and its Authority Level is Company even when its title does not include the word “company.”
 _Avoid_: Delivery Architecture, Architecture Knowledge, one repository's implementation design
 
 **Product-System Map**:
@@ -188,13 +188,33 @@ _Avoid_: System Landscape, Product Portfolio, one-to-one Product-to-System hiera
 A company-level Technical Architecture artifact for an end-to-end concern whose state ownership, failure, recovery, release, or evolution crosses multiple Systems and cannot be owned by one System Architecture.
 _Avoid_: mandatory document per Product, System Architecture, Project Technical Design
 
-**Architecture Level**:
-The company, System, or Subsystem scope at which architectural responsibilities and decisions are owned. Architecture Levels form a responsibility hierarchy; they are independent of Architecture Views.
-_Avoid_: Architecture View, document directory named for a view
+**Architecture Object**:
+The entity whose architecture is being described, such as a company Technical Landscape, Product, Solution, Business Domain, System, or Subsystem. Scribe's company Technical writers directly govern the company Technical Landscape, System, and Subsystem objects within their authority.
+_Avoid_: Architecture Domain, Architecture Viewpoint, Authority Level
+
+**Architecture Scope**:
+The selected responsibility and environment boundary around one Architecture Object or decision. It states what is included without replacing the object's stable identity.
+_Avoid_: Architecture Object, Authority Level, directory path
+
+**Architecture Domain**:
+A foundational family of architecture concerns: Business, Data, Application, or Technology. Domains guide analysis and coverage without becoming mandatory directories, documents, or headings.
+_Avoid_: Business Domain as an Architecture Object, Architecture Viewpoint, four-view taxonomy
+
+**Architecture Viewpoint**:
+A reusable way to examine cross-cutting stakeholder concerns: Security, Governance, or Runtime. A Viewpoint guides analysis; it is not the resulting artifact or an Architecture Domain.
+_Avoid_: Architecture View, mandatory document, Architecture Domain
 
 **Architecture View**:
-A Domain, Application, Governance, or Runtime perspective applied as needed at any Architecture Level to test coverage and decisions. A view is an analysis lens, not a required directory, separate document, or fixed section heading.
-_Avoid_: Architecture Level, mandatory four-part output structure
+The concrete representation produced for one Architecture Object and Scope using a focused Architecture Domain or Viewpoint. Materialize it independently only when its reader task, authority, and change cycle justify a separate artifact.
+_Avoid_: Architecture Viewpoint, fixed coverage heading, directory level
+
+**Authority Level**:
+The Company, System, or Subsystem scope that owns a Technical Documentation artifact or Architecture Decision. It is a routing and authority hierarchy, not a substitute for Architecture Object or Scope.
+_Avoid_: Architecture Level, Architecture Object, Architecture View
+
+**Architecture Correctness Checks**:
+The Domain, Application, Governance, and Runtime questions used to test whether facts and invariants, application ownership, controlled authority, and operating behavior remain coherent. They are completion checks rather than Architecture Domains, Viewpoints, directories, documents, or fixed headings.
+_Avoid_: Four Architecture Views, mandatory four-part output structure
 
 **System**:
 A stable technical responsibility boundary with an independently governed lifecycle. State ownership, external contracts, independent release, and failure boundaries are evidence for the boundary, but a System need not satisfy all of them; a System may support multiple Products and contain multiple Applications and Subsystems.
@@ -225,7 +245,7 @@ A deployed or executed process, container, task, or equivalent runtime instance.
 _Avoid_: System, Application, Codebase
 
 **System Architecture**:
-The Technical Documentation authority for the stable design of one concrete System, including its internal responsibilities, state, contracts, controls, runtime behavior, decisions, and evolution. It links Machine Authority and Project Technical Design instead of copying them.
+The Technical Documentation authority for the stable design of one concrete System Architecture Object, including relevant domains and viewpoints, internal responsibilities, information and state authority, contracts, controls, deployment and runtime behavior, decisions, and evolution. It links Machine Authority and Project Technical Design instead of copying them.
 _Avoid_: Technical Architecture, System Profile, Subsystem Architecture, Machine Authority
 
 **Subsystem Architecture**:
@@ -233,7 +253,7 @@ The Technical Documentation authority for one justified Subsystem within a Syste
 _Avoid_: System Architecture, Module or Component, Project Technical Design
 
 **Architecture Decision**:
-An accepted architectural choice owned at the narrowest Architecture Level that governs its consequences. Higher levels link or summarize the decision instead of duplicating its authoritative record.
+An accepted architectural choice for an explicit Architecture Object and Scope, owned at the narrowest Authority Level that governs its consequences. Higher levels link or summarize the decision instead of duplicating its authoritative record.
 _Avoid_: centralizing every decision at company level, implementation task, unresolved option
 
 **System Profile**:

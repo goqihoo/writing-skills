@@ -2,17 +2,26 @@
 
 ## Scope
 
-Technical Documentation is Company Documentation for how one company structures, governs, evolves, protects, and operates its technical capabilities and Systems. It includes company-, System-, and Subsystem-level architecture while remaining distinct from reusable Technical or Architecture Knowledge, Project Technical Design, and Machine Authority.
+Technical Documentation is Company Documentation for how one company structures, governs, evolves, protects, and operates its technical capabilities and Systems. It includes company-, System-, and Subsystem-authority architecture while remaining distinct from reusable Technical or Architecture Knowledge, Project Technical Design, and Machine Authority.
 
 ## Architecture model
 
-Company, System, and Subsystem are **Architecture Levels**. Domain, Application, Governance, and Runtime are orthogonal **Architecture Views** used as coverage checks at any level; they are not required directories, documents, or fixed headings.
+Every architecture artifact names an **Architecture Object** and **Architecture Scope**. Technical Documentation routes authority through Company, System, and Subsystem **Authority Levels** without using those levels as substitutes for object identity.
 
-- Company-level Technical Architecture describes the Technical Landscape as a system of systems.
+Architecture analysis selects the relevant foundational domains:
+
+- **Business** — linked capabilities, actors, value, responsibility, policy, concepts, lifecycle, rules, and invariants;
+- **Data** — information meaning, authority, lifecycle, lineage, quality, exchange, retention, residency, and privacy;
+- **Application** — Applications, Systems, Subsystems, behavior and state ownership, contracts, orchestration, and dependencies;
+- **Technology** — platforms, infrastructure, storage, messaging, networks, environments, and deployment mechanisms.
+
+Security, Governance, and Runtime are cross-cutting **Architecture Viewpoints**. Domain, Application, Governance, and Runtime correctness remain coverage checks rather than directories, documents, or fixed headings.
+
+- Company-level Technical Architecture describes the named Technical Landscape as its Architecture Object and a system of Systems.
 - System Architecture describes one Registered System's stable internal architecture and evolution.
 - Subsystem Architecture describes one justified stable responsibility inside a System.
 
-Products and Systems have many-to-many relationships. An Application is a runnable or audience-specific entry within a System. Codebases and Runtime Units realize architecture but do not define these boundaries by themselves.
+Products and Systems have many-to-many relationships. An Application is a runnable or audience-specific entry within a System. Codebases and Runtime Units realize architecture but do not define these objects by themselves. Deployment Architecture describes topology and placement; a Runtime View describes operating, failure, degradation, observability, and recovery behavior.
 
 ## Structure
 
@@ -25,9 +34,9 @@ Systems/
     └── System Architecture.md
 ```
 
-The README is the System Responsibility README and System Profile. Materialize a Subsystem directory only when its boundary, complexity, independent reader task, and continuing maintenance value justify it.
+The README is the System Responsibility README and System Profile. Materialize a Subsystem directory only when its responsibility, complexity, independent reader task, and continuing maintenance value justify it.
 
-Platform, Engineering, Data, Security, Quality, and Operations may become Type Extensions for proven cross-System responsibility. A concrete platform that satisfies the System test is also registered under Systems. Architecture Decisions belong at the narrowest governing Architecture Level. Product-System Map and Architecture Topics are conditional rather than default directories.
+Platform, Engineering, Data, Security, Quality, and Operations may become Type Extensions for proven cross-System responsibility. A concrete platform that satisfies the System test is also registered under Systems. Architecture Decisions name their object and scope and belong at the narrowest governing Authority Level. Product-System Map and Architecture Topics are conditional rather than default directories.
 
 ## Public skills
 
@@ -46,8 +55,10 @@ Each Technical Writer owns one YAML registry. The generated [Internal Document T
 
 ## Authority boundaries
 
-System and Subsystem Architecture link interface definitions, deployments, configuration, schemas, code, tests, and runbooks in Machine Authority instead of copying them. Project Technical Design owns a bounded proposed change for a delivery effort. Company-level architecture links the governing System Architecture. Higher architecture levels link or summarize lower-level decisions without duplicating their authoritative records.
+System and Subsystem Architecture link interface definitions, deployments, configuration, schemas, code, tests, and runbooks in Machine Authority instead of copying them. Project Technical Design owns a bounded proposed change for a delivery effort. Company-level architecture links the governing System Architecture. Higher Authority Levels link or summarize lower-level decisions without duplicating their authoritative records.
+
+Business and Product facts remain in their owning Company Documentation authorities. Technical Architecture records their structural consequences without redefining them.
 
 ## Completion contract
 
-The Technical system is coherent when the logical Stable Responsibilities remain distinct in local language, every Registered System has its README and System Architecture, Architecture Levels and Views are not conflated, conditional extensions and collections have evidence, each Writer's YAML is the sole type configuration authority, active templates exactly match configured assignments, and Machine and Project authorities remain linked rather than copied.
+The Technical system is coherent when the logical Stable Responsibilities remain distinct in local language, every Registered System has its README and System Architecture, Architecture Objects, Scopes, Domains, Viewpoints, and Authority Levels are not conflated, conditional extensions and collections have evidence, each Writer's YAML remains the sole type configuration authority, active templates exactly match configured assignments, and Machine, Project, Product, and Business authorities remain linked rather than copied.

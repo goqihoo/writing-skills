@@ -40,13 +40,13 @@ types:
     description: Describe one Registered System's stable internal architecture and evolution.
     reader_question: How does this System divide responsibility, own state and contracts, control behavior, fail, recover, and evolve?
     authority: One Registered System's architecture, excluding Machine Authority and Project Technical Design.
-    completion: Purpose, boundaries, Applications, Subsystems, state, contracts, controls, runtime behavior, decisions, validation, current state, target direction, evolution, and downstream links are decision-ready.
+    completion: Architecture Object and Scope, relevant domains and viewpoints, purpose, boundaries, Applications, Subsystems, information and state authority, contracts, controls, deployment and runtime behavior, decisions, validation, current state, target direction, evolution, and downstream links are decision-ready.
   - id: subsystem-architecture
     name: Subsystem Architecture
     description: Describe one justified Subsystem's stable responsibility and internal architecture.
     reader_question: How does this independently documented Subsystem divide responsibility and behave within its parent System?
     authority: One justified Subsystem within a Registered System, excluding component implementation and the parent System's overall architecture.
-    completion: Parent boundary, responsibilities, state, contracts, controls, runtime behavior, decisions, validation, evolution, and authority links are coherent at Subsystem level.
+    completion: Architecture Object and Scope, parent boundary, relevant domains and viewpoints, responsibilities, information and state authority, contracts, controls, deployment and runtime behavior, decisions, validation, evolution, and authority links are coherent at Subsystem Authority Level.
   - id: technical-governance
     name: Technical Governance
     description: Define company Technical decision rights, policies, evidence, exceptions, and review.
@@ -64,10 +64,10 @@ types:
       policy: adaptive
   - id: architecture-decision
     name: Architecture Decision
-    description: Preserve a choice, alternatives, rationale, accepted cost, authority, validation, Architecture Level, and supersession.
-    reader_question: Which architecture choice was accepted at which level, why, and at what cost?
-    authority: One accepted Architecture Decision at the narrowest level that governs its consequences.
-    completion: Architecture Level, scope, choice, alternatives, rationale, costs, authority, validation, review, and supersession are traceable.
+    description: Preserve a choice, Architecture Object, governing scope, alternatives, rationale, accepted cost, authority, validation, and supersession.
+    reader_question: Which architecture choice was accepted for which object and governing scope, why, and at what cost?
+    authority: One accepted Architecture Decision at the narrowest Authority Level that governs its consequences.
+    completion: Architecture Object, governing scope, Authority Level, affected domains and viewpoints, choice, alternatives, rationale, costs, decision authority, validation, review, and supersession are traceable.
     template:
       path: ../assets/architecture-decision-template.md
       policy: adaptive

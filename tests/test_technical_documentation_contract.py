@@ -31,7 +31,7 @@ class TechnicalDocumentationContractTest(unittest.TestCase):
             "System Responsibility README",
             "System Architecture",
             "Architecture Topics",
-            "narrowest Architecture Level",
+            "narrowest Authority Level",
         ]:
             self.assertIn(concept, model)
         self.assertIn("concrete platform", model)
@@ -161,7 +161,7 @@ class TechnicalDocumentationContractTest(unittest.TestCase):
         ]:
             self.assertIn(concept, system_architecture["completion"] + method)
 
-    def test_architecture_views_are_checks_not_output_levels(self) -> None:
+    def test_architecture_axes_are_separate_and_not_output_structure(self) -> None:
         method = read(REPO_ROOT / "methods/architecture-reasoning.md")
         technical_method = read(
             TECHNICAL_ROOT
@@ -169,8 +169,13 @@ class TechnicalDocumentationContractTest(unittest.TestCase):
         )
         combined = method + technical_method
 
-        self.assertIn("Architecture Level", combined)
+        self.assertIn("Architecture Object", combined)
+        self.assertIn("Architecture Scope", combined)
+        self.assertIn("Architecture Domain", combined)
+        self.assertIn("Architecture Viewpoint", combined)
         self.assertIn("Architecture View", combined)
+        self.assertIn("Authority Level", combined)
+        self.assertIn("correctness", combined)
         self.assertIn("coverage", combined)
         self.assertIn("not", combined)
         self.assertFalse(
@@ -180,12 +185,16 @@ class TechnicalDocumentationContractTest(unittest.TestCase):
             ).exists()
         )
 
-    def test_architecture_decisions_record_the_narrowest_level(self) -> None:
+    def test_architecture_decisions_record_object_scope_and_authority(self) -> None:
         template = read(
             TECHNICAL_ROOT
             / "write-technical-doc/assets/architecture-decision-template.md"
         )
-        self.assertIn("Architecture Level", template)
+        self.assertIn("Architecture Object", template)
+        self.assertIn("Governing Scope", template)
+        self.assertIn("Authority Level", template)
+        self.assertIn("Architecture Domains", template)
+        self.assertIn("Architecture Viewpoints", template)
         self.assertIn("narrowest", template)
 
     def test_ask_scribe_routes_architecture_levels_and_structure_requests(self) -> None:

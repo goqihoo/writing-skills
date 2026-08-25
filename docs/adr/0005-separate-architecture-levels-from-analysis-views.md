@@ -1,3 +1,7 @@
+---
+status: superseded by ADR-0009
+---
+
 # Separate architecture levels from analysis views
 
 Scribe treats company, System, and Subsystem as distinct Architecture Levels, while Domain, Application, Governance, and Runtime remain orthogonal Architecture Views applied as internal coverage checks rather than directories or mandatory output headings. Company-level Technical Architecture artifacts remain with `write-technical-architecture`; `write-technical-doc` owns System Architecture and Subsystem Architecture as Internal Document Types, System Profile normally occupies the System README, and architecture decisions live at the narrowest level that governs their consequences. This preserves coherent writing ownership without creating more Public Skills or forcing products, systems, applications, subsystems, codebases, and runtime units into one-to-one directory mappings.

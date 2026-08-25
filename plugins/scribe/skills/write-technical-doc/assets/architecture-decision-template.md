@@ -3,11 +3,15 @@
 ## Decision and authority
 
 - State: [Proposed / Accepted / Superseded]
-- Architecture Level: [Company / System / Subsystem]
-- narrowest governing scope:
+- Architecture Object: [Named company Technical Landscape / System / Subsystem]
+- Governing Scope:
+- Authority Level: [Company / System / Subsystem]
+- Authority rationale: [Why this is the narrowest governing Authority Level]
+- Affected Architecture Domains: [Business / Data / Application / Technology]
+- Affected Architecture Viewpoints: [Security / Governance / Runtime]
 - Decision:
 - Decision-maker:
-- Scope and date:
+- Decision date:
 
 ## Context and alternatives
 

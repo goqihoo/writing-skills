@@ -45,6 +45,17 @@ class SharedWritingContractTest(unittest.TestCase):
             method,
         )
 
+    def test_enumerations_require_item_level_reader_value(self) -> None:
+        method = PROSE_METHOD.read_text(encoding="utf-8")
+
+        self.assertIn("**Purposeful enumeration.**", method)
+        self.assertIn(
+            "distinguish, compare, verify, or act on every item",
+            method,
+        )
+        self.assertIn("smallest representative set", method)
+        self.assertIn("one level of abstraction", method)
+
     def test_write_doc_is_optional_for_other_skills(self) -> None:
         required = []
 

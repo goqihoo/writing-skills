@@ -25,7 +25,7 @@ Systems/
 ```
 
 - `README.md` is the System Responsibility README and System Profile. It records responsibility, boundary, owner, lifecycle, real navigation, and links to Machine Authority and Project Documentation.
-- `System Architecture.md` owns the System-level structure, Applications, Subsystems, state ownership, contracts, controls, Runtime behavior, validation, and evolution. It links implementation and operational facts instead of copying them.
+- `System Architecture.md` owns the named System Architecture Object and Scope, relevant architecture domains and viewpoints, Applications, Subsystems, information and state authority, contracts, controls, deployment and Runtime behavior, validation, and evolution. It links implementation and operational facts instead of copying them.
 
 Materialize a Subsystem directory only when the Subsystem has a stable independent responsibility, reader question, authority, change cadence, and navigation need. Do not create a central implementation-and-codebase document; repositories and executable facts normally remain with Machine Authority.
 
@@ -51,7 +51,7 @@ A concrete platform that satisfies the Registered System test belongs in Systems
 
 Create only with the first real event and when the parent responsibility exists:
 
-- Architecture Decisions — place each decision at the narrowest Architecture Level that governs it: Company, System, or Subsystem.
+- Architecture Decisions — name the Architecture Object and Scope, then place each decision at the narrowest Authority Level that governs it: Company, System, or Subsystem.
 - Governance Exceptions — approved deviations from technical governance.
 - Operations Incidents — incident records and reviews; materialize only when Operations is justified.
 
@@ -59,4 +59,4 @@ The first real event creates the Event Collection; a default scaffold never crea
 
 ## Migration contract
 
-Before an approved migration, record exact old and new paths, links, assets, external bindings, supersession, and approval. Preserve each material's authority, move decisions to the narrowest governing Architecture Level, and verify that no duplicate authority, broken link, orphaned asset, or stale old path remains.
+Before an approved migration, record exact old and new paths, links, assets, external bindings, supersession, and approval. Preserve each material's Architecture Object, Scope, and Authority Level, move decisions to the narrowest governing Authority Level, and verify that no duplicate authority, broken link, orphaned asset, or stale old path remains.

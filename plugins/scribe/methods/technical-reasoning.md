@@ -31,7 +31,7 @@ Register a System only when evidence supports its stable name, responsibility bo
 
 Require an architecture family to distinguish current facts, accepted target direction, evaluated proposals, compatibility and migration boundaries, validation and operating evidence, and explicit review triggers. The direct architecture document remains the coherent entry point even when justified supporting files exist.
 
-Use Company, System, and Subsystem as Architecture Levels. Place an Architecture Decision at the narrowest governing level and link it upward when needed.
+Use Company, System, and Subsystem as Authority Levels for Technical Documentation. Name the Architecture Object and Scope separately. Place an Architecture Decision at the narrowest Authority Level that governs its consequences and link it upward when needed.
 
 ## Ownership tests
 

@@ -7,13 +7,13 @@ types:
     description: Describe company-level Technical Landscape structure, principles, boundaries, relationships, failure domains, and evolution.
     reader_question: How does the company's Technical Landscape fit together and evolve as a system of Systems?
     authority: Company-level Technical Architecture; the artifact title need not contain the word company.
-    completion: Principles, constraints, Systems, boundaries, owners, critical relationships, failure domains, decisions, validation, and evolution are coherent and traceable.
+    completion: The named Technical Landscape Architecture Object, Scope, Company Authority Level, relevant domains and viewpoints, principles, constraints, Systems, boundaries, owners, critical relationships, controls, deployment and runtime concerns, decisions, validation, and evolution are coherent and traceable.
   - id: product-system-map
     name: Product-System Map
     description: Maintain many-to-many Product, System, and capability relationships without redefining Product or System authorities.
     reader_question: Which Systems realize each Product and capability, and which Products depend on each System?
     authority: Company-level mapping among accepted Product and System authorities, excluding Product definitions and System internal design.
-    completion: Product, capability, and System relationships, owners, validity, critical dependencies, and authority links are current.
+    completion: Architecture Object, Scope, Company Authority Level, Product, capability, and System relationships, owners, validity, critical dependencies, and authority links are current.
     template:
       path: ../assets/product-system-map-template.md
       policy: adaptive
