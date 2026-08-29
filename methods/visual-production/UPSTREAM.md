@@ -5,3 +5,5 @@ The 39 type contracts, semantic patterns, icon primitive, annotation primitive, 
 The upstream work is MIT-licensed. See `DIAGRAM_DESIGN_LICENSE.txt` and `THIRD_PARTY_LICENSES.md`.
 
 Scribe keeps the upstream type contracts intact except for packaging adaptations: local links point at Scribe's shared method paths, bundled examples are discovered by type slug instead of repeated per-file sections, and verifier pointers resolve inside the packaged `draw-diagram` skill. Source adaptation lives in `scribe-profile.md`; the replaceable style interface lives in `style-guide.md`; and `themes/scribe-plotly.md` supplies the bundled default skin.
+
+`UPSTREAM_TYPE_CONTRACTS.json` records the normalized SHA-256 snapshot for all 39 contracts. The routing test reverses only the packaging adaptations above before comparing each current contract with that fixed snapshot; any other contract edit must fail the test.

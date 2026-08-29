@@ -1,20 +1,20 @@
 # Annotation Callout (italic-serif aside)
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Resolve color through `style-guide.md`.
+> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Resolve color and font family through `style-guide.md` and the selected theme.
 
 Use for editorial asides — the "italic pointer" that marks a detail without competing with the primary diagram grammar. Think marginalia: *"structure IS the index"*, *"no imports, no configuration"*.
 
 ## Grammar
 
 ```svg
-<!-- 1. Italic Instrument Serif text -->
-<text x="904" y="36" fill="#22263A" font-size="14" font-style="italic"
-      font-family="'Instrument Serif', serif" text-anchor="end">no imports, no configuration</text>
+<!-- 1. Italic display-callout text -->
+<text x="904" y="36" fill="var(--ink)" font-size="14" font-style="italic"
+      font-family="var(--font-title)" text-anchor="end">no imports, no configuration</text>
 <!-- 2. Dashed Bézier leader -->
 <path d="M 820 44 Q 700 84 520 216" fill="none"
-      stroke="rgba(34,38,58,0.40)" stroke-width="1" stroke-dasharray="4,3"/>
+      stroke="var(--annotation-neutral-leader)" stroke-width="1" stroke-dasharray="4,3"/>
 <!-- 3. Landing dot -->
-<circle cx="520" cy="216" r="2" fill="#22263A"/>
+<circle cx="520" cy="216" r="2" fill="var(--ink)"/>
 ```
 
 ## Rules
@@ -27,9 +27,9 @@ Use for editorial asides — the "italic pointer" that marks a detail without co
 
 | Intent | Text | Leader |
 |---|---|---|
-| Neutral aside | ink `#22263A` | `rgba(34,38,58,0.40)` |
-| Focal / accent | accent `#4F5BD5` | `rgba(79,91,213,0.50)` |
-| Tertiary (muted) | muted `#596174` | `rgba(34,38,58,0.30)` |
+| Neutral aside | `ink` | `annotation-neutral-leader` |
+| Focal / accent | `accent` | `annotation-accent-leader` |
+| Tertiary (muted) | `muted` | `annotation-muted-leader` |
 
 ## Anti-patterns
 - Solid arrow leader (reads as a flow arrow).

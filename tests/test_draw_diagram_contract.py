@@ -15,6 +15,12 @@ DEFAULT_THEME = (
     / "scribe-plotly.md"
 )
 SCRIBE_PROFILE = REPO_ROOT / "methods" / "visual-production" / "scribe-profile.md"
+CONTENT_PREPARATION = (
+    REPO_ROOT / "methods" / "visual-production" / "content-preparation.md"
+)
+ANNOTATION_PRIMITIVE = (
+    REPO_ROOT / "methods" / "visual-production" / "primitive-annotation.md"
+)
 SVG_GUIDE = REPO_ROOT / "methods" / "visual-production" / "svg-guide.md"
 SVG_TEMPLATE = (
     REPO_ROOT / "skills" / "draw-diagram" / "assets" / "editorial-diagram-template.svg"
@@ -80,8 +86,9 @@ class DrawDiagramContractTest(unittest.TestCase):
             )
         self.assertEqual(theme_token(theme, "object"), class_fill(svg_template, "node"))
 
-    def test_scribe_profile_centralizes_source_adaptation_rules(self) -> None:
+    def test_content_is_prepared_before_type_selection(self) -> None:
         profile = SCRIBE_PROFILE.read_text(encoding="utf-8")
+        preparation = CONTENT_PREPARATION.read_text(encoding="utf-8")
         method = VISUAL_METHOD.read_text(encoding="utf-8")
         skill = DRAW_DIAGRAM.read_text(encoding="utf-8")
         type_contracts = [
@@ -93,7 +100,16 @@ class DrawDiagramContractTest(unittest.TestCase):
         self.assertIn("scribe-profile.md", skill)
         self.assertIn("Do not invent focus", profile)
         self.assertIn("Clear every specimen-supplied", profile)
-        self.assertIn("one optional short detail", profile)
+        self.assertNotIn("Concise object content", profile)
+        self.assertNotIn("one optional short detail", profile)
+        self.assertIn("name is the only required content", preparation)
+        self.assertIn("one optional short detail", preparation)
+        self.assertIn("before selecting a visual type", preparation)
+        self.assertIn("content-preparation.md", method)
+        self.assertLess(
+            method.index("content-preparation.md"),
+            method.index("Select exactly one of the 39 Diagram Design visual types"),
+        )
         self.assertIn("source-defined semantic categories", profile)
         self.assertNotIn("When another theme is selected", skill)
         self.assertNotIn(
@@ -111,6 +127,16 @@ class DrawDiagramContractTest(unittest.TestCase):
             "apply that category token to every enclosed categorized object",
             ARCHITECTURE_REFERENCE.read_text(encoding="utf-8"),
         )
+
+    def test_draw_diagram_skill_defers_content_rules_to_the_shared_method(self) -> None:
+        skill = DRAW_DIAGRAM.read_text(encoding="utf-8")
+
+        self.assertLess(
+            skill.index("Select one reader question and one abstraction level"),
+            skill.index("Read `../../methods/visual-production.md`"),
+        )
+        self.assertNotIn("Prepare the source-supported content", skill)
+        self.assertNotIn("Condense explanatory prose", skill)
 
     def test_connector_label_surface_is_theme_owned_but_geometry_is_preserved(self) -> None:
         theme = DEFAULT_THEME.read_text(encoding="utf-8")
@@ -174,15 +200,16 @@ class DrawDiagramContractTest(unittest.TestCase):
 
     def test_process_specimen_applies_the_scribe_profile_without_rewriting_the_type(self) -> None:
         profile = SCRIBE_PROFILE.read_text(encoding="utf-8")
+        preparation = CONTENT_PREPARATION.read_text(encoding="utf-8")
         specimen = PROCESS_SPECIMEN.read_text(encoding="utf-8")
 
-        self.assertIn("one optional short detail", profile)
+        self.assertIn("one optional short detail", preparation)
         self.assertIn("source-defined semantic categories", profile)
         self.assertNotIn("focal", specimen.casefold())
 
     def test_container_fill_and_object_description_contract(self) -> None:
         style = STYLE_GUIDE.read_text(encoding="utf-8")
-        profile = SCRIBE_PROFILE.read_text(encoding="utf-8")
+        preparation = CONTENT_PREPARATION.read_text(encoding="utf-8")
         svg_template = SVG_TEMPLATE.read_text(encoding="utf-8")
 
         node_fill = class_fill(svg_template, "node")
@@ -195,8 +222,27 @@ class DrawDiagramContractTest(unittest.TestCase):
         self.assertEqual("none", deemphasized_fill)
         self.assertIn("| Ordinary object | `object` | `object-border` |", style)
         self.assertIn("| Group or boundary | `paper-2` | `rule-solid` |", style)
-        self.assertIn("Use the object name as the required label", profile)
-        self.assertIn("one optional short detail", profile)
+        self.assertIn("name is the only required content", preparation)
+        self.assertIn("one optional short detail", preparation)
+
+    def test_annotation_primitive_resolves_style_through_theme_roles(self) -> None:
+        style = STYLE_GUIDE.read_text(encoding="utf-8")
+        theme = DEFAULT_THEME.read_text(encoding="utf-8")
+        annotation = ANNOTATION_PRIMITIVE.read_text(encoding="utf-8")
+
+        for token in (
+            "annotation-neutral-leader",
+            "annotation-accent-leader",
+            "annotation-muted-leader",
+        ):
+            self.assertIn(f"`{token}`", style)
+            self.assertRegex(theme_token(theme, token), r"^rgba\(")
+            self.assertIn(token, annotation)
+        self.assertIn("var(--annotation-neutral-leader)", annotation)
+        self.assertIn("var(--font-title)", annotation)
+        self.assertNotRegex(annotation, r"#[0-9A-Fa-f]{6}")
+        self.assertNotIn("rgba(", annotation)
+        self.assertNotIn("Instrument Serif", annotation)
 
     def test_plotly_is_the_default_skin_not_the_only_allowed_skin(self) -> None:
         style = STYLE_GUIDE.read_text(encoding="utf-8")

@@ -22,14 +22,14 @@ later-painted nodes) reads a cell against the number printed inside it.
 
 Text extent is estimated from font metrics rather than measured in a browser,
 deliberately: every other gate here is pure Python and runs in CI with no
-browser. The Latin advances below are calibrated against Chromium renderings of
-the shipped Geist / Geist Mono faces and rounded UP. Unicode wide/full-width
-characters use a conservative 1em advance, so both estimates report overflow
-slightly before real overflow, never after.
+browser. The selected theme supplies conservative advances and ascent for its
+font families. Unicode wide/full-width characters use the theme's wide advance,
+so estimates report overflow slightly before real overflow, never after.
 
 Usage:
     python3 skills/draw-diagram/scripts/verify-treemap.py --all
     python3 skills/draw-diagram/scripts/verify-treemap.py skills/draw-diagram/assets/examples/example-treemap.html
+    python3 skills/draw-diagram/scripts/verify-treemap.py --theme path/to/theme.md diagram.html
 
 Exit: 0 clean, 1 findings, 2 usage.
 """
@@ -42,7 +42,10 @@ import math
 import re
 import sys
 import unicodedata
+from dataclasses import dataclass
 from pathlib import Path
+
+from theme_tokens import add_theme_argument, theme_number, theme_token
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 PACKAGE_ROOT = SKILL_DIR.parents[1]
@@ -62,10 +65,6 @@ TAG_RE = re.compile(r"<[^>]+>")
 PCT_RE = re.compile(r"(?P<num>\d[\d,]*(?:\.\d+)?)\s*%")
 VALUE_RE = re.compile(r"(?P<num>\d[\d,]*(?:\.\d+)?)\s*(?P<unit>[BMK])\b")
 
-MONO_ADVANCE = 0.62
-SANS_ADVANCE = 0.60
-WIDE_ADVANCE = 1.00
-ASCENT = 0.74
 UNITS = {None: 1.0, "K": 1e3, "M": 1e6, "B": 1e9}
 
 # A treemap cell is large enough to hold a label and small enough not to be a
@@ -80,6 +79,44 @@ EPSILON = 1.0
 # check exists for.
 AREA_TOLERANCE = 8.0
 MARKER_EPSILON = 0.01
+
+
+@dataclass(frozen=True)
+class FontMetrics:
+    sans_advance: float
+    mono_advance: float
+    wide_advance: float
+    ascent: float
+    mono_families: frozenset[str]
+
+
+def font_families(value: str) -> frozenset[str]:
+    return frozenset(
+        family.strip().strip("'\"").casefold()
+        for family in value.split(",")
+        if family.strip()
+    )
+
+
+def load_font_metrics(theme: Path) -> FontMetrics:
+    metrics = FontMetrics(
+        sans_advance=theme_number(theme, "font-sans-advance"),
+        mono_advance=theme_number(theme, "font-mono-advance"),
+        wide_advance=theme_number(theme, "font-wide-advance"),
+        ascent=theme_number(theme, "font-ascent"),
+        mono_families=font_families(theme_token(theme, "font-mono")),
+    )
+    measurements = (
+        metrics.sans_advance,
+        metrics.mono_advance,
+        metrics.wide_advance,
+        metrics.ascent,
+    )
+    if any(value <= 0 for value in measurements):
+        raise ValueError("theme %s font measurement tokens must be positive" % theme.name)
+    if not metrics.mono_families:
+        raise ValueError("theme %s font-mono token must name a font family" % theme.name)
+    return metrics
 
 
 class Box:
@@ -131,9 +168,9 @@ def plain(body: str) -> str:
     return html.unescape(TAG_RE.sub("", body)).strip()
 
 
-def estimated_advance(text: str, mono: bool) -> float:
-    """Conservative text advance in em, preserving the calibrated Latin baseline."""
-    narrow_advance = MONO_ADVANCE if mono else SANS_ADVANCE
+def estimated_advance(text: str, mono: bool, metrics: FontMetrics) -> float:
+    """Conservative text advance in em using the selected theme's measurements."""
+    narrow_advance = metrics.mono_advance if mono else metrics.sans_advance
     advance = 0.0
     for char in text:
         # Nonspacing and enclosing marks modify the preceding glyph; counting
@@ -142,10 +179,16 @@ def estimated_advance(text: str, mono: bool) -> float:
         if unicodedata.category(char) in {"Mn", "Me"}:
             continue
         if unicodedata.east_asian_width(char) in {"W", "F"}:
-            advance += WIDE_ADVANCE
+            advance += metrics.wide_advance
         else:
             advance += narrow_advance
     return advance
+
+
+def uses_mono_role(font_family: str, metrics: FontMetrics) -> bool:
+    return "--font-mono" in font_family or bool(
+        font_families(font_family) & metrics.mono_families
+    )
 
 
 def parse_cells(source: str, findings: list[str] | None = None) -> list[Box]:
@@ -235,7 +278,7 @@ def parse_cells(source: str, findings: list[str] | None = None) -> list[Box]:
     ]
 
 
-def label_box(attrs: dict[str, str], body: str) -> Box | None:
+def label_box(attrs: dict[str, str], body: str, metrics: FontMetrics) -> Box | None:
     """Estimated rendered box of a <text>, in root user space."""
     try:
         x = float(attrs["x"])
@@ -246,8 +289,8 @@ def label_box(attrs: dict[str, str], body: str) -> Box | None:
     text = plain(body)
     if not text:
         return None
-    mono = "mono" in attrs.get("font-family", "").lower()
-    width = size * estimated_advance(text, mono)
+    mono = uses_mono_role(attrs.get("font-family", ""), metrics)
+    width = size * estimated_advance(text, mono, metrics)
     anchor = attrs.get("text-anchor", "start")
 
     transform = attrs.get("transform", "")
@@ -263,7 +306,7 @@ def label_box(attrs: dict[str, str], body: str) -> Box | None:
             top = y
         else:
             top = y - width
-        return Box(x - size * ASCENT, top, size, width)
+        return Box(x - size * metrics.ascent, top, size, width)
 
     if anchor == "middle":
         left = x - width / 2
@@ -271,7 +314,7 @@ def label_box(attrs: dict[str, str], body: str) -> Box | None:
         left = x - width
     else:
         left = x
-    return Box(left, y - size * ASCENT, width, size)
+    return Box(left, y - size * metrics.ascent, width, size)
 
 
 def _number(match: re.Match[str] | None) -> float | None:
@@ -293,7 +336,7 @@ def parse_claim(text: str) -> tuple[float | None, float | None]:
     return percentage, value
 
 
-def check(path: Path) -> list[str]:
+def check(path: Path, metrics: FontMetrics) -> list[str]:
     source = path.read_text(encoding="utf-8")
     findings: list[str] = []
     parse_findings: list[str] = []
@@ -310,7 +353,7 @@ def check(path: Path) -> list[str]:
 
     for m in TEXT_RE.finditer(source):
         attrs = {a.group("name"): a.group("value") for a in ATTR_RE.finditer(m.group("attrs"))}
-        box = label_box(attrs, m.group("body"))
+        box = label_box(attrs, m.group("body"), metrics)
         if box is None:
             continue
         # Host is resolved from the text's ANCHOR, not its box corner. An
@@ -493,10 +536,17 @@ def main() -> int:
     )
     parser.add_argument("paths", nargs="*", help="HTML files to check")
     parser.add_argument("--all", action="store_true", help="check every shipped treemap example")
+    add_theme_argument(parser)
     args = parser.parse_args()
     if not args.all and not args.paths:
         parser.print_help()
         return 2
+
+    try:
+        metrics = load_font_metrics(args.theme)
+    except ValueError as error:
+        print(f"FAIL treemap: {error}", file=sys.stderr)
+        return 1
 
     findings: list[str] = []
     checked = 0
@@ -504,7 +554,7 @@ def main() -> int:
         if not path.exists():
             print(f"error: {path} does not exist", file=sys.stderr)
             return 2
-        findings.extend(check(path))
+        findings.extend(check(path, metrics))
         checked += 1
 
     for finding in findings:

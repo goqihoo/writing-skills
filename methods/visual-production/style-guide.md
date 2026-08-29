@@ -7,7 +7,7 @@ Use Diagram Design as four layers:
 3. Components define shapes, typography roles, spacing, border weight, labels, icons, and connector forms.
 4. A selected theme binds those semantic roles to colors and font families.
 
-The type references and this interface own the first three layers. A theme may rebind semantic color tokens and font-family tokens; it must not change the visual type, composition, component geometry, typography roles or sizes, label geometry, or emphasis meaning.
+The type references and this interface own the first three layers. A theme may rebind semantic color tokens and font-family tokens, their conservative measurement estimates, and explicitly theme-owned opacity values; it must not change the visual type, composition, component geometry, typography roles or sizes, label geometry, or emphasis meaning.
 
 ## Theme selection
 
@@ -48,9 +48,17 @@ A complete theme provides the roles the selected visual uses:
 | `series-1..5` / matching tints | Quantitative series; may alias the matching category pair |
 | `connector-label-surface` | Connector-label background; may be `none` |
 | `boundary-label-surface` | Boundary-label background |
+| `annotation-neutral-leader` | Neutral editorial-callout leader |
+| `annotation-accent-leader` | Source-supported focal editorial-callout leader |
+| `annotation-muted-leader` | Tertiary editorial-callout leader |
+| `quantitative-connector-alpha` | Opacity for quantitative relationship strokes |
 | `font-title` | Diagram title and display callouts |
 | `font-sans` | Human-readable names and descriptions |
 | `font-mono` | Technical labels, ports, URLs, and types |
+| `font-sans-advance` | Conservative narrow-glyph advance used by static label-fit verification |
+| `font-mono-advance` | Conservative mono-glyph advance used by static label-fit verification |
+| `font-wide-advance` | Conservative wide/full-width glyph advance used by static label-fit verification |
+| `font-ascent` | Conservative ascent used by static label-fit verification |
 
 Literal family names and color values retained in adapted Diagram Design type references describe the upstream skin. Resolve them through the selected theme's semantic role rather than treating them as mandatory output values.
 
@@ -68,6 +76,8 @@ Preserve these roles and sizes when a theme replaces their font families:
 | Callout | 16 px | 400 italic | Optional editorial aside |
 
 Keep names in `font-sans` and reserve `font-mono` for genuinely technical content. A selected theme must provide suitable CJK fallbacks when labels require them.
+
+Bind the four font measurement tokens to the selected font families rather than copying the bundled values into a verifier. They are conservative layout estimates for browser-free inspection, not typography-role or geometry changes.
 
 ## Stroke, radius, and grid
 

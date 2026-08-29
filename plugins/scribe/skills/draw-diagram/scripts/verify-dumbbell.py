@@ -44,7 +44,7 @@ import re
 import sys
 from pathlib import Path
 
-from theme_tokens import DEFAULT_THEME, theme_color
+from theme_tokens import add_theme_argument, theme_color, theme_number
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 PACKAGE_ROOT = SKILL_DIR.parents[1]
@@ -61,7 +61,6 @@ ALL_ZERO_SPAN = 1.0
 
 # --- selected-theme tokens --------------------------------------------------
 WCAG_NON_TEXT = 3.0    # 1.4.11, graphical objects
-CONNECTOR_ALPHA = 0.55
 
 
 class DomainError(ValueError):
@@ -202,9 +201,15 @@ def check_contrast_rules(theme: Path):
     try:
         paper = theme_color(theme, "paper")
         ink = theme_color(theme, "ink")
+        connector_alpha = theme_number(theme, "quantitative-connector-alpha")
     except ValueError as error:
         return [str(error)]
-    connector_ratio = contrast(composite(ink, CONNECTOR_ALPHA, paper), paper)
+    if not 0 < connector_alpha <= 1:
+        return [
+            "theme %s token quantitative-connector-alpha must be greater than 0 and at most 1"
+            % theme.name
+        ]
+    connector_ratio = contrast(composite(ink, connector_alpha, paper), paper)
     if connector_ratio < WCAG_NON_TEXT:
         findings.append(
             "connector: %.3f:1 against paper, under the %.1f:1 WCAG 1.4.11 asks"
@@ -220,15 +225,13 @@ def check_contrast_rules(theme: Path):
 
 
 def check_reference(path: Path):
-    """Fail closed: the reference must name the tokens this module verifies."""
+    """Fail closed when the selected type no longer carries a dumbbell domain contract."""
     findings = []
     if not path.is_file():
         return ["reference not found: %s" % path]
     text = path.read_text(encoding="utf-8")
     if "Dumbbell" not in text:
         return ["reference %s carries no dumbbell section to check" % path.name]
-    if not re.search(r"Connector.*0\.55", text):
-        findings.append("reference does not document the connector's 0.55 ink opacity")
     if not re.search(r"\bfloor\b", text) or not re.search(r"\bceil\b", text):
         findings.append("reference does not name the domain bounds the formula uses")
     return findings
@@ -242,10 +245,7 @@ def main(argv=None) -> int:
         "--reference", type=Path, default=REFERENCE,
         help="path to type-bar.md (default: the shipped reference)",
     )
-    parser.add_argument(
-        "--theme", type=Path, default=DEFAULT_THEME,
-        help="path to a Diagram Design theme (default: Scribe Plotly)",
-    )
+    add_theme_argument(parser)
     args = parser.parse_args(argv)
 
     findings = []
@@ -260,7 +260,7 @@ def main(argv=None) -> int:
         return 1
     sys.stdout.write(
         "OK dumbbell: domain resolves finitely over every sign case "
-        "(including all-zero), and the documented connector and endpoint "
+        "(including all-zero), and the themed connector and endpoint "
         "boundary clear 3:1 in the selected theme\n"
     )
     return 0

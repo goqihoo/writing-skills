@@ -117,6 +117,7 @@ class IndependentPublicSkillContractTest(unittest.TestCase):
             {
                 "THIRD_PARTY_LICENSES.md",
                 "UPSTREAM.md",
+                "content-preparation.md",
                 "mermaid-guide.md",
                 "primitive-annotation.md",
                 "primitive-icons.md",

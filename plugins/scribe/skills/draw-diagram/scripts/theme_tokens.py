@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+import argparse
+import math
 import re
 from pathlib import Path
 
@@ -14,6 +16,16 @@ DEFAULT_THEME = PACKAGE_ROOT / "methods/visual-production/themes/scribe-plotly.m
 
 TOKEN_ROW_RE = re.compile(r"^\| `([^`]+)` \| `([^`]+)` \|", re.MULTILINE)
 HEX_COLOR_RE = re.compile(r"#[0-9A-Fa-f]{6}")
+
+
+def add_theme_argument(parser: argparse.ArgumentParser) -> None:
+    """Add the shared selected-theme option to a verifier CLI."""
+    parser.add_argument(
+        "--theme",
+        type=Path,
+        default=DEFAULT_THEME,
+        help="path to a Diagram Design theme (default: Scribe Plotly)",
+    )
 
 
 def read_theme_tokens(path: Path) -> dict[str, str]:
@@ -42,3 +54,17 @@ def theme_color(path: Path, token: str) -> str:
     if HEX_COLOR_RE.fullmatch(value) is None:
         raise ValueError("theme %s token %s is not a hex color" % (path.name, token))
     return value
+
+
+def theme_number(path: Path, token: str) -> float:
+    """Return one required finite numeric token from a theme."""
+    value = theme_token(path, token)
+    try:
+        number = float(value)
+    except ValueError as error:
+        raise ValueError(
+            "theme %s token %s is not numeric" % (path.name, token)
+        ) from error
+    if not math.isfinite(number):
+        raise ValueError("theme %s token %s is not finite" % (path.name, token))
+    return number

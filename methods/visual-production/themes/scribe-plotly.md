@@ -47,6 +47,10 @@ Use this as the zero-configuration default adapter for the Diagram Design style 
 | `series-5-tint` | `#FFF0E4` | Quantitative series surface; alias of `category-5-tint` |
 | `connector-label-surface` | `none` | Transparent connector-label background |
 | `boundary-label-surface` | `#FFFFFF` | Boundary-label background |
+| `annotation-neutral-leader` | `rgba(34,38,58,0.40)` | Neutral editorial-callout leader |
+| `annotation-accent-leader` | `rgba(79,91,213,0.50)` | Focal editorial-callout leader |
+| `annotation-muted-leader` | `rgba(34,38,58,0.30)` | Tertiary editorial-callout leader |
+| `quantitative-connector-alpha` | `0.55` | Quantitative relationship-stroke opacity |
 
 Category is not status. Pair every category color with a label, shape, position, or line treatment, and use a status token only when the source establishes that state.
 
@@ -57,3 +61,7 @@ Category is not status. Pair every category color with a label, shape, position,
 | `font-title` | `Instrument Serif` | Titles and editorial callouts |
 | `font-sans` | `Geist, Noto Sans SC, PingFang SC, sans-serif` | Names and natural-language descriptions |
 | `font-mono` | `Geist Mono, Noto Sans Mono CJK SC, monospace` | Technical labels and compact metadata |
+| `font-sans-advance` | `0.60` | Conservative narrow-glyph advance in em for `font-sans` |
+| `font-mono-advance` | `0.62` | Conservative mono-glyph advance in em for `font-mono` |
+| `font-wide-advance` | `1.00` | Conservative wide/full-width glyph advance in em |
+| `font-ascent` | `0.74` | Conservative ascent in em |

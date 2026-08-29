@@ -1,6 +1,9 @@
+import hashlib
+import json
 import re
 import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -9,6 +12,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 DRAW_DIAGRAM = REPO_ROOT / "skills" / "draw-diagram" / "SKILL.md"
 VISUAL_METHOD = REPO_ROOT / "methods" / "visual-production.md"
 VISUAL_ROOT = REPO_ROOT / "methods" / "visual-production"
+UPSTREAM_TYPE_SNAPSHOT = VISUAL_ROOT / "UPSTREAM_TYPE_CONTRACTS.json"
 EXAMPLES_ROOT = REPO_ROOT / "skills" / "draw-diagram" / "assets" / "examples"
 
 EXPECTED_TYPES = {
@@ -103,6 +107,34 @@ def colors_in(paths: list[Path]) -> set[str]:
     return colors
 
 
+def replace_theme_tokens(source: str, replacements: dict[str, str]) -> str:
+    for token, value in replacements.items():
+        pattern = rf"(^\| `{re.escape(token)}` \| `)[^`]+(` \|)"
+        source, count = re.subn(
+            pattern,
+            rf"\g<1>{value}\g<2>",
+            source,
+            count=1,
+            flags=re.MULTILINE,
+        )
+        if count != 1:
+            raise AssertionError(f"Missing theme token: {token}")
+    return source
+
+
+def normalize_adapted_type_contract(source: str, normalization: dict) -> str:
+    """Reverse only Scribe's documented path and organization adaptations."""
+    if normalization["strip_terminal_examples"]:
+        source = re.split(
+            r"\n## (?:\d+\. )?Examples\n",
+            source,
+            maxsplit=1,
+        )[0].rstrip() + "\n"
+    for adapted, upstream in normalization["path_substitutions"].items():
+        source = source.replace(adapted, upstream)
+    return source
+
+
 class DrawDiagramRoutingTest(unittest.TestCase):
     def setUp(self) -> None:
         self.instructions = VISUAL_METHOD.read_text(encoding="utf-8")
@@ -162,6 +194,31 @@ class DrawDiagramRoutingTest(unittest.TestCase):
         embedded = colors_in(paths) & SCRIBE_ONLY_COLORS
         self.assertEqual(set(), embedded)
 
+    def test_type_contracts_match_the_normalized_upstream_snapshot(self) -> None:
+        snapshot = json.loads(UPSTREAM_TYPE_SNAPSHOT.read_text(encoding="utf-8"))
+        contracts = sorted((VISUAL_ROOT / "types").glob("type-*.md"))
+
+        self.assertEqual(
+            "ac490fd1ac4b4014100f93e729cb4ad198700bd4",
+            snapshot["upstream_commit"],
+        )
+        self.assertEqual(
+            {path.name for path in contracts},
+            set(snapshot["normalized_sha256"]),
+        )
+        self.assertTrue(snapshot["normalization"]["strip_terminal_examples"])
+        self.assertEqual(6, len(snapshot["normalization"]["path_substitutions"]))
+        actual = {
+            path.name: hashlib.sha256(
+                normalize_adapted_type_contract(
+                    path.read_text(encoding="utf-8"),
+                    snapshot["normalization"],
+                ).encode("utf-8")
+            ).hexdigest()
+            for path in contracts
+        }
+        self.assertEqual(snapshot["normalized_sha256"], actual)
+
     def test_plotly_specimens_pass_the_packaged_html_validator(self) -> None:
         validator = REPO_ROOT / "skills" / "draw-diagram" / "scripts" / "validate_html.py"
         specimens = sorted(EXAMPLES_ROOT.glob("example-*.html"))
@@ -208,15 +265,118 @@ class DrawDiagramRoutingTest(unittest.TestCase):
         theme_helper = (scripts / "theme_tokens.py").read_text(encoding="utf-8")
 
         self.assertIn("def read_theme_tokens", theme_helper)
+        self.assertIn("def add_theme_argument", theme_helper)
         self.assertIn("DEFAULT_THEME", theme_helper)
-        for name in ("verify-bubble.py", "verify-dumbbell.py", "verify-ridgeline.py"):
+        for name in (
+            "verify-bubble.py",
+            "verify-dumbbell.py",
+            "verify-ridgeline.py",
+            "verify-treemap.py",
+        ):
             with self.subTest(script=name):
                 source = (scripts / name).read_text(encoding="utf-8")
-                self.assertIn("--theme", source)
-                self.assertIn("DEFAULT_THEME", source)
+                self.assertIn("add_theme_argument(parser)", source)
+                self.assertNotRegex(source, r"parser\.add_argument\(\s*[\"']--theme")
                 self.assertNotIn("#4F5BD5", source)
                 self.assertNotIn("#f08a59", source)
                 self.assertNotRegex(source, r"global ACCENT(?:S|_RE)")
+
+    def test_treemap_font_measurement_uses_selected_theme_metrics(self) -> None:
+        scripts = REPO_ROOT / "skills" / "draw-diagram" / "scripts"
+        default_theme = (VISUAL_ROOT / "themes" / "scribe-plotly.md").read_text(
+            encoding="utf-8"
+        )
+        custom_theme = replace_theme_tokens(
+            default_theme,
+            {
+                "font-sans-advance": "5.0",
+                "font-mono-advance": "5.0",
+                "font-wide-advance": "5.0",
+            },
+        )
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            theme = Path(temporary_directory) / "wide-font-theme.md"
+            theme.write_text(custom_theme, encoding="utf-8")
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(scripts / "verify-treemap.py"),
+                    str(EXAMPLES_ROOT / "example-treemap.html"),
+                    "--theme",
+                    str(theme),
+                ],
+                check=False,
+                capture_output=True,
+                text=True,
+            )
+
+        self.assertEqual(1, result.returncode, result.stdout + result.stderr)
+        self.assertIn("overflows", result.stdout + result.stderr)
+
+    def test_treemap_mono_measurement_uses_the_selected_theme_font_role(self) -> None:
+        scripts = REPO_ROOT / "skills" / "draw-diagram" / "scripts"
+        default_theme = (VISUAL_ROOT / "themes" / "scribe-plotly.md").read_text(
+            encoding="utf-8"
+        )
+        custom_theme = replace_theme_tokens(
+            default_theme,
+            {
+                "font-mono": "Iosevka",
+                "font-sans-advance": "0.01",
+                "font-mono-advance": "5.0",
+            },
+        )
+        custom_diagram = (EXAMPLES_ROOT / "example-treemap.html").read_text(
+            encoding="utf-8"
+        ).replace("'Geist Mono', monospace", "Iosevka")
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            directory = Path(temporary_directory)
+            theme = directory / "iosevka-theme.md"
+            diagram = directory / "treemap.html"
+            theme.write_text(custom_theme, encoding="utf-8")
+            diagram.write_text(custom_diagram, encoding="utf-8")
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(scripts / "verify-treemap.py"),
+                    str(diagram),
+                    "--theme",
+                    str(theme),
+                ],
+                check=False,
+                capture_output=True,
+                text=True,
+            )
+
+        self.assertEqual(1, result.returncode, result.stdout + result.stderr)
+        self.assertIn("overflows", result.stdout + result.stderr)
+
+    def test_dumbbell_connector_alpha_uses_selected_theme(self) -> None:
+        scripts = REPO_ROOT / "skills" / "draw-diagram" / "scripts"
+        default_theme = (VISUAL_ROOT / "themes" / "scribe-plotly.md").read_text(
+            encoding="utf-8"
+        )
+        custom_theme = replace_theme_tokens(
+            default_theme,
+            {"quantitative-connector-alpha": "0.05"},
+        )
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            theme = Path(temporary_directory) / "faint-connector-theme.md"
+            theme.write_text(custom_theme, encoding="utf-8")
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(scripts / "verify-dumbbell.py"),
+                    "--theme",
+                    str(theme),
+                ],
+                check=False,
+                capture_output=True,
+                text=True,
+            )
+
+        self.assertEqual(1, result.returncode, result.stdout + result.stderr)
+        self.assertIn("connector", result.stdout + result.stderr)
 
     def test_visual_method_markdown_links_and_verifier_pointers_resolve(self) -> None:
         missing: list[str] = []

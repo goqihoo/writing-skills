@@ -11,10 +11,10 @@ Create or revise one visual per invocation. Make it answer one important questio
 ## Workflow
 
 1. Read the source content, consuming artifact, supported facts, requested format, and established output conventions.
-2. Read `../../methods/visual-production.md`. Select one semantic pattern when routed and exactly one of its 39 Diagram Design visual types.
-3. Read the selected type reference, `../../methods/visual-production/scribe-profile.md`, `../../methods/visual-production/style-guide.md`, the selected theme, and `../../methods/visual-production/svg-guide.md` completely. Load only the selected type's reference, not the other type files.
-4. Select one reader question and one abstraction level. When the request contains several independent questions, complete the primary visual and identify the others as separate possible results.
-5. Preserve supported meaning and exact labels. Do not invent architecture, product, technical, quantitative, or business claims to make the visual look complete.
+2. Select one reader question and one abstraction level. When the request contains several independent questions, complete the primary visual and identify the others as separate possible results.
+3. Read `../../methods/visual-production.md` and apply its workflow in order, including the directly referenced Shared Methods. Select exactly one of its 39 Diagram Design visual types.
+4. Read the selected type reference, `../../methods/visual-production/scribe-profile.md`, `../../methods/visual-production/style-guide.md`, the selected theme, and `../../methods/visual-production/svg-guide.md` completely. Load only the selected type's reference, not the other type files.
+5. Preserve supported meaning, source-defined names, and exact technical identifiers. Do not invent architecture, product, technical, quantitative, or business claims to make the visual look complete.
 6. Start from the bundled SVG template or the selected type's bundled specimen. Replace specimen content rather than treating it as source evidence. For exact geometry delivered as PNG, retain the editable SVG source and export it.
 7. For an illustrated conceptual infographic outside the 39 exact visual types, use the available ImageGen capability inside this workflow.
 8. Read `../../methods/prose-quality.md` for alt text, captions, and other natural-language passages. Keep exact diagram labels, Mermaid, SVG, code, commands, and structured data outside the prose pass.

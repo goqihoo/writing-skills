@@ -80,7 +80,7 @@ import re
 import sys
 from pathlib import Path
 
-from theme_tokens import DEFAULT_THEME, theme_color
+from theme_tokens import DEFAULT_THEME, add_theme_argument, theme_color
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 ASSET_DIR = SKILL_DIR / "assets/examples"
@@ -915,10 +915,7 @@ def main() -> int:
         "--all", action="store_true",
         help="check every shipped example that presents as a ridgeline",
     )
-    parser.add_argument(
-        "--theme", type=Path, default=DEFAULT_THEME,
-        help="path to a Diagram Design theme (default: Scribe Plotly)",
-    )
+    add_theme_argument(parser)
     args = parser.parse_args()
     if not args.all and not args.paths:
         parser.print_help()

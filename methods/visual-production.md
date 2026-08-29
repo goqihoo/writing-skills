@@ -13,14 +13,15 @@ Use prose for one fact or two to three obvious linear steps. Use a Markdown tabl
 ## Workflow
 
 1. State one reader question: locate, compare, follow, inspect, recognize, or explore.
-2. When behavior, state, enforcement, or risk carries the meaning, read `visual-production/semantic-patterns.md` and select one primary semantic pattern before choosing layout.
-3. Select exactly one of the 39 Diagram Design visual types below. Read its linked type reference completely before drawing. Choose the dominant visual axis instead of combining two layout grammars.
-4. Read `visual-production/scribe-profile.md` for the small source-adaptation rules, `visual-production/style-guide.md` for the theme interface and selected theme, and `visual-production/svg-guide.md` for production, connector, accessibility, and inspection rules.
-5. Select only the supported actors, boundaries, ownership, relationships, protocols, states, failure paths, labels, or data needed to answer the reader question. Apply the chosen type's complexity budget and split overview from detail when it cannot fit.
-6. Use editable SVG by default. Use self-contained HTML with inline SVG when the destination needs a web wrapper or interaction. Export PNG from the editable source when raster output is requested. Use Mermaid only when the user explicitly requests Mermaid and state any type-specific fidelity loss.
-7. Create and inspect the actual render at full size and roughly 736–900 px wide. Fix clipping, overlap, crossings, unreadable labels, false emphasis, and ambiguous direction.
-8. For a file output, use the consuming document's sibling `_assets/` directory by default unless an explicit path or established project convention says otherwise. Keep editable source beside exports when practical. Keep the skill's bundled `assets/` directory for templates and specimens only.
-9. Add only meaningful alt text by default. Do not append a visible title, caption, or explanation after the image unless requested or required by the consuming artifact.
+2. Read `visual-production/content-preparation.md` and prepare the source-supported content model before selecting a visual type or drawing geometry.
+3. When behavior, state, enforcement, or risk carries the meaning, read `visual-production/semantic-patterns.md` and select one primary semantic pattern before choosing layout.
+4. Select exactly one of the 39 Diagram Design visual types below. Read its linked type reference completely before drawing. Choose the dominant visual axis instead of combining two layout grammars.
+5. Read `visual-production/scribe-profile.md` for the small source-adaptation rules, `visual-production/style-guide.md` for the theme interface and selected theme, and `visual-production/svg-guide.md` for production, connector, accessibility, and inspection rules.
+6. Map the prepared content into only the supported actors, boundaries, ownership, relationships, protocols, states, failure paths, labels, or data needed to answer the reader question. Apply the chosen type's complexity budget and split overview from detail when it cannot fit.
+7. Use editable SVG by default. Use self-contained HTML with inline SVG when the destination needs a web wrapper or interaction. Export PNG from the editable source when raster output is requested. Use Mermaid only when the user explicitly requests Mermaid and state any type-specific fidelity loss.
+8. Create and inspect the actual render at full size and roughly 736–900 px wide. Fix clipping, overlap, crossings, unreadable labels, false emphasis, and ambiguous direction.
+9. For a file output, use the consuming document's sibling `_assets/` directory by default unless an explicit path or established project convention says otherwise. Keep editable source beside exports when practical. Keep the skill's bundled `assets/` directory for templates and specimens only.
+10. Add only meaningful alt text by default. Do not append a visible title, caption, or explanation after the image unless requested or required by the consuming artifact.
 
 ## Visual-type routing
 
