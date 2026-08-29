@@ -5,19 +5,20 @@
      role="img"
      aria-labelledby="diagram-title diagram-description">
   <title id="diagram-title">Technical diagram template</title>
-  <desc id="diagram-description">Two components connected by a primary request flow.</desc>
+  <desc id="diagram-description">Two peer components connected by an ordinary request flow.</desc>
   <defs>
     <style>
       .title { font: 600 24px Inter, "Noto Sans SC", sans-serif; fill: #0F172A; }
       .node-title { font: 600 15px Inter, "Noto Sans SC", sans-serif; fill: #0F172A; }
       .detail { font: 400 12px Inter, "Noto Sans SC", sans-serif; fill: #64748B; }
       .node { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 1.5; }
-      .focus { fill: #EFF6FF; stroke: #2563EB; stroke-width: 2; }
-      .flow { fill: none; stroke: #2563EB; stroke-width: 2.25; }
+      .group { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 1.5; }
+      .deemphasized { fill: none; stroke: #CBD5E1; stroke-width: 1.25; }
+      .flow { fill: none; stroke: #94A3B8; stroke-width: 2.25; }
     </style>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
             markerWidth="7" markerHeight="7" markerUnits="strokeWidth" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563EB"/>
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
     </marker>
   </defs>
   <rect id="canvas" width="1200" height="800" fill="#F8FAFC"/>
@@ -34,8 +35,8 @@
       <text class="detail" x="344" y="394" text-anchor="middle">Short responsibility</text>
     </g>
     <g id="target-component">
-      <rect class="focus" x="736" y="312" width="240" height="128" rx="12"/>
-      <text class="node-title" x="856" y="366" text-anchor="middle">Focal component</text>
+      <rect class="node" x="736" y="312" width="240" height="128" rx="12"/>
+      <text class="node-title" x="856" y="366" text-anchor="middle">Target component</text>
       <text class="detail" x="856" y="394" text-anchor="middle">Short responsibility</text>
     </g>
   </g>

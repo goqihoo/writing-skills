@@ -16,7 +16,7 @@ Use prose for one fact or two to three obvious linear steps. Use a Markdown tabl
 2. Select only the supported actors, boundaries, ownership, relationships, protocols, states, failure paths, labels, or data needed to answer it.
 3. Choose the visual grammar before the file format. Preserve an explicit requested format.
 4. Use editable SVG by default for exact relational diagrams. Use Mermaid only when the user explicitly requests Mermaid. Use an appropriate chart tool for verified quantitative comparison and ImageGen for an illustrated conceptual explanation.
-5. Read `visual-production/style-guide.md`. Read `visual-production/svg-guide.md` for exact relational diagrams or `visual-production/mermaid-guide.md` for requested Mermaid.
+5. Read `visual-production/style-guide.md` and apply the composition and completion test for the selected grammar. Read `visual-production/svg-guide.md` for exact relational diagrams or `visual-production/mermaid-guide.md` for requested Mermaid.
 6. Create and inspect the actual render at full size and roughly 736–900 px wide. Fix clipping, overlap, crossings, unreadable labels, false emphasis, and ambiguous direction.
 7. For a file output, use the consuming document's sibling `_assets/` directory by default unless an explicit path or established project convention says otherwise. Keep editable source beside exports when practical. Keep the skill's bundled `assets/` directory for templates only.
 8. Add only meaningful alt text by default. Do not append a visible title, caption, or explanation after the image unless requested or required by the consuming artifact.
@@ -42,7 +42,7 @@ Use prose for one fact or two to three obvious linear steps. Use a Markdown tabl
 
 - Treat containment, ownership, association, dependency, sequence, and data flow as different claims.
 - Use arrows only for real direction or transition. Label a protocol, event, payload, or guarantee only when it matters.
-- Keep peer relationships visually equal unless the source identifies a focal or failed path.
+- Render peers and ordinary relationships neutrally. Introduce focal or status emphasis only when the source or user identifies that meaning.
 - Show boundaries when ownership, trust, deployment, or failure isolation is part of the judgment.
 - Keep explanatory paragraphs outside nodes.
 - Match geometry, direction, labels, state, and color to supported claims.

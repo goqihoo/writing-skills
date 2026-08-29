@@ -5,6 +5,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DRAW_DIAGRAM = REPO_ROOT / "skills" / "draw-diagram" / "SKILL.md"
 VISUAL_METHOD = REPO_ROOT / "methods" / "visual-production.md"
+STYLE_GUIDE = REPO_ROOT / "methods" / "visual-production" / "style-guide.md"
 
 
 def visual_routing_rows(instructions: str) -> list[list[str]]:
@@ -15,6 +16,17 @@ def visual_routing_rows(instructions: str) -> list[list[str]]:
         [cell.strip() for cell in line.strip().strip("|").split("|")]
         for line in table.splitlines()
         if line.startswith("|") and "---" not in line and "Reader needs" not in line
+    ]
+
+
+def grammar_composition_rows(instructions: str) -> list[list[str]]:
+    section = instructions.split("## Grammar-specific composition", maxsplit=1)[1]
+    table = section.split("## Accessibility and delivery", maxsplit=1)[0]
+
+    return [
+        [cell.strip() for cell in line.strip().strip("|").split("|")]
+        for line in table.splitlines()
+        if line.startswith("|") and "---" not in line and "Grammar" not in line
     ]
 
 
@@ -71,6 +83,18 @@ class DrawDiagramRoutingTest(unittest.TestCase):
             "Do not append a visible title, caption, or explanation after the image",
             self.instructions,
         )
+
+    def test_every_routed_grammar_has_composition_and_completion_guidance(self) -> None:
+        routed = {grammar for _, grammar, _ in visual_routing_rows(self.instructions)}
+        composed = {
+            grammar
+            for grammar, composition, completion in grammar_composition_rows(
+                STYLE_GUIDE.read_text(encoding="utf-8")
+            )
+            if composition and completion
+        }
+
+        self.assertEqual(routed, composed)
 
 
 if __name__ == "__main__":
