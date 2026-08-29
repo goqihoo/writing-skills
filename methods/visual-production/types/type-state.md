@@ -1,7 +1,5 @@
 # State Machine
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** finite state logic — order status, auth state, connection lifecycle, form wizard, job queue status.
 
 ## Layout conventions
@@ -10,13 +8,9 @@
 - Transitions: curved arrows labeled in Geist Mono as `event [guard] / action` (omit sections you don't need).
 - Self-loops curve above the state.
 - Orient along the dominant flow direction (left→right or top→down); rearrange before crossing transitions.
-- accent on the state the reader should notice — typically the error state, or "happy completion".
+- Coral on the state the reader should notice — typically the error state, or "happy completion".
 
 ## Anti-patterns
 - More transitions than states × 2 → likely two state machines.
 - "From any state" transitions drawn from every state — use a single annotation (`* → Error on timeout`) instead.
 - Unlabeled transitions (the whole point is *what triggers this*).
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-state.html`

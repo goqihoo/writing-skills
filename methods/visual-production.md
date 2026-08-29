@@ -15,7 +15,7 @@ Use prose for one fact or two to three obvious linear steps. Use a Markdown tabl
 1. State one reader question: locate, compare, follow, inspect, recognize, or explore.
 2. When behavior, state, enforcement, or risk carries the meaning, read `visual-production/semantic-patterns.md` and select one primary semantic pattern before choosing layout.
 3. Select exactly one of the 39 Diagram Design visual types below. Read its linked type reference completely before drawing. Choose the dominant visual axis instead of combining two layout grammars.
-4. Read `visual-production/style-guide.md` for the Diagram Design component system and Scribe Plotly theme. Read `visual-production/svg-guide.md` for production, connector, accessibility, and inspection rules.
+4. Read `visual-production/scribe-profile.md` for the small source-adaptation rules, `visual-production/style-guide.md` for the theme interface and selected theme, and `visual-production/svg-guide.md` for production, connector, accessibility, and inspection rules.
 5. Select only the supported actors, boundaries, ownership, relationships, protocols, states, failure paths, labels, or data needed to answer the reader question. Apply the chosen type's complexity budget and split overview from detail when it cannot fit.
 6. Use editable SVG by default. Use self-contained HTML with inline SVG when the destination needs a web wrapper or interaction. Export PNG from the editable source when raster output is requested. Use Mermaid only when the user explicitly requests Mermaid and state any type-specific fidelity loss.
 7. Create and inspect the actual render at full size and roughly 736–900 px wide. Fix clipping, overlap, crossings, unreadable labels, false emphasis, and ambiguous direction.
@@ -77,9 +77,7 @@ Do not treat a generic `Chart`, `Flow`, `Matrix`, or `Architecture` umbrella as 
 
 - Treat containment, ownership, association, dependency, sequence, and data flow as different claims.
 - Use arrows only for real direction or transition. Label a protocol, event, payload, or guarantee only when it matters.
-- Render ordinary peers neutrally. Start with zero focal elements; introduce emphasis only when the source or user identifies that meaning.
 - Show boundaries when ownership, trust, deployment, or failure isolation is part of the judgment.
-- Keep explanatory paragraphs outside nodes and keep object descriptions to one short phrase only when the name is insufficient.
 - Match geometry, direction, labels, state, and color to supported claims.
 - Preserve meaning without color alone and keep text readable at destination width.
 - Inspect the final render for clipping, overlap, unintended crop, malformed text, or watermark.

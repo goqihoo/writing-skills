@@ -120,6 +120,7 @@ class IndependentPublicSkillContractTest(unittest.TestCase):
                 "mermaid-guide.md",
                 "primitive-annotation.md",
                 "primitive-icons.md",
+                "scribe-profile.md",
                 "semantic-patterns.md",
                 "style-guide.md",
                 "svg-guide.md",

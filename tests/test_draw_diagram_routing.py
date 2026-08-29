@@ -73,7 +73,11 @@ ALLOWED_THEME_COLORS = {
     "#FDE9E5",
     "#B95D18",
     "#FFF0E4",
+    "#F7F8FC",
+    "#EEF1F7",
 }
+
+SCRIBE_ONLY_COLORS = ALLOWED_THEME_COLORS - {"#FFFFFF"}
 
 
 def visual_type_rows(instructions: str) -> list[list[str]]:
@@ -122,9 +126,6 @@ class DrawDiagramRoutingTest(unittest.TestCase):
                 self.assertTrue(example_path.is_file(), example_path)
 
                 guidance = reference_path.read_text(encoding="utf-8")
-                self.assertIn("Adapted from Diagram Design 2.6", guidance)
-                self.assertIn("## Plotly specimen", guidance)
-                self.assertIn(example_path.name, guidance)
                 self.assertGreaterEqual(guidance.count("\n## "), 2)
 
                 specimen = example_path.read_text(encoding="utf-8")
@@ -148,14 +149,18 @@ class DrawDiagramRoutingTest(unittest.TestCase):
         self.assertIn("Use ImageGen for an illustrated conceptual explanation", self.instructions)
         self.assertIn("Use HTML or a visualization tool for adjustable exploration", self.instructions)
 
-    def test_type_contracts_and_specimens_only_use_scribe_theme_colors(self) -> None:
-        paths = sorted((VISUAL_ROOT / "types").glob("type-*.md"))
-        paths += [VISUAL_ROOT / "semantic-patterns.md", VISUAL_ROOT / "primitive-annotation.md"]
-        paths += sorted(EXAMPLES_ROOT.glob("example-*.html"))
+    def test_bundled_specimens_use_default_theme_colors(self) -> None:
+        paths = sorted(EXAMPLES_ROOT.glob("example-*.html"))
         paths += [REPO_ROOT / "skills" / "draw-diagram" / "assets" / "editorial-diagram-template.html"]
 
         unexpected = colors_in(paths) - ALLOWED_THEME_COLORS
         self.assertEqual(set(), unexpected)
+
+    def test_type_contracts_do_not_embed_the_scribe_default_skin(self) -> None:
+        paths = sorted((VISUAL_ROOT / "types").glob("type-*.md"))
+
+        embedded = colors_in(paths) & SCRIBE_ONLY_COLORS
+        self.assertEqual(set(), embedded)
 
     def test_plotly_specimens_pass_the_packaged_html_validator(self) -> None:
         validator = REPO_ROOT / "skills" / "draw-diagram" / "scripts" / "validate_html.py"
@@ -197,6 +202,21 @@ class DrawDiagramRoutingTest(unittest.TestCase):
                     text=True,
                 )
                 self.assertEqual(0, result.returncode, result.stdout + result.stderr)
+
+    def test_quantitative_verifiers_resolve_skin_colors_from_the_selected_theme(self) -> None:
+        scripts = REPO_ROOT / "skills" / "draw-diagram" / "scripts"
+        theme_helper = (scripts / "theme_tokens.py").read_text(encoding="utf-8")
+
+        self.assertIn("def read_theme_tokens", theme_helper)
+        self.assertIn("DEFAULT_THEME", theme_helper)
+        for name in ("verify-bubble.py", "verify-dumbbell.py", "verify-ridgeline.py"):
+            with self.subTest(script=name):
+                source = (scripts / name).read_text(encoding="utf-8")
+                self.assertIn("--theme", source)
+                self.assertIn("DEFAULT_THEME", source)
+                self.assertNotIn("#4F5BD5", source)
+                self.assertNotIn("#f08a59", source)
+                self.assertNotRegex(source, r"global ACCENT(?:S|_RE)")
 
     def test_visual_method_markdown_links_and_verifier_pointers_resolve(self) -> None:
         missing: list[str] = []

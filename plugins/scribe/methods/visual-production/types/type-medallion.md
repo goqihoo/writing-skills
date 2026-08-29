@@ -1,7 +1,5 @@
 # Medallion
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** documenting a multi-tier data-storage layout where each tier is a distinct *quality / access level* of the same dataset — typically raw landing zone, anonymised, staging/cleaned, aggregated business indicators, and cold archive. Used when the reader needs to see at a glance *what each bucket contains*, *who writes it*, *with what tool and format*, and *how data is promoted between tiers*.
 
 Prefer **Process** if the subject is a workflow with role lanes. Prefer **High-Level** if the subject is the cluster architecture rather than the storage tier organisation.
@@ -23,7 +21,7 @@ tiers:                                # 3..6 tier columns, ordered left → righ
   - { name: "Anonymized", bucket: "anon-bucket",       style: "default",
       fields: { tool: "Trino INSERT",              format: "Iceberg · partitioned", writer: "Data Engineer",
                 example: ["no name · address", "stable household ID"] } }
-  - { name: "Staging",    bucket: "staging-bucket",    style: "default",  color: "#B95D18",   # warm yellow — analytical working zone
+  - { name: "Staging",    bucket: "staging-bucket",    style: "default",  color: "#c9a23a",   # warm yellow — analytical working zone
       fields: { tool: "Trino · JupyterHub",        format: "Iceberg · cleaned",     writer: "Data Scientist",
                 example: ["weighted records", "harmonised codings"] } }
   - { name: "Aggregated", bucket: "aggregated-bucket", style: "focal",  focal: true,
@@ -154,7 +152,7 @@ Four canonical styles, picked per tier via `tiers[i].style`. Default mapping if 
 
 `rx = 6` on all card rects.
 
-**Focal styling note:** the focal tier's accent treatment cascades — its bucket text and its example-value lines render in accent. Other field values (tool/format/writer) stay muted; only the bucket name and the example payload carry the focal signal so the tier card doesn't fully drown in accent.
+**Focal styling note:** the focal tier's accent treatment cascades — its bucket text and its example-value lines render in accent. Other field values (tool/format/writer) stay muted; only the bucket name and the example payload carry the focal signal so the tier card doesn't fully drown in coral.
 
 ### 2.4 Promotion arcs (over the top of the tiers)
 
@@ -185,7 +183,7 @@ The cubic geometry: anchor y = 80 (tier top), control y = 0 (top of viewBox). Cu
 
 **Auto-style rules:**
 - If `promotions[k].to` references the **focal tier**, the style auto-promotes to `focal` (accent, width 1.6, `arrow-accent` marker).
-- If `promotions[k].to` references a tier with a **`color` override** (§4), the arrow inherits that hex — stroke = `C`, label fill = `C`, marker-end uses a color-matched marker (e.g., `arrow-yellow` for `#B95D18`). Width stays at 1.4 — the color override is a "concern" signal, not a focal promotion. Lifecycle/dashed arrows keep their dash but adopt the color.
+- If `promotions[k].to` references a tier with a **`color` override** (§4), the arrow inherits that hex — stroke = `C`, label fill = `C`, marker-end uses a color-matched marker (e.g., `arrow-yellow` for `#c9a23a`). Width stays at 1.4 — the color override is a "concern" signal, not a focal promotion. Lifecycle/dashed arrows keep their dash but adopt the color.
 - Focal wins if both apply (a colored tier marked focal still uses accent).
 
 **Label inside the arc:**
@@ -227,7 +225,7 @@ Three styles, bound to topology. Mirror §3 of `type-process.md` so the rule rea
   <marker id="arrow"        markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="{muted}"/></marker>
   <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="{accent}"/></marker>
   <!-- Per-color markers: declare one per custom tier color in use. -->
-  <marker id="arrow-yellow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#B95D18"/></marker>
+  <marker id="arrow-yellow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#c9a23a"/></marker>
 </defs>
 ```
 
@@ -269,17 +267,17 @@ Replaces the path card's stroke with `rgba(C, 0.45)` and the tag chip stroke wit
 - **Never on focal tiers.** The accent already carries that signal — a `color` on the focal tier is ignored.
 - **Never on the `cold` tier in addition to its dashed treatment.** Pick either dashed-cold or a custom color, not both.
 - **Cap at 2 custom-colored elements** per diagram (tier or path), in addition to the focal tier.
-- **Promotion arrows inherit the target tier's color** (§3 auto-style rule). A `color: "#B95D18"` on the Staging tier means the CLEAN+WEIGHT arc landing in Staging is also rendered in yellow — connector, label, and arrowhead match. This keeps visual coherence: the colored tier and its incoming flow read as a single "concern" group. Arrows do **not** inherit color from the source tier — only the target — so the arc *out of* a colored tier reverts to muted (or to the next target's color/style).
+- **Promotion arrows inherit the target tier's color** (§3 auto-style rule). A `color: "#c9a23a"` on the Staging tier means the CLEAN+WEIGHT arc landing in Staging is also rendered in yellow — connector, label, and arrowhead match. This keeps visual coherence: the colored tier and its incoming flow read as a single "concern" group. Arrows do **not** inherit color from the source tier — only the target — so the arc *out of* a colored tier reverts to muted (or to the next target's color/style).
 
 ### 4.4 Semantic palette (recommended)
 
 Same palette as the other parametric types so a reader scanning multiple diagrams sees the same colors meaning the same thing:
 
-- `#D43E26` rust-red — Security / Identity / Governance (PII-bearing tiers, audit tiers)
-- `#4F5BD5` slate-blue — Observability / Quality (validated tiers, monitored zones)
-- `#007A59` olive-green — Data Products / Publication (consumer-facing aggregates, public-release tiers)
-- `#B95D18` warm yellow / gold — Analytical / Working zones (staging tier, scientist sandbox, intermediate computation surface)
-- `#B95D18` warm-brown — Backup / DR / Archive (alternative cold-tier styling)
+- `#b85450` rust-red — Security / Identity / Governance (PII-bearing tiers, audit tiers)
+- `#5a7d9a` slate-blue — Observability / Quality (validated tiers, monitored zones)
+- `#7a8c47` olive-green — Data Products / Publication (consumer-facing aggregates, public-release tiers)
+- `#c9a23a` warm yellow / gold — Analytical / Working zones (staging tier, scientist sandbox, intermediate computation surface)
+- `#8c6d3f` warm-brown — Backup / DR / Archive (alternative cold-tier styling)
 
 ---
 
@@ -344,11 +342,3 @@ Before emitting SVG, verify **every** item:
 - **Promotion arrow label longer than the tier-gap label mask** — keep labels to ≤ 14 chars in the uppercase `arrow-label` role. Long verbs ("CALCULATE & SUMMARIZE") break the rhythm; shorten to "AGGREGATE" or split into two diagrams.
 
 ---
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-medallion.html`
-
-## 10. Worked YAML
-
-The YAML in §1 is the **complete** inputs definition for the shipped `example-medallion.html`. Every coordinate in that file's SVG is derivable from §2 applied to those inputs. The same YAML is embedded as a top-of-file HTML comment inside `example-medallion.html` so source view shows the parametric inputs immediately above the SVG.

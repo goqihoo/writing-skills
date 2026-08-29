@@ -1,13 +1,11 @@
 # Org Chart / Responsibility Map
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** human teams, agent teams, support escalation maps, role ownership, routing maps, and any hierarchy where the reader needs to know *who owns what* rather than just parent → child structure.
 
 Use **Org Chart** instead of **Tree** when the nodes are people, agents, teams, roles, or accountable owners. A tree shows generic hierarchy. An org chart shows responsibility, invocation paths, and coverage gaps.
 
 ## Layout conventions
-- Root owner or front door at top center. Use one accent focal node for the person/team/agent that receives ambiguous work.
+- Root owner or front door at top center. Use one coral focal node for the person/team/agent that receives ambiguous work.
 - Tier 1 nodes are departments, pods, queues, or primary routing buckets. Keep them horizontally aligned.
 - Tier 2 nodes are responsible owners or specialists. If there are more than 8 specialists, group them under pod nodes instead of making one giant row.
 - Use orthogonal connectors: vertical drop from parent → horizontal bus → vertical drops to children. No diagonal lines.
@@ -29,7 +27,7 @@ Use **Org Chart** instead of **Tree** when the nodes are people, agents, teams, 
 - Max visible org nodes: 12. If more, create an overview org chart plus separate detail charts per pod.
 - Max depth: 4 tiers.
 - Max direct reports under one parent: 5. If there are more, introduce grouping nodes.
-- Max accent nodes: 1. The org chart's job is clarity, not highlighting everything.
+- Max coral nodes: 1. The org chart's job is clarity, not highlighting everything.
 - Max side callouts: 2.
 
 ## Anti-patterns
@@ -39,7 +37,3 @@ Use **Org Chart** instead of **Tree** when the nodes are people, agents, teams, 
 - Showing unavailable / not-yet-wired agents as normal active owners. Use dashed optional styling so gaps are visible.
 - Repeating Slack handles in body paragraphs when a node sublabel can carry the invocation path.
 - Floating legends in the org area. Use the standard bottom legend strip.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-org-chart.html`

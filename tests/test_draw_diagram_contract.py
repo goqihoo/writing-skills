@@ -7,6 +7,15 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 DRAW_DIAGRAM = REPO_ROOT / "skills" / "draw-diagram" / "SKILL.md"
 VISUAL_METHOD = REPO_ROOT / "methods" / "visual-production.md"
 STYLE_GUIDE = REPO_ROOT / "methods" / "visual-production" / "style-guide.md"
+DEFAULT_THEME = (
+    REPO_ROOT
+    / "methods"
+    / "visual-production"
+    / "themes"
+    / "scribe-plotly.md"
+)
+SCRIBE_PROFILE = REPO_ROOT / "methods" / "visual-production" / "scribe-profile.md"
+SVG_GUIDE = REPO_ROOT / "methods" / "visual-production" / "svg-guide.md"
 SVG_TEMPLATE = (
     REPO_ROOT / "skills" / "draw-diagram" / "assets" / "editorial-diagram-template.svg"
 )
@@ -18,6 +27,9 @@ HTML_TEMPLATE = (
 )
 PROCESS_REFERENCE = (
     REPO_ROOT / "methods" / "visual-production" / "types" / "type-process.md"
+)
+ARCHITECTURE_REFERENCE = (
+    REPO_ROOT / "methods" / "visual-production" / "types" / "type-architecture.md"
 )
 PROCESS_SPECIMEN = (
     REPO_ROOT / "skills" / "draw-diagram" / "assets" / "examples" / "example-process.html"
@@ -34,7 +46,82 @@ def class_fill(svg: str, class_name: str) -> str:
     return fill.group(1).strip()
 
 
+def theme_token(theme: str, token: str) -> str:
+    row = re.search(
+        rf"^\| `{re.escape(token)}` \| `([^`]+)` \|",
+        theme,
+        flags=re.MULTILINE,
+    )
+    if row is None:
+        raise AssertionError(f"Missing theme token: {token}")
+    return row.group(1)
+
+
 class DrawDiagramContractTest(unittest.TestCase):
+    def test_default_skin_is_a_replaceable_adapter_with_distinct_surfaces(self) -> None:
+        style = STYLE_GUIDE.read_text(encoding="utf-8")
+        theme = DEFAULT_THEME.read_text(encoding="utf-8")
+        svg_template = SVG_TEMPLATE.read_text(encoding="utf-8")
+
+        self.assertIn("themes/scribe-plotly.md", style)
+        self.assertIn("Rebind every bundled specimen", style)
+        self.assertNotRegex(style, r"#[0-9A-Fa-f]{6}")
+        self.assertEqual("#FFFFFF", theme_token(theme, "paper"))
+        self.assertEqual("#F7F8FC", theme_token(theme, "object"))
+        self.assertNotEqual(
+            theme_token(theme, "paper"),
+            theme_token(theme, "object"),
+        )
+        self.assertEqual("none", theme_token(theme, "connector-label-surface"))
+        for index in range(1, 6):
+            self.assertEqual(
+                theme_token(theme, f"category-{index}"),
+                theme_token(theme, f"series-{index}"),
+            )
+        self.assertEqual(theme_token(theme, "object"), class_fill(svg_template, "node"))
+
+    def test_scribe_profile_centralizes_source_adaptation_rules(self) -> None:
+        profile = SCRIBE_PROFILE.read_text(encoding="utf-8")
+        method = VISUAL_METHOD.read_text(encoding="utf-8")
+        skill = DRAW_DIAGRAM.read_text(encoding="utf-8")
+        type_contracts = [
+            path.read_text(encoding="utf-8")
+            for path in sorted((STYLE_GUIDE.parent / "types").glob("type-*.md"))
+        ]
+
+        self.assertIn("scribe-profile.md", method)
+        self.assertIn("scribe-profile.md", skill)
+        self.assertIn("Do not invent focus", profile)
+        self.assertIn("Clear every specimen-supplied", profile)
+        self.assertIn("one optional short detail", profile)
+        self.assertIn("source-defined semantic categories", profile)
+        self.assertNotIn("When another theme is selected", skill)
+        self.assertNotIn(
+            "Use the bundled Scribe Plotly theme only when",
+            method,
+        )
+        self.assertTrue(
+            all("Start with zero focal elements" not in text for text in type_contracts)
+        )
+        self.assertTrue(
+            all("Use `../style-guide.md` for every color" not in text for text in type_contracts)
+        )
+        self.assertNotIn("### Node text budget", ARCHITECTURE_REFERENCE.read_text(encoding="utf-8"))
+        self.assertNotIn(
+            "apply that category token to every enclosed categorized object",
+            ARCHITECTURE_REFERENCE.read_text(encoding="utf-8"),
+        )
+
+    def test_connector_label_surface_is_theme_owned_but_geometry_is_preserved(self) -> None:
+        theme = DEFAULT_THEME.read_text(encoding="utf-8")
+        svg = SVG_GUIDE.read_text(encoding="utf-8")
+
+        self.assertEqual("none", theme_token(theme, "connector-label-surface"))
+        self.assertIn("`connector-label-surface`", svg)
+        self.assertIn("6–10 px", svg)
+        self.assertNotIn("4–8 px", svg)
+        self.assertNotIn("Connector labels use transparent fill by default", svg)
+
     def test_owns_one_visual_per_invocation(self) -> None:
         instructions = DRAW_DIAGRAM.read_text(encoding="utf-8")
 
@@ -69,12 +156,13 @@ class DrawDiagramContractTest(unittest.TestCase):
         )
 
     def test_templates_start_without_a_default_focus_state(self) -> None:
-        style = STYLE_GUIDE.read_text(encoding="utf-8")
+        profile = SCRIBE_PROFILE.read_text(encoding="utf-8")
         svg_template = SVG_TEMPLATE.read_text(encoding="utf-8")
         flow_template = FLOW_TEMPLATE.read_text(encoding="utf-8")
         html_template = HTML_TEMPLATE.read_text(encoding="utf-8")
 
-        self.assertIn("Start every diagram with zero focal elements.", style)
+        self.assertIn("Do not invent focus", profile)
+        self.assertIn("Start with neutral peers.", profile)
         self.assertNotIn(".focus", svg_template)
         self.assertNotIn('class="focus"', svg_template)
         self.assertNotIn("Focal component", svg_template)
@@ -84,46 +172,55 @@ class DrawDiagramContractTest(unittest.TestCase):
         self.assertNotIn("class target primary", flow_template)
         self.assertNotIn("focal", html_template.casefold())
 
-    def test_process_defaults_to_compact_neutral_category_encoding(self) -> None:
-        guidance = PROCESS_REFERENCE.read_text(encoding="utf-8")
+    def test_process_specimen_applies_the_scribe_profile_without_rewriting_the_type(self) -> None:
+        profile = SCRIBE_PROFILE.read_text(encoding="utf-8")
         specimen = PROCESS_SPECIMEN.read_text(encoding="utf-8")
 
-        self.assertIn("The node name is the only required visible text.", guidance)
-        self.assertIn(
-            "Give each source-defined lane category a distinct category token",
-            guidance,
-        )
-        self.assertNotIn("exactly **one** focal", guidance.casefold())
+        self.assertIn("one optional short detail", profile)
+        self.assertIn("source-defined semantic categories", profile)
         self.assertNotIn("focal", specimen.casefold())
 
     def test_container_fill_and_object_description_contract(self) -> None:
         style = STYLE_GUIDE.read_text(encoding="utf-8")
+        profile = SCRIBE_PROFILE.read_text(encoding="utf-8")
         svg_template = SVG_TEMPLATE.read_text(encoding="utf-8")
 
         node_fill = class_fill(svg_template, "node")
         group_fill = class_fill(svg_template, "group")
         deemphasized_fill = class_fill(svg_template, "deemphasized")
 
-        self.assertEqual("#FFFFFF", node_fill)
-        self.assertEqual("#F5F6FB", group_fill)
+        self.assertEqual("#F7F8FC", node_fill)
+        self.assertEqual("#EEF1F7", group_fill)
         self.assertNotEqual(node_fill, group_fill)
         self.assertEqual("none", deemphasized_fill)
         self.assertIn("| Ordinary object | `object` | `object-border` |", style)
         self.assertIn("| Group or boundary | `paper-2` | `rule-solid` |", style)
-        self.assertIn("Use the object name alone when it makes the role clear.", style)
-        self.assertIn("one short responsibility phrase", style)
+        self.assertIn("Use the object name as the required label", profile)
+        self.assertIn("one optional short detail", profile)
 
-    def test_plotly_qualitative_is_the_default_color_layer(self) -> None:
+    def test_plotly_is_the_default_skin_not_the_only_allowed_skin(self) -> None:
         style = STYLE_GUIDE.read_text(encoding="utf-8")
+        method = VISUAL_METHOD.read_text(encoding="utf-8")
+        svg = SVG_GUIDE.read_text(encoding="utf-8")
         svg_template = SVG_TEMPLATE.read_text(encoding="utf-8")
         flow_template = FLOW_TEMPLATE.read_text(encoding="utf-8")
 
         self.assertIn("Use Diagram Design as four layers:", style)
-        self.assertIn("Use the Scribe Plotly theme below for the fourth.", style)
         self.assertIn(
-            "A theme change may rebind only color tokens",
+            "Scribe Plotly is the bundled default theme, not the only permitted theme.",
             style,
         )
+        self.assertIn("an explicit user-supplied theme", style)
+        self.assertIn("the consuming artifact's or project's established theme", style)
+        self.assertIn("semantic color tokens and font-family tokens", style)
+        self.assertIn(
+            "Literal family names and color values retained in adapted Diagram Design type references describe the upstream skin",
+            style,
+        )
+        self.assertNotRegex(style, r"#[0-9A-Fa-f]{6}")
+        self.assertIn("theme interface and selected theme", method)
+        self.assertIn("the selected theme is the only color system", svg)
+        self.assertNotIn("the Plotly theme is the only color system", svg)
         self.assertIn(
             ".category-1 { fill: #E9EBFE; stroke: #4F5BD5; }",
             svg_template,
@@ -139,10 +236,13 @@ class DrawDiagramContractTest(unittest.TestCase):
 
     def test_diagram_design_component_system_is_preserved(self) -> None:
         style = STYLE_GUIDE.read_text(encoding="utf-8")
+        theme = DEFAULT_THEME.read_text(encoding="utf-8")
         svg_template = SVG_TEMPLATE.read_text(encoding="utf-8")
 
-        self.assertIn("Instrument Serif", style)
-        self.assertIn("Geist Mono", style)
+        self.assertIn("`font-title`", style)
+        self.assertIn("`font-mono`", style)
+        self.assertIn("Instrument Serif", theme)
+        self.assertIn("Geist Mono", theme)
         self.assertIn("Keep every coordinate, width, height, padding, and gap on the 4 px grid", style)
         self.assertIn("Use no shadows.", style)
         self.assertIn('rx="6"', svg_template)

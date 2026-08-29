@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Verify the two dumbbell rules that live in a formula rather than in a drawing.
 
-Both rules in `references/type-bar.md` are formula-level: a generator implements
-them arithmetically, and both fail in ways that render perfectly. Prose alone
-cannot defend either, so both are executable here and the reference is checked
-against this module rather than the other way round.
+The domain rule lives in `type-bar.md`; the contrast rule combines that type's
+line opacity with the selected theme's semantic tokens. A generator implements
+both arithmetically, and both fail in ways that render perfectly. Prose alone
+cannot defend either, so the verifier reads the contract and theme separately.
 
 1. DOMAIN RESOLUTION - the axis bounds are a function of the data's range, never
    of its observed extremes. Taking `min`/`max` as the bounds IS the truncation
@@ -22,8 +22,8 @@ against this module rather than the other way round.
    waive it: a reader still has to see the solid mark's boundary and the line
    joining the pair. Accent-on-paper is 2.86:1 skin-wide and cannot carry that,
    so the boundary is carried by a stroke and the connector by an alpha that
-   clears 3:1 in both themes. The thresholds are checked here against the tokens
-   the reference actually documents, so the two cannot drift apart.
+   clears 3:1 in the selected theme. The verifier resolves `paper` and `ink`
+   from the theme instead of embedding one skin in the type contract.
 
 The check FAILS CLOSED. A reference this cannot parse, or a token it cannot
 find, is a finding - never a silent pass.
@@ -31,6 +31,7 @@ find, is a finding - never a silent pass.
 Usage:
     python3 skills/draw-diagram/scripts/verify-dumbbell.py
     python3 skills/draw-diagram/scripts/verify-dumbbell.py --reference path/to/type-bar.md
+    python3 skills/draw-diagram/scripts/verify-dumbbell.py --theme path/to/theme.md
 
 Exit: 0 clean, 1 findings, 2 usage.
 """
@@ -42,6 +43,8 @@ import math
 import re
 import sys
 from pathlib import Path
+
+from theme_tokens import DEFAULT_THEME, theme_color
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 PACKAGE_ROOT = SKILL_DIR.parents[1]
@@ -56,25 +59,9 @@ MIN_GAP_PX = 16        # below this two r=6 marks read as one blob
 # position formula defined; every dot lands on the floor, which is the truth.
 ALL_ZERO_SPAN = 1.0
 
-# --- skin tokens ------------------------------------------------------------
-PAPER_LIGHT, PAPER_DARK = "#FFFFFF", "#22263A"
+# --- selected-theme tokens --------------------------------------------------
 WCAG_NON_TEXT = 3.0    # 1.4.11, graphical objects
-
-# (label, ink hex, alpha, paper) - the connector in each theme
-CONNECTORS = [
-    ("connector (light)", "#22263A", 0.55, PAPER_LIGHT),
-    ("connector (dark)", "#FFFFFF", 0.40, PAPER_DARK),
-]
-# (label, stroke hex, paper) - the boundary of the solid endpoint
-ENDPOINT_STROKES = [
-    ("solid endpoint stroke (light)", "#22263A", PAPER_LIGHT),
-    ("solid endpoint stroke (dark)", "#FFFFFF", PAPER_DARK),
-]
-# Tokens the reference must actually name, so prose and code cannot drift.
-REQUIRED_TOKENS = [
-    "rgba(34,38,58,0.55)",
-    "rgba(255,255,255,0.40)",
-]
+CONNECTOR_ALPHA = 0.55
 
 
 class DomainError(ValueError):
@@ -210,22 +197,25 @@ def check_domain_rules():
     return findings
 
 
-def check_contrast_rules():
+def check_contrast_rules(theme: Path):
     findings = []
-    for label, ink, alpha, paper in CONNECTORS:
-        ratio = contrast(composite(ink, alpha, paper), paper)
-        if ratio < WCAG_NON_TEXT:
-            findings.append(
-                "%s: %.3f:1 against paper, under the %.1f:1 WCAG 1.4.11 asks"
-                % (label, ratio, WCAG_NON_TEXT)
-            )
-    for label, stroke, paper in ENDPOINT_STROKES:
-        ratio = contrast(stroke, paper)
-        if ratio < WCAG_NON_TEXT:
-            findings.append(
-                "%s: %.3f:1 against paper, under the %.1f:1 WCAG 1.4.11 asks"
-                % (label, ratio, WCAG_NON_TEXT)
-            )
+    try:
+        paper = theme_color(theme, "paper")
+        ink = theme_color(theme, "ink")
+    except ValueError as error:
+        return [str(error)]
+    connector_ratio = contrast(composite(ink, CONNECTOR_ALPHA, paper), paper)
+    if connector_ratio < WCAG_NON_TEXT:
+        findings.append(
+            "connector: %.3f:1 against paper, under the %.1f:1 WCAG 1.4.11 asks"
+            % (connector_ratio, WCAG_NON_TEXT)
+        )
+    endpoint_ratio = contrast(ink, paper)
+    if endpoint_ratio < WCAG_NON_TEXT:
+        findings.append(
+            "solid endpoint stroke: %.3f:1 against paper, under the %.1f:1 WCAG 1.4.11 asks"
+            % (endpoint_ratio, WCAG_NON_TEXT)
+        )
     return findings
 
 
@@ -237,12 +227,8 @@ def check_reference(path: Path):
     text = path.read_text(encoding="utf-8")
     if "Dumbbell" not in text:
         return ["reference %s carries no dumbbell section to check" % path.name]
-    for token in REQUIRED_TOKENS:
-        if token not in text:
-            findings.append(
-                "reference does not document %s, so the checked value is not the "
-                "shipped one" % token
-            )
+    if not re.search(r"Connector.*0\.55", text):
+        findings.append("reference does not document the connector's 0.55 ink opacity")
     if not re.search(r"\bfloor\b", text) or not re.search(r"\bceil\b", text):
         findings.append("reference does not name the domain bounds the formula uses")
     return findings
@@ -256,11 +242,15 @@ def main(argv=None) -> int:
         "--reference", type=Path, default=REFERENCE,
         help="path to type-bar.md (default: the shipped reference)",
     )
+    parser.add_argument(
+        "--theme", type=Path, default=DEFAULT_THEME,
+        help="path to a Diagram Design theme (default: Scribe Plotly)",
+    )
     args = parser.parse_args(argv)
 
     findings = []
     findings += check_domain_rules()
-    findings += check_contrast_rules()
+    findings += check_contrast_rules(args.theme)
     findings += check_reference(args.reference)
 
     if findings:
@@ -271,7 +261,7 @@ def main(argv=None) -> int:
     sys.stdout.write(
         "OK dumbbell: domain resolves finitely over every sign case "
         "(including all-zero), and the documented connector and endpoint "
-        "boundary clear 3:1 in both themes\n"
+        "boundary clear 3:1 in the selected theme\n"
     )
     return 0
 

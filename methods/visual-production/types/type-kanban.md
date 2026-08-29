@@ -1,7 +1,5 @@
 # Kanban Board
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** a snapshot of work-in-progress by state — what is queued, what is moving, what is stuck, and where the WIP limit is being breached. This is a *state census*, not a flow: a kanban board has **no connectors at all**. That is exactly what separates it from swimlane (lanes plus a flow crossing them, with handoffs as the load-bearing edges) and from process (ordered steps with directional handoffs). If the diagram needs an arrow anywhere, it isn't a kanban board anymore — reach for swimlane or process instead.
 
 ## Layout conventions
@@ -22,7 +20,7 @@ Every card renders in exactly one of four states. Document and use all four when
 | `waiting / external` | `ink @ 0.02` | `ink @ 0.20` dashed `4,3` | — |
 | `done` | `ink @ 0.05` | `muted` | — |
 
-These map directly onto the ../style-guide.md `Component treatments` node-treatment table (`security` → blocked, `optional` → waiting/external, `store` → done) — the board reuses the system's existing semantic fills rather than inventing new ones.
+These map directly onto the SKILL.md §5 node-treatment table (`security` → blocked, `optional` → waiting/external, `store` → done) — the board reuses the system's existing semantic fills rather than inventing new ones.
 
 ## Over-limit column
 
@@ -43,7 +41,3 @@ When a column's card count `n` exceeds its stated `limit`, the WIP chip's stroke
 - **Accenting every blocked card.** One or two blocked cards read as signal; a column full of accent reads as noise and erases the focal rule.
 - **A "Done" column that grows without bound.** Cap it and note the archive point in the sublabel or a footnote — an unbounded Done column just becomes a second Backlog.
 - **Pill-shaped WIP tags.** The chip is a rectangle at `rx=2`, matching the type-tag primitive in §6 — pills read as status badges from an unrelated design language.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-kanban.html`

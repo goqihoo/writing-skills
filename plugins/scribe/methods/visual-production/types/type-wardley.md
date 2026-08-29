@@ -1,7 +1,5 @@
 # Wardley Map
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** positioning the components of a value chain against how evolved (commoditised) each one is, so a reader can see what to build, what to buy, and what is about to move. A strategy artefact, not an architecture diagram — it says nothing about how components connect at runtime, only where each one sits on the genesis-to-commodity curve.
 
 ## Layout conventions
@@ -33,7 +31,3 @@
 - **Numbering the y axis.** Value-chain visibility is ordinal (more visible to the user, less visible), not a quantity. Numeric ticks imply a measurement that doesn't exist.
 - **More than 2 movement arrows.** Beyond that the map stops making a single point and turns into a forecast nobody can act on.
 - **`writing-mode` vertical axis text.** Stack the words as separate horizontal `<text>` lines instead — see Layout conventions above.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-wardley.html`

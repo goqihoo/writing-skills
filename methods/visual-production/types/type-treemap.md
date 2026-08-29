@@ -1,7 +1,5 @@
 # Treemap
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** part-of-whole where the *relative sizes are the story* — disk and bundle usage, budget or spend breakdowns, market share, population, time allocation. Use when a single total decomposes into parts and the reader's question is "what dominates, and by how much?"
 
 Not for: ranked lists where exact values matter more than proportion (use a **bar chart**), containment or scope relationships with no quantity (use **nested**), or a hierarchy you need to trace parent-to-child (use a **tree**).
@@ -37,14 +35,14 @@ Without it, a verifier has to infer the intended share from the text inside the 
 
 ```svg
 <!-- Opaque paper mask prevents the dot pattern showing through the tint -->
-<rect x="X" y="Y" width="W" height="H" rx="2" fill="#FFFFFF"/>
+<rect x="X" y="Y" width="W" height="H" rx="2" fill="#f5f5f5"/>
 <!-- Cell body -->
-<rect x="X" y="Y" width="W" height="H" rx="2" data-share="18.29" fill="rgba(34,38,58,0.16)" stroke="rgba(34,38,58,0.30)" stroke-width="1"/>
-<text x="X+16" y="Y+28" fill="#22263A" font-size="13" font-weight="600" font-family="'Geist', sans-serif">NAME</text>
-<text x="X+16" y="Y+46" fill="#596174" font-size="9" font-family="'Geist Mono', monospace">VALUE · SHARE</text>
+<rect x="X" y="Y" width="W" height="H" rx="2" data-share="18.29" fill="rgba(45,49,66,0.16)" stroke="rgba(45,49,66,0.30)" stroke-width="1"/>
+<text x="X+16" y="Y+28" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist', sans-serif">NAME</text>
+<text x="X+16" y="Y+46" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace">VALUE · SHARE</text>
 ```
 
-Focal cell: replace the fill with `rgba(79,91,213,0.16)` and the stroke with `#4F5BD5` at 1.5px.
+Focal cell: replace the fill with `rgba(235,108,54,0.16)` and the stroke with `#eb6c36` at 1.5px.
 
 ## Honest-data rule
 
@@ -60,7 +58,3 @@ Watch the smallest cell hardest: it is the one that grid snapping and gutters di
 - Rainbow fills: one hue per cell destroys the rank reading and the one-accent rule.
 - Nesting more than two levels deep in a static diagram; a second level needs a heavier border and its own label tier, and a third is unreadable without interaction.
 - 3-D or shadowed cells — area is already the message.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-treemap.html`

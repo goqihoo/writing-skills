@@ -1,7 +1,5 @@
 # Polar Chart
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** one quantitative series across 4–8 categories whose clockwise order is meaningful.
 
 ## Input contract
@@ -130,7 +128,3 @@ The minimal examples use the full 1000×520 canvas. The full-editorial example p
 - Truncated scales whose minimum is not zero.
 - Categories sorted by value instead of retaining their meaningful circular order.
 - Treating a missing value as zero.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-polar.html`

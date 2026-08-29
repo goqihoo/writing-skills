@@ -12,8 +12,8 @@
       .node-title { font: 600 12px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #22263A; }
       .detail { font: 400 12px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #596174; }
       .technical { font: 400 8px "Geist Mono", "Noto Sans Mono CJK SC", monospace; fill: #6F788C; }
-      .node { fill: #FFFFFF; stroke: #C3CBD9; stroke-width: 1; }
-      .group { fill: #F5F6FB; stroke: #CBD2DF; stroke-width: 1; }
+      .node { fill: #F7F8FC; stroke: #C3CBD9; stroke-width: 1; }
+      .group { fill: #EEF1F7; stroke: #CBD2DF; stroke-width: 1; }
       .deemphasized { fill: none; stroke: #A6AFBF; stroke-width: 1; }
       .category-1 { fill: #E9EBFE; stroke: #4F5BD5; }
       .category-2 { fill: #DDF8F0; stroke: #007A59; }

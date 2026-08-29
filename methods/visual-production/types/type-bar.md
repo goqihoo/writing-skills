@@ -1,7 +1,5 @@
 # Bar / Column Chart
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** comparing discrete quantities across categories or time intervals — sprint velocity, monthly revenue, feature adoption, cohort counts. Use when each category has a single numeric value and the comparison between bars is the primary message — or, in the dumbbell variant below, exactly two values whose difference is the message.
 
 ## Layout conventions
@@ -10,7 +8,7 @@
 - **Plot area margins:** left 80px (y-axis labels), bottom 60px (x-axis labels), top 40px, right 40px — inside a `0 0 1000 500` viewBox.
 - **Bar count cap:** 4–8 bars. More than 8 → group into periods or split into two charts.
 - **Bar width:** ≥ 50% of the column pitch (the gap should never exceed the bar). Typical: pitch=110px, bar=72px.
-- **Y-axis gridlines:** 4–6 horizontal lines at regular intervals. Stroke `rgba(34,38,58,0.08)` (very faint), 0.8px. X-axis baseline at `rgba(34,38,58,0.25)`, 1px.
+- **Y-axis gridlines:** 4–6 horizontal lines at regular intervals. Stroke `rgba(45,49,66,0.08)` (very faint), 0.8px. X-axis baseline at `rgba(45,49,66,0.25)`, 1px.
 - **Y-axis labels:** right-aligned Geist Mono 8px muted, at x=72 (8px left of the plot area).
 - **X-axis labels:** centered below each bar, Geist sans 11px 600 for category names.
 - **Value labels:** Geist Mono 8px above each bar. Focal bar label in accent; others in muted.
@@ -21,14 +19,14 @@
 
 ```svg
 <!-- Opaque paper mask prevents bleed from background -->
-<rect x="X" y="Y" width="W" height="H" fill="#FFFFFF"/>
+<rect x="X" y="Y" width="W" height="H" fill="#f5f5f5"/>
 <!-- Bar body -->
-<rect x="X" y="Y" width="W" height="H" fill="rgba(89,97,116,0.15)" stroke="#596174" stroke-width="1"/>
+<rect x="X" y="Y" width="W" height="H" fill="rgba(79,93,117,0.15)" stroke="#4f5d75" stroke-width="1"/>
 <!-- Value label above bar -->
-<text x="X+W/2" y="Y-8" fill="#596174" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">VALUE</text>
+<text x="X+W/2" y="Y-8" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">VALUE</text>
 ```
 
-Focal bar: replace fill with `rgba(79,91,213,0.12)`, stroke with `#4F5BD5`, label fill with `#4F5BD5`.
+Focal bar: replace fill with `rgba(235,108,54,0.12)`, stroke with `#eb6c36`, label fill with `#eb6c36`.
 
 ## Anti-patterns
 
@@ -58,12 +56,12 @@ Focal bar: replace fill with `rgba(79,91,213,0.12)`, stroke with `#4F5BD5`, labe
   | 7 | 52 | 72 | 384 |
   | 8 | 48 | 68 | 404 |
 
-- **Gridlines:** vertical at each tick, `rgba(34,38,58,0.08)` 0.8px, spanning y 56→408. At the domain floor the axis line replaces the gridline rather than doubling it: `rgba(34,38,58,0.25)` 1px, y 40→420.
+- **Gridlines:** vertical at each tick, `rgba(45,49,66,0.08)` 0.8px, spanning y 56→408. At the domain floor the axis line replaces the gridline rather than doubling it: `rgba(45,49,66,0.25)` 1px, y 40→420.
 - **Tick labels:** centered under each gridline at y=440, Geist Mono 8px muted.
 - **Axis title:** the value axis carries the family's axis label — Geist Mono 7px muted, `letter-spacing="0.14em"`, centered at x=580, y=456, below the tick labels and clear of the legend rule. A horizontal axis takes the un-rotated form the scatter x-axis uses, not the `rotate(-90 24 230)` form the column charts apply to their y-axis. The category axis needs no title: the row labels name themselves.
 - **Dots:** r=6, positioned by value. Style by *series*: the reference end hollow (paper fill, `muted` stroke 1.5px), the focal end solid `accent` with a 1px `ink` stroke. Both marks therefore have a boundary above 3:1 even though the accent fill is not — see below. Fill weight, not hue, carries the pairing.
 - **Accent marks the series, not a focal row.** The solid dot repeats on every row — the one place this variant departs from the one-accent rule above, because the two ends must be told apart in each pair. Do not additionally accent a "most changed" row; the sort order already carries rank.
-- **Connector:** `rgba(34,38,58,0.55)` 1px, declared before both dots so the dots cap it. It is not the axis hairline: the connector is what says *these two dots are one row*, so it has to clear 3:1 (0.55 gives 3.19:1; the 0.25 the axis uses gives 1.60:1).
+- **Connector:** `rgba(45,49,66,0.55)` 1px, declared before both dots so the dots cap it. It is not the axis hairline: the connector is what says *these two dots are one row*, so it has to clear 3:1 (0.55 gives 3.19:1; the 0.25 the axis uses gives 1.60:1).
 - **Endpoint positions round, they never snap.** `x = 200 + (v − floor) ÷ (ceil − floor) × 760`, with `floor` and `ceil` set by the axis rule below, rounded to the nearest integer pixel — at most 0.5px, below one rendered pixel. Data coordinates are exempt from the 4px grid; snapping them moves the data.
 - **Value labels sit outside the pair, placed by geometry rather than by series.** A focal value *below* its reference reverses the dots, so derive `x_left = min(x_ref, x_focal)` and `x_right = max(x_ref, x_focal)`: left label right-anchored at `x_left − 12`, right label left-anchored at `x_right + 12`, both baseline `y + 4`, Geist Mono 8px `muted`, each still carrying its own series' value. Keying the offsets to start/end instead puts both labels *inside* the pair on every decreasing row.
 - **Floor exception.** A value sitting on the domain floor lands its label at x=188, right-anchored on baseline `y + 4` — exactly the category label's anchor and baseline, so the two texts overlap. When `x_left − 12 < 200`, centre that label above its dot at baseline `y − 10` instead.
@@ -79,17 +77,17 @@ Focal bar: replace fill with `rgba(79,91,213,0.12)`, stroke with `#4F5BD5`, labe
 
 ```svg
 <!-- One row. Connector first so the dots cap it; labels outside the pair. -->
-<line x1="458" y1="96" x2="740" y2="96" stroke="rgba(34,38,58,0.55)" stroke-width="1"/>
-<circle cx="458" cy="96" r="6" fill="#FFFFFF" stroke="#596174" stroke-width="1.5"/>
-<circle cx="740" cy="96" r="6" fill="#4F5BD5" stroke="#22263A" stroke-width="1"/>
-<text x="446" y="100" fill="#596174" font-size="8" font-family="'Geist Mono', monospace" text-anchor="end">34</text>
-<text x="752" y="100" fill="#596174" font-size="8" font-family="'Geist Mono', monospace">71</text>
-<text x="188" y="100" fill="#22263A" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="end">Platform</text>
+<line x1="458" y1="96" x2="740" y2="96" stroke="rgba(45,49,66,0.55)" stroke-width="1"/>
+<circle cx="458" cy="96" r="6" fill="#f5f5f5" stroke="#4f5d75" stroke-width="1.5"/>
+<circle cx="740" cy="96" r="6" fill="#eb6c36" stroke="#2d3142" stroke-width="1"/>
+<text x="446" y="100" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="end">34</text>
+<text x="752" y="100" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace">71</text>
+<text x="188" y="100" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="end">Platform</text>
 ```
 
 Values 34 and 71 on a 0–100 domain compute to 458.4 and 739.6, rounded to 458 and 740. Had this row fallen instead, the accent dot would sit on the left; the two anchors stay tied to left and right, and each label carries its own series' value.
 
-**Dark theme.** Dots and labels swap as expected — hollow fill `#22263A` with `#CBD2DF` stroke, solid `#4F5BD5` with an `#FFFFFF` stroke, labels `#CBD2DF`. **The hairlines must invert too:** gridlines `rgba(255,255,255,0.08)`, axis `rgba(255,255,255,0.20)`, connector `rgba(255,255,255,0.40)` — the connector again heavier than the axis, for the same 3:1 reason. `rgba(34,38,58,…)` *is* the dark paper colour at every alpha value, so a connector, gridline, or axis carried over from light composites to exactly 1.000:1 — the gap encoding and the scale both vanish.
+**Dark theme.** Dots and labels swap as expected — hollow fill `#2d3142` with `#bfc0c0` stroke, solid `#f08a59` with an `#f5f5f5` stroke, labels `#bfc0c0`. **The hairlines must invert too:** gridlines `rgba(245,245,245,0.08)`, axis `rgba(245,245,245,0.20)`, connector `rgba(245,245,245,0.40)` — the connector again heavier than the axis, for the same 3:1 reason. `rgba(45,49,66,…)` *is* the dark paper colour at every alpha value, so a connector, gridline, or axis carried over from light composites to exactly 1.000:1 — the gap encoding and the scale both vanish.
 
 ### Dumbbell honesty rules
 
@@ -99,8 +97,4 @@ Values 34 and 71 on a 0–100 domain compute to 458.4 and 739.6, rounded to 458 
 - **State the row order** in the legend or source line: by one endpoint, by signed change, by absolute change, or by an order the subject supplies (chronological, geographic, ordinal). "By gap" alone is ambiguous — say signed or absolute. What is not allowed is an unstated order, which reads as arbitrary.
 - **A row missing an endpoint is disclosed, never imputed and never silently dropped.** Removing incomplete categories without saying so changes the population being compared. Either draw the known end and name the missing value, or drop the row *and* record which rows went and why — a lone dot is otherwise indistinguishable from two coincident dots, which is to say from a genuine zero gap.
 
-Two of these rules live in a formula rather than a drawing, so they are executable: `../../../skills/draw-diagram/scripts/verify-dumbbell.py` resolves the domain over every sign case and asserts finite coordinates and 3:1 marks, and the upstream dumbbell verifier regression suite exercises both polarities — including all-zero and zero-touching data, and the sub-3:1 treatments this replaced. The checker reads the tokens out of this file, so prose and thresholds cannot drift apart. A shipped dumbbell example would additionally owe a check of drawn positions against the values printed at them.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-bar.html`
+Two of these rules live in a formula rather than a drawing, so they are executable: `../../../skills/draw-diagram/scripts/verify-dumbbell.py` resolves the domain over every sign case and asserts finite coordinates and 3:1 marks, and `scripts/test-verify-dumbbell.py` exercises both polarities — including all-zero and zero-touching data, and the sub-3:1 treatments this replaced. The checker reads the tokens out of this file, so prose and thresholds cannot drift apart. A shipped dumbbell example would additionally owe a check of drawn positions against the values printed at them.

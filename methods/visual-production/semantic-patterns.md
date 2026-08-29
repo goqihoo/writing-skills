@@ -1,6 +1,6 @@
 # Semantic patterns
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. The Scribe Plotly theme is authoritative for color.
+> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Resolve color through the selected theme in `style-guide.md`; Scribe Plotly is the bundled default.
 
 Semantic patterns describe **what a system does**; the 39 visual types describe **how information is arranged**. Choose a pattern first when behavior, state, enforcement, or risk is load-bearing, then use its nearest visual type as the layout grammar. If no pattern matches, choose a visual type directly.
 

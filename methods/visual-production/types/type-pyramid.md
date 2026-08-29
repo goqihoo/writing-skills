@@ -1,7 +1,5 @@
 # Pyramid / Funnel
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** hierarchy of needs, prioritization ranks, value pyramids, conversion funnels, content importance stacks.
 
 ## Two orientations — pick one
@@ -20,15 +18,11 @@ Don't mix orientations on one diagram.
   - **Side annotation** (right or left) — optional. For funnels: drop-off percentage here (`−40%`).
 - Fill: subtle graded tints OR all paper-2 with hairline dividers (cleaner). Pick one.
 - Stroke: 1px hairline between layers; outer silhouette 1px muted or ink.
-- **accent on ONE layer only**: apex of pyramid, conversion layer of funnel, or critical bottleneck.
+- **Coral on ONE layer only**: apex of pyramid, conversion layer of funnel, or critical bottleneck.
 - Optional left-margin axis arrow + Geist Mono label (`rarer ↑`, `drop-off ↓`).
 
 ## Anti-patterns
 - 7+ layers (illegible — compress or split).
 - Pyramid for non-hierarchical data (use a tree or bar chart).
 - Dishonest widths (fake equal spacing when drops are unequal).
-- accent on the base layer (dilutes the "apex = rare" signal).
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-pyramid.html`
+- Coral on the base layer (dilutes the "apex = rare" signal).

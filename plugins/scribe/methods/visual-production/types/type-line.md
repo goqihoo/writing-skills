@@ -1,7 +1,5 @@
 # Line Chart
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** continuous trends over time or a sequential index — signups over weeks, revenue by month, latency over releases. Use when the direction and rate of change between points is the primary message.
 
 ## Layout conventions
@@ -21,13 +19,13 @@
 ```svg
 <!-- Focal series -->
 <polyline points="x0,y0 x1,y1 x2,y2 ..."
-          fill="none" stroke="#4F5BD5" stroke-width="1.8" stroke-linejoin="round"/>
+          fill="none" stroke="#eb6c36" stroke-width="1.8" stroke-linejoin="round"/>
 <!-- Dots at each point (focal only) -->
-<circle cx="x0" cy="y0" r="4" fill="#4F5BD5"/>
+<circle cx="x0" cy="y0" r="4" fill="#eb6c36"/>
 
 <!-- Non-focal series -->
 <polyline points="x0,y0 x1,y1 ..."
-          fill="none" stroke="#4F5BD5" stroke-width="1.2" stroke-linejoin="round"/>
+          fill="none" stroke="#7c8f6f" stroke-width="1.2" stroke-linejoin="round"/>
 ```
 
 ## Anti-patterns
@@ -61,7 +59,7 @@ Not for: three or more states (that is the **line chart** above, or a bump chart
 - **Domain:** pick round bounds that contain the data and state them in the source line. The shipped example runs 100–550ms over `y` 420 → 40, i.e. 0.84px per millisecond. The parent chart's include-zero rule does not bind here: a slope is unchanged by moving the origin, provided *both* axes move together. What a tight domain does do is magnify every slope equally, so state the bounds and let the reader calibrate.
 - **Legend keys are a 24px line plus its dot**, not the 16×8 rect the parent section specifies — which is also what `example-line.html` actually ships, the parent prose being stale on this point. A slopegraph key has to show stroke weight, because weight is what marks the focal series.
 - **Dots at both endpoints** — `r=3` non-focal, `r=4` focal. Also a departure: the line chart puts dots on the focal series only, because it has eight vertices per series and dots everywhere would be mush. A slopegraph has exactly two per series and both are where a value is read.
-- **4px grid** applies to the designed constants — axis positions, gutter edges, state-caption baselines. Endpoint `y` values are data-scaled and exempt; snapping them would move the data. Two inherited constants are also off-grid and stay that way: the legend rule at `y=462` and the `LEGEND`/source baseline at `478`, which every bundled chart specimen shares. Matching the house rhythm beats matching the grid here — moving them 4px would misalign this variant against bar, line, scatter and treemap to satisfy a rule none of them satisfies either.
+- **4px grid** applies to the designed constants — axis positions, gutter edges, state-caption baselines. Endpoint `y` values are data-scaled and exempt; snapping them would move the data. Two inherited constants are also off-grid and stay that way: the legend rule at `y=462` and the `LEGEND`/source baseline at `478`, which every chart type in `assets/` shares. Matching the house rhythm beats matching the grid here — moving them 4px would misalign this variant against bar, line, scatter and treemap to satisfy a rule none of them satisfies either.
 
 #### Colour
 
@@ -93,22 +91,22 @@ Not for: three or more states (that is the **line chart** above, or a bump chart
 
 ```svg
 <!-- State captions: data-axis names the axis, data-state binds the text -->
-<text data-axis="from" data-state="BEFORE" x="320" y="440" fill="#596174" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">BEFORE</text>
-<text data-axis="to" data-state="AFTER" x="680" y="440" fill="#596174" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">AFTER</text>
+<text data-axis="from" data-state="BEFORE" x="320" y="440" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">BEFORE</text>
+<text data-axis="to" data-state="AFTER" x="680" y="440" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">AFTER</text>
 
 <!-- A series: the line declares its two values, and each of its four labels
      declares which series and which end it belongs to -->
 <line data-series="Recommender" data-from="238" data-to="431"
-      x1="320" y1="303.5" x2="680" y2="140.5" stroke="#4F5BD5" stroke-width="2.4"/>
-<circle cx="320" cy="303.5" r="4" fill="#4F5BD5"/>
-<circle cx="680" cy="140.5" r="4" fill="#4F5BD5"/>
-<text data-series="Recommender" data-end="from" data-role="name" x="272" y="307" fill="#22263A" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="end">Recommender</text>
-<text data-series="Recommender" data-end="from" x="304" y="307" fill="#596174" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">238</text>
-<text data-series="Recommender" data-end="to" x="696" y="144" fill="#596174" font-size="9" font-family="'Geist Mono', monospace">431</text>
-<text data-series="Recommender" data-end="to" data-role="name" x="728" y="144" fill="#22263A" font-size="11" font-weight="600" font-family="'Geist', sans-serif">Recommender</text>
+      x1="320" y1="303.5" x2="680" y2="140.5" stroke="#eb6c36" stroke-width="2.4"/>
+<circle cx="320" cy="303.5" r="4" fill="#eb6c36"/>
+<circle cx="680" cy="140.5" r="4" fill="#eb6c36"/>
+<text data-series="Recommender" data-end="from" data-role="name" x="272" y="307" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="end">Recommender</text>
+<text data-series="Recommender" data-end="from" x="304" y="307" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">238</text>
+<text data-series="Recommender" data-end="to" x="696" y="144" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace">431</text>
+<text data-series="Recommender" data-end="to" data-role="name" x="728" y="144" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist', sans-serif">Recommender</text>
 ```
 
-Non-focal series: `stroke="rgba(34,38,58,0.68)"` at `stroke-width="1.2"`, dots `r=3`, names at `font-weight="500"`.
+Non-focal series: `stroke="rgba(45,49,66,0.68)"` at `stroke-width="1.2"`, dots `r=3`, names at `font-weight="500"`.
 
 What each binding buys, and what it costs to omit:
 
@@ -181,14 +179,14 @@ The slopegraph's colour section holds here unchanged, with one addition for the 
 The binding contract is the slopegraph's, applied to areas: the outline declares its bins and its baseline, and every visible string is bound to what it describes.
 
 ```svg
-<line data-ridge="checkout-api" data-role="baseline" x1="320" y1="320" x2="680" y2="320" stroke="rgba(34,38,58,0.25)" stroke-width="1"/>
-<path data-ridge="checkout-api" data-baseline="320" data-bins="0,1,6,17,21,14,8,6,7,9,7,4,0" d="M320,320 L350,317.6 L380,305.6 L410,279.2 L440,269.6 L470,286.4 L500,300.8 L530,305.6 L560,303.2 L590,298.4 L620,303.2 L650,310.4 L680,320 Z" fill="rgba(79,91,213,0.16)" stroke="#4F5BD5" stroke-width="2.4" stroke-linejoin="round"/>
-<text data-ridge="checkout-api" data-role="name" x="304" y="323.5" fill="#22263A" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="end">checkout-api</text>
-<text data-ridge="checkout-api" data-role="range" x="696" y="323.5" fill="#596174" font-size="9" font-family="'Geist Mono', monospace">40–440 ms</text>
-<text data-tick="2" data-bin="240" x="500" y="400" fill="#596174" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">240</text>
+<line data-ridge="checkout-api" data-role="baseline" x1="320" y1="320" x2="680" y2="320" stroke="rgba(45,49,66,0.25)" stroke-width="1"/>
+<path data-ridge="checkout-api" data-baseline="320" data-bins="0,1,6,17,21,14,8,6,7,9,7,4,0" d="M320,320 L350,317.6 L380,305.6 L410,279.2 L440,269.6 L470,286.4 L500,300.8 L530,305.6 L560,303.2 L590,298.4 L620,303.2 L650,310.4 L680,320 Z" fill="rgba(235,108,54,0.16)" stroke="#eb6c36" stroke-width="2.4" stroke-linejoin="round"/>
+<text data-ridge="checkout-api" data-role="name" x="304" y="323.5" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="end">checkout-api</text>
+<text data-ridge="checkout-api" data-role="range" x="696" y="323.5" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace">40–440 ms</text>
+<text data-tick="2" data-bin="240" x="500" y="400" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">240</text>
 ```
 
-`data-bins` is the basis of every geometric check, and it is this contract's own vocabulary: the slopegraph above binds `data-series` on a `<line>`, this variant binds `data-bins` on a `<path>`, and neither gate reads the other's attribute, so neither claims the other's file. Any further Line variant should take its own attribute for the same reason — a shared name means two checkers holding one figure to two contracts, and the one that loses rejects it for lacking elements it never said it had. `data-baseline` is what makes a moved row detectable; without it the checker would have to infer the zero from the drawing, which is the very thing being falsified. The printed range is cross-checked against the first and last nonzero bin through the figure's own tick scale, so a range widened by a word is a finding. `../../../skills/draw-diagram/scripts/verify-ridgeline.py` covers the amplitude, the pitch, the baseline rules, the shared bins, the segment grammar, the overlap ceiling, the focus pairing and every label binding; the upstream ridgeline verifier regression suite proves each check in both polarities and pins the scope treaty with the sibling gates.
+`data-bins` is the basis of every geometric check, and it is this contract's own vocabulary: the slopegraph above binds `data-series` on a `<line>`, this variant binds `data-bins` on a `<path>`, and neither gate reads the other's attribute, so neither claims the other's file. Any further Line variant should take its own attribute for the same reason — a shared name means two checkers holding one figure to two contracts, and the one that loses rejects it for lacking elements it never said it had. `data-baseline` is what makes a moved row detectable; without it the checker would have to infer the zero from the drawing, which is the very thing being falsified. The printed range is cross-checked against the first and last nonzero bin through the figure's own tick scale, so a range widened by a word is a finding. `../../../skills/draw-diagram/scripts/verify-ridgeline.py` covers the amplitude, the pitch, the baseline rules, the shared bins, the segment grammar, the overlap ceiling, the focus pairing and every label binding; `scripts/test-verify-ridgeline.py` proves each check in both polarities and pins the scope treaty with the sibling gates.
 
 **No `transform` on any of it**, for the reason the slopegraph section gives: the checker reads raw coordinates, so a transform on an outline, a baseline rule, a bound label, an ancestor `<g>` or a CSS rule moves the rendered mark away from the bin that was verified. The rotated amplitude caption is fine — it is neither verified geometry nor a bound label.
 
@@ -204,7 +202,3 @@ The binding contract is the slopegraph's, applied to areas: the outline declares
 - A legend that says "darker is faster", which is false on one of the two skins.
 - Fewer than 3 ridges (that is a histogram or a pair of small multiples) or more than 12.
 - Reading traffic off ridge height, or shipping a figure whose source line lets a reader do so.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-line.html`

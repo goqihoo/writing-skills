@@ -1,7 +1,5 @@
 # Dependency Graph
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** what depends on what, across packages, modules, or services — specifically to show two things a **tree** cannot structurally express: (a) a node with **more than one parent** (a shared dependency that several things converge on), and (b) a **cycle**. If neither appears in the data — every node has exactly one parent and nothing points backward — use [Tree](type-tree.md) instead; say so explicitly rather than forcing a graph layout on tree-shaped data.
 
 ## Layout conventions
@@ -38,7 +36,3 @@ Over budget: collapse a leaf cluster into one aggregate node labelled with its c
 - Unlabelled external dependencies — version or registry belongs in the Geist Mono sublabel (`v3.23 · npm`), not left implicit.
 - Highlighting more than one cycle in a single diagram — pick the one that matters editorially; a second cycle competes with the first and neither reads.
 - Omitting the fan-in badges — without them the reader can't see at a glance where dependencies concentrate, which is the entire reason this type exists over a plain tree.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-dependency.html`

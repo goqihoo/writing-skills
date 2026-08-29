@@ -1,7 +1,5 @@
 # Database Schema
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** the *physical* schema — real tables, real SQL types, real constraints, real indexes, and foreign keys that connect one column to another column. It's the DDL made legible: migrations, review of a real database, and anything where the column type or the `ON DELETE` behavior is the point.
 
 **Not for domain modeling.** [ER / data model](type-er.md) is entity-level: relationship lines join *boxes* and carry cardinality, fields are a plain list, and it's the right tool for a conceptual or domain conversation. Database schema is column-level: the FK connector anchors to the specific column row on both ends — the one capability ER doesn't have, and the reason this type exists. If you're discussing what an Order *is*, use ER. If you're discussing what happens when a row is deleted, use this.
@@ -17,7 +15,7 @@
 
 ### Foreign-key connectors — the defining rule
 
-Each FK edge starts at the **vertical centre of its source column row** and ends at the **vertical centre of the referenced column row**, routed with orthogonal rounded elbows (see ../svg-guide.md `Connector grammar` and [type-architecture.md](type-architecture.md) for the elbow formula and bridge/hop primitive). Label each edge in Geist Mono 8px with its referential action — `ON DELETE CASCADE`, `ON DELETE RESTRICT`, `ON DELETE SET NULL` — masked with the standard 6–10px gap. Fixed 24px row height guarantees ≥12px separation only when two FKs attach to *different* rows on the same table edge — the row spacing itself is the fan. When two or more FKs attach to the *same* row on the same edge (e.g. two child tables both referencing the same parent's primary key), anchoring all of them at the exact row centre would collide at a single point, which ../svg-guide.md `Connector grammar` rule 4 forbids. Offset each attach point symmetrically around the row's vertical centre instead — ±8px for two edges, keeping every point inside the row's 24px band and ≥12px from its neighbor — so each connector still reads as attaching to that row while remaining independently traceable.
+Each FK edge starts at the **vertical centre of its source column row** and ends at the **vertical centre of the referenced column row**, routed with orthogonal rounded elbows (see SKILL.md §6 and [type-architecture.md](type-architecture.md) for the elbow formula and bridge/hop primitive). Label each edge in Geist Mono 8px with its referential action — `ON DELETE CASCADE`, `ON DELETE RESTRICT`, `ON DELETE SET NULL` — masked with the standard 6–10px gap. Fixed 24px row height guarantees ≥12px separation only when two FKs attach to *different* rows on the same table edge — the row spacing itself is the fan. When two or more FKs attach to the *same* row on the same edge (e.g. two child tables both referencing the same parent's primary key), anchoring all of them at the exact row centre would collide at a single point, which SKILL.md §6 rule 4 forbids. Offset each attach point symmetrically around the row's vertical centre instead — ±8px for two edges, keeping every point inside the row's 24px band and ≥12px from its neighbor — so each connector still reads as attaching to that row while remaining independently traceable.
 
 ### Schema grouping
 
@@ -42,7 +40,3 @@ Max 5 tables, max 8 column rows shown per table, max 6 FK edges, max 2 accent el
 - Constraint chips on every row until the chips are the noise.
 - Index compartments listing every index rather than the ones that matter to the story.
 - Mixing conceptual entity names with physical table names in one diagram.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-db-schema.html`

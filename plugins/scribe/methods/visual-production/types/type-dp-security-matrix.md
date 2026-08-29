@@ -1,7 +1,5 @@
 # DP security matrix
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** documenting per-role / per-component access permissions for a data platform — a grid where each row is a platform component (Keycloak, MinIO bucket, Trino catalog, JupyterHub, NiFi, …) and each column is a role / AD group (Data Administrators, Data Engineers, Data Scientists, Data Consumers, …). Each intersection cell holds a permission value (Admin / Full / R/W / Read / SELECT / Login / No access) with a visual category that matches the permission level. One cell may be marked focal to flag a critical access rule (e.g., "Data Consumers can ONLY `SELECT` from the aggregated catalog — sole consumer access").
 
 Use when stakeholders need to audit *who can do what* across the platform. Prefer **DP integration** when the question is *who can talk to what* (topology/protocol) rather than *who can write/read what* (permissions).
@@ -209,7 +207,7 @@ Tints the **column banner only** (top row). Cells underneath keep their `level` 
 | Banner fill | `C` |
 | Role name + code text | `#FFFFFF` if `C` is dark (luminance ≤ 0.5), else `ink` |
 
-If you pick a mid-luminance hex (e.g., yellow `#B95D18`), the text auto-flips to ink for contrast. Pair `roles[j].text_color: "#hex"` to override this auto-pick.
+If you pick a mid-luminance hex (e.g., yellow `#c9a23a`), the text auto-flips to ink for contrast. Pair `roles[j].text_color: "#hex"` to override this auto-pick.
 
 ### 4.4 Rules
 
@@ -220,11 +218,11 @@ If you pick a mid-luminance hex (e.g., yellow `#B95D18`), the text auto-flips to
 
 ### 4.5 Recommended palette (same as the other parametric types)
 
-- `#D43E26` rust-red — Security elevation / break-glass / SoX-flagged
-- `#4F5BD5` slate-blue — Quality / monitoring / observability gate
-- `#007A59` olive-green — Approved / governance-cleared / publication-ready
-- `#B95D18` warm yellow — Working / sandbox / data-scientist zone
-- `#B95D18` warm-brown — Archive / cold / DR
+- `#b85450` rust-red — Security elevation / break-glass / SoX-flagged
+- `#5a7d9a` slate-blue — Quality / monitoring / observability gate
+- `#7a8c47` olive-green — Approved / governance-cleared / publication-ready
+- `#c9a23a` warm yellow — Working / sandbox / data-scientist zone
+- `#8c6d3f` warm-brown — Archive / cold / DR
 
 ---
 
@@ -290,88 +288,3 @@ Before emitting SVG, verify **every** item:
 - **Using the matrix to document *how* permissions are granted** — that belongs in a process or sequence diagram. The matrix shows *what* each role can do, not the grant flow.
 
 ---
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-dp-security-matrix.html`
-
-## 10. Worked YAML — full inputs for `example-dp-security-matrix.html`
-
-The complete inputs that map to the shipped canonical example. Every coordinate in that SVG is derivable from §2 applied to these inputs.
-
-```yaml
-title:    "Platform Access Matrix"
-subtitle: "Four canonical groups × platform components"
-
-roles:
-  - { name: "Data Administrators", code: "DL-DataAdmins"      }
-  - { name: "Data Engineers",      code: "DL-DataEngineers"   }
-  - { name: "Data Scientists",     code: "DL-DataScientists"  }
-  - { name: "Data Consumers",      code: "DL-DataConsumers"   }
-
-components:
-  - { name: "Keycloak",                          hint: "SSO" }
-  - { name: "MinIO · raw bucket" }
-  - { name: "MinIO · anon · staging · agg" }
-  - { name: "Trino · raw catalog" }
-  - { name: "Trino · anon-staging" }
-  - { name: "Trino · aggregated" }
-  - { name: "JupyterHub" }
-  - { name: "NiFi" }
-
-cells:
-  # Row 0 — Keycloak
-  - { row: 0, col: 0, value: "Admin", level: "full" }
-  - { row: 0, col: 1, value: "Login", level: "read" }
-  - { row: 0, col: 2, value: "Login", level: "read" }
-  - { row: 0, col: 3, value: "Login", level: "read" }
-  # Row 1 — MinIO raw
-  - { row: 1, col: 0, value: "Full", level: "full" }
-  - { row: 1, col: 1, value: "R/W",  level: "rw"   }
-  - { row: 1, col: 2, value: "No access", level: "none" }
-  - { row: 1, col: 3, value: "No access", level: "none" }
-  # Row 2 — MinIO anon/staging/agg
-  - { row: 2, col: 0, value: "Full", level: "full" }
-  - { row: 2, col: 1, value: "R/W",  level: "rw"   }
-  - { row: 2, col: 2, value: "Read", level: "read" }
-  - { row: 2, col: 3, value: "No access", level: "none" }
-  # Row 3 — Trino raw catalog
-  - { row: 3, col: 0, value: "Full", level: "full" }
-  - { row: 3, col: 1, value: "R/W",  level: "rw"   }
-  - { row: 3, col: 2, value: "No access", level: "none" }
-  - { row: 3, col: 3, value: "No access", level: "none" }
-  # Row 4 — Trino anon-staging
-  - { row: 4, col: 0, value: "Full",   level: "full" }
-  - { row: 4, col: 1, value: "R/W",    level: "rw"   }
-  - { row: 4, col: 2, value: "SELECT", level: "read" }
-  - { row: 4, col: 3, value: "No access", level: "none" }
-  # Row 5 — Trino aggregated (focal cell at col 3)
-  - { row: 5, col: 0, value: "Full",        level: "full" }
-  - { row: 5, col: 1, value: "R/W",         level: "rw"   }
-  - { row: 5, col: 2, value: "SELECT",      level: "read" }
-  - { row: 5, col: 3, value: "SELECT only", sub: "sole consumer access", focal: true }
-  # Row 6 — JupyterHub
-  - { row: 6, col: 0, value: "Admin", level: "full" }
-  - { row: 6, col: 1, value: "R/W",   level: "rw"   }
-  - { row: 6, col: 2, value: "R/W",   level: "rw"   }
-  - { row: 6, col: 3, value: "No access", level: "none" }
-  # Row 7 — NiFi
-  - { row: 7, col: 0, value: "Admin", level: "full" }
-  - { row: 7, col: 1, value: "R/W",   level: "rw"   }
-  - { row: 7, col: 2, value: "Read",  level: "read" }
-  - { row: 7, col: 3, value: "No access", level: "none" }
-
-dark: false
-```
-
-### 10.1 What this YAML proves
-
-Run §2 with these inputs:
-- `n_roles = 4`, `n_components = 8`, no color overrides, one focal cell.
-- `viewBox_w = 12 + 208 + 12 + 4·148 + 3·16 + 48 = 920` ✓
-- `row_y(k)` produces `140, 180, 220, 260, 300, 340, 380, 420` ✓
-- `rows_bottom = 420 + 36 = 456`; `legend_y_top = 476`; `viewBox_h = 520` ✓
-- `role_col_x(j) = [232, 396, 560, 724]` ✓
-- Focal cell at `(row=5, col=3)` → rect `(724, 340, 148, 36)` with accent stroke 1.4 ✓
-
-A fresh generation from this YAML produces a diagram visually indistinguishable from the shipped `example-dp-security-matrix.html`.

@@ -1,7 +1,5 @@
 # Layer Stack
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** OSI model, CSS cascade, context hierarchy, tech stack, abstraction layers, memory hierarchy.
 
 ## Layout conventions
@@ -11,17 +9,13 @@
   1. **Index tag** on the far left (`L3`, `07`, `APPLICATION`) — Geist Mono 8–9px eyebrow.
   2. **Layer name** slightly right of center-left — Geist 14–16px 600.
   3. **Sublabel / note** on the far right — Geist Mono 9–10px muted.
-- Border between layers: 1px hairline `rgba(34,38,58,0.12)`. Outer silhouette 1px ink or muted.
+- Border between layers: 1px hairline `rgba(45,49,66,0.12)`. Outer silhouette 1px ink or muted.
 - Fills: either alternating subtle shades (paper / paper-2) OR all paper with hairline dividers. Pick one and hold it.
 - Direction indicator on the LEFT margin (outside the stack): small up/down arrow + Geist Mono label (`abstraction ↑`, `packets ↓`).
-- accent on **one** focal layer (stroke + subtle tint fill) — the bottleneck, the pay-rent layer, the one under discussion.
+- Coral on **one** focal layer (stroke + subtle tint fill) — the bottleneck, the pay-rent layer, the one under discussion.
 
 ## Anti-patterns
 - Layers that aren't actually hierarchical (use swimlane or architecture).
 - Skipped numbering (missing L4 between L3 and L5 without explanation).
 - Every layer a different color — hierarchy invisible.
 - Inconsistent layer heights without reason.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-layers.html`

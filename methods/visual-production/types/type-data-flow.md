@@ -1,7 +1,5 @@
 # Data Flow
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** visualising how data moves through a pipeline *across organisational roles* — who initiates, who processes, who publishes, and who consumes. The canonical use case is a multi-role data platform (Admin → Engineers → Scientists → Consumers) with 4–6 process steps. Use when the reader needs to understand **who does what at each stage**, not just the technical components.
 
 Prefer standard **Swimlane** for cross-functional business processes (HR approvals, support tickets). Use **Data flow** when the subject is a data pipeline with typed payloads (raw files, tables, reports) and role-scoped access boundaries.
@@ -29,7 +27,7 @@ steps:                              # 1..6 columns (left to right)
 nodes:                              # explicit per-cell entries; empty cells render nothing
   - { lane: "ADM", step: 0, title: "Project Setup",   sub: "create · assign roles",     tool: "Platform console" }
   - { lane: "ADM", step: 1, title: "Access Control",  sub: "bucket policies · LDAP",    tool: "MinIO · LDAP console",
-      color: "#D43E26" }            # tinted rust-red to flag governance/identity concern
+      color: "#b85450" }            # tinted rust-red to flag governance/identity concern
   - { lane: "ENG", step: 0, title: "Source Ingest",   sub: "ext. sources → raw",        tool: "NiFi · API · SFTP",
       chips: {in: "WB", out: "DB"} }                    # web payload in, dataset out
   - { lane: "ENG", step: 1, title: "Raw Store",       sub: "raw landing zones",         tool: "MinIO raw",
@@ -217,7 +215,7 @@ Applied to:
 | Data-type chips | **unchanged** | **unchanged** |
 | Arrows touching this node | **unchanged** — topology-driven | **unchanged** |
 
-`C_light` = the same hex lightened ~15% for dark-mode contrast (e.g., `#D43E26` → `#D43E26`).
+`C_light` = the same hex lightened ~15% for dark-mode contrast (e.g., `#b85450` → `#d97a78`).
 
 ### 4.2 Per-step `color`
 
@@ -238,10 +236,10 @@ Replaces the lane stripe tint with `rgba(C, 0.04)` (only for odd-indexed lanes t
 
 Same palette as high-level / dp-integration so a reader scanning multiple diagrams sees the same colors meaning the same thing:
 
-- `#D43E26` rust-red — Security / Identity / Governance (admin nodes, LDAP, access control)
-- `#4F5BD5` slate-blue — Observability / Quality (monitoring, data-quality gates, lineage)
-- `#007A59` olive-green — Governance / Lineage (catalog, metadata)
-- `#B95D18` warm-brown — Backup / DR / Archive
+- `#b85450` rust-red — Security / Identity / Governance (admin nodes, LDAP, access control)
+- `#5a7d9a` slate-blue — Observability / Quality (monitoring, data-quality gates, lineage)
+- `#7a8c47` olive-green — Governance / Lineage (catalog, metadata)
+- `#8c6d3f` warm-brown — Backup / DR / Archive
 
 ---
 
@@ -312,11 +310,11 @@ Either chip may be omitted (e.g., a sink node has only an input chip; a source-o
 
 | Code | Color | Meaning |
 |------|-------|---------|
-| `WB` | `#B95D18` (mauve) | Web / Public data |
-| `DB` | `#007A59` (steel-blue) | Dataset / Raw file |
-| `TB` | `#8240C9` (amber) | Table / Analysis-ready |
-| `FL` | `#D43E26` (sienna) | File / Report / Export |
-| `LS` | `#007A59` (forest) | Live stream / Event |
+| `WB` | `#6e6479` (mauve) | Web / Public data |
+| `DB` | `#5e7a9b` (steel-blue) | Dataset / Raw file |
+| `TB` | `#b8915a` (amber) | Table / Analysis-ready |
+| `FL` | `#9c6b50` (sienna) | File / Report / Export |
+| `LS` | `#4a7c59` (forest) | Live stream / Event |
 
 Text inside chip: white, `eyebrow` role at 5px, weight 700.
 
@@ -365,7 +363,3 @@ Above 4 lanes or 6 steps: split into two diagrams (e.g., ingestion pipeline / an
 - **Lane tints over-applied** — a tint on every lane reads as decoration, not signal. Apply to ≤1 lane.
 
 ---
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-data-flow.html`

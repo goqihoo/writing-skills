@@ -1,7 +1,5 @@
 # Radar / Spider
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** comparing 3–5 entities across 3–5 quantitative criteria on a single normalized 0–N scale. Capability matrices, product or backend evaluations, framework/team scorecards. Where a comparison table starts running out of horizontal room, radar makes the shape of each option legible at a glance.
 
 ## Layout conventions
@@ -14,7 +12,7 @@
 - **Series polygon:** stroke 1.5px at the series color, fill the same color at `0.18` opacity (`0.22` in dark). Stroke 1.8px on the focal series — a subtle weight bump.
 - **Vertex dots:** **only on the focal series**, `r=4` filled with the series color. Non-focal series are stroke-and-fill only. This is the load-bearing rule that keeps the chart readable at 4–5 series.
 - **Drawing order:** dots-pattern bg → grid rings → axis spokes → axis labels → scale ticks → non-focal series (smallest area first) → focal series → focal vertex dots → legend.
-- **Legend:** horizontal strip at the bottom (per the global rule). Swatch is a 16×8 rectangle (matches the polygon stroke+fill, not a circle), then the entity name. ~140px between entries. Optional italic tail on the right with the rationale (`"One accent. Position is the signal — color reserved for the recommended option."`).
+- **Legend:** horizontal strip at the bottom (per the global rule). Swatch is a 16×8 rectangle (matches the polygon stroke+fill, not a circle), then the entity name. ~140px between entries. Optional italic tail on the right with the rationale (`"One coral. Position is the signal — color reserved for the recommended option."`).
 
 ## Math
 
@@ -46,23 +44,23 @@ Series `[9, 8, 9, 9, 9]` on a 0–10 scale becomes:
 
 ```svg
 <polygon points="500,96 622,201 585,356 415,356 363,196"
-         fill="rgba(79,91,213,0.18)" stroke="#4F5BD5" stroke-width="1.8"/>
+         fill="rgba(235,108,54,0.18)" stroke="#eb6c36" stroke-width="1.8"/>
 ```
 
 Each vertex: `center + (v/10) · (outer_i − center)`, rounded to the nearest pixel.
 
 ## Series palette
 
-The profile's conditional-focus rule still holds: `accent` is reserved for a source-identified focal series, and the Scribe Plotly palette (`series-1` through `series-5`, defined in [`../style-guide.md`](../style-guide.md)) covers peer series. Don't reach for free-form colors.
+The skill's "1-focal" rule still holds: `accent` is reserved for the focal series, and a small editorial palette (`series-1` through `series-5`, defined in [`style-guide.md`](../style-guide.md)) covers the non-focal series. Don't reach for free-form colors.
 
 | Slot | Token | Light | Dark |
 |---|---|---|---|
-| Focal | `accent` | `#4F5BD5` | `#4F5BD5` |
-| 1 | `series-1` (sage) | `#4F5BD5` | `#007A59` |
-| 2 | `series-2` (dusty-blue) | `#007A59` | `#4F5BD5` |
-| 3 | `series-3` (mustard) | `#8240C9` | `#B95D18` |
-| 4 | `series-4` (rust-brown) | `#D43E26` | `#D43E26` |
-| 5 | `series-5` (slate) | `#B95D18` | `#8240C9` |
+| Focal | `accent` | `#eb6c36` | `#f08a59` |
+| 1 | `series-1` (sage) | `#7c8f6f` | `#9caf8f` |
+| 2 | `series-2` (dusty-blue) | `#5e7a9b` | `#82a0c0` |
+| 3 | `series-3` (mustard) | `#b8915a` | `#d3ad7a` |
+| 4 | `series-4` (rust-brown) | `#9c6b50` | `#b88670` |
+| 5 | `series-5` (slate) | `#6e6479` | `#8d8298` |
 
 ## Anti-patterns
 
@@ -74,7 +72,3 @@ The profile's conditional-focus rule still holds: `accent` is reserved for a sou
 - **Non-quantitative axes.** All axes must be measurable on the same normalized scale. "Speed" + "color" + "year" mixes don't belong on a radar.
 - **Mono-font axis labels.** Names go in Geist sans (the global rule). Mono is for technical sublabels only.
 - **Rainbow palette.** Even with the new `series-*` tokens, you don't need all 5 in one chart — use only as many as you have non-focal entities.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-radar.html`

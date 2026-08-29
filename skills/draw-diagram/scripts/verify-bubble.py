@@ -84,8 +84,9 @@ import re
 import sys
 from pathlib import Path
 
+from theme_tokens import DEFAULT_THEME, theme_color
+
 SKILL_DIR = Path(__file__).resolve().parent.parent
-PACKAGE_ROOT = SKILL_DIR.parents[1]
 ASSET_DIR = SKILL_DIR / "assets/examples"
 
 CIRCLE_RE = re.compile(r"<circle\b(?P<attrs>[^>]*?)/?>", re.IGNORECASE)
@@ -115,14 +116,6 @@ ATTR_RE = re.compile(
     re.DOTALL,
 )
 DECLARES_BUBBLE_RE = re.compile(r"\bdata-size\s*=", re.IGNORECASE)
-
-# The accent stroke on either skin, hex or rgba. The focal count keys on the
-# STROKE because the fill is a translucent tint the paper shows through; the
-# stroke is the mark's edge and the thing a reader identifies the accent by.
-ACCENT_RE = re.compile(
-    r"#4F5BD5\b|#f08a59\b|rgba\(\s*235\s*,\s*108\s*,\s*54\b|rgba\(\s*240\s*,\s*138\s*,\s*89\b",
-    re.IGNORECASE,
-)
 
 # Coordinates ship rounded to one decimal, so an honest point sits within
 # 0.05px of true; whole-pixel rounding sits within 0.5px. 1.0px clears both
@@ -311,7 +304,7 @@ def transformed_spans(source: str) -> list:
     return spans
 
 
-def parse_bubbles(source: str, findings: list, name: str) -> list:
+def parse_bubbles(source: str, findings: list, name: str, accent_color: str) -> list:
     """Bubble circles, with anything unparseable reported rather than dropped."""
     bubbles = []
     for match in CIRCLE_RE.finditer(source):
@@ -374,7 +367,7 @@ def parse_bubbles(source: str, findings: list, name: str) -> list:
                 % (name, line_of(source, match.start()), label, parsed[5])
             )
             continue
-        accent = bool(ACCENT_RE.search(attrs.get("stroke", "")))
+        accent = attrs.get("stroke", "").strip().casefold() == accent_color.casefold()
         bubbles.append(Bubble(label, parsed[0], parsed[1], parsed[2], parsed[3],
                               parsed[4], parsed[5], accent, match.start()))
     return bubbles
@@ -674,11 +667,13 @@ def check_ticks(x_fit, y_fit, source: str, findings: list, name: str) -> None:
                 )
 
 
-def check_source(path: Path, raw: str) -> list:
+def check_source(path: Path, raw: str, accent_color: str | None = None) -> list:
     """Findings for one already-read document."""
+    if accent_color is None:
+        accent_color = theme_color(DEFAULT_THEME, "accent")
     source = blank_comments(raw)
     findings: list = []
-    bubbles = parse_bubbles(source, findings, path.name)
+    bubbles = parse_bubbles(source, findings, path.name, accent_color)
 
     if len(bubbles) < 4:
         findings.append(
@@ -723,9 +718,18 @@ def main() -> int:
         "--all", action="store_true",
         help="check every shipped example that presents as a bubble chart",
     )
+    parser.add_argument(
+        "--theme", type=Path, default=DEFAULT_THEME,
+        help="path to a Diagram Design theme (default: Scribe Plotly)",
+    )
     args = parser.parse_args()
     if not args.all and not args.paths:
         parser.print_help()
+        return 2
+    try:
+        accent_color = theme_color(args.theme, "accent")
+    except ValueError as error:
+        print("error: %s" % error, file=sys.stderr)
         return 2
 
     findings: list = []
@@ -746,7 +750,7 @@ def main() -> int:
         if not looks_like_bubble(path, raw):
             skipped += 1
             continue
-        findings.extend(check_source(path, raw))
+        findings.extend(check_source(path, raw, accent_color))
         checked += 1
 
     for finding in findings:

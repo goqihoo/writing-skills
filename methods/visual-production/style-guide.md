@@ -1,73 +1,73 @@
-# Diagram Design profile
+# Diagram Design style interface
 
 Use Diagram Design as four layers:
 
 1. Diagram semantics select the visual type and preserve the meaning of nodes, boundaries, relationships, and quantitative encodings.
 2. Composition applies the selected type's hierarchy, direction, routing, alignment, density, and whitespace rules.
-3. Components define shapes, typography, spacing, border weight, labels, icons, and connector forms.
-4. The color theme binds canvas, surface, text, border, connector, status, and category tokens.
+3. Components define shapes, typography roles, spacing, border weight, labels, icons, and connector forms.
+4. A selected theme binds those semantic roles to colors and font families.
 
-The type references and this profile own the first three layers. Use the Scribe Plotly theme below for the fourth. A theme change may rebind only color tokens; preserve visual type, composition, component geometry, typography roles, label treatment, and emphasis meaning.
+The type references and this interface own the first three layers. A theme may rebind semantic color tokens and font-family tokens; it must not change the visual type, composition, component geometry, typography roles or sizes, label geometry, or emphasis meaning.
 
-## Scribe Plotly theme
+## Theme selection
 
-Use semantic roles in instructions and generated source. The hex values below are the only bundled light-theme values.
+Resolve one theme before drawing, in this order:
 
-The bundled Scribe theme is light only. Treat dark-mode subsections retained in an adapted type reference as dormant composition notes; do not render a dark variant until an explicit Scribe dark token set exists. Never restore the upstream palette to satisfy a dark-mode example.
+1. an explicit user-supplied theme or token set;
+2. the consuming artifact's or project's established theme or design system;
+3. the bundled [Scribe Plotly theme](themes/scribe-plotly.md).
 
-| Role | Value | Use |
-|---|---:|---|
-| `paper` | `#FFFFFF` | Canvas and label masks |
-| `paper-2` | `#F5F6FB` | Grouping containers and secondary surfaces |
-| `object` | `#FFFFFF` | Ordinary nodes and foreground panels |
-| `ink` | `#22263A` | Primary text and strong strokes |
-| `muted` | `#596174` | Secondary text and ordinary relationships |
-| `soft` | `#6F788C` | Sublabels, boundary labels, and tertiary strokes |
-| `rule` | `#DCE1EA` | Guides, grids, and hairlines |
-| `rule-solid` | `#CBD2DF` | Group borders and stronger separators |
-| `object-border` | `#C3CBD9` | Ordinary object borders |
-| `deemphasized-border` | `#A6AFBF` | Supporting objects and groups |
-| `accent` | `#4F5BD5` | Source-identified focus; zero by default |
-| `accent-tint` | `#E9EBFE` | Soft fill paired with `accent` stroke |
-| `link` | `#007A59` | External or protocol-bearing relationships when distinction matters |
-| `success` | `#007A59` / `#DDF8F0` | Supported success state only |
-| `warning` | `#B95D18` / `#FFF0E4` | Supported warning state only |
-| `failure` | `#D43E26` / `#FDE9E5` | Supported failure or rejection state only |
+Do not interrupt the workflow with a theme question when the first two sources are absent. Scribe Plotly is the bundled default theme, not the only permitted theme.
 
-### Category palette
+Rebind every bundled specimen's semantic visual roles to the resolved theme before using it, including when the resolved theme is the bundled default. Treat specimen literals as a historical snapshot, not as current theme authority.
 
-Use these pairs for peer categories and multi-series encodings. A deep color is the border, stroke, or mark; its matching tint is the surface. Category is not status.
+Map every role used by the selected visual to one coherent theme. Derive missing tints, borders, and muted variants from the selected palette and record the mapping in generated source; do not mix values from two themes. Preserve readable contrast and keep focus, status, and category as separate semantic axes. Render a light or dark variant only when the selected theme supplies a complete token set for it.
 
-| Token | Deep | Tint |
-|---|---:|---:|
-| `category-1` / `series-1` | `#4F5BD5` | `#E9EBFE` |
-| `category-2` / `series-2` | `#007A59` | `#DDF8F0` |
-| `category-3` / `series-3` | `#8240C9` | `#F3E9FE` |
-| `category-4` / `series-4` | `#D43E26` | `#FDE9E5` |
-| `category-5` / `series-5` | `#B95D18` | `#FFF0E4` |
+## Theme interface
 
-Use the palette only when color distinguishes a real category or series. Pair it with a label, shape, position, or line treatment. Keep uncategorized peers neutral.
+A complete theme provides the roles the selected visual uses:
 
-## Emphasis contract
+| Role | Use |
+|---|---|
+| `paper` | Canvas |
+| `paper-2` | Grouping containers and secondary surfaces |
+| `object` | Ordinary nodes and foreground panels |
+| `ink` | Primary text and strong strokes |
+| `muted` | Secondary text and ordinary relationships |
+| `soft` | Sublabels, boundary labels, and tertiary strokes |
+| `rule` | Guides, grids, and hairlines |
+| `rule-solid` | Group borders and stronger separators |
+| `object-border` | Ordinary object borders |
+| `deemphasized-border` | Supporting objects and groups |
+| `accent` / `accent-tint` | Source-identified focus |
+| `link` | External or protocol-bearing relationships |
+| `success` / `success-tint` | Supported success state |
+| `warning` / `warning-tint` | Supported warning state |
+| `failure` / `failure-tint` | Supported failure or rejection state |
+| `category-1..5` / matching tints | Peer categories |
+| `series-1..5` / matching tints | Quantitative series; may alias the matching category pair |
+| `connector-label-surface` | Connector-label background; may be `none` |
+| `boundary-label-surface` | Boundary-label background |
+| `font-title` | Diagram title and display callouts |
+| `font-sans` | Human-readable names and descriptions |
+| `font-mono` | Technical labels, ports, URLs, and types |
 
-Start every diagram with zero focal elements. Use one focal element, or at most two when comparison requires it, only when the source or user establishes focus. A generated template or specimen must not invent an active, selected, primary, risky, or successful state.
+Literal family names and color values retained in adapted Diagram Design type references describe the upstream skin. Resolve them through the selected theme's semantic role rather than treating them as mandatory output values.
 
-When focus is supported, use `accent-tint` fill with `accent` stroke. Do not use a category color as decoration, and do not reinterpret green, orange, or coral as status without source evidence.
+## Typography roles
 
-## Typography
+Preserve these roles and sizes when a theme replaces their font families:
 
-Preserve Diagram Design's typography roles.
+| Role | Size | Weight | Use |
+|---|---:|---:|---|
+| Title | 28 px | 400 | Diagram title only |
+| Node name | 12 px | 600 | Human-readable names |
+| Sublabel | 8–9 px | 400 | Ports, URLs, types, and compact technical data |
+| Eyebrow or tag | 8 px | 500 | Type tags and axes |
+| Connector label | 8 px | 400 | Short relationship labels |
+| Callout | 16 px | 400 italic | Optional editorial aside |
 
-| Role | Family | Size | Weight | Use |
-|---|---|---:|---:|---|
-| Title | Instrument Serif | 28 px | 400 | Diagram title only |
-| Node name | Geist | 12 px | 600 | Human-readable names |
-| Sublabel | Geist Mono | 8–9 px | 400 | Ports, URLs, types, and compact technical data |
-| Eyebrow or tag | Geist Mono | 8 px | 500 | Type tags and axes |
-| Connector label | Geist Mono | 8 px | 400 | Short relationship labels |
-| Callout | Instrument Serif italic | 16 px | 400 | Optional editorial aside |
-
-For Chinese labels, extend Geist with `Noto Sans SC`, `PingFang SC`, or the destination's established CJK sans. Extend Geist Mono with a CJK mono fallback for technical strings. Keep names in sans and reserve mono for genuinely technical content.
+Keep names in `font-sans` and reserve `font-mono` for genuinely technical content. A selected theme must provide suitable CJK fallbacks when labels require them.
 
 ## Stroke, radius, and grid
 
@@ -97,8 +97,6 @@ Use no shadows. Keep every coordinate, width, height, padding, and gap on the 4 
 | Source-identified focal object | `accent-tint` | `accent` |
 
 Give grouping containers and nested objects different surfaces so both levels remain visible. Name every semantic boundary. Do not use a background rectangle merely to decorate a cluster that has no containment meaning.
-
-Use the object name alone when it makes the role clear. Add one short responsibility phrase only when it changes interpretation. Keep sentences and explanatory prose outside nodes.
 
 ## Shape meaning
 

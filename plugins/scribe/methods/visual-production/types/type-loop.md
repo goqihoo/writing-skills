@@ -1,7 +1,5 @@
 # Loop
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** reinforcing cycles, flywheels, feedback loops, and operating loops — anything where the last step feeds the first and a shared hub accumulates state. Use Loop when the reader must see both motions at once: work advances clockwise around the ring, while each pass writes durable state back to one common center.
 
 Prefer **Flowchart** when the path ends, branches toward an outcome, or never truly returns to its first step. Prefer **Cycle** when the center does not accumulate shared state. The dashed write-back spokes are the defining signal here: remove them and the figure is only a circular process.
@@ -100,7 +98,7 @@ A R R 0 0 1 q_end.x q_end.y
 
 The large-arc flag is `0` because adjacent-station gaps are less than 180 degrees; the sweep flag is always `1` for clockwise motion in SVG coordinates. The arrowhead overhang completes the final 1.2px to `q_entry(j)`, landing on the box edge without crossing its stroke. The closing connector from station `N-1` to station 0 uses the identical formula.
 
-Loop's circular ring arcs are a documented type-specific exception to ../svg-guide.md `Connector grammar` rule 1, following the same precedent as Medallion's promotion arcs. A Loop never mixes cubic, straight, or rounded-orthogonal segments into its ring: the six visible gaps must read as pieces of one continuous circle.
+Loop's circular ring arcs are a documented type-specific exception to SKILL.md §6 rule 1, following the same precedent as Medallion's promotion arcs. A Loop never mixes cubic, straight, or rounded-orthogonal segments into its ring: the six visible gaps must read as pieces of one continuous circle.
 
 ### 2.3 Dashed write-back spoke endpoints
 
@@ -160,7 +158,7 @@ The hub is not a seventh process step. It is accumulated state: memory, standard
 
 ## 4. Connector rules (mandatory)
 
-../svg-guide.md `Connector grammar` applies in full except for the two Loop-specific connector primitives: circular ring arcs (§2.2) and straight radial spokes (§2.3). Like Medallion's promotion arcs, these replace §6 rule 1 for this diagram type:
+SKILL.md §6 applies in full except for the two Loop-specific connector primitives: circular ring arcs (§2.2) and straight radial spokes (§2.3). Like Medallion's promotion arcs, these replace §6 rule 1 for this diagram type:
 
 - Ring arrows are same-radius circular arcs, solid, and clockwise. Every path uses `A R R 0 0 1`; destination markers land on station edges and no connector ends at a center point.
 - Spokes are dashed and point inward. A solid spoke destroys the visual distinction between operating flow and write-back.
@@ -217,7 +215,3 @@ The semantic relationship stays unchanged in dark mode: one `ink`-filled hub, on
 | A cycle that never actually returns | That is a Flowchart arranged in a circle. Use Flowchart and show the real endpoint. |
 
 ---
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-loop.html`

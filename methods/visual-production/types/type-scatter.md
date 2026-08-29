@@ -1,7 +1,5 @@
 # Scatter Plot
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** correlation and distribution — two continuous variables plotted against each other. Use when the relationship (or lack of one) between variables is the message, or when you need to identify clusters, outliers, and high/low performers.
 
 ## Layout conventions
@@ -11,19 +9,19 @@
 - **Axes:** X at y=420 (baseline), Y at x=80. Both use Geist Mono 8px gridline labels. Gridlines 4–6 per axis at equal intervals.
 - **Point shape:** `<circle>` r=5 for standard points, r=6 for focal. Focal point in `accent` fill. Others in `muted @ 0.20` fill + `muted` stroke.
 - **Labels on points (optional):** Geist Mono 8px next to a point. Use a paper-fill rect mask behind the label. Label at most 2–3 points; not all.
-- **Trend line (optional):** `<line>` from lower-left to upper-right, stroke `rgba(34,38,58,0.25)` dashed 4,3. Never force a perfect fit — only add if the trend is visually obvious.
+- **Trend line (optional):** `<line>` from lower-left to upper-right, stroke `rgba(45,49,66,0.25)` dashed 4,3. Never force a perfect fit — only add if the trend is visually obvious.
 - **Quadrant dividers (optional):** light dashed lines at the median x and y to split into quadrants. Label each quadrant in Geist Mono 8px, muted.
 
 ### Point pattern
 
 ```svg
 <!-- Non-focal point — paper mask + circle -->
-<circle cx="X" cy="Y" r="5" fill="#FFFFFF"/>
-<circle cx="X" cy="Y" r="5" fill="rgba(89,97,116,0.20)" stroke="#596174" stroke-width="1"/>
+<circle cx="X" cy="Y" r="5" fill="#f5f5f5"/>
+<circle cx="X" cy="Y" r="5" fill="rgba(79,93,117,0.20)" stroke="#4f5d75" stroke-width="1"/>
 
 <!-- Focal point -->
-<circle cx="X" cy="Y" r="6" fill="#FFFFFF"/>
-<circle cx="X" cy="Y" r="6" fill="rgba(79,91,213,0.15)" stroke="#4F5BD5" stroke-width="1.2"/>
+<circle cx="X" cy="Y" r="6" fill="#f5f5f5"/>
+<circle cx="X" cy="Y" r="6" fill="rgba(235,108,54,0.15)" stroke="#eb6c36" stroke-width="1.2"/>
 ```
 
 ## Anti-patterns
@@ -76,16 +74,16 @@ Not for: a third value that is really a category (use the focal accent or facet 
 ```svg
 <!-- A bubble: position from two shared linear scales, area from the size.
      x = 80 + 1.76·ms, y = 420 - 95·pct, r = 1.4·√(req/s) -->
-<circle cx="537.6" cy="154" r="38.6" fill="#FFFFFF"/>
+<circle cx="537.6" cy="154" r="38.6" fill="#f5f5f5"/>
 <circle data-name="Payments" data-x="260" data-y="2.8" data-size="760"
         cx="537.6" cy="154" r="38.6"
-        fill="rgba(79,91,213,0.15)" stroke="#4F5BD5" stroke-width="1.2"/>
+        fill="rgba(235,108,54,0.15)" stroke="#eb6c36" stroke-width="1.2"/>
 
 <!-- Its label, bound to the bubble it names -->
-<text data-name="Payments" data-role="label" x="538" y="108" fill="#22263A" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">PAYMENTS</text>
+<text data-name="Payments" data-role="label" x="538" y="108" fill="#2d3142" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">PAYMENTS</text>
 
 <!-- An axis tick, bound to the number it prints -->
-<text data-tick="x" data-value="300" x="608" y="440" fill="#596174" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">300</text>
+<text data-tick="x" data-value="300" x="608" y="440" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">300</text>
 ```
 
 What each binding buys, and what it costs to omit:
@@ -112,7 +110,3 @@ What each binding buys, and what it costs to omit:
 - A `transform` on a bubble, a bound label, an ancestor group, or in CSS.
 - An unbound visible string: a label or an axis tick with no attribute stating the same thing.
 - Size on a value nobody will read — if the areas do not change the story, this is the parent scatter wearing a costume.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-scatter.html`

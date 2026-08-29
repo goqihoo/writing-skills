@@ -80,8 +80,9 @@ import re
 import sys
 from pathlib import Path
 
+from theme_tokens import DEFAULT_THEME, theme_color
+
 SKILL_DIR = Path(__file__).resolve().parent.parent
-PACKAGE_ROOT = SKILL_DIR.parents[1]
 ASSET_DIR = SKILL_DIR / "assets/examples"
 
 PATH_RE = re.compile(r"<path\b(?P<attrs>[^>]*?)/?>", re.IGNORECASE)
@@ -127,9 +128,6 @@ LABEL_ROW_OFFSET = 3.5       # px, a label baseline below its row, per the refer
 MIN_RIDGES, MAX_RIDGES = 3, 12
 MIN_BINS, MAX_BINS = 8, 40
 FOCAL_WIDTH, PLAIN_WIDTH = 2.4, 1.2
-ACCENTS = {"#4F5BD5", "#f08a59"}   # light and dark skin accent tokens
-
-
 class Ridge:
     __slots__ = ("name", "values", "points", "baseline", "stroke", "width", "offset")
 
@@ -141,11 +139,6 @@ class Ridge:
         self.stroke = stroke
         self.width = width
         self.offset = offset
-
-    @property
-    def focal(self):
-        return self.stroke in ACCENTS
-
 
 def attrs_of(raw: str) -> dict:
     found = {}
@@ -641,9 +634,16 @@ def check_overlap(ridges: list, pitch, findings: list, source: str, name: str) -
             )
 
 
-def check_focus(ridges: list, findings: list, source: str, name: str) -> None:
+def check_focus(
+    ridges: list,
+    findings: list,
+    source: str,
+    name: str,
+    accent_color: str,
+) -> None:
     """Exactly one accent ridge, with stroke weight agreeing with stroke colour."""
-    focal = [r for r in ridges if r.focal]
+    accent = accent_color.casefold()
+    focal = [r for r in ridges if r.stroke.casefold() == accent]
     if len(focal) != 1:
         findings.append(
             "%s: %d ridges carry the accent stroke — the accent marks exactly one "
@@ -651,7 +651,8 @@ def check_focus(ridges: list, findings: list, source: str, name: str) -> None:
             % (name, len(focal))
         )
     for r in ridges:
-        want = FOCAL_WIDTH if r.focal else PLAIN_WIDTH
+        is_focal = r.stroke.casefold() == accent
+        want = FOCAL_WIDTH if is_focal else PLAIN_WIDTH
         if r.width is None or abs(r.width - want) > 1e-9:
             findings.append(
                 "%s:%d: ridge %r has stroke-width=%s but a %s ridge takes %g — weight "
@@ -659,7 +660,7 @@ def check_focus(ridges: list, findings: list, source: str, name: str) -> None:
                 "colour and weight sends the two cues to different ridges"
                 % (name, line_of(source, r.offset), r.name,
                    "%g" % r.width if r.width is not None else "?",
-                   "focal" if r.focal else "non-focal", want)
+                   "focal" if is_focal else "non-focal", want)
             )
 
 
@@ -857,7 +858,9 @@ def check_labels(ridges: list, source: str, findings: list, name: str, scale) ->
                 )
 
 
-def check_source(path: Path, raw: str) -> list:
+def check_source(path: Path, raw: str, accent_color: str | None = None) -> list:
+    if accent_color is None:
+        accent_color = theme_color(DEFAULT_THEME, "accent")
     source = blank_comments(raw)
     findings: list = []
     ridges = parse_ridges(source, findings, path.name)
@@ -897,7 +900,7 @@ def check_source(path: Path, raw: str) -> list:
     pitch = check_baselines(ridges, source, findings, path.name)
     check_amplitude(ridges, findings, source, path.name)
     check_overlap(ridges, pitch, findings, source, path.name)
-    check_focus(ridges, findings, source, path.name)
+    check_focus(ridges, findings, source, path.name, accent_color)
     scale = check_ticks(ridges, source, findings, path.name) if shared else None
     check_labels(ridges, source, findings, path.name, scale)
     return findings
@@ -912,9 +915,18 @@ def main() -> int:
         "--all", action="store_true",
         help="check every shipped example that presents as a ridgeline",
     )
+    parser.add_argument(
+        "--theme", type=Path, default=DEFAULT_THEME,
+        help="path to a Diagram Design theme (default: Scribe Plotly)",
+    )
     args = parser.parse_args()
     if not args.all and not args.paths:
         parser.print_help()
+        return 2
+    try:
+        accent_color = theme_color(args.theme, "accent")
+    except ValueError as error:
+        print("error: %s" % error, file=sys.stderr)
         return 2
 
     if args.all:
@@ -937,7 +949,7 @@ def main() -> int:
         if not looks_like_ridgeline(path, raw):
             skipped += 1
             continue
-        findings.extend(check_source(path, raw))
+        findings.extend(check_source(path, raw, accent_color))
         checked += 1
 
     for finding in findings:

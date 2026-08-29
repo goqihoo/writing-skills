@@ -1,15 +1,13 @@
 # Fishbone / Ishikawa (root-cause)
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** structured root-cause analysis. One observed effect, causes grouped by category, sub-causes hanging off each category. The standard artefact of an incident post-mortem — use it when a reader needs to see *what was investigated*, not just the conclusion.
 
 ## Layout conventions
 
-- **Spine.** A horizontal line (`ink`, 1.2px) runs left→right at the vertical centre `CY`, terminating with an arrowhead into an **effect box** at the right head — the node-box pattern from ../svg-guide.md `Connector grammar`, the observed-effect statement inside.
+- **Spine.** A horizontal line (`ink`, 1.2px) runs left→right at the vertical centre `CY`, terminating with an arrowhead into an **effect box** at the right head — the node-box pattern from SKILL.md §6, the observed-effect statement inside.
 - **Bones.** Category lines are straight diagonals at a fixed **60°** to the spine, alternating above and below, evenly spaced along it. Each bone carries its category name at the outer end in a small tag-style box (`rx=4`, not a pill) — Geist sans 12px weight 600.
 - **Sub-causes.** Short horizontal ticks (32px, `soft`) branch off each bone at fixed points along its length, each with a sub-cause label in Geist Mono 9px sitting past the open end of the tick.
-- **Diagonal exemption.** ../svg-guide.md `Connector grammar` rule 1 (mandatory rounded right-angle elbows) does not apply to the 60° bones — they are this type's defining grammar. The exemption covers **bones and sub-cause ticks only**; any other connector in a fishbone diagram (e.g. a callout leader, a cross-reference arrow) still uses rounded right-angle elbows.
+- **Diagonal exemption.** SKILL.md §6 rule 1 (mandatory rounded right-angle elbows) does not apply to the 60° bones — they are this type's defining grammar. The exemption covers **bones and sub-cause ticks only**; any other connector in a fishbone diagram (e.g. a callout leader, a cross-reference arrow) still uses rounded right-angle elbows.
 - **Focal rule.** Exactly one bone is the confirmed root cause: its line is `accent`, and its category tag uses `accent-tint` fill + `accent` stroke. The effect box is styled the same way (`accent-tint` fill, `accent` stroke) since it's the diagram's headline. That pair — root-cause bone and effect box — is the full 2-accent budget; every other bone, tag, and tick stays `ink` / `muted` / `soft`.
 - **Drawing order:** background → spine → bones → sub-cause ticks → category tag boxes → effect box → legend. Lines before boxes, so box fills cap the line ends cleanly.
 
@@ -69,7 +67,3 @@ The tick itself is a 32px horizontal line from `(tick_x, tick_y)` to `(tick_x - 
 - **Using fishbone for a sequence of failures.** A chain of things that happened in order is a timeline or sequence diagram — fishbone is for causes of *one* effect, not a chronology.
 - **Pasting in the classic 6M template (Man/Machine/Material/Method/Measurement/Environment) with empty categories.** Name categories from the actual investigation, not a generic checklist waiting to be filled in later.
 - **Effect box phrased as a solution.** "Add a p99 alert" is a fix, not an observed effect. The box states what was seen — a symptom, a measurement, an incident — never the remedy.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-fishbone.html`

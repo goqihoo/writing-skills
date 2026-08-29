@@ -1,7 +1,5 @@
 # Sankey / Flow-Quantity
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** showing where a *quantity* goes as it splits and merges across a small number of stages — CI compute budgets, funnel-adjacent volume flows, cost or headcount allocation. This is the one type where band **thickness carries data**; if the reader doesn't need to compare magnitudes, use process or pyramid instead.
 
 ## Layout conventions
@@ -9,7 +7,7 @@
 - **Exactly 3 stage columns**, left → right. No more, no less — above 3 stages, split into two linked diagrams.
 - **Nodes are vertical bars**, `width=12`, solid `ink` fill, no stroke. Height is proportional to the quantity passing through, rounded to the nearest 4px so it stays on-grid — the rounding is a rendering step, not a data change; the true value still prints in the quantity sublabel.
 - **Flows are filled ribbons**, not stroked lines: a single closed `<path>` per flow. Top edge is a cubic Bézier from the source node's top-offset to the target node's top-offset; bottom edge is the same curve run in reverse from target-bottom back to source-bottom. **Both** control points sit at the horizontal midpoint between the two columns, each at the y of the end it belongs to: `C midX,y0 midX,y1 targetX,y1`. That is what makes the band leave and arrive **horizontally**, so it plugs into each bar square-on. Putting the second control on the target's x instead (`C midX,y0 targetX,y1 targetX,y1`) collapses it onto the endpoint, the arrival tangent degenerates, and every ribbon meets its bar at a visible slant — it looks like the band is not attached.
-- **No arrowheads, ever.** Direction is implied by the left-to-right column order. This is a deliberate, explicit exemption from ../svg-guide.md `Connector grammar`'s orthogonal-elbow-and-arrowhead rule: ribbons are area encodings, not connectors, and a marker on a filled band reads as clutter, not information.
+- **No arrowheads, ever.** Direction is implied by the left-to-right column order. This is a deliberate, explicit exemption from SKILL.md §6's orthogonal-elbow-and-arrowhead rule: ribbons are area encodings, not connectors, and a marker on a filled band reads as clutter, not information.
 - **Ribbon fill:** `muted` at `0.18` opacity for ordinary flows. The one editorial focal path (see below) uses `accent` at `0.28` opacity. A focal path may span more than one ribbon segment (e.g. two flows that both feed the same downstream node as halves of one story) — accenting every ribbon that belongs to that single path still counts as **one** focal element, not one per ribbon. Never per-flow rainbow coloring — color is reserved for the one path that deserves attention.
 - **Node ordering minimizes crossings.** Order nodes within each column so that flows converging on (or diverging from) the same node stay in a consistent top-to-bottom sequence across columns. If two ribbons still cross more than once, reorder the nodes — don't let them tangle.
 - **Labels:** node name in Geist sans 12px 600, quantity directly under it in Geist Mono 9px `muted`. Placement is column-specific: column 1 sits outside the bar, `text-anchor="end"`; column 2 sits in the gutter above its bar, `text-anchor="middle"`, **vertically centred in that gutter** rather than flush to the top, or the cap line grazes the bar above; column 3 sits outside the bar, `text-anchor="start"`.
@@ -66,7 +64,3 @@ Over budget → split into two linked Sankeys (e.g. an overview stage-1→stage-
 - **Using Sankey for a plain step sequence.** If nothing splits, merges, or varies in thickness, it's a process diagram — the whole point of Sankey is quantity that branches.
 - **Stacking two flows at the same node-edge offset.** Every flow gets its own offset range within the node's height, in a consistent top-to-bottom order — never two ribbons overlapping at the same attach point.
 - **Percentages or quantities that don't sum to the source total.** Every node's outgoing (or incoming) flows must sum to that node's own height. A Sankey that doesn't balance reads as an error, not a design choice.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-sankey.html`

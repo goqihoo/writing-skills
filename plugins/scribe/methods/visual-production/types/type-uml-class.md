@@ -1,7 +1,5 @@
 # UML Class Diagram
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** the static structure of an object model — classes, what they own, what they inherit, and what they merely depend on. The distinguishing content is the **operations compartment** and the **typed relationship vocabulary** (the arrowheads carry meaning). ER cannot express either — use this type only when operations or the inheritance/composition vocabulary are the point of the diagram, and `type-er.md` when the story is entities and cardinality.
 
 **Other UML diagrams — route elsewhere.** UML is a family; only the class diagram gets its own grammar here:
@@ -23,7 +21,7 @@
   3. **Operations** — one line each, Geist Mono 9px, left-aligned: `+ method(arg): Return`.
   Omit a compartment entirely when a class has no members in it (an interface with no attributes skips that compartment).
 - Attribute/operation lines are a single combined string, not the two-column field/type layout ER uses — that visual distinction keeps the two types from reading the same.
-- accent (accent) is reserved for the class being implemented or extended (the focal type) — accent-tint fill, accent stroke. Its inbound inheritance/realization edges count as **one** additional accent element (treated as a group), for 2 accent elements total per diagram.
+- Coral (accent) is reserved for the class being implemented or extended (the focal type) — accent-tint fill, accent stroke. Its inbound inheritance/realization edges count as **one** additional accent element (treated as a group), for 2 accent elements total per diagram.
 
 ## Relationship vocabulary
 
@@ -42,7 +40,7 @@ Multiplicities (`1`, `0..*`, `1..*`) sit in Geist Mono 8px, 10–12px off the bo
 
 ## Connector rules
 
-All six ../svg-guide.md `Connector grammar` connector rules apply in full — orthogonal rounded elbows (`r=8`), no diagonals, bridge/hop for unavoidable crossings, fanned attach points ≥12px apart when several relationships share an edge, masked labels with the 6–10px gap, connectors drawn before boxes. Prefer laying classes out so relationships resolve to straight lines or single-elbow routes; a class diagram with every edge bridging is over budget — split by package instead.
+All six SKILL.md §6 connector rules apply in full — orthogonal rounded elbows (`r=8`), no diagonals, bridge/hop for unavoidable crossings, fanned attach points ≥12px apart when several relationships share an edge, masked labels with the 6–10px gap, connectors drawn before boxes. Prefer laying classes out so relationships resolve to straight lines or single-elbow routes; a class diagram with every edge bridging is over budget — split by package instead.
 
 ## Complexity budget
 
@@ -59,7 +57,3 @@ Seven is the ceiling rather than the target. Three compartments per box makes a 
 - Drawing a class diagram when there's no inheritance and no operations — that's ER.
 - Stereotype guillemets on everything, not just the interfaces/abstracts that need them.
 - Boxes padded to equal height.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-uml-class.html`

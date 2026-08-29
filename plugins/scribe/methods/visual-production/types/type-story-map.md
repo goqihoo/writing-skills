@@ -1,7 +1,5 @@
 # User Story Map
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** the Jeff Patton user story map — it answers "what is the whole story, and where do we cut the first release?" Narrative order runs left to right; priority runs top to bottom. The **release cut** is the editorial point of the diagram: a map without one is just a backlog in a grid.
 
 This is neither **Kanban** nor **User journey**, and the distinction is load-bearing:
@@ -40,7 +38,3 @@ Exactly 2 accent elements: the release cut line with its `RELEASE CUT` label (co
 - **Mixing two personas in one map.** One map per persona, same as user journey.
 - **Adding state columns.** That turns it into a kanban board — this type has no state.
 - **Adding a sentiment curve.** That turns it into a user journey — this type has no feelings axis.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-story-map.html`

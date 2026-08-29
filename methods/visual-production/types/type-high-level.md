@@ -1,7 +1,5 @@
 # High-Level
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** end-to-end data stack overviews — ingestion → storage → query → analytics → visualization — deployed on a container orchestrator (Kubernetes, ECS, Nomad). Combines a phase chevron banner, deployment boundary, orchestration bar, identity footer, and (optionally) a right-side vertical chevron strip for cross-cutting concerns (Orchestration, Security, Observability).
 
 This type is **parametric**. The diagram is fully determined by a small list of inputs (chevrons, sources, components, connections). The formulas below tell you exactly where every shape lands given those inputs — two generations from the same inputs must produce visually identical SVG.
@@ -20,7 +18,7 @@ chevrons:                       # ordered left → right; reserved names auto-pr
   - { name: "Transformation",       columns: 1 }
   - { name: "Visualization",        columns: 1 }
   - { name: "Orchestration",        vertical: true }                     # reserved → pairs with the bar
-  - { name: "Security",             vertical: true, color: "#D43E26" }   # tinted to match the Identity bar below
+  - { name: "Security",             vertical: true, color: "#b85450" }   # tinted to match the Identity bar below
   - { name: "Observability",        vertical: true }                     # reserved → pairs with crosscut #2
 
 sources:                        # external; rendered in the dashed zone on the left
@@ -36,7 +34,7 @@ components:                     # inside the cluster, plus bars and cross-cuttin
   - { name: "Notebooks",  chevron: "Transformation", kind: node,          icon: jupyter,  role: "ANLZ"  }
   - { name: "Superset",   chevron: "Visualization",  kind: node,          icon: superset, role: "DASH" }
   - { name: "Airflow",    chevron: "Orchestration",  kind: bar,           icon: airflow,    subtitle: "Apache Airflow" }
-  - { name: "Identity",   chevron: "Security",       kind: cross-cutting, icon: keycloak,   subtitle: "Keycloak · LDAP · OIDC",     color: "#D43E26" }
+  - { name: "Identity",   chevron: "Security",       kind: cross-cutting, icon: keycloak,   subtitle: "Keycloak · LDAP · OIDC",     color: "#b85450" }
   - { name: "Monitoring", chevron: "Observability",  kind: cross-cutting, icon: prometheus, subtitle: "Prometheus · Grafana · Loki" }
 
 connections:                    # explicit edges; focal-touching ones become accent automatically
@@ -111,9 +109,9 @@ chevron_cx(C)      = (x_boundaries[index(C)] + x_boundaries[index(C)+1]) / 2
 - Middle: `(x0,4) (x1-12,4) (x1,18) (x1-12,32) (x0,32) (x0+12,18)`
 - Last (rightmost): `(x0,4) (effective_w,4) (effective_w,32) (x0,32) (x0+12,18)`
 
-Fills alternate `#22263A` / `#596174` (light mode) or `#596174` / `#596174` (dark mode). Labels: paper-colored mono `font-size=7`, `letter-spacing=0.14em`, `text-anchor=middle`, centered at `chevron_cx, 21`.
+Fills alternate `#2d3142` / `#3d4460` (light mode) or `#3d4460` / `#4a5270` (dark mode). Labels: paper-colored mono `font-size=7`, `letter-spacing=0.14em`, `text-anchor=middle`, centered at `chevron_cx, 21`.
 
-**Color override** (per chevron, both horizontal and vertical): a chevron may declare an optional `color: "#hex"` that replaces the alternation fill for that one chevron. Use it to flag a phase that pairs with a custom-colored component (e.g., `Security` chevron in red when the Identity bar uses `color: "#D43E26"`). Rules:
+**Color override** (per chevron, both horizontal and vertical): a chevron may declare an optional `color: "#hex"` that replaces the alternation fill for that one chevron. Use it to flag a phase that pairs with a custom-colored component (e.g., `Security` chevron in red when the Identity bar uses `color: "#b85450"`). Rules:
 
 - Override applies to the polygon fill only. The label stays paper-colored — never recolor chevron labels.
 - The alternation index doesn't shift; neighboring chevrons keep their natural fill, even if it produces two adjacent same-fill chevrons. Don't try to "fix" this — overrides should be rare (≤ 2 per diagram).
@@ -129,7 +127,7 @@ sources_w          = x_boundaries[1] - 8           # width of the first chevron,
 sources_h          = 336
 ```
 
-Stroke: `rgba(34,38,58,0.20)`, `stroke-width=0.8`, `stroke-dasharray=6,3`, `rx=6`. Zone fill: `rgba(34,38,58,0.02)`.
+Stroke: `rgba(45,49,66,0.20)`, `stroke-width=0.8`, `stroke-dasharray=6,3`, `rx=6`. Zone fill: `rgba(45,49,66,0.02)`.
 
 ### 2.4 Cluster boundary (solid)
 
@@ -140,7 +138,7 @@ cluster_w          = effective_w - cluster_x       # extends to right strip / ca
 cluster_h          = 336
 ```
 
-Stroke: `rgba(34,38,58,0.18)`, `stroke-width=1.2`, `rx=8`. Fill: `rgba(34,38,58,0.02)`. K8s icon + label at `(cluster_x + 16, 352)` (icon) and `(cluster_x + 40, 362)` (text).
+Stroke: `rgba(45,49,66,0.18)`, `stroke-width=1.2`, `rx=8`. Fill: `rgba(45,49,66,0.02)`. K8s icon + label at `(cluster_x + 16, 352)` (icon) and `(cluster_x + 40, 362)` (text).
 
 ### 2.5 Cross-cutting bars (identity, observability, …)
 
@@ -154,7 +152,7 @@ cross_w            = effective_w - 4               # spans body width, stops at 
 cross_h            = 40
 ```
 
-Stroke: `rgba(34,38,58,0.20)`, `stroke-width=0.8`, `rx=6`. Fill: `rgba(34,38,58,0.05)`. Icon at `(16, cross_y(k) + 10)`, name centered at `(effective_w / 2, cross_y(k) + 22)`, subtitle at `(effective_w / 2, cross_y(k) + 34)`.
+Stroke: `rgba(45,49,66,0.20)`, `stroke-width=0.8`, `rx=6`. Fill: `rgba(45,49,66,0.05)`. Icon at `(16, cross_y(k) + 10)`, name centered at `(effective_w / 2, cross_y(k) + 22)`, subtitle at `(effective_w / 2, cross_y(k) + 34)`.
 
 Reserved cross-cutting *concerns* (informational; user can name the actual bar whatever they want):
 - **Identity / Security** — Keycloak, LDAP/AD, Okta, Auth0, OIDC providers
@@ -174,7 +172,7 @@ bar_w              = cluster_w - 24
 bar_h              = 44
 ```
 
-Stroke: `rgba(34,38,58,0.18)`, `stroke-width=0.8`, `rx=4`. Fill: `rgba(34,38,58,0.05)`. Tool icon at the far right (`bar_x + bar_w - 50, 58`); name centered at `(bar_x + bar_w/2, 71)`; subtitle at `(bar_x + bar_w/2, 84)`.
+Stroke: `rgba(45,49,66,0.18)`, `stroke-width=0.8`, `rx=4`. Fill: `rgba(45,49,66,0.05)`. Tool icon at the far right (`bar_x + bar_w - 50, 58`); name centered at `(bar_x + bar_w/2, 71)`; subtitle at `(bar_x + bar_w/2, 84)`.
 
 ### 2.7 Component nodes (inside cluster)
 
@@ -193,7 +191,7 @@ gap                = 16
 row_top(k)         = first_top_y + k * (node_h + gap)   # k = 0..K-1
 ```
 
-**Focal node:** `fill="rgba(79,91,213,0.08)"`, `stroke="#4F5BD5"`, `stroke-width=1.2`. Title text in accent color. All other nodes: white fill, `stroke=rgba(34,38,58,0.25)`, `stroke-width=1`.
+**Focal node:** `fill="rgba(235,108,54,0.08)"`, `stroke="#eb6c36"`, `stroke-width=1.2`. Title text in accent color. All other nodes: white fill, `stroke=rgba(45,49,66,0.25)`, `stroke-width=1`.
 
 Role badge top-left at `(node_x+8, node_y+6)`, size 12 high. Icon top-right at `(node_x+node_w-32, node_y+6)`, 24×24, monochrome via `currentColor`. Name centered at `(node_cx, node_y+44)` size 11 sans semibold. Subtitle at `(node_cx, node_y+56)` size 8 mono muted.
 
@@ -234,7 +232,7 @@ Adjacent edges share the same y (no gap), like horizontal chevrons share x at th
 - Middle: notch on top, point on bottom — `(strip_x, y0) (strip_x+strip_w/2, y0+12) (strip_x+strip_w, y0) (strip_x+strip_w, y1-12) (strip_x+strip_w/2, y1) (strip_x, y1-12)`
 - Last (bottommost): notch on top, flat bottom — `(strip_x, y0) (strip_x+strip_w/2, y0+12) (strip_x+strip_w, y0) (strip_x+strip_w, y1) (strip_x, y1)`
 
-Fills alternate `#22263A` / `#596174` (same palette as horizontals). Labels: paper-colored mono `font-size=7`, `letter-spacing=0.14em`, **rotated −90°**, anchored at `(strip_x + strip_w/2, (y0+y1)/2)`.
+Fills alternate `#2d3142` / `#3d4460` (same palette as horizontals). Labels: paper-colored mono `font-size=7`, `letter-spacing=0.14em`, **rotated −90°**, anchored at `(strip_x + strip_w/2, (y0+y1)/2)`.
 
 Vertical chevrons honor the per-chevron `color` override documented in §2.2 — apply the hex to the polygon fill, leave the rotated label paper-colored. Pair the override with the same hex on the chevron's paired bar/crosscut to bind them visually as one concern.
 
@@ -246,19 +244,19 @@ These are non-negotiable. Pick the style **automatically** from the topology —
 
 | `style` | Stroke | Width | Dash | Marker | When required |
 |---|---|---|---|---|---|
-| `primary` | `#4F5BD5` | 1.2 | — | `arrow-accent` | Every edge whose endpoint is the `focal` node. |
-| `secondary` | `#596174` | 1.0 | — | `arrow` | Default for source→component and component→component when neither endpoint is focal. |
-| `trigger` | `#596174` | 1.0 | `4,3` | `arrow-sm` | Every edge originating from a `kind: bar` component. |
-| `query` | `rgba(34,38,58,0.30)` | 1.0 | `4,3` | `arrow` | Read-back edges (e.g., focal ↔ Trino). |
+| `primary` | `#eb6c36` | 1.2 | — | `arrow-accent` | Every edge whose endpoint is the `focal` node. |
+| `secondary` | `#4f5d75` | 1.0 | — | `arrow` | Default for source→component and component→component when neither endpoint is focal. |
+| `trigger` | `#4f5d75` | 1.0 | `4,3` | `arrow-sm` | Every edge originating from a `kind: bar` component. |
+| `query` | `rgba(45,49,66,0.30)` | 1.0 | `4,3` | `arrow` | Read-back edges (e.g., focal ↔ Trino). |
 
 **Defs block** (required, exactly these four markers):
 
 ```svg
 <defs>
-  <marker id="arrow"        markerWidth="8" markerHeight="6" refX="7" refY="3"   orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#596174"/></marker>
-  <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3"   orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4F5BD5"/></marker>
-  <marker id="arrow-sm"     markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#596174"/></marker>
-  <marker id="arrow-dim"    markerWidth="8" markerHeight="6" refX="7" refY="3"   orient="auto"><polygon points="0 0, 8 3, 0 6" fill="rgba(34,38,58,0.45)"/></marker>
+  <marker id="arrow"        markerWidth="8" markerHeight="6" refX="7" refY="3"   orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+  <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3"   orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#eb6c36"/></marker>
+  <marker id="arrow-sm"     markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#4f5d75"/></marker>
+  <marker id="arrow-dim"    markerWidth="8" markerHeight="6" refX="7" refY="3"   orient="auto"><polygon points="0 0, 8 3, 0 6" fill="rgba(45,49,66,0.45)"/></marker>
 </defs>
 ```
 
@@ -312,10 +310,10 @@ The subtitle stays muted because it's parenthetical metadata — only the primar
 - **No color on connectors.** If you find yourself wanting a colored edge, the right move is to pick a different `style` from §3, not to override.
 
 **Semantic uses** (recommended):
-- `#D43E26` (rust-red) — Security / Identity (Keycloak, Vault)
-- `#4F5BD5` (slate-blue) — Observability (Prometheus, Datadog)
-- `#007A59` (olive-green) — Governance / Lineage (OpenMetadata)
-- `#B95D18` (warm-brown) — Backup / DR
+- `#b85450` (rust-red) — Security / Identity (Keycloak, Vault)
+- `#5a7d9a` (slate-blue) — Observability (Prometheus, Datadog)
+- `#7a8c47` (olive-green) — Governance / Lineage (OpenMetadata)
+- `#8c6d3f` (warm-brown) — Backup / DR
 
 Stick to these unless the user's brand demands otherwise. Random hex per component is exactly the failure mode this skill avoids.
 
@@ -399,20 +397,20 @@ When `dark: true`, swap these tokens:
 
 | Token | Light | Dark |
 |---|---|---|
-| Page paper | `#FFFFFF` | `#22263A` |
-| Ink | `#22263A` | `#FFFFFF` |
-| Muted text | `#596174` | `rgba(255,255,255,0.65)` |
-| Chevron dark fill | `#22263A` | `#596174` |
-| Chevron light fill | `#596174` | `#596174` |
-| Chevron label | `#FFFFFF` | `#FFFFFF` (unchanged) |
-| Dashed border | `rgba(34,38,58,0.20)` | `rgba(255,255,255,0.22)` |
-| Cluster border | `rgba(34,38,58,0.18)` | `rgba(255,255,255,0.18)` |
-| Node fill | white | `rgba(255,255,255,0.06)` |
-| Node stroke | `rgba(34,38,58,0.25)` | `rgba(255,255,255,0.20)` |
-| Focal fill | `rgba(79,91,213,0.08)` | `rgba(240,138,89,0.12)` |
-| Focal stroke | `#4F5BD5` | `#4F5BD5` |
-| Accent connector | `#4F5BD5` | `#4F5BD5` |
-| Dot pattern | `rgba(34,38,58,0.10)` | `rgba(255,255,255,0.10)` |
+| Page paper | `#f5f5f5` | `#1c1f2e` |
+| Ink | `#2d3142` | `#f5f5f5` |
+| Muted text | `#4f5d75` | `rgba(245,245,245,0.65)` |
+| Chevron dark fill | `#2d3142` | `#3d4460` |
+| Chevron light fill | `#3d4460` | `#4a5270` |
+| Chevron label | `#f5f5f5` | `#f5f5f5` (unchanged) |
+| Dashed border | `rgba(45,49,66,0.20)` | `rgba(245,245,245,0.22)` |
+| Cluster border | `rgba(45,49,66,0.18)` | `rgba(245,245,245,0.18)` |
+| Node fill | white | `rgba(245,245,245,0.06)` |
+| Node stroke | `rgba(45,49,66,0.25)` | `rgba(245,245,245,0.20)` |
+| Focal fill | `rgba(235,108,54,0.08)` | `rgba(240,138,89,0.12)` |
+| Focal stroke | `#eb6c36` | `#f08a59` |
+| Accent connector | `#eb6c36` | `#f08a59` |
+| Dot pattern | `rgba(45,49,66,0.10)` | `rgba(245,245,245,0.10)` |
 
 ---
 
@@ -432,7 +430,7 @@ Before emitting SVG, verify **every** item. If any fails, fix it — don't ship.
 10. Each vertical chevron pairs **1:1** with exactly one `bar` or `cross-cutting` component (§5 pairing rule). `len(verticals) == len(bars) + len(crosscuts)`.
 11. `viewBox_h = max(540, strip_y_bot + 112)` — grow the canvas when multiple crosscuts are declared so the legend still fits.
 12. Custom component colors (§3.4) apply only to container + icon + name; connectors stay topology-driven. Cap at 2 custom-colored components in addition to the focal.
-13. The diagram passes ../svg-guide.md `Pre-output check` (4-px grid; ≤ 2 accent elements; mono only for technical content; hairlines; no shadows; no `rounded-2xl`).
+13. The diagram passes ../svg-guide.md Pre-output check (4-px grid; ≤ 2 accent elements; mono only for technical content; hairlines; no shadows; no `rounded-2xl`).
 
 ---
 
@@ -449,7 +447,3 @@ Before emitting SVG, verify **every** item. If any fails, fix it — don't ship.
 - Source fanning out to >3 components without a hub.
 
 ---
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-high-level.html`

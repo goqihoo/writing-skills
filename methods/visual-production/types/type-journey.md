@@ -1,7 +1,5 @@
 # User Journey Map
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Use `../style-guide.md` for every color. Start with zero focal elements. Any `focal: true` example or “exactly one focal” checklist item below is conditional on source-supplied focus; otherwise omit it and render peers neutrally.
-
 **Best for:** what a person does across the stages of an experience and how it *feels* at each one. The sentiment curve is the load-bearing element — without it this is just a process diagram with extra rows, so if you can't name a sentiment for every stage, use **Process** or **Timeline** instead.
 
 ## Layout conventions
@@ -47,7 +45,3 @@ Max 6 stages · max 3 content rows · 5 sentiment levels (ordinal, named — nev
 - **Pain markers on every stage.** If nothing is un-marked, nothing is focal.
 - **`writing-mode` vertical row labels.** Horizontal only, in the left margin — same rule as every other type in this skill.
 - **Using it for an internal system flow with no human in it.** No person, no sentiment, no journey map — that's an architecture or data-flow diagram.
-
-## Plotly specimen
-
-- `../../../skills/draw-diagram/assets/examples/example-journey.html`
