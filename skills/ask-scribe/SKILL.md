@@ -58,7 +58,7 @@ Explain and recommend. Leave every subsequent invocation and execution to the us
 | Write a standard or occasional Technical document, including System or Subsystem Architecture | **Write Tech Doc** (`write-technical-doc`) | Own registered Technical types at their declared levels and compatible Freeform Artifacts; route company-level architecture. |
 | Define company overall architecture, a Product-System Map, or a cross-System topic | **Write Tech Arch** (`write-technical-architecture`) | Own company-level Technical Landscape structure. |
 | Change a Technical directory, navigation, scaffold, audit, or migration | **Structure Tech Docs** (`structure-technical-docs`) | Own Technical topology and navigation, not document meaning. |
-| Create one technical visual | **Draw Diagram** (`draw-diagram`) | Own visual form; the source skill owns meaning. |
+| Create one architecture, data, process, planning, or quantitative visual | **Draw Diagram** (`draw-diagram`) | Own one of 39 Diagram Design visual forms; the source skill owns meaning. |
 
 ## Complete invocations
 

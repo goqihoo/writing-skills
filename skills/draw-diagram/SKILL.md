@@ -1,6 +1,6 @@
 ---
 name: draw-diagram
-description: Select, create, revise, or restyle one visual that best explains technical, architecture, product, or business-system knowledge. Use for an architecture diagram, context or ownership map, component view, flow, sequence, state model, deployment or failure view, technical illustration or 配图, matrix, chart, or interactive explanation.
+description: Create, revise, or restyle one technical, architecture, product, business-system, process, planning, data, or quantitative visual using the Scribe Diagram Design profile.
 disable-model-invocation: true
 ---
 
@@ -11,12 +11,14 @@ Create or revise one visual per invocation. Make it answer one important questio
 ## Workflow
 
 1. Read the source content, consuming artifact, supported facts, requested format, and established output conventions.
-2. Read `../../methods/visual-production.md` and use its decision, routing, production, inspection, and semantic checks.
-3. Select one reader question and one abstraction level. When the request contains several independent questions, complete the primary visual and identify the others as separate possible results.
-4. Preserve supported meaning and exact labels. Do not invent architecture, product, technical, or business claims to make the visual look complete.
-5. For an illustrated conceptual infographic, use the available ImageGen capability inside this workflow. For exact geometry delivered as PNG, create an exact editable source and export it.
-6. Read `../../methods/prose-quality.md` for alt text, captions, and other natural-language passages. Keep exact diagram labels, Mermaid, SVG, code, commands, and structured data outside the prose pass.
-7. Inspect the final render and verify that the consuming document can reference both the final asset and its editable source when applicable.
+2. Read `../../methods/visual-production.md`. Select one semantic pattern when routed and exactly one of its 39 Diagram Design visual types.
+3. Read the selected type reference, `../../methods/visual-production/style-guide.md`, and `../../methods/visual-production/svg-guide.md` completely. Load only the selected type's reference, not the other type files.
+4. Select one reader question and one abstraction level. When the request contains several independent questions, complete the primary visual and identify the others as separate possible results.
+5. Preserve supported meaning and exact labels. Do not invent architecture, product, technical, quantitative, or business claims to make the visual look complete. Begin with zero focal elements.
+6. Start from the bundled SVG template or the selected type's Plotly specimen. Replace specimen content rather than treating it as source evidence. For exact geometry delivered as PNG, retain the editable SVG source and export it.
+7. For an illustrated conceptual infographic outside the 39 exact visual types, use the available ImageGen capability inside this workflow.
+8. Read `../../methods/prose-quality.md` for alt text, captions, and other natural-language passages. Keep exact diagram labels, Mermaid, SVG, code, commands, and structured data outside the prose pass.
+9. Run `scripts/validate_svg.py` on SVG output or `scripts/validate_html.py` on self-contained HTML output. Inspect the final render and verify that the consuming document can reference both the final asset and its editable source when applicable.
 
 ## Boundaries
 

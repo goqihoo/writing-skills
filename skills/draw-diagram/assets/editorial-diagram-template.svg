@@ -8,20 +8,26 @@
   <desc id="diagram-description">Two peer components connected by an ordinary request flow.</desc>
   <defs>
     <style>
-      .title { font: 600 24px Inter, "Noto Sans SC", sans-serif; fill: #0F172A; }
-      .node-title { font: 600 15px Inter, "Noto Sans SC", sans-serif; fill: #0F172A; }
-      .detail { font: 400 12px Inter, "Noto Sans SC", sans-serif; fill: #64748B; }
-      .node { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 1.5; }
-      .group { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 1.5; }
-      .deemphasized { fill: none; stroke: #CBD5E1; stroke-width: 1.25; }
-      .flow { fill: none; stroke: #94A3B8; stroke-width: 2.25; }
+      .title { font: 400 28px "Instrument Serif", Georgia, serif; fill: #22263A; }
+      .node-title { font: 600 12px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #22263A; }
+      .detail { font: 400 12px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #596174; }
+      .technical { font: 400 8px "Geist Mono", "Noto Sans Mono CJK SC", monospace; fill: #6F788C; }
+      .node { fill: #FFFFFF; stroke: #C3CBD9; stroke-width: 1; }
+      .group { fill: #F5F6FB; stroke: #CBD2DF; stroke-width: 1; }
+      .deemphasized { fill: none; stroke: #A6AFBF; stroke-width: 1; }
+      .category-1 { fill: #E9EBFE; stroke: #4F5BD5; }
+      .category-2 { fill: #DDF8F0; stroke: #007A59; }
+      .category-3 { fill: #F3E9FE; stroke: #8240C9; }
+      .category-4 { fill: #FDE9E5; stroke: #D43E26; }
+      .category-5 { fill: #FFF0E4; stroke: #B95D18; }
+      .flow { fill: none; stroke: #596174; stroke-width: 1.2; }
     </style>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
             markerWidth="7" markerHeight="7" markerUnits="strokeWidth" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#596174"/>
     </marker>
   </defs>
-  <rect id="canvas" width="1200" height="800" fill="#F8FAFC"/>
+  <rect id="canvas" width="1200" height="800" fill="#FFFFFF"/>
   <g id="title-block">
     <text class="title" x="64" y="72">Question this diagram answers</text>
   </g>
@@ -30,12 +36,12 @@
   </g>
   <g id="nodes">
     <g id="source-component">
-      <rect class="node" x="224" y="312" width="240" height="128" rx="12"/>
+      <rect class="node" x="224" y="312" width="240" height="128" rx="6"/>
       <text class="node-title" x="344" y="366" text-anchor="middle">Source component</text>
       <text class="detail" x="344" y="394" text-anchor="middle">Short responsibility</text>
     </g>
     <g id="target-component">
-      <rect class="node" x="736" y="312" width="240" height="128" rx="12"/>
+      <rect class="node" x="736" y="312" width="240" height="128" rx="6"/>
       <text class="node-title" x="856" y="366" text-anchor="middle">Target component</text>
       <text class="detail" x="856" y="394" text-anchor="middle">Short responsibility</text>
     </g>

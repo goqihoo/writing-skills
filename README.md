@@ -84,7 +84,7 @@ All Public Skills use the standard flat `skills/<skill-id>/SKILL.md` layout. Fou
 
 ### Visual
 
-- [Draw Diagram](skills/draw-diagram/SKILL.md) (`draw-diagram`) — Select, create, and verify one useful technical visual.
+- [Draw Diagram](skills/draw-diagram/SKILL.md) (`draw-diagram`) — Select, create, and verify one of 39 Diagram Design diagram or chart types with the Scribe Plotly theme.
 
 ## Architecture guides
 

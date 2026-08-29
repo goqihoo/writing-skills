@@ -114,7 +114,16 @@ class IndependentPublicSkillContractTest(unittest.TestCase):
         self.assertFalse(list(METHODS_ROOT.rglob("SKILL.md")))
         self.assertFalse(list(METHODS_ROOT.rglob("openai.yaml")))
         self.assertEqual(
-            {"mermaid-guide.md", "style-guide.md", "svg-guide.md"},
+            {
+                "THIRD_PARTY_LICENSES.md",
+                "UPSTREAM.md",
+                "mermaid-guide.md",
+                "primitive-annotation.md",
+                "primitive-icons.md",
+                "semantic-patterns.md",
+                "style-guide.md",
+                "svg-guide.md",
+            },
             {
                 path.name
                 for path in (METHODS_ROOT / "visual-production").glob("*.md")
