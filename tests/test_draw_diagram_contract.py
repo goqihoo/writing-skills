@@ -16,6 +16,12 @@ FLOW_TEMPLATE = (
 HTML_TEMPLATE = (
     REPO_ROOT / "skills" / "draw-diagram" / "assets" / "editorial-diagram-template.html"
 )
+PROCESS_REFERENCE = (
+    REPO_ROOT / "methods" / "visual-production" / "types" / "type-process.md"
+)
+PROCESS_SPECIMEN = (
+    REPO_ROOT / "skills" / "draw-diagram" / "assets" / "examples" / "example-process.html"
+)
 
 
 def class_fill(svg: str, class_name: str) -> str:
@@ -77,6 +83,18 @@ class DrawDiagramContractTest(unittest.TestCase):
         self.assertNotIn("classDef primary", flow_template)
         self.assertNotIn("class target primary", flow_template)
         self.assertNotIn("focal", html_template.casefold())
+
+    def test_process_defaults_to_compact_neutral_category_encoding(self) -> None:
+        guidance = PROCESS_REFERENCE.read_text(encoding="utf-8")
+        specimen = PROCESS_SPECIMEN.read_text(encoding="utf-8")
+
+        self.assertIn("The node name is the only required visible text.", guidance)
+        self.assertIn(
+            "Give each source-defined lane category a distinct category token",
+            guidance,
+        )
+        self.assertNotIn("exactly **one** focal", guidance.casefold())
+        self.assertNotIn("focal", specimen.casefold())
 
     def test_container_fill_and_object_description_contract(self) -> None:
         style = STYLE_GUIDE.read_text(encoding="utf-8")
