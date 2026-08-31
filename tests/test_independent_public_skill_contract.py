@@ -125,6 +125,7 @@ class IndependentPublicSkillContractTest(unittest.TestCase):
                 "semantic-patterns.md",
                 "style-guide.md",
                 "svg-guide.md",
+                "typography.md",
             },
             {
                 path.name

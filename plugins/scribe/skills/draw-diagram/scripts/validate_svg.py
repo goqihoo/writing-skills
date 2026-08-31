@@ -18,6 +18,14 @@ PATH_TOKEN = re.compile(r"[A-Za-z]|-?(?:\d+(?:\.\d*)?|\.\d+)(?:[Ee][+-]?\d+)?")
 CONNECTOR_CLASSES = {"connector", "edge", "flow", "later", "link"}
 CONNECTOR_LABEL_CLASSES = {"arrow-label", "connector-label", "edge-label"}
 CONNECTOR_LABEL_CLEARANCE = 6.0
+SCRIBE_COLOR_MODES = {"categorical", "quantitative", "status", "neutral"}
+SCRIBE_NEUTRAL_REASONS = {"color-only-restyle", "explicit-user-request"}
+COLOR_ROLE = re.compile(
+    r"var\(--dd-(category-([1-5])(?:-tint|-a[0-9]{3})?"
+    r"|series-([1-5])(?:-tint|-a[0-9]{3})?"
+    r"|(success|warning|failure)(?:-tint|-a[0-9]{3})?)\b"
+)
+CSS_CLASS_RULE = re.compile(r"\.([A-Za-z_][\w-]*)\s*\{([^}]*)\}", re.DOTALL)
 
 
 def local_name(tag: str) -> str:
@@ -26,6 +34,179 @@ def local_name(tag: str) -> str:
 
 def class_tokens(element: ET.Element) -> set[str]:
     return set((element.get("class") or "").split())
+
+
+def color_roles(value: str) -> set[str]:
+    return {match.group(1) for match in COLOR_ROLE.finditer(value)}
+
+
+def class_color_roles(root: ET.Element) -> dict[str, set[str]]:
+    roles: dict[str, set[str]] = {}
+    for element in root.iter():
+        if local_name(element.tag) != "style":
+            continue
+        source = "".join(element.itertext())
+        for class_name, declarations in CSS_CLASS_RULE.findall(source):
+            roles.setdefault(class_name, set()).update(color_roles(declarations))
+    return roles
+
+
+def visible_elements(root: ET.Element):
+    def walk(element: ET.Element, hidden_definition: bool = False):
+        hidden_definition = hidden_definition or local_name(element.tag) == "defs"
+        if not hidden_definition:
+            yield element
+        for child in element:
+            yield from walk(child, hidden_definition)
+
+    yield from walk(root)
+
+
+def element_color_roles(
+    element: ET.Element,
+    roles_by_class: dict[str, set[str]],
+) -> set[str]:
+    roles = {
+        role
+        for value in element.attrib.values()
+        for role in color_roles(value)
+    }
+    for class_name in class_tokens(element):
+        roles.update(roles_by_class.get(class_name, set()))
+    return roles
+
+
+def subtree_color_roles(
+    element: ET.Element,
+    roles_by_class: dict[str, set[str]],
+) -> set[str]:
+    return {
+        role
+        for descendant in element.iter()
+        for role in element_color_roles(descendant, roles_by_class)
+    }
+
+
+def validate_group_node_paint(root: ET.Element) -> list[str]:
+    """Check node surfaces, including inherited paint and the source's class rules."""
+    def paint_declarations(source: str) -> dict[str, str]:
+        return {
+            name.strip(): value.strip()
+            for declaration in source.split(";")
+            if ":" in declaration
+            for name, value in [declaration.split(":", 1)]
+            if name.strip() in {"fill", "stroke"}
+        }
+
+    rules = [
+        (name, paint_declarations(declarations))
+        for element in root.iter()
+        if local_name(element.tag) == "style"
+        for name, declarations in CSS_CLASS_RULE.findall("".join(element.itertext()))
+    ]
+    errors: list[str] = []
+
+    def walk(element: ET.Element, category: str, inherited: dict[str, str]):
+        if local_name(element.tag) == "defs":
+            return
+        category = element.get("data-category", category)
+        classes = class_tokens(element)
+        paint = dict(inherited)
+        paint.update({name: element.get(name) for name in ("fill", "stroke") if element.get(name) is not None})
+        for name, declarations in rules:
+            if name in classes:
+                paint.update(declarations)
+        paint.update(paint_declarations(element.get("style", "")))
+        if category in {"1", "2", "3", "4", "5"} and "node" in classes:
+            for name in ("fill", "stroke"):
+                value = paint.get(name, "")
+                if name == "stroke" and value in {"", "none"}:
+                    continue
+                roles = color_roles(value)
+                if not roles or any(
+                    not re.fullmatch(rf"category-{category}(?:-tint|-a[0-9]{{3}})?", role)
+                    for role in roles
+                ):
+                    errors.append(f"node {element.get('id', '(unnamed)')} in data-category={category} needs matching category {name}")
+        for child in element:
+            walk(child, category, paint)
+
+    walk(root, "", {})
+    return errors
+
+
+def validate_scribe_color_contract(root: ET.Element) -> list[str]:
+    errors: list[str] = []
+    mode = root.get("data-scribe-color-mode", "")
+    if mode not in SCRIBE_COLOR_MODES:
+        return [
+            "data-scribe-color-mode must be one of "
+            + ", ".join(sorted(SCRIBE_COLOR_MODES))
+        ]
+
+    roles_by_class = class_color_roles(root)
+    visible_roles = {
+        role
+        for element in visible_elements(root)
+        for role in element_color_roles(element, roles_by_class)
+    }
+    category_numbers = {
+        match.group(1)
+        for role in visible_roles
+        if (match := re.fullmatch(r"category-([1-5])(?:-tint|-a[0-9]{3})?", role))
+    }
+    series_numbers = {
+        match.group(1)
+        for role in visible_roles
+        if (match := re.fullmatch(r"series-([1-5])(?:-tint|-a[0-9]{3})?", role))
+    }
+    status_roles = {
+        role.split("-", 1)[0]
+        for role in visible_roles
+        if role.split("-", 1)[0] in {"success", "warning", "failure"}
+    }
+
+    if mode == "categorical" and not category_numbers:
+        errors.append(
+            "categorical color mode needs visible category paint; "
+            "palette definitions inside <defs> do not count"
+        )
+    elif mode == "quantitative" and not series_numbers:
+        errors.append(
+            "quantitative color mode needs visible series paint; "
+            "palette definitions inside <defs> do not count"
+        )
+    elif mode == "status" and not status_roles:
+        errors.append(
+            "status color mode needs visible success, warning, or failure paint"
+        )
+    elif mode == "neutral":
+        reason = root.get("data-scribe-neutral-reason", "")
+        if reason not in SCRIBE_NEUTRAL_REASONS:
+            errors.append(
+                "neutral color mode needs data-scribe-neutral-reason="
+                "color-only-restyle or explicit-user-request"
+            )
+
+    for element in root.iter():
+        category = element.get("data-category")
+        if category is None:
+            continue
+        if category not in {"1", "2", "3", "4", "5"}:
+            errors.append(f"invalid data-category value: {category!r}")
+            continue
+        matching = {
+            role
+            for role in subtree_color_roles(element, roles_by_class)
+            if re.fullmatch(rf"category-{category}(?:-tint|-a[0-9]{{3}})?", role)
+        }
+        if not matching:
+            errors.append(
+                f"data-category={category} has no visible matching category paint"
+            )
+    if mode == "categorical":
+        errors.extend(validate_group_node_paint(root))
+    return errors
 
 
 def connector_segments(element: ET.Element) -> list[tuple[float, float, float, float]]:
@@ -153,7 +334,10 @@ def has_connector_label_collision(root: ET.Element) -> bool:
     return False
 
 
-def validate(path: Path) -> tuple[list[str], list[str]]:
+def validate(
+    path: Path,
+    require_scribe_color: bool = False,
+) -> tuple[list[str], list[str]]:
     errors: list[str] = []
     warnings: list[str] = []
     if not path.is_file():
@@ -202,6 +386,8 @@ def validate(path: Path) -> tuple[list[str], list[str]]:
         warnings.append("embedded raster image found")
     if has_connector_label_collision(root):
         errors.append("connector label mask must stay at least 6px from every connector")
+    if require_scribe_color:
+        errors.extend(validate_scribe_color_contract(root))
 
     for element in elements:
         href = element.get("href") or element.get(XLINK_HREF)
@@ -219,9 +405,14 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("svg", type=Path)
     parser.add_argument("--render", type=Path)
+    parser.add_argument(
+        "--scribe",
+        action="store_true",
+        help="enforce the Scribe visible-color contract on editable source",
+    )
     args = parser.parse_args()
 
-    errors, warnings = validate(args.svg)
+    errors, warnings = validate(args.svg, require_scribe_color=args.scribe)
     for warning in warnings:
         print(f"WARNING: {warning}")
     for error in errors:

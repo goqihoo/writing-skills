@@ -181,12 +181,17 @@ class DrawDiagramRoutingTest(unittest.TestCase):
         self.assertIn("Use ImageGen for an illustrated conceptual explanation", self.instructions)
         self.assertIn("Use HTML or a visualization tool for adjustable exploration", self.instructions)
 
-    def test_bundled_specimens_use_default_theme_colors(self) -> None:
+    def test_bundled_specimens_rebind_to_default_theme(self) -> None:
+        sys.path.insert(0, str(REPO_ROOT / "skills/draw-diagram/scripts"))
+        from apply_theme import apply_theme
+        from theme_tokens import DEFAULT_THEME, read_theme_tokens
+        tokens = read_theme_tokens(DEFAULT_THEME)
         paths = sorted(EXAMPLES_ROOT.glob("example-*.html"))
-        paths += [REPO_ROOT / "skills" / "draw-diagram" / "assets" / "editorial-diagram-template.html"]
-
-        unexpected = colors_in(paths) - ALLOWED_THEME_COLORS
-        self.assertEqual(set(), unexpected)
+        paths += [REPO_ROOT / "skills/draw-diagram/assets/editorial-diagram-template.html"]
+        for path in paths:
+            with self.subTest(path=path.name):
+                source = path.read_text(encoding="utf-8")
+                self.assertEqual(source, apply_theme(source, tokens))
 
     def test_type_contracts_do_not_embed_the_scribe_default_skin(self) -> None:
         paths = sorted((VISUAL_ROOT / "types").glob("type-*.md"))
@@ -281,9 +286,9 @@ class DrawDiagramRoutingTest(unittest.TestCase):
                 self.assertNotIn("#f08a59", source)
                 self.assertNotRegex(source, r"global ACCENT(?:S|_RE)")
 
-    def test_treemap_font_measurement_uses_selected_theme_metrics(self) -> None:
+    def test_treemap_font_measurement_uses_separate_typography_metrics(self) -> None:
         scripts = REPO_ROOT / "skills" / "draw-diagram" / "scripts"
-        default_theme = (VISUAL_ROOT / "themes" / "scribe-plotly.md").read_text(
+        default_theme = (VISUAL_ROOT / "typography.md").read_text(
             encoding="utf-8"
         )
         custom_theme = replace_theme_tokens(
@@ -302,7 +307,7 @@ class DrawDiagramRoutingTest(unittest.TestCase):
                     sys.executable,
                     str(scripts / "verify-treemap.py"),
                     str(EXAMPLES_ROOT / "example-treemap.html"),
-                    "--theme",
+                    "--typography",
                     str(theme),
                 ],
                 check=False,
@@ -313,9 +318,9 @@ class DrawDiagramRoutingTest(unittest.TestCase):
         self.assertEqual(1, result.returncode, result.stdout + result.stderr)
         self.assertIn("overflows", result.stdout + result.stderr)
 
-    def test_treemap_mono_measurement_uses_the_selected_theme_font_role(self) -> None:
+    def test_treemap_mono_measurement_uses_separate_typography_font_role(self) -> None:
         scripts = REPO_ROOT / "skills" / "draw-diagram" / "scripts"
-        default_theme = (VISUAL_ROOT / "themes" / "scribe-plotly.md").read_text(
+        default_theme = (VISUAL_ROOT / "typography.md").read_text(
             encoding="utf-8"
         )
         custom_theme = replace_theme_tokens(
@@ -340,7 +345,7 @@ class DrawDiagramRoutingTest(unittest.TestCase):
                     sys.executable,
                     str(scripts / "verify-treemap.py"),
                     str(diagram),
-                    "--theme",
+                    "--typography",
                     str(theme),
                 ],
                 check=False,

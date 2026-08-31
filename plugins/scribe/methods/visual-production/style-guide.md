@@ -2,124 +2,95 @@
 
 Use Diagram Design as four layers:
 
-1. Diagram semantics select the visual type and preserve the meaning of nodes, boundaries, relationships, and quantitative encodings.
-2. Composition applies the selected type's hierarchy, direction, routing, alignment, density, and whitespace rules.
-3. Components define shapes, typography roles, spacing, border weight, labels, icons, and connector forms.
-4. A selected theme binds those semantic roles to colors and font families.
+1. Semantics select the visual type and preserve the meaning of nodes, boundaries, relationships, and quantities.
+2. Composition applies the type's hierarchy, routing, alignment, density, and whitespace.
+3. Components define shapes, typography, spacing, border weight, tags, labels, and connectors.
+4. The selected theme supplies **colors only**.
 
-The type references and this interface own the first three layers. A theme may rebind semantic color tokens and font-family tokens, their conservative measurement estimates, and explicitly theme-owned opacity values; it must not change the visual type, composition, component geometry, typography roles or sizes, label geometry, or emphasis meaning.
+Keep layers 1–3 unchanged when switching skins. Use the pinned Diagram Design type contracts, component primitives, and specimens as their authority. A skin must not change fonts, font sizes, radius, stroke width, node proportions, layout, labels, component roles, or emphasis assignments. Treat a requested typography or layout change as a separate operation.
 
 ## Theme selection
 
-Resolve one theme before drawing, in this order:
+Resolve one theme in this order:
 
-1. an explicit user-supplied theme or token set;
+1. an explicit user-supplied theme, bundled skin name, or color token set;
 2. the consuming artifact's or project's established theme or design system;
 3. the bundled [Scribe Plotly theme](themes/scribe-plotly.md).
 
-Do not interrupt the workflow with a theme question when the first two sources are absent. Scribe Plotly is the bundled default theme, not the only permitted theme.
+Scribe Plotly is the bundled default theme, not the only permitted theme. Keep the upstream skins available: [Diagram Design light](themes/diagram-design.md), [Diagram Design dark](themes/diagram-design-dark.md), and the opt-in [terminal palette](themes/diagram-design-terminal.md). Selecting terminal colors does not add terminal-window geometry. See [skin application](themes/README.md) for switching, export, and adding a palette.
 
-Rebind every bundled specimen's semantic visual roles to the resolved theme before using it, including when the resolved theme is the bundled default. Treat specimen literals as a historical snapshot, not as current theme authority.
+Rebind every bundled specimen through its explicit color slots with `apply_theme.py`, including for the default. Keep the role markers in editable source; resolve colors to literals for standalone SVG export. Use a complete selected palette; fail on a missing role instead of silently keeping another skin's fallback. Render dark output only from an explicit dark palette.
 
-Map every role used by the selected visual to one coherent theme. Derive missing tints, borders, and muted variants from the selected palette and record the mapping in generated source; do not mix values from two themes. Preserve readable contrast and keep focus, status, and category as separate semantic axes. Render a light or dark variant only when the selected theme supplies a complete token set for it.
+Literal colors in adapted type references describe the upstream skin. Resolve them through the corresponding semantic role. Preserve their non-color values, including type-specific stroke and radius exceptions.
 
-## Theme interface
+## Color interface
 
-A complete theme provides the roles the selected visual uses:
-
-| Role | Use |
+| Roles | Use |
 |---|---|
-| `paper` | Canvas |
-| `paper-2` | Grouping containers and secondary surfaces |
-| `object` | Ordinary nodes and foreground panels |
-| `ink` | Primary text and strong strokes |
-| `muted` | Secondary text and ordinary relationships |
-| `soft` | Sublabels, boundary labels, and tertiary strokes |
-| `rule` | Guides, grids, and hairlines |
-| `rule-solid` | Group borders and stronger separators |
-| `object-border` | Ordinary object borders |
-| `deemphasized-border` | Supporting objects and groups |
-| `accent` / `accent-tint` | Source-identified focus |
-| `link` | External or protocol-bearing relationships |
-| `success` / `success-tint` | Supported success state |
-| `warning` / `warning-tint` | Supported warning state |
-| `failure` / `failure-tint` | Supported failure or rejection state |
-| `category-1..5` / matching tints | Peer categories |
-| `series-1..5` / matching tints | Quantitative series; may alias the matching category pair |
-| `connector-label-surface` | Connector-label background; may be `none` |
-| `boundary-label-surface` | Boundary-label background |
-| `annotation-neutral-leader` | Neutral editorial-callout leader |
-| `annotation-accent-leader` | Source-supported focal editorial-callout leader |
-| `annotation-muted-leader` | Tertiary editorial-callout leader |
-| `quantitative-connector-alpha` | Opacity for quantitative relationship strokes |
-| `font-title` | Diagram title and display callouts |
-| `font-sans` | Human-readable names and descriptions |
-| `font-mono` | Technical labels, ports, URLs, and types |
-| `font-sans-advance` | Conservative narrow-glyph advance used by static label-fit verification |
-| `font-mono-advance` | Conservative mono-glyph advance used by static label-fit verification |
-| `font-wide-advance` | Conservative wide/full-width glyph advance used by static label-fit verification |
-| `font-ascent` | Conservative ascent used by static label-fit verification |
+| `paper`, `paper-2`, `object` | Canvas, secondary surfaces, ordinary foreground nodes |
+| `ink`, `muted`, `soft` | Primary text/strokes, secondary text/relationships, tertiary labels |
+| `ink-strong`, `inverse-ink` | Filled bands and readable text on those bands |
+| `rule`, `rule-solid` | Hairlines and group borders |
+| `group-surface` | Group background; may be `none` |
+| `object-border`, `deemphasized-border` | Compatibility aliases for ordinary and supporting borders |
+| `accent`, `accent-tint` | Source-supported focus |
+| `link` | Protocol-bearing/external relationships |
+| `success`, `warning`, `failure`, matching `-tint` | Source-supported states |
+| `category-1..5`, `series-1..5`, matching `-tint` | Explicit categorical encodings and quantitative series |
+| `connector-label-surface`, `boundary-label-surface` | Label masks; retain their geometry even for transparent paint |
+| `annotation-neutral-leader`, `annotation-accent-leader`, `annotation-muted-leader` | Editorial leaders |
+| `quantitative-connector-alpha` | Quantitative connector color opacity |
 
-Literal family names and color values retained in adapted Diagram Design type references describe the upstream skin. Resolve them through the selected theme's semantic role rather than treating them as mandatory output values.
+Derive `ink @ α`, `muted @ α`, and other alpha variants from the selected base color while preserving the component's specified alpha. Keep color opacity separate from stroke width. Pair category/status encodings with labels or other non-color cues.
 
-## Typography roles
+## Typography
 
-Preserve these roles and sizes when a theme replaces their font families:
+Use the shared [typography profile](typography.md), independently of theme selection.
 
-| Role | Size | Weight | Use |
-|---|---:|---:|---|
-| Title | 28 px | 400 | Diagram title only |
-| Node name | 12 px | 600 | Human-readable names |
-| Sublabel | 8–9 px | 400 | Ports, URLs, types, and compact technical data |
-| Eyebrow or tag | 8 px | 500 | Type tags and axes |
-| Connector label | 8 px | 400 | Short relationship labels |
-| Callout | 16 px | 400 italic | Optional editorial aside |
+| Role | Family | Size | Weight |
+|---|---|---:|---:|
+| Title | Instrument Serif | 28 px | 400 |
+| Node name | Geist sans | 12 px | 600 |
+| Sublabel / concise description | Geist Mono for technical content; Geist sans for prose | 9 px | 400 |
+| Eyebrow / type tag | Geist Mono | 7–8 px | 500 |
+| Connector label | Geist Mono for technical content; Geist sans for prose | 8 px | 400 |
+| Editorial callout | Instrument Serif italic | 14 px | 400 |
 
-Keep names in `font-sans` and reserve `font-mono` for genuinely technical content. A selected theme must provide suitable CJK fallbacks when labels require them.
-
-Bind the four font measurement tokens to the selected font families rather than copying the bundled values into a verifier. They are conservative layout estimates for browser-free inspection, not typography-role or geometry changes.
+Keep names in sans and reserve mono for technical content. Add appropriate CJK fallbacks without enlarging descriptions to title size. Keep short natural-language descriptions subordinate to names. Preserve explicit type-specific typography, such as 8.5 px legend text.
 
 ## Stroke, radius, and grid
 
 | Token | Value | Use |
 |---|---:|---|
-| `stroke-thin` | `0.8` | Tag outlines and leaf nodes |
-| `stroke-default` | `1` | Ordinary strokes |
-| `stroke-strong` | `1.2` | Supported emphasis |
-| `radius-sm` | `4` | Tags |
-| `radius-md` | `6` | Nodes |
-| `radius-lg` | `8` | Containers |
-| `grid` | `4` | Coordinates, dimensions, and gaps |
+| `stroke-thin` | 0.8 | Tag outlines, leaf nodes, quiet groups |
+| `stroke-default` | 1 | Node borders and ordinary strokes |
+| `stroke-strong` | 1.2 | Supported emphasis |
+| `radius-sm` | 4 | Small components |
+| `radius-md` | 6 | Node boxes |
+| `radius-lg` | 8 | Containers |
+| `grid` | 4 | General layout grid |
 
-Use no shadows. Keep every coordinate, width, height, padding, and gap on the 4 px grid. Use rectangular tags with small radii rather than pills. Keep peer nodes aligned and equally sized when their roles are equal.
+Use no shadows. Keep every coordinate, width, height, padding, and gap on the 4 px grid unless the chosen primitive specifies an exception. Preserve the upstream full node's 2 px tag radius, 7 px tag text, 9 px sublabel, and type-specific stroke widths; the general grid must not round those into different components.
+
+Size boxes to their names and padding, using the selected type's proportions. The architecture specimen uses 128–160 × 64 px nodes; those are examples, not a universal fixed width. Keep peer nodes aligned and equally sized when their roles and content permit it. Keep the whole component's scale consistent at destination width; widening the canvas or boxes independently makes the same 1 px border look weak.
 
 ## Component treatments
 
+Apply the upstream semantic treatments before binding any palette:
+
 | Component | Fill | Stroke |
 |---|---|---|
-| Ordinary object | `object` | `object-border` |
-| Group or boundary | `paper-2` | `rule-solid` |
-| Categorized object | matching category tint | matching category deep color |
-| Supporting object | `none` | `deemphasized-border` |
-| Durable store | `paper-2` | `muted` |
-| External actor or system | `none` | `soft` |
-| Optional or future object | `none` | `deemphasized-border`, dashed `4,3` |
+| Backend / ordinary object | `object` | `ink` |
+| Store | `ink @ 0.05` | `muted` |
+| External service | `ink @ 0.03` | `ink @ 0.30` |
+| Input / reader | `muted @ 0.10` | `soft` |
+| Optional / future object | `ink @ 0.02` | `ink @ 0.20`, dashed `4,3` |
+| Security boundary | `accent @ 0.05` | `accent @ 0.50`, dashed `4,4` |
 | Source-identified focal object | `accent-tint` | `accent` |
+| Group / boundary | `group-surface` | `rule-solid` or the type's quieter ink-alpha border |
 
-Give grouping containers and nested objects different surfaces so both levels remain visible. Name every semantic boundary. Do not use a background rectangle merely to decorate a cluster that has no containment meaning.
+Use an opaque `paper` mask beneath translucent node fills. Retain the full component pattern in [the SVG guide](svg-guide.md), including a rectangular tag when the source supplies a useful type label. Preserve optional decoration when recoloring an existing visual; choose decoration separately when creating one.
 
-## Shape meaning
+Use these component treatments as the structural base, then apply the default category paint described in [the Scribe profile](scribe-profile.md). Keep component geometry and source-supported state treatments intact. Let the profile own category assignment and the palette own color values; selecting another skin must preserve the same category assignments.
 
-| Form | Meaning |
-|---|---|
-| Rounded rectangle | Logical service, module, application, or step |
-| Rectangle | Runtime unit or process |
-| Cylinder | Durable storage or log |
-| Pill or actor | User, client, or external actor |
-| Solid container | Ownership, trust, domain, or deployment boundary |
-| Dashed container | Optional, future, or logical scope |
-| Solid arrow | Synchronous, gating, or definite flow |
-| Dashed arrow | Asynchronous, delayed, optional, or eventual flow |
-| Failure-colored arrow | Rejection or exceptional flow supported by the source |
-
-Use a double-headed arrow only for a genuinely bidirectional relationship.
+The skin change is complete when only paint values differ and the diagram retains identical content, geometry, typography, component treatments, and visual hierarchy.

@@ -4,7 +4,7 @@ Use Mermaid for portable context, component, flow, sequence, state, and simple d
 
 ## Theme
 
-Start standalone diagrams with a base theme using the style-guide tokens. The templates under `assets/` provide working flow and sequence starters. Keep stable node IDs separate from display labels.
+Start standalone diagrams with a base theme using the style-guide tokens. The templates under `assets/` provide working flow and sequence starters. Keep stable node IDs separate from display labels. Map the selected palette to Mermaid `themeVariables` and class colors; keep typography, direction, labels, and shape declarations unchanged. `apply_theme.py` handles SVG/HTML paint slots, not Mermaid initialization syntax. Mermaid remains an explicit output choice with its own renderer and cannot promise pixel parity with the SVG primitives.
 
 ## Semantics
 

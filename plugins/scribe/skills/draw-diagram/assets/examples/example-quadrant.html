@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Diagram Design 2.6 specimen adapted under MIT; colors rebound to the Scribe Plotly theme. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -9,10 +8,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --color-paper:   #FFFFFF;
-      --color-ink:     #22263A;
-      --color-muted:   #596174;
-      --color-accent:  #4F5BD5;
+      --color-paper:   var(--dd-paper, #FFFFFF);
+      --color-ink:     var(--dd-ink, #22263A);
+      --color-muted:   var(--dd-muted, #596174);
+      --color-accent:  var(--dd-accent, #4F5BD5);
       --font-sans:     'Geist', system-ui, sans-serif;
       --font-serif:    'Instrument Serif', serif;
       --font-mono:     'Geist Mono', ui-monospace, monospace;
@@ -56,7 +55,7 @@
 </head>
 <body>
   <div class="frame">
-    <p class="eyebrow">Quadrant · Scribe Diagram</p>
+    <p class="eyebrow">Quadrant · Diagram Design</p>
     <h1>Content ideas · Impact × Effort</h1>
 
     <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="quadrant-title quadrant-desc">
@@ -64,72 +63,72 @@
       <desc id="quadrant-desc">Impact-effort matrix showing eight content projects across do first, major projects, quick wins, and avoid quadrants.</desc>
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
-            <circle cx="1" cy="1" r="0.9" fill="rgba(34,38,58,0.10)"/>
+            <circle cx="1" cy="1" r="0.9" fill="var(--dd-ink-a100, rgba(34,38,58,0.1))"/>
           </pattern>
         </defs>
 
-        <rect width="100%" height="100%" fill="#FFFFFF"/>
+        <rect width="100%" height="100%" fill="var(--dd-paper, #FFFFFF)"/>
         <rect width="100%" height="100%" fill="url(#dots)" opacity="0.55"/>
 
-        <!-- Quadrant backgrounds (very subtle, only accent on DO FIRST) -->
-        <rect x="120" y="80" width="380" height="170" fill="rgba(79,91,213,0.03)"/>
+        <!-- Quadrant backgrounds (very subtle, only coral on DO FIRST) -->
+        <rect x="120" y="80" width="380" height="170" fill="var(--dd-accent-a030, rgba(79,91,213,0.03))"/>
 
         <!-- Axis cross -->
-        <line x1="120" y1="250" x2="880" y2="250" stroke="rgba(34,38,58,0.45)" stroke-width="1"/>
-        <line x1="500" y1="80" x2="500" y2="420" stroke="rgba(34,38,58,0.45)" stroke-width="1"/>
+        <line x1="120" y1="250" x2="880" y2="250" stroke="var(--dd-ink-a450, rgba(34,38,58,0.45))" stroke-width="1"/>
+        <line x1="500" y1="80" x2="500" y2="420" stroke="var(--dd-ink-a450, rgba(34,38,58,0.45))" stroke-width="1"/>
 
         <!-- Axis end labels -->
-        <text x="880" y="266" fill="#596174" font-size="8" font-family="'Geist Mono', monospace" text-anchor="end" letter-spacing="0.14em">HIGH EFFORT →</text>
-        <text x="120" y="266" fill="#596174" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">← LOW EFFORT</text>
-        <text x="512" y="80" fill="#596174" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">↑ HIGH IMPACT</text>
-        <text x="512" y="432" fill="#596174" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">↓ LOW IMPACT</text>
+        <text x="880" y="266" fill="var(--dd-muted, #596174)" font-size="8" font-family="'Geist Mono', monospace" text-anchor="end" letter-spacing="0.14em">HIGH EFFORT →</text>
+        <text x="120" y="266" fill="var(--dd-muted, #596174)" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">← LOW EFFORT</text>
+        <text x="512" y="80" fill="var(--dd-muted, #596174)" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">↑ HIGH IMPACT</text>
+        <text x="512" y="432" fill="var(--dd-muted, #596174)" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">↓ LOW IMPACT</text>
 
         <!-- Quadrant corner labels -->
-        <text x="140" y="104" fill="#4F5BD5" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.18em" font-weight="600">DO FIRST</text>
-        <text x="860" y="104" fill="#596174" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end" letter-spacing="0.18em">MAJOR PROJECTS</text>
-        <text x="140" y="412" fill="#596174" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.18em">QUICK WINS</text>
-        <text x="860" y="412" fill="#596174" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end" letter-spacing="0.18em">AVOID</text>
+        <text x="140" y="104" fill="var(--dd-accent, #4F5BD5)" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.18em" font-weight="600">DO FIRST</text>
+        <text x="860" y="104" fill="var(--dd-muted, #596174)" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end" letter-spacing="0.18em">MAJOR PROJECTS</text>
+        <text x="140" y="412" fill="var(--dd-muted, #596174)" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.18em">QUICK WINS</text>
+        <text x="860" y="412" fill="var(--dd-muted, #596174)" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end" letter-spacing="0.18em">AVOID</text>
 
         <!-- Items: TL (Do First) -->
-        <!-- accent focal -->
-        <circle cx="220" cy="140" r="6" fill="#4F5BD5"/>
-        <text x="232" y="144" fill="#22263A" font-size="11" font-weight="600" font-family="'Geist', sans-serif">Schematic skill v4</text>
+        <!-- coral focal -->
+        <circle cx="220" cy="140" r="6" fill="var(--dd-accent, #4F5BD5)"/>
+        <text x="232" y="144" fill="var(--dd-ink, #22263A)" font-size="11" font-weight="600" font-family="'Geist', sans-serif">Schematic skill v4</text>
 
-        <circle cx="320" cy="200" r="4" fill="#22263A"/>
-        <text x="332" y="204" fill="#596174" font-size="11" font-family="'Geist', sans-serif">Update changelog</text>
+        <circle cx="320" cy="200" r="4" fill="var(--dd-ink, #22263A)"/>
+        <text x="332" y="204" fill="var(--dd-muted, #596174)" font-size="11" font-family="'Geist', sans-serif">Update changelog</text>
 
         <!-- Items: TR (Major Projects) -->
-        <circle cx="620" cy="140" r="4" fill="#22263A"/>
-        <text x="632" y="144" fill="#596174" font-size="11" font-family="'Geist', sans-serif">Design v4 refresh</text>
+        <circle cx="620" cy="140" r="4" fill="var(--dd-ink, #22263A)"/>
+        <text x="632" y="144" fill="var(--dd-muted, #596174)" font-size="11" font-family="'Geist', sans-serif">Design v4 refresh</text>
 
-        <circle cx="760" cy="180" r="4" fill="#22263A"/>
-        <text x="772" y="184" fill="#596174" font-size="11" font-family="'Geist', sans-serif">New publication</text>
+        <circle cx="760" cy="180" r="4" fill="var(--dd-ink, #22263A)"/>
+        <text x="772" y="184" fill="var(--dd-muted, #596174)" font-size="11" font-family="'Geist', sans-serif">New publication</text>
 
         <!-- Items: BL (Quick Wins) -->
-        <circle cx="260" cy="320" r="4" fill="#22263A"/>
-        <text x="272" y="324" fill="#596174" font-size="11" font-family="'Geist', sans-serif">Fix footer link</text>
+        <circle cx="260" cy="320" r="4" fill="var(--dd-ink, #22263A)"/>
+        <text x="272" y="324" fill="var(--dd-muted, #596174)" font-size="11" font-family="'Geist', sans-serif">Fix footer link</text>
 
-        <circle cx="360" cy="380" r="4" fill="#22263A"/>
-        <text x="372" y="384" fill="#596174" font-size="11" font-family="'Geist', sans-serif">Update OG tags</text>
+        <circle cx="360" cy="380" r="4" fill="var(--dd-ink, #22263A)"/>
+        <text x="372" y="384" fill="var(--dd-muted, #596174)" font-size="11" font-family="'Geist', sans-serif">Update OG tags</text>
 
         <!-- Items: BR (Avoid) -->
-        <circle cx="640" cy="380" r="4" fill="#22263A"/>
-        <text x="652" y="384" fill="#596174" font-size="11" font-family="'Geist', sans-serif">Rewrite build pipeline</text>
+        <circle cx="640" cy="380" r="4" fill="var(--dd-ink, #22263A)"/>
+        <text x="652" y="384" fill="var(--dd-muted, #596174)" font-size="11" font-family="'Geist', sans-serif">Rewrite build pipeline</text>
 
-        <circle cx="780" cy="320" r="4" fill="#22263A"/>
-        <text x="792" y="324" fill="#596174" font-size="11" font-family="'Geist', sans-serif">Port to Nuxt</text>
+        <circle cx="780" cy="320" r="4" fill="var(--dd-ink, #22263A)"/>
+        <text x="792" y="324" fill="var(--dd-muted, #596174)" font-size="11" font-family="'Geist', sans-serif">Port to Nuxt</text>
 
         <!-- Legend -->
-        <line x1="40" y1="456" x2="960" y2="456" stroke="rgba(34,38,58,0.10)" stroke-width="0.8"/>
-        <text x="40" y="472" fill="#596174" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+        <line x1="40" y1="456" x2="960" y2="456" stroke="var(--dd-ink-a100, rgba(34,38,58,0.1))" stroke-width="0.8"/>
+        <text x="40" y="472" fill="var(--dd-muted, #596174)" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
 
-        <circle cx="52" cy="488" r="6" fill="#4F5BD5"/>
-        <text x="68" y="492" fill="#596174" font-size="8.5" font-family="'Geist', sans-serif">Start tomorrow</text>
+        <circle cx="52" cy="488" r="6" fill="var(--dd-accent, #4F5BD5)"/>
+        <text x="68" y="492" fill="var(--dd-muted, #596174)" font-size="8.5" font-family="'Geist', sans-serif">Start tomorrow</text>
 
-        <circle cx="192" cy="488" r="4" fill="#22263A"/>
-        <text x="208" y="492" fill="#596174" font-size="8.5" font-family="'Geist', sans-serif">Candidate project</text>
+        <circle cx="192" cy="488" r="4" fill="var(--dd-ink, #22263A)"/>
+        <text x="208" y="492" fill="var(--dd-muted, #596174)" font-size="8.5" font-family="'Geist', sans-serif">Candidate project</text>
 
-        <text x="336" y="492" fill="#596174" font-size="8.5" font-family="'Geist', sans-serif" font-style="italic">Position is the signal. Colour is reserved for the single action item.</text>
+        <text x="336" y="492" fill="var(--dd-muted, #596174)" font-size="8.5" font-family="'Geist', sans-serif" font-style="italic">Position is the signal. Colour is reserved for the single action item.</text>
       </svg>
   </div>
 </body>

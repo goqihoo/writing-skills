@@ -1,6 +1,6 @@
 # Annotation Callout (italic-serif aside)
 
-> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Resolve color and font family through `style-guide.md` and the selected theme.
+> Adapted from Diagram Design 2.6 at `ac490fd1` under MIT. Resolve colors through the selected theme and font families through `typography.md`.
 
 Use for editorial asides — the "italic pointer" that marks a detail without competing with the primary diagram grammar. Think marginalia: *"structure IS the index"*, *"no imports, no configuration"*.
 

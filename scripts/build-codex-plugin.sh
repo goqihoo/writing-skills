@@ -29,6 +29,11 @@ build_snapshot() {
     cp -R "$skill_dir" "$target_root/skills/"
   done
 
+  # Test and validation runs may leave ignored Python bytecode beside shipped
+  # scripts. Keep generated caches out of the reproducible plugin snapshot.
+  find "$target_root/skills" -type f \( -name '*.pyc' -o -name '*.pyo' \) -delete
+  find "$target_root/skills" -type d -name '__pycache__' -prune -exec rm -rf {} +
+
   while IFS= read -r skill_file; do
     rewritten="$skill_file.codex"
     awk '$0 != "disable-model-invocation: true"' "$skill_file" > "$rewritten"

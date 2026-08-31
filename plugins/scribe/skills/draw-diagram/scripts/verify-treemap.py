@@ -22,8 +22,8 @@ later-painted nodes) reads a cell against the number printed inside it.
 
 Text extent is estimated from font metrics rather than measured in a browser,
 deliberately: every other gate here is pure Python and runs in CI with no
-browser. The selected theme supplies conservative advances and ascent for its
-font families. Unicode wide/full-width characters use the theme's wide advance,
+browser. The shared typography profile supplies conservative advances and ascent.
+Unicode wide/full-width characters use the typography profile's wide advance,
 so estimates report overflow slightly before real overflow, never after.
 
 Usage:
@@ -45,7 +45,7 @@ import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
 
-from theme_tokens import add_theme_argument, theme_number, theme_token
+from theme_tokens import TYPOGRAPHY, add_theme_argument, read_theme_tokens, read_typography_tokens
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 PACKAGE_ROOT = SKILL_DIR.parents[1]
@@ -98,13 +98,14 @@ def font_families(value: str) -> frozenset[str]:
     )
 
 
-def load_font_metrics(theme: Path) -> FontMetrics:
+def load_font_metrics(typography: Path) -> FontMetrics:
+    tokens = read_typography_tokens(typography)
     metrics = FontMetrics(
-        sans_advance=theme_number(theme, "font-sans-advance"),
-        mono_advance=theme_number(theme, "font-mono-advance"),
-        wide_advance=theme_number(theme, "font-wide-advance"),
-        ascent=theme_number(theme, "font-ascent"),
-        mono_families=font_families(theme_token(theme, "font-mono")),
+        sans_advance=float(tokens["font-sans-advance"]),
+        mono_advance=float(tokens["font-mono-advance"]),
+        wide_advance=float(tokens["font-wide-advance"]),
+        ascent=float(tokens["font-ascent"]),
+        mono_families=font_families(tokens["font-mono"]),
     )
     measurements = (
         metrics.sans_advance,
@@ -112,10 +113,10 @@ def load_font_metrics(theme: Path) -> FontMetrics:
         metrics.wide_advance,
         metrics.ascent,
     )
-    if any(value <= 0 for value in measurements):
-        raise ValueError("theme %s font measurement tokens must be positive" % theme.name)
+    if any(not math.isfinite(value) or value <= 0 for value in measurements):
+        raise ValueError("typography %s font measurement tokens must be finite and positive" % typography.name)
     if not metrics.mono_families:
-        raise ValueError("theme %s font-mono token must name a font family" % theme.name)
+        raise ValueError("typography %s font-mono token must name a font family" % typography.name)
     return metrics
 
 
@@ -537,14 +538,16 @@ def main() -> int:
     parser.add_argument("paths", nargs="*", help="HTML files to check")
     parser.add_argument("--all", action="store_true", help="check every shipped treemap example")
     add_theme_argument(parser)
+    parser.add_argument("--typography", type=Path, default=TYPOGRAPHY, help="separate font and measurement profile")
     args = parser.parse_args()
     if not args.all and not args.paths:
         parser.print_help()
         return 2
 
     try:
-        metrics = load_font_metrics(args.theme)
-    except ValueError as error:
+        read_theme_tokens(args.theme)
+        metrics = load_font_metrics(args.typography)
+    except (OSError, KeyError, ValueError) as error:
         print(f"FAIL treemap: {error}", file=sys.stderr)
         return 1
 
