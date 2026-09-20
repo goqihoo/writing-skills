@@ -115,7 +115,7 @@ class DrawDiagramContractTest(unittest.TestCase):
         self.assertIn("content-preparation.md", method)
         self.assertLess(
             method.index("content-preparation.md"),
-            method.index("Select exactly one of the 39 Diagram Design visual types"),
+            method.index("Choose one production branch before selecting a visual form"),
         )
         self.assertIn("source-defined semantic categories", profile)
         self.assertNotIn("When another theme is selected", skill)

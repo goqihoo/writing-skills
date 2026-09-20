@@ -15,10 +15,12 @@ Use prose for one fact or two to three obvious linear steps. Use a Markdown tabl
 1. State one reader question: locate, compare, follow, inspect, recognize, or explore.
 2. Read `visual-production/content-preparation.md` and prepare the source-supported content model before selecting a visual type or drawing geometry.
 3. When behavior, state, enforcement, or risk carries the meaning, read `visual-production/semantic-patterns.md` and select one primary semantic pattern before choosing layout.
-4. Select exactly one of the 39 Diagram Design visual types below. Read its linked type reference completely before drawing. Choose the dominant visual axis instead of combining two layout grammars.
-5. Read `visual-production/scribe-profile.md` for the small source-adaptation rules, `visual-production/style-guide.md` for the theme interface and selected theme, and `visual-production/svg-guide.md` for production, connector, accessibility, and inspection rules.
-6. Map the prepared content into only the supported actors, boundaries, ownership, relationships, protocols, states, failure paths, labels, or data needed to answer the reader question. Apply the chosen type's complexity budget and split overview from detail when it cannot fit.
-7. Bind the chosen theme through explicit color slots using `visual-production/themes/README.md`; preserve component geometry and typography when switching colors. Use editable SVG by default. Use self-contained HTML with inline SVG when the destination needs a web wrapper or interaction. Export PNG from the editable source when raster output is requested. Use Mermaid only when the user explicitly requests Mermaid and state any type-specific fidelity loss.
+4. Choose one production branch before selecting a visual form:
+   - Use **Diagram Design** when exact relationships, direction, hierarchy, state, ownership, or quantitative encoding carry the meaning. Select exactly one of the 39 visual types below, read its linked reference completely, and choose one dominant visual axis.
+   - Use **ImageGen** when the reader needs an illustrated conceptual explanation based on recognizable visual metaphors and the source does not require exact topology, sequence, or quantitative encoding. Do not select a Diagram Design type merely to satisfy the catalog.
+5. For Diagram Design, read `visual-production/scribe-profile.md` for the small source-adaptation rules, `visual-production/style-guide.md` for the theme interface and selected theme, and `visual-production/svg-guide.md` for production, connector, accessibility, and inspection rules. For ImageGen, read the available ImageGen skill and its prompting guidance.
+6. For Diagram Design, map the prepared content into only the supported actors, boundaries, ownership, relationships, protocols, states, failure paths, labels, or data needed to answer the reader question. Apply the chosen type's complexity budget and split overview from detail when it cannot fit. For ImageGen, map each source concept to one recognizable visual cue, keep exact labels minimal, and avoid visual relationships that imply unsupported sequence, hierarchy, or causality.
+7. In the Diagram Design branch, bind the chosen theme through explicit color slots using `visual-production/themes/README.md`; preserve component geometry and typography when switching colors. Use editable SVG by default. Use self-contained HTML with inline SVG when the destination needs a web wrapper or interaction. Export PNG from the editable source when raster output is requested. Use Mermaid only when the user explicitly requests Mermaid and state any type-specific fidelity loss. In the ImageGen branch, use its built-in generation workflow and save the inspected final raster into the consuming project's `_assets/` directory.
 8. Create and inspect the actual render at full size and roughly 736–900 px wide. Fix clipping, overlap, crossings, unreadable labels, false emphasis, and ambiguous direction.
 9. For a file output, use the consuming document's sibling `_assets/` directory by default unless an explicit path or established project convention says otherwise. Keep editable source beside exports when practical. Keep the skill's bundled `assets/` directory for templates and specimens only.
 10. Add only meaningful alt text by default. Do not append a visible title, caption, or explanation after the image unless requested or required by the consuming artifact.
@@ -71,7 +73,7 @@ Do not treat a generic `Chart`, `Flow`, `Matrix`, or `Architecture` umbrella as 
 
 ## Non-Diagram-Design outputs
 
-- Use ImageGen for an illustrated conceptual explanation whose meaning depends on concrete visual cues rather than exact relationships.
+- ImageGen is a first-class production branch selected before Diagram Design type routing, not a fallback after an unsuitable type has been chosen.
 - Use HTML or a visualization tool for adjustable exploration that cannot be expressed as a complete static frame.
 
 ## Semantic rules

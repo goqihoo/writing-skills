@@ -169,7 +169,7 @@ class DrawDiagramRoutingTest(unittest.TestCase):
     def test_progressive_disclosure_loads_only_the_selected_type(self) -> None:
         skill = DRAW_DIAGRAM.read_text(encoding="utf-8")
 
-        self.assertIn("exactly one of its 39 Diagram Design visual types", skill)
+        self.assertIn("select exactly one of its 39 visual types", skill)
         self.assertIn("Load only the selected type's reference", skill)
         self.assertNotIn("type-architecture.md", skill)
 
@@ -178,7 +178,13 @@ class DrawDiagramRoutingTest(unittest.TestCase):
         self.assertIn("state any type-specific fidelity loss", self.instructions)
 
     def test_non_relational_concept_routes_remain_available(self) -> None:
-        self.assertIn("Use ImageGen for an illustrated conceptual explanation", self.instructions)
+        skill = DRAW_DIAGRAM.read_text(encoding="utf-8")
+
+        self.assertIn("Choose one production branch before selecting a visual form", self.instructions)
+        self.assertIn("Use **ImageGen**", self.instructions)
+        self.assertIn("Do not select a Diagram Design type merely to satisfy the catalog", self.instructions)
+        self.assertIn("do not force conceptual content into a Diagram Design type", skill)
+        self.assertIn("For the ImageGen branch", skill)
         self.assertIn("Use HTML or a visualization tool for adjustable exploration", self.instructions)
 
     def test_bundled_specimens_rebind_to_default_theme(self) -> None:
