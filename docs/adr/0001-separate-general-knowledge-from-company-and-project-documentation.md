@@ -1,0 +1,3 @@
+# Separate general knowledge from company and project documentation
+
+Scribe previously used terms such as “product knowledge” and “technical knowledge” for both general understanding and records whose truth belongs to one company, making routing and authority ambiguous. Scribe now reserves Knowledge for material whose applicability is not tied to one company, while Product Documentation and Technical Documentation belong to a named company and Project Documentation belongs to one initiative, customer, contract, or engagement; coordination remains a skill role rather than a content class. This prevents general guidance from becoming an implicit company commitment while avoiding artificial `delivery/` or `coordination/` skill buckets.

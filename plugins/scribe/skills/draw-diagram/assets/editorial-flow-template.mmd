@@ -1,0 +1,26 @@
+%%{init: {
+  "theme": "base",
+  "fontFamily": "Geist, Noto Sans SC, PingFang SC, sans-serif",
+  "themeVariables": {
+    "background": "#FFFFFF",
+    "primaryColor": "#F7F8FC",
+    "primaryTextColor": "#22263A",
+    "primaryBorderColor": "#22263A",
+    "clusterBkg": "transparent",
+    "clusterBorder": "#CBD2DF",
+    "lineColor": "#6F788C",
+    "edgeLabelBackground": "#FFFFFF"
+  }
+}}%%
+flowchart LR
+    source["Source"] -->|request| target["Target component"]
+    target -.->|event| consumer["Async consumer"]
+
+    classDef normal fill:#F7F8FC,stroke:#22263A,color:#22263A,stroke-width:1px;
+    classDef category1 fill:#E9EBFE,stroke:#4F5BD5,color:#22263A,stroke-width:1px;
+    classDef category2 fill:#DDF8F0,stroke:#007A59,color:#22263A,stroke-width:1px;
+    classDef category3 fill:#F3E9FE,stroke:#8240C9,color:#22263A,stroke-width:1px;
+    classDef category4 fill:#FDE9E5,stroke:#D43E26,color:#22263A,stroke-width:1px;
+    classDef category5 fill:#FFF0E4,stroke:#B95D18,color:#22263A,stroke-width:1px;
+    class source,target,consumer normal;
+    linkStyle default stroke:#596174,stroke-width:1px;

@@ -1,0 +1,3 @@
+# Make public skills end-to-end
+
+Scribe previously exposed shared reasoning, structure, writing, and visual methods as additional Public Skills that users had to compose before a primary skill could finish. Starting with 0.7.0, every Public Skill owns one independently valuable user result and completes its core workflow by reading non-invocable Shared Methods directly; Reason, Structure Docs, Write Doc, and Draw Diagram remain public only for their independent user goals. This is a clean contract change with no compatibility behavior for the former required combinations: Ask Scribe and default prompts present the new single-skill workflow, while multiple explicit skills mean multiple independently requested results.

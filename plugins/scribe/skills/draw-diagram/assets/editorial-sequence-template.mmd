@@ -1,0 +1,24 @@
+%%{init: {
+  "theme": "base",
+  "fontFamily": "Geist, Noto Sans SC, PingFang SC, sans-serif",
+  "themeVariables": {
+    "background": "#FFFFFF",
+    "primaryColor": "#FFFFFF",
+    "primaryTextColor": "#22263A",
+    "primaryBorderColor": "#22263A",
+    "lineColor": "#6F788C",
+    "signalColor": "#4F5BD5",
+    "noteBkgColor": "#FFF0E4",
+    "noteBorderColor": "#B95D18"
+  }
+}}%%
+sequenceDiagram
+    autonumber
+    participant C as Caller
+    participant L as Leader
+    participant F as Follower
+
+    C->>L: Write
+    L->>F: Replicate
+    F-->>L: ACK
+    L-->>C: Success

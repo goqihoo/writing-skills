@@ -1,0 +1,91 @@
+schema_version: 1
+owner_skill: write-technical-doc
+model: Technical Documentation
+types:
+  - id: technical-strategy
+    name: Technical Strategy
+    description: Define durable Technical direction, choices, constraints, outcomes, and review triggers.
+    reader_question: Which durable Technical choices guide the company and what outcomes and constraints justify them?
+    authority: Company Technical direction and investment choices, excluding Product strategy and implementation plans.
+    completion: Direction, choices, constraints, outcomes, investment implications, authority, and review triggers agree.
+  - id: technical-roadmap
+    name: Technical Roadmap
+    description: Sequence Technical outcomes, dependencies, decisions, and review triggers.
+    reader_question: Which Technical outcomes and decisions must occur in what dependency order?
+    authority: Company Technical outcome sequence, excluding task plans and Product Roadmaps.
+    completion: Outcomes, sequencing, dependencies, decisions, validation gates, and review triggers are explicit.
+    template:
+      path: ../assets/technical-roadmap-template.md
+      policy: sequence
+  - id: system-landscape
+    name: System Landscape
+    description: Register Systems, owners, lifecycle, critical relationships, and authoritative links.
+    reader_question: Which Systems are formally registered and how do their ownership, lifecycle, and critical relationships fit together?
+    authority: Company registry of Systems and cross-System relationships, excluding internal System Architecture.
+    completion: Registered Systems, owners, lifecycle, governance state, critical relationships, and authority links are discoverable.
+    template:
+      path: ../assets/system-landscape-template.md
+      policy: adaptive
+  - id: system-profile
+    name: System Profile
+    description: Provide one Registered System's identity, responsibility, lifecycle, relationships, and navigation through its README.
+    reader_question: What is this System, who owns it, and where are its authoritative documents?
+    authority: One Registered System's concise company identity and navigation, not its detailed architecture.
+    completion: Purpose, responsibility, owner, lifecycle, relationships, governance, System Architecture, and downstream authority links are current.
+    template:
+      path: ../assets/system-profile-template.md
+      policy: adaptive
+  - id: system-architecture
+    name: System Architecture
+    description: Describe one Registered System's stable internal architecture and evolution.
+    reader_question: How does this System divide responsibility, own state and contracts, control behavior, fail, recover, and evolve?
+    authority: One Registered System's architecture, excluding Machine Authority and Project Technical Design.
+    completion: Architecture Object and Scope, relevant domains and viewpoints, purpose, boundaries, Applications, Subsystems, information and state authority, contracts, controls, deployment and runtime behavior, decisions, validation, current state, target direction, evolution, and downstream links are decision-ready.
+  - id: subsystem-architecture
+    name: Subsystem Architecture
+    description: Describe one justified Subsystem's stable responsibility and internal architecture.
+    reader_question: How does this independently documented Subsystem divide responsibility and behave within its parent System?
+    authority: One justified Subsystem within a Registered System, excluding component implementation and the parent System's overall architecture.
+    completion: Architecture Object and Scope, parent boundary, relevant domains and viewpoints, responsibilities, information and state authority, contracts, controls, deployment and runtime behavior, decisions, validation, evolution, and authority links are coherent at Subsystem Authority Level.
+  - id: technical-governance
+    name: Technical Governance
+    description: Define company Technical decision rights, policies, evidence, exceptions, and review.
+    reader_question: Who may make Technical decisions, under which policies, and with what evidence and exception path?
+    authority: Company Technical governance across the Technical Landscape.
+    completion: Decision rights, policies, evidence, exceptions, assurance, and review triggers are enforceable.
+  - id: technical-standard
+    name: Technical Standard
+    description: State normative rules, applicability, rationale, verification, exceptions, and evolution.
+    reader_question: Which Technical rules apply, how are they verified, and how may exceptions be governed?
+    authority: One company Technical standard without copying executable implementation truth.
+    completion: Scope, normative rules, rationale, verification, exceptions, ownership, and evolution are clear.
+    template:
+      path: ../assets/technical-standard-template.md
+      policy: adaptive
+  - id: architecture-decision
+    name: Architecture Decision
+    description: Preserve a choice, Architecture Object, governing scope, alternatives, rationale, accepted cost, authority, validation, and supersession.
+    reader_question: Which architecture choice was accepted for which object and governing scope, why, and at what cost?
+    authority: One accepted Architecture Decision at the narrowest Authority Level that governs its consequences.
+    completion: Architecture Object, governing scope, Authority Level, affected domains and viewpoints, choice, alternatives, rationale, costs, decision authority, validation, review, and supersession are traceable.
+    template:
+      path: ../assets/architecture-decision-template.md
+      policy: adaptive
+  - id: governance-exception
+    name: Governance Exception
+    description: Preserve an approved deviation, authority, scope, risk, controls, expiry, and remediation.
+    reader_question: Which Technical governance rule is being deviated from, under whose authority, and until when?
+    authority: One approved Technical governance exception.
+    completion: Deviation, authority, scope, risk, compensating controls, expiry, remediation, and review are traceable.
+    template:
+      path: ../assets/governance-exception-template.md
+      policy: adaptive
+  - id: incident-record-review
+    name: Incident Record/Review
+    description: Separate Technical impact, timeline, evidence, contributing conditions, response, learning, and actions.
+    reader_question: What happened, what evidence explains it, and which governed changes follow?
+    authority: One Technical incident record or review without turning hypotheses into facts or actions into proof.
+    completion: Impact, timeline, evidence, contributing conditions, response, learning, decisions, and actions are distinguished.
+    template:
+      path: ../assets/incident-review-template.md
+      policy: sequence

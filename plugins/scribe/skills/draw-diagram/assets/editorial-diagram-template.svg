@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1000" height="600" viewBox="0 0 1000 600"
+     role="img" aria-labelledby="diagram-title diagram-description"
+     data-scribe-color-mode="categorical">
+  <title id="diagram-title">Technical diagram template</title>
+  <desc id="diagram-description">Two peer components connected by an ordinary request flow.</desc>
+  <defs>
+    <style>
+      .title { font: 400 28px "Instrument Serif", Georgia, serif; fill: var(--dd-ink, #22263A); }
+      .node-title { font: 600 12px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: var(--dd-ink, #22263A); }
+      .detail { font: 400 9px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: var(--dd-muted, #596174); }
+      .technical { font: 400 9px "Geist Mono", "Noto Sans Mono CJK SC", monospace; fill: var(--dd-muted, #596174); }
+      .mask { fill: var(--dd-paper, #FFFFFF); }
+      .node { fill: var(--dd-object, #F7F8FC); stroke: var(--dd-ink, #22263A); stroke-width: 1; }
+      .group { fill: var(--dd-group-surface, none); stroke: var(--dd-rule-solid, #CBD2DF); stroke-width: 0.8; }
+      .deemphasized { fill: var(--dd-ink-a020, rgba(34,38,58,0.02)); stroke: var(--dd-ink-a200, rgba(34,38,58,0.2)); stroke-width: 1; }
+      .external { fill: var(--dd-ink-a030, rgba(34,38,58,0.03)); stroke: var(--dd-ink-a300, rgba(34,38,58,0.3)); stroke-width: 1; }
+      .input { fill: var(--dd-muted-a100, rgba(89,97,116,0.1)); stroke: var(--dd-soft, #6F788C); stroke-width: 1; }
+      .store { fill: var(--dd-ink-a050, rgba(34,38,58,0.05)); stroke: var(--dd-muted, #596174); stroke-width: 1; }
+      .optional { fill: var(--dd-ink-a020, rgba(34,38,58,0.02)); stroke: var(--dd-ink-a200, rgba(34,38,58,0.2)); stroke-width: 1; stroke-dasharray: 4,3; }
+      .security { fill: var(--dd-accent-a050, rgba(79,91,213,0.05)); stroke: var(--dd-accent-a500, rgba(79,91,213,0.5)); stroke-width: 1; stroke-dasharray: 4,4; }
+      .category-1 { fill: var(--dd-category-1-tint, #E9EBFE); stroke: var(--dd-category-1, #4F5BD5); }
+      .category-2 { fill: var(--dd-category-2-tint, #DDF8F0); stroke: var(--dd-category-2, #007A59); }
+      .category-3 { fill: var(--dd-category-3-tint, #F3E9FE); stroke: var(--dd-category-3, #8240C9); }
+      .category-4 { fill: var(--dd-category-4-tint, #FDE9E5); stroke: var(--dd-category-4, #D43E26); }
+      .category-5 { fill: var(--dd-category-5-tint, #FFF0E4); stroke: var(--dd-category-5, #B95D18); }
+      .flow { fill: none; stroke: var(--dd-muted, #596174); stroke-width: 1.2; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="var(--dd-muted, #596174)"/></marker>
+    <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="var(--dd-accent, #4F5BD5)"/></marker>
+    <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="var(--dd-link, #007A59)"/></marker>
+  </defs>
+  <rect id="canvas" width="1000" height="600" fill="var(--dd-paper, #FFFFFF)"/>
+  <g id="connectors">
+    <path id="request-flow" class="flow" d="M 400 272 H 640" marker-end="url(#arrow)"/>
+  </g>
+  <g id="nodes" data-category="1">
+    <g id="source-component">
+      <rect class="mask" x="240" y="240" width="160" height="64" rx="6"/>
+      <rect class="node category-1" x="240" y="240" width="160" height="64" rx="6"/>
+      <text class="node-title" x="320" y="276" text-anchor="middle">Source component</text>
+      <text class="detail" x="320" y="292" text-anchor="middle">Short responsibility</text>
+    </g>
+    <g id="target-component">
+      <rect class="mask" x="640" y="240" width="160" height="64" rx="6"/>
+      <rect class="node category-1" x="640" y="240" width="160" height="64" rx="6"/>
+      <text class="node-title" x="720" y="276" text-anchor="middle">Target component</text>
+      <text class="detail" x="720" y="292" text-anchor="middle">Short responsibility</text>
+    </g>
+  </g>
+</svg>

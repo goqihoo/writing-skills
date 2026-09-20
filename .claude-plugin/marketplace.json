@@ -3,19 +3,22 @@
   "owner": {
     "name": "Andrew"
   },
-  "description": "Scribe skills for professional documents and technical visuals.",
+  "description": "Scribe skills for reusable Knowledge, Company Documentation, professional writing, presentation manuscripts, and technical visuals.",
   "plugins": [
     {
       "name": "scribe",
       "source": "./",
-      "description": "Create knowledge, product, architecture, decision, and visual artifacts.",
+      "description": "Use one independently complete skill to assess boundaries, structure company documentation, write a document or presentation manuscript, or produce one verified visual.",
       "category": "productivity",
       "keywords": [
         "writing",
         "documentation",
+        "knowledge",
         "product",
+        "technical",
         "architecture",
-        "diagrams"
+        "diagrams",
+        "presentations"
       ]
     }
   ]

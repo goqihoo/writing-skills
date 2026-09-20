@@ -1,4 +1,0 @@
-interface:
-  display_name: "Write PRD"
-  short_description: "Create or revise a decision-ready PRD"
-  default_prompt: "Use $write-prd to draft a clear PRD from this product context."

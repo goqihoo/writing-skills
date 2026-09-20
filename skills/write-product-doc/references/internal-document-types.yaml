@@ -1,0 +1,94 @@
+schema_version: 1
+owner_skill: write-product-doc
+model: Product Documentation
+types:
+  - id: product-portfolio
+    name: Product Portfolio
+    description: Govern the company's accepted Products and investment relationships.
+    reader_question: Which Products and product lines does the company govern together, and how are they related as investments?
+    authority: Company-level Product Portfolio, classification views, ownership, lifecycle, relationships, and shared constraints.
+    completion: Accepted Products, classification views, investment relationships, lifecycle, ownership, and authority are current.
+    template:
+      path: ../assets/product-portfolio-template.md
+      policy: adaptive
+  - id: products-registry
+    name: Products Registry
+    description: Register accepted Products, owners, lifecycle, and navigation.
+    reader_question: Which Products are formally accepted and where is each Product's authority?
+    authority: Company registry of accepted Products and their current identity, owner, lifecycle, and navigation.
+    completion: Every listed Product is accepted, directly navigable, owned, and lifecycle-qualified.
+    template:
+      path: ../assets/products-registry-template.md
+      policy: adaptive
+  - id: product-governance
+    name: Product Governance
+    description: Define Product decision rights, policies, evidence, and exceptions.
+    reader_question: Who may make Product decisions, under which rules, and with what evidence and exception path?
+    authority: Company Product governance without duplicating Project delivery or Technical governance.
+    completion: Decision rights, policies, evidence, exceptions, and review triggers are enforceable.
+    template:
+      path: ../assets/product-governance-template.md
+      policy: adaptive
+  - id: product-definition
+    name: Product Overview/Definition
+    description: Define one Product's boundary, users, value, behavior, exclusions, and relationships.
+    reader_question: What is this Product, whom does it serve, and what current promise and boundary does the company govern?
+    authority: One accepted Product's current company definition, excluding a proposed change's PRD and customer-specific delivery.
+    completion: Boundary, users, value, current behavior, exclusions, lifecycle, and relationships agree.
+    template:
+      path: ../assets/product-definition-template.md
+      policy: adaptive
+  - id: capability-detail
+    name: Capability Detail
+    description: Explain one Product capability's responsibility, behavior, rules, evidence, and evolution.
+    reader_question: What durable Product responsibility does this capability own and how is it observed and governed?
+    authority: One accepted Product capability's detail beneath the Public Capability Map authority.
+    completion: Responsibility, observable behavior, rules, relationships, evidence, and evolution are clear.
+    template:
+      path: ../assets/capability-detail-template.md
+      policy: adaptive
+  - id: evidence-record
+    name: Evidence Record
+    description: Separate Product observations, method, limits, interpretation, and decision implications.
+    reader_question: What was observed, how reliable is it, and what Product decision may it inform?
+    authority: Product evidence and its bounded interpretation, not a decision or general Knowledge claim.
+    completion: Observations, method, limits, interpretation, and decision implications remain distinct.
+    template:
+      path: ../assets/evidence-record-template.md
+      policy: adaptive
+  - id: product-decision
+    name: Product Decision
+    description: Preserve an accepted Product choice, alternatives, rationale, costs, and review triggers.
+    reader_question: What Product choice was accepted, by whom, why, and at what cost?
+    authority: One accepted Product decision and its supersession boundary.
+    completion: Choice, alternatives, rationale, costs, authority, validation, and review triggers are traceable.
+    template:
+      path: ../assets/product-decision-template.md
+      policy: adaptive
+  - id: product-release-plan
+    name: Product Release Plan
+    description: Define release availability, evidence gates, dependencies, and stop conditions.
+    reader_question: Under which Product conditions may this release become available?
+    authority: Product release decision criteria and availability plan, excluding implementation tasks and Project delivery plans.
+    completion: Availability, evidence gates, Product criteria, dependencies, decisions, and stop conditions support a release decision.
+    template:
+      path: ../assets/release-plan-template.md
+      policy: sequence
+  - id: release-notes
+    name: Release Notes
+    description: Record released current state and link changed Product authorities.
+    reader_question: What Product behavior or availability actually changed in this release?
+    authority: Released Product current state, distinct from the release plan and implementation log.
+    completion: Released state, scope, validity, user impact, evidence, and updated authority links are current.
+    template:
+      path: ../assets/release-notes-template.md
+      policy: adaptive
+  - id: product-review
+    name: Product Review
+    description: Compare Product expectations with evidence and record conclusions, decisions, and follow-up.
+    reader_question: What did the Product evidence show and which decisions follow from it?
+    authority: One Product review event, preserving decision-time evidence and interpretation.
+    completion: Expectations, evidence, outcomes, interpretations, decisions, and follow-up are traceable.
+    template:
+      path: ../assets/product-review-template.md
+      policy: sequence
