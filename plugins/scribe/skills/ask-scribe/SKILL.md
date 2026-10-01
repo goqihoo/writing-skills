@@ -74,6 +74,8 @@ Explain and recommend. Leave every subsequent invocation and execution to the us
 - Presentation manuscript: `$Write Deck`
 - Standalone visual creation or revision: `$Draw Diagram`
 
+Architecture Writers share structural templates while retaining distinct Knowledge, Company and Project responsibilities. Recommend by the requested result, without asking the user to invoke another Writer to obtain a template.
+
 Each Public Skill applies the reasoning, structure, prose-quality, and visual-production Shared Methods its own workflow needs. Do not present the former required multi-skill combinations as compatible alternatives.
 
 Product Strategy, Capability Map, Product Roadmap, PRD, and Product Metric System retain their named public skills. Product Release Plan and Product Review remain registered Internal Document Types of `write-product-doc`; compatible removed or occasional Product artifacts use its Freeform fallback. Technical Strategy, Roadmap, System Landscape, System Profile, System and Subsystem Architecture, governance documents, standards, and event records are registered Internal Document Types of `write-technical-doc`; compatible occasional Technical artifacts use its Freeform fallback.

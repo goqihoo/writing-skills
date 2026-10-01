@@ -9,7 +9,7 @@ types:
   authority: Company-level Technical Architecture; the artifact title need not contain the word company.
   completion: The named Technical Landscape Architecture Object, Scope, Company Authority Level, relevant domains and viewpoints, principles, constraints, Systems, boundaries, owners, critical relationships, controls, deployment and runtime concerns, decisions, validation, and evolution are coherent and traceable; the principal view and responsibility explanation let the reader identify Systems, their connections, and current versus intended state.
   template:
-    path: ../assets/technical-architecture-template.md
+    path: ../../../methods/architecture-templates/assets/overall-architecture-template.md
     policy: adaptive
 - id: product-system-map
   name: Product-System Map
@@ -36,7 +36,7 @@ types:
   authority: One named Project delivery; link governing company/System architecture and Machine Authority.
   completion: Scope, baseline, selected or proposed design, decision authority, dependencies, compatibility, and evidence are traceable; acceptance is never asserted without supporting results.
   template:
-    path: ../assets/delivery-architecture-template.md
+    path: ../../../methods/architecture-templates/assets/overall-architecture-template.md
     policy: adaptive
 - id: delivery-subsystem
   name: Delivery subsystem — Architecture
@@ -45,7 +45,7 @@ types:
   authority: One named Project delivery; link governing company/System architecture and Machine Authority.
   completion: Scope, baseline, selected or proposed design, decision authority, dependencies, compatibility, and evidence are traceable; acceptance is never asserted without supporting results.
   template:
-    path: ../assets/delivery-subsystem-template.md
+    path: ../../../methods/architecture-templates/assets/subsystem-architecture-template.md
     policy: adaptive
 - id: delivery-component
   name: Delivery component — Architecture
@@ -54,7 +54,7 @@ types:
   authority: One named Project delivery; link governing company/System architecture and Machine Authority.
   completion: Scope, baseline, selected or proposed design, decision authority, dependencies, compatibility, and evidence are traceable; acceptance is never asserted without supporting results.
   template:
-    path: ../assets/delivery-component-template.md
+    path: ../../../methods/architecture-templates/assets/component-architecture-template.md
     policy: adaptive
 - id: delivery-deployment
   name: Delivery Deployment Architecture
@@ -63,7 +63,7 @@ types:
   authority: One named Project delivery; link governing company/System architecture and Machine Authority.
   completion: Scope, baseline, selected or proposed design, decision authority, dependencies, compatibility, and evidence are traceable; acceptance is never asserted without supporting results.
   template:
-    path: ../assets/delivery-deployment-template.md
+    path: ../../../methods/architecture-templates/assets/deployment-architecture-template.md
     policy: adaptive
 - id: delivery-migration
   name: Delivery Architecture Migration

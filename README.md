@@ -97,4 +97,4 @@ All Public Skills use the standard flat `skills/<skill-id>/SKILL.md` layout. Fou
 - [Scribe 0.8.0 architecture and document-type notes](docs/releases/0.8.0.md)
 - [Scribe 0.9.0 presentation-manuscript notes](docs/releases/0.9.0.md)
 
-See the [Architecture template catalog](docs/architecture-template-catalog.md) for the actual Knowledge and delivery template files and [Architecture document families](docs/architecture-document-families.md) for their ownership and adaptation.
+See the [Architecture template catalog](docs/architecture-template-catalog.md) for the shared architecture template files and delivery supplements and [Architecture document families](docs/architecture-document-families.md) for their ownership and adaptation.

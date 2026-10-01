@@ -69,4 +69,4 @@ Technical Architecture now uses a registered adaptive template: lead with a comp
 
 ## Project delivery branch
 
-Write Tech Arch owns Project delivery architecture, not the broader project-management artifact system. Its entry, overall, subsystem, component, deployment, migration and validation templates describe a concrete delivery and link stable company/System authority. Project proposals do not overwrite stable design by default. Write Tech Doc retains stable architecture ownership; Component Architecture inherits its parent Authority Level.
+Write Tech Arch owns Project delivery architecture, not the broader project-management artifact system. Its overall, subsystem, component and deployment types reuse shared architecture templates with the concrete-design profile. Delivery entry, migration and validation remain specific supplements. All link stable company/System authority. Project proposals do not overwrite stable design by default. Write Tech Doc retains stable architecture ownership; Component Architecture inherits its parent Authority Level.

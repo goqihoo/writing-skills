@@ -8,11 +8,9 @@ Treat Technical Architecture as the company-level structure of its Technical Lan
 - **Product-System Map:** the many-to-many relationships among Products, Systems, and capabilities. Never assume one Product maps to one System.
 - **Architecture Topic:** one accepted cross-System concern whose information or state ownership, contracts, controls, failure recovery, joint release, or evolution cannot be governed by one System Architecture.
 
-## Domains and viewpoints
+## Viewpoints
 
-Select only the Business, Data, Application, and Technology domains and the Security, Governance, and Runtime viewpoints that materially affect the company-level reader decision. Business and Product facts remain linked to their owning authorities; Technical Architecture records their structural consequences without redefining them.
-
-Use domain, application, governance, and runtime correctness as final coverage checks. Do not require one section, file, or directory per domain or viewpoint. Distinguish Deployment Architecture topology from Runtime operating, failure, and recovery behavior.
+Apply the four viewpoints and deferred-category rule in `../../../methods/architecture-reasoning.md`. Business and Product facts remain linked to their owning authorities; Technical Architecture records their structural consequences without redefining them. Review domain, application, governance and runtime correctness without requiring a section, file or directory for each viewpoint.
 
 ## Decision tests
 
@@ -24,4 +22,4 @@ Explain current and target states, transition constraints, compatibility, sequen
 
 ## Overview and evolution presentation
 
-Apply the Technical Architecture adaptive template assigned by the Writer registry. Lead with the requested structural view; apply the reader verification in the shared Architecture Reasoning Method before treating coverage checks as completion. Keep delivery status and decision status independent, and distinguish a full product-driven target from a delivery slice. Do not impose this template on Product-System Maps, occasional Architecture Topics, or another Writer's System Architecture.
+Apply the shared overall architecture template assigned by the Writer registry with `../../../methods/architecture-templates/concrete-design.md`. Lead with the requested structural view; apply the reader verification in the shared Architecture Reasoning Method before treating coverage checks as completion. Keep delivery status and decision status independent, and distinguish a full product-driven target from a delivery slice. Do not impose this template on Product-System Maps, occasional Architecture Topics, or another Writer's System Architecture.

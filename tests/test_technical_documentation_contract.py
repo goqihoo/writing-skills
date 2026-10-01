@@ -126,7 +126,7 @@ class TechnicalDocumentationContractTest(unittest.TestCase):
             entry = next(item for item in registry["types"] if item["id"] == type_id)
             self.assertEqual("adaptive", entry["template"]["policy"])
             asset = (TECHNICAL_ROOT / "write-technical-doc/references" / entry["template"]["path"]).resolve()
-            self.assertEqual(TECHNICAL_ROOT / "write-technical-doc/assets", asset.parent)
+            self.assertEqual(TECHNICAL_ROOT.parent / "methods/architecture-templates/assets", asset.parent)
             self.assertTrue(asset.is_file())
         for concept in [
             "non-goals",
@@ -176,7 +176,6 @@ class TechnicalDocumentationContractTest(unittest.TestCase):
 
         self.assertIn("Architecture Object", combined)
         self.assertIn("Architecture Scope", combined)
-        self.assertIn("Architecture Domain", combined)
         self.assertIn("Architecture Viewpoint", combined)
         self.assertIn("Architecture View", combined)
         self.assertIn("Authority Level", combined)
@@ -199,7 +198,6 @@ class TechnicalDocumentationContractTest(unittest.TestCase):
         self.assertIn("Architecture Object", template)
         self.assertIn("Governing Scope", template)
         self.assertIn("Authority Level", template)
-        self.assertIn("Architecture Domains", template)
         self.assertIn("Architecture Viewpoints", template)
         self.assertIn("narrowest", template)
 

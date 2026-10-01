@@ -103,7 +103,39 @@ class InternalDocumentTypeRegistryTest(unittest.TestCase):
                     path.resolve()
                     for path in (REPO_ROOT / "skills" / owner_skill / "assets").glob("*.md")
                 }
-                self.assertEqual(referenced_templates, bundled_templates)
+                local_assets = (REPO_ROOT / "skills" / owner_skill / "assets").resolve()
+                shared_assets = (REPO_ROOT / "methods/architecture-templates/assets").resolve()
+                self.assertTrue(all(p.parent in (local_assets, shared_assets) for p in referenced_templates))
+                self.assertEqual({p for p in referenced_templates if p.parent == local_assets}, bundled_templates)
+
+    def test_generator_rejects_invalid_shared_assignments(self) -> None:
+        for corruption in ("unregistered", "outside", "missing"):
+            with self.subTest(corruption=corruption), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                shutil.copytree(REPO_ROOT / "scripts", root / "scripts")
+                for owner in EXPECTED_TYPE_IDS:
+                    shutil.copytree(REPO_ROOT / "skills" / owner, root / "skills" / owner)
+                shared = root / "methods/architecture-templates"
+                shutil.copytree(REPO_ROOT / "methods/architecture-templates", shared)
+                registry = root / "skills/write-technical-architecture/references/internal-document-types.yaml"
+                config = yaml.safe_load(registry.read_text())
+                if corruption == "unregistered":
+                    target = shared / "assets/unregistered.md"
+                    target.write_text("# Unregistered\n")
+                elif corruption == "outside":
+                    target = shared / "outside.md"
+                    target.write_text("# Outside\n")
+                else:
+                    target = shared / "assets/missing.md"
+                config["types"][0]["template"]["path"] = str(target)
+                registry.write_text(yaml.safe_dump(config))
+                result = subprocess.run(
+                    ["python3", str(root / "scripts/generate-internal-document-types.py"), "--check"],
+                    capture_output=True, text=True,
+                )
+                self.assertEqual(1, result.returncode)
+                self.assertIn("error:", result.stderr)
+                self.assertNotIn("Traceback", result.stderr)
 
     def test_catalog_is_generated_from_the_registries(self) -> None:
         subprocess.run(

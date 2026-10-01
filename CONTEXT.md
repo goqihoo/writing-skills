@@ -190,22 +190,18 @@ _Avoid_: mandatory document per Product, System Architecture, Project Technical 
 
 **Architecture Object**:
 The entity whose architecture is being described, such as a company Technical Landscape, Product, Solution, Business Domain, System, or Subsystem. Scribe's company Technical writers directly govern the company Technical Landscape, System, and Subsystem objects within their authority.
-_Avoid_: Architecture Domain, Architecture Viewpoint, Authority Level
+_Avoid_: Architecture Viewpoint, Authority Level
 
 **Architecture Scope**:
 The selected responsibility and environment boundary around one Architecture Object or decision. It states what is included without replacing the object's stable identity.
 _Avoid_: Architecture Object, Authority Level, directory path
 
-**Architecture Domain**:
-A foundational family of architecture concerns: Business, Data, Application, or Technology. Domains guide analysis and coverage without becoming mandatory directories, documents, or headings.
-_Avoid_: Business Domain as an Architecture Object, Architecture Viewpoint, four-view taxonomy
-
 **Architecture Viewpoint**:
-A reusable way to examine cross-cutting stakeholder concerns: Security, Governance, or Runtime. A Viewpoint guides analysis; it is not the resulting artifact or an Architecture Domain.
-_Avoid_: Architecture View, mandatory document, Architecture Domain
+One of Scribe's four organizing and review perspectives: Domain, Application, Governance, or Runtime. Select relevant concerns without forcing one file or section per viewpoint. Data, Integration, Deployment and Security are not additional predefined categories; their organization is deferred.
+_Avoid_: Architecture Object, document template, mandatory directory
 
 **Architecture View**:
-The concrete representation produced for one Architecture Object and Scope using a focused Architecture Domain or Viewpoint. Materialize it independently only when its reader task, authority, and change cycle justify a separate artifact.
+A concrete explanation of one Architecture Object and Scope through a viewpoint. A single architecture document may combine several views; a separate artifact requires a distinct reader task and sufficient content.
 _Avoid_: Architecture Viewpoint, fixed coverage heading, directory level
 
 **Authority Level**:
@@ -213,8 +209,8 @@ The Company, System, or Subsystem scope that owns a Technical Documentation arti
 _Avoid_: Architecture Level, Architecture Object, Architecture View
 
 **Architecture Correctness Checks**:
-The Domain, Application, Governance, and Runtime questions used to test whether facts and invariants, application ownership, controlled authority, and operating behavior remain coherent. They are completion checks rather than Architecture Domains, Viewpoints, directories, documents, or fixed headings.
-_Avoid_: Four Architecture Views, mandatory four-part output structure
+The Domain, Application, Governance, and Runtime questions used to test whether facts and invariants, application ownership, controlled authority, and operating behavior remain coherent. They apply the four viewpoints as review questions rather than prescribing directories, documents or fixed headings.
+_Avoid_: mandatory four-part output structure
 
 **System**:
 A stable technical responsibility boundary with an independently governed lifecycle. State ownership, external contracts, independent release, and failure boundaries are evidence for the boundary, but a System need not satisfy all of them; a System may support multiple Products and contain multiple Applications and Subsystems.
@@ -245,7 +241,7 @@ A deployed or executed process, container, task, or equivalent runtime instance.
 _Avoid_: System, Application, Codebase
 
 **System Architecture**:
-The Technical Documentation authority for the stable design of one concrete System Architecture Object, including relevant domains and viewpoints, internal responsibilities, information and state authority, contracts, controls, deployment and runtime behavior, decisions, and evolution. It links Machine Authority and Project Technical Design instead of copying them.
+The Technical Documentation authority for the stable design of one concrete System Architecture Object, including relevant concerns across the four viewpoints, internal responsibilities, information and state authority, contracts, controls, deployment and runtime behavior, decisions, and evolution. It links Machine Authority and Project Technical Design instead of copying them.
 _Avoid_: Technical Architecture, System Profile, Subsystem Architecture, Machine Authority
 
 **Subsystem Architecture**:

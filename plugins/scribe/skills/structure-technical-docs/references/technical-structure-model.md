@@ -25,7 +25,7 @@ Systems/
 ```
 
 - `README.md` is the System Responsibility README and System Profile. It records responsibility, boundary, owner, lifecycle, real navigation, and links to Machine Authority and Project Documentation.
-- `System Architecture.md` owns the named System Architecture Object and Scope, relevant architecture domains and viewpoints, Applications, Subsystems, information and state authority, contracts, controls, deployment and Runtime behavior, validation, and evolution. It links implementation and operational facts instead of copying them.
+- `System Architecture.md` owns the named System Architecture Object and Scope, relevant concerns across the four viewpoints, Applications, Subsystems, information and state authority, contracts, controls, deployment and Runtime behavior, validation, and evolution. It links implementation and operational facts instead of copying them.
 
 Materialize a Subsystem directory only when the Subsystem has a stable independent responsibility, reader question, authority, change cadence, and navigation need. Do not create a central implementation-and-codebase document; repositories and executable facts normally remain with Machine Authority.
 

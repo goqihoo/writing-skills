@@ -4,7 +4,7 @@ Use this method for System Architecture and proportionally for Subsystem Archite
 
 ## Drafting and verification
 
-Read the adaptive template assigned to the selected type in the Writer registry. Use the shared Architecture Reasoning Method to build and demonstrate the structural model, then use the coverage contract below to find missing material. Apply the reader verification in the shared Architecture Reasoning Method and the template-use checks in `../../../methods/architecture-documents.md` before treating coverage as completion. Templates contain document scaffolds; keep review instructions in this method.
+Read the shared adaptive template assigned to the selected type in the Writer registry and apply `../../../methods/architecture-templates/concrete-design.md`. Use the shared Architecture Reasoning Method to build and demonstrate the structural model, then use the coverage contract below to find missing material. Apply the reader verification in the shared Architecture Reasoning Method and the template-use checks in `../../../methods/architecture-documents.md` before treating coverage as completion. Templates contain document scaffolds; keep review instructions in this method.
 
 ## Coverage contract
 
@@ -26,7 +26,7 @@ Address the relevant evidence for:
 - current facts, accepted target direction, evaluated proposals, compatibility, migration, and evolution boundaries;
 - downstream Subsystem Architecture, interface definitions, deployments, runbooks, code repositories, Project Technical Design, and Machine Authority links.
 
-Use domain, application, governance, and runtime correctness as final checks. Omit an area only when it is genuinely irrelevant, and make material evidence gaps explicit. Do not force one heading or supporting file per domain or viewpoint.
+Use domain, application, governance, and runtime correctness as final checks. Omit an area only when it is genuinely irrelevant, and make material evidence gaps explicit. Do not force one heading or supporting file per viewpoint.
 
 ## Supporting files
 
@@ -34,4 +34,4 @@ Split a supporting file only when it has an independent reader task, authority, 
 
 ## Completion
 
-The architecture family is complete when the named Architecture Object and Scope are explicit, the direct System or Subsystem Architecture remains a coherent entry point, relevant domains and viewpoints are evidence-backed, Deployment Architecture and Runtime behavior are distinguishable, authority links replace implementation duplication, and omissions, open decisions, validation, and evolution triggers are explicit.
+The architecture family is complete when the named Architecture Object and Scope are explicit, the direct System or Subsystem Architecture remains a coherent entry point, relevant concerns across the four viewpoints are evidence-backed, Deployment Architecture and Runtime behavior are distinguishable, authority links replace implementation duplication, and omissions, open decisions, validation, and evolution triggers are explicit.

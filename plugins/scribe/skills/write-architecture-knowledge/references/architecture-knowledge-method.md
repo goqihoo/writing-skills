@@ -4,9 +4,8 @@ Frame the reusable question before selecting structure:
 
 - name the Architecture Object when the knowledge concerns a class of objects, or name the recurring architecture problem when no single object applies;
 - bound applicability, exclusions, authority, evidence, and expected change;
-- select only the Business, Data, Application, and Technology domains that change the reader decision;
-- apply only the Security, Governance, and Runtime viewpoints that expose material cross-cutting concerns;
-- use domain, application, governance, and runtime correctness as final checks rather than mandatory sections.
+- apply Domain, Application, Governance and Runtime as the four organizing and review viewpoints, following the shared Architecture Reasoning Method;
+- use their correctness questions as coverage checks, while the selected template governs document structure.
 
 For every proposed pattern or option, state:
 
@@ -28,6 +27,14 @@ Select the dominant reader task before outlining. Keep one coherent article for 
 - **Explain a reusable pattern:** move from problem and forces to structure and mechanism, a worked scenario and failure, then applicability, alternatives, and adoption conditions.
 
 Treat these paths as outlining choices rather than new document types. Let a conceptual topic use change impact or dependency reasoning instead of manufacturing a request-processing flow. Preserve the template's relevant content responsibilities while adapting the order.
+
+## Give each explanation one job
+
+Use structure to explain elements and dependencies, a state model to explain legal transitions, and an algorithm or protocol to explain how a guarantee is achieved. Use a worked scenario to exercise those models with concrete inputs and results; explain failure as the change to that scenario and its recovery conditions. Merge sections when they would merely repeat the same steps. Establish applicability assumptions before the mechanism and use closing project guidance for the choices and evidence required to transfer it.
+
+## Apply the shared templates as knowledge
+
+Use `../../../methods/architecture-templates/templates.yaml` as the template catalog. Interpret common model and mechanism prompts as a concrete reusable reference realization; keep assumptions and illustrative scenarios explicit. Compare variants conditionally and use adaptation sections to explain project prerequisites and unsuitable contexts. Use review/evidence metadata for knowledge rather than inventing project approval or delivery status. Preserve the topic's substantive design depth and the knowledge-system organization rules.
 
 ## Learning and transfer
 

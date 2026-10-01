@@ -13,7 +13,7 @@ Use this method inside a Writer that owns registered Internal Document Types and
 ## Structure modes
 
 - A type without `template` uses Freeform Structure. Derive its artifact plan from the reader question, authority, evidence, completion profile, and healthy local conventions. Resolve routine headings without interviewing the user.
-- A type with `template` reads only the configured asset and applies its explicit policy:
+- A type with `template` reads only the configured asset, whether local or shared under `methods/architecture-templates/assets/`, and applies its explicit policy:
   - `fixed` preserves exact headings, order, and fields.
   - `sequence` preserves reasoning or action order while allowing subject-specific headings.
   - `adaptive` preserves content responsibilities while allowing merging, reordering, layout changes, and visible omission.

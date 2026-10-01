@@ -48,6 +48,8 @@ def load_and_validate(owner_skill: str) -> dict:
     if not str(registry.get("model", "")).strip():
         raise ValueError(f"{path}: model is required")
 
+    local_assets = (REPO_ROOT / "skills" / owner_skill / "assets").resolve()
+    shared_assets = (REPO_ROOT / "methods/architecture-templates/assets").resolve()
     ids = set()
     names = set()
     templates = set()
@@ -86,7 +88,22 @@ def load_and_validate(owner_skill: str) -> dict:
         resolved = (path.parent / relative_path).resolve()
         if not resolved.is_file():
             raise ValueError(f"{path}: missing template for {type_id}: {resolved}")
-        if resolved in templates:
+        if resolved.parent not in (local_assets, shared_assets):
+            raise ValueError(f"{path}: template outside allowed assets: {resolved}")
+        if resolved.parent == shared_assets:
+            shared_manifest = shared_assets.parent / "templates.yaml"
+            shared = yaml.safe_load(shared_manifest.read_text())
+            if not isinstance(shared, dict) or not isinstance(shared.get("templates"), list):
+                raise ValueError(f"{shared_manifest}: invalid shared template manifest")
+            if any(not isinstance(item, dict) or not isinstance(item.get("template"), str) for item in shared["templates"]):
+                raise ValueError(f"{shared_manifest}: invalid shared template entry")
+            registered = {
+                (shared_manifest.parent / item["template"]).resolve()
+                for item in shared["templates"]
+            }
+            if resolved not in registered:
+                raise ValueError(f"{path}: unregistered shared template: {resolved}")
+        if resolved in templates and resolved.parent == local_assets:
             raise ValueError(f"{path}: template is assigned more than once: {resolved}")
         templates.add(resolved)
 
@@ -94,9 +111,10 @@ def load_and_validate(owner_skill: str) -> dict:
         candidate.resolve()
         for candidate in (REPO_ROOT / "skills" / owner_skill / "assets").glob("*.md")
     }
-    if bundled != templates:
-        missing = sorted(str(path) for path in templates - bundled)
-        dormant = sorted(str(path) for path in bundled - templates)
+    local_templates = {item for item in templates if item.parent == local_assets}
+    if bundled != local_templates:
+        missing = sorted(str(path) for path in local_templates - bundled)
+        dormant = sorted(str(path) for path in bundled - local_templates)
         raise ValueError(
             f"{path}: template mismatch; missing={missing}, dormant={dormant}"
         )

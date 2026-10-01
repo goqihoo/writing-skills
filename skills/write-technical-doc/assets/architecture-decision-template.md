@@ -7,27 +7,19 @@
 - Governing Scope:
 - Authority Level: [Company / System / Subsystem]
 - Authority rationale: [Why this is the narrowest governing Authority Level]
-- Affected Architecture Domains: [Business / Data / Application / Technology]
-- Affected Architecture Viewpoints: [Security / Governance / Runtime]
+- Affected Architecture Viewpoints: [Domain / Application / Governance / Runtime]
 - Decision:
 - Decision-maker:
 - Decision date:
 
 ## Context and alternatives
 
-| Option | Fit | Benefit | Cost or risk | Evidence |
-| --- | --- | --- | --- | --- |
-| | | | | |
+[Explain the concrete problem, governing constraints and scenario that requires a choice. Describe plausible alternatives and how their mechanisms differ under the same conditions. Use a compact comparison table when it helps compare several options against shared criteria.]
 
 ## Rationale and consequences
 
-- Why selected:
-- Accepted costs:
-- Constraints created:
-- Non-decisions:
+[Explain why the choice fits its drivers and evidence, what costs and risks are accepted, and how it constrains dependent designs. State what the decision leaves open and distinguish proposed from accepted consequences.]
 
 ## Validation and evolution
 
-- Validation evidence:
-- Review trigger:
-- Supersedes or superseded by:
+[Link the design and checks that establish or challenge the choice. Explain evidence limits and changes that require reconsideration. Link any decision this supersedes or is superseded by.]

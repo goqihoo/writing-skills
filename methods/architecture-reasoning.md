@@ -4,56 +4,40 @@ Use this method inside any Public Skill that must reason about architectural sco
 
 ## Architecture model
 
-Keep these axes distinct:
+Keep the design object, viewpoint and document structure separate:
 
-| Axis | Meaning | Canonical examples |
+| Axis | Meaning | Examples |
 | --- | --- | --- |
-| Architecture Object | The entity whose architecture is being described | Company, Product, Solution, Business Domain, System, Subsystem |
-| Architecture Scope | The selected responsibility and environment boundary around the object | One company Technical Landscape, one System and its dependencies, one cross-System concern |
-| Architecture Domain | A foundational family of concerns | Business, Data, Application, Technology |
-| Architecture Viewpoint | A reusable way to examine cross-cutting stakeholder concerns | Security, Governance, Runtime |
-| Architecture View | The concrete representation produced for one object and scope using a focused domain or viewpoint | Company Application View, System Governance View, System Runtime View |
-| Authority Level | The Company, System, or Subsystem scope that owns a Technical Documentation artifact or decision | Company, System, Subsystem |
+| Architecture Object | The entity being designed | Company Technical Landscape, System, Subsystem, Component |
+| Architecture Scope | The selected responsibility and environment boundary | One service and its dependencies, one company landscape |
+| Architecture Viewpoint | One of Scribe's four organizing and review perspectives | Domain, Application, Governance, Runtime |
+| Architecture View | A concrete explanation of an object through a viewpoint | A service's application structure, its runtime behavior |
+| Authority Level | The scope owning a decision or technical artifact | Company, System, Subsystem |
 
-Authority Level is a Technical Documentation routing concept, not a substitute for Architecture Object or Scope. Use the object's proper name and explicit scope in every architecture artifact.
+Use Domain, Application, Governance and Runtime as the shared framework for organization and coverage review. It is Scribe's working framework, not a claim that every architecture discipline uses the same taxonomy. Do not infer the viewpoint or template from a directory name, repository count or object size.
 
-Select only the domains and viewpoints that materially change the reader decision. Use them as coverage, not as required directories, documents, or fixed headings.
+## Four viewpoints
 
-## Foundational domains
-
-| Domain | Owns |
+| Viewpoint | Reader question and review responsibility |
 | --- | --- |
-| Business | Capabilities, actors, value, responsibilities, policies, concepts, lifecycle, rules, and invariants |
-| Data | Information meaning, authority, lifecycle, lineage, quality, exchange, retention, residency, and privacy |
-| Application | Applications, Systems, Subsystems, behavior and state ownership, contracts, orchestration, and dependencies |
-| Technology | Platforms, infrastructure, storage, messaging, networks, environments, and deployment mechanisms |
+| Domain | What concepts, facts, rules, lifecycle states and invariants define the problem? |
+| Application | Which systems and modules own behavior and state, and how do their contracts and dependencies realize it? |
+| Governance | Who may decide or act, under which constraints, with what review and evidence? |
+| Runtime | How does the design operate under deployment conditions, load, failures and recovery? |
 
-Keep company Business and Product authority linked when a Technical artifact uses their facts. Technical Architecture may show their structural consequences without redefining them.
+Link company Business and Product facts to their owning authorities. Explain their technical consequences without redefining their product meaning.
 
-## Cross-cutting viewpoints
-
-| Viewpoint | Examines |
-| --- | --- |
-| Security | Assets, threats, identities, trust boundaries, protection, detection, response, and evidence |
-| Governance | Decision authority, policy, controlled commands, approval, assurance, exceptions, and evidence |
-| Runtime | Load, failure, degradation, dependency behavior, observability, replay, recovery, failover, and operating responsibility |
-
-Use **Deployment Architecture** for environments, deployment units, placement, network, cluster, and topology. Use a **Runtime View** for operating behavior, failure, degradation, observability, and recovery.
+Do not introduce Data, Integration, Deployment or Security as additional peer viewpoints, predefined subcategories or recommended standalone documents. Their organization is deferred. Address necessary facts and mechanisms in the relevant explanation, allowing them to affect more than one viewpoint without imposing a fixed placement scheme. Preserve existing specialist templates as resources; use them for an explicitly requested specialist artifact, not to expand an ordinary architecture request.
 
 ## Correctness checks
 
-Use four questions as an exhaustiveness check, not as architecture taxonomy:
+Check domain validity, application ownership, governed authority and runtime behavior through the four viewpoints. An important action must remain authorized and traceable through failure and recovery; information must have clear meaning and ownership. These are coverage checks, not mandatory headings or a requirement for four files.
 
-| Concern | Check |
-| --- | --- |
-| Domain correctness | Are the facts, concepts, lifecycle states, rules, and invariants valid? |
-| Application correctness | Does one authoritative owner preserve each material state and behavior through explicit contracts? |
-| Governance correctness | Can every material action be authorized, constrained, evidenced, reviewed, and protected from bypass? |
-| Runtime correctness | Do ownership and invariants survive real deployment, load, failure, degradation, and recovery? |
+Use the selected template for the document sequence. A main architecture may combine all four viewpoints. Materialize a separate view only when the requested reader task and maintained content warrant it; do not split merely to complete a taxonomy. Keep object decomposition, viewpoints and document boundaries independent.
 
 ## Reasoning loop
 
-Apply this loop across every relevant domain and viewpoint:
+Apply this loop across the relevant viewpoints:
 
 ```text
 Context → Drivers → Scenarios and flows → Risks → Decisions → Validation
@@ -122,4 +106,4 @@ Revise the model or explanation when any relevant answer depends on an unexplain
 
 ## Completion
 
-Architecture reasoning is complete when the object and scope are explicit, relevant domains and viewpoints are accounted for, authoritative facts and state have one owner, material controls trace authority through evidence, failure and recovery behavior preserve invariants, and every accepted tradeoff names its cost and review trigger.
+Architecture reasoning is complete when the object and scope are explicit, the four viewpoints have been reviewed for relevant concerns, authoritative facts and state have one owner, material controls trace authority through evidence, failure and recovery behavior preserve invariants, and every accepted tradeoff names its cost and review trigger.

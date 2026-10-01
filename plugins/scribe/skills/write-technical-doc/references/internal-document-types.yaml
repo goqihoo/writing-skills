@@ -42,7 +42,7 @@ types:
   authority: One Registered System's architecture, excluding Machine Authority and Project Technical Design.
   completion: Architecture Object and Scope, relevant domains and viewpoints, purpose, boundaries, Applications, Subsystems, information and state authority, contracts, controls, deployment and runtime behavior, decisions, validation, current state, target direction, evolution, and downstream links are decision-ready; readers can reconstruct the structure, trace representative behavior and failure, and explain the important choices.
   template:
-    path: ../assets/system-architecture-template.md
+    path: ../../../methods/architecture-templates/assets/overall-architecture-template.md
     policy: adaptive
 - id: subsystem-architecture
   name: Subsystem Architecture
@@ -51,7 +51,7 @@ types:
   authority: One justified Subsystem within a Registered System, excluding component implementation and the parent System's overall architecture.
   completion: Architecture Object and Scope, parent boundary, relevant domains and viewpoints, responsibilities, information and state authority, contracts, controls, deployment and runtime behavior, decisions, validation, evolution, and authority links are coherent at Subsystem Authority Level; readers can explain the internal mechanism and its fit within the parent System.
   template:
-    path: ../assets/subsystem-architecture-template.md
+    path: ../../../methods/architecture-templates/assets/subsystem-architecture-template.md
     policy: adaptive
 - id: technical-governance
   name: Technical Governance
@@ -102,5 +102,5 @@ types:
   authority: A component design governed by its parent System or Subsystem; component is not a new Authority Level.
   completion: Responsibility, parent constraints, interfaces, internal structure, lifecycle, failure, controls, replacement and validation are explicit without duplicating executable definitions.
   template:
-    path: ../assets/component-architecture-template.md
+    path: ../../../methods/architecture-templates/assets/component-architecture-template.md
     policy: adaptive

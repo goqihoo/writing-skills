@@ -8,30 +8,24 @@
 
 **Design state:** [Current / Target / Mixed]
 
-## Delivery scope
+## Delivery purpose and scope
 
-[Project / engagement, delivery object, baseline, target and exclusions]
+[Explain the delivery object, baseline, target and exclusions. Identify the main architecture and the decisions this document set helps readers make.]
 
 ## Document map
 
-| Artifact | Object / purpose | Owner | Version / status | Link |
+| Artifact | Reader task / scope | Owner | Version / status | Link |
 | --- | --- | --- | --- | --- |
-| [Artifact] | [Object / purpose] | [Owner] | [Version / status] | [Link] |
+| [Main or supporting artifact] | [Question answered] | [Role] | [Baseline] | [Link] |
 
-## Review and acceptance
+## Review and acceptance path
 
-| Review question | Decision authority | Required evidence | Acceptance state |
-| --- | --- | --- | --- |
-| [Review question] | [Decision authority] | [Required evidence] | [Acceptance state] |
+[Explain where readers start and how design review, specialist review and acceptance relate. Link the authoritative decision and evidence records; summarize their status without maintaining duplicate criteria or approvals.]
 
 ## Dependencies and unresolved matters
 
-| Dependency / issue | Impact | Owner | Resolution / evidence |
-| --- | --- | --- | --- |
-| [Dependency / issue] | [Impact] | [Owner] | [Resolution / evidence] |
+[Describe cross-document dependencies and blockers, their delivery consequences and owning records. Identify the responsible role and resolution condition for each material open issue.]
 
-## Reference architecture adoption
+## Governing designs and reference knowledge
 
-| Knowledge source | Adopt / Adapt / Reject | Reason | Governing delivery document |
-| --- | --- | --- | --- |
-| [Knowledge source] | [Adopt / Adapt / Reject] | [Reason] | [Governing delivery document] |
+[Link company/System designs and relevant knowledge sources. Point to the delivery document that owns each material adoption or deviation decision; keep detailed rationale in that document.]

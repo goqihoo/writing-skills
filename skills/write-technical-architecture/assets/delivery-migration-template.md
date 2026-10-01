@@ -8,40 +8,40 @@
 
 **Design state:** [Current / Target / Mixed]
 
-## Baseline, target and scope
+## Baseline, target and transition obligations
 
-[Changed boundaries, preserved behavior, exclusions and owning architecture links]
+[Explain why the baseline must change, target boundaries and exclusions; link the owning designs. State behavior and data invariants that must hold throughout the transition, downtime and loss constraints, dependencies and unresolved assumptions.]
 
-## Transition model
+## Coexistence and transition strategy
 
-[Figure: coexistence and transition states]
+[Explain how old and new versions coexist, who owns reads and writes at each transition, and why the selected sequencing preserves the obligations.]
 
-## State and compatibility
+[Figure: transition states, coexistence boundaries and points of no return]
 
-| Data / contract | Current | Target | Transfer / compatibility rule | Verification |
-| --- | --- | --- | --- | --- |
-| [Data / contract] | [Current] | [Target] | [Transfer / compatibility rule] | [Verification] |
+## State transfer and compatibility
+
+[Explain schema or contract compatibility, data movement, reconciliation and how completeness and correctness will be established. Identify authoritative state during coexistence and the risk of divergent writers.]
+
+## Transition consistency and reconciliation
+
+[Specify which version owns writes and serves reads during each coexistence state, how changes are transferred, how conflicts or missing records are detected and how reconciliation establishes completion. Identify the exact boundary after which rollback cannot preserve new state.]
 
 ## Migration stages
 
-| Stage | Entry condition | Change | Exit evidence | Responsible role |
+[Explain the dependency order and why each stage is safe to enter and leave. Use the stage record for execution gates; link procedures separately.]
+
+| Stage | Entry condition | Architecture change | Exit evidence | Owner |
 | --- | --- | --- | --- | --- |
-| [Stage] | [Entry condition] | [Change] | [Exit evidence] | [Responsible role] |
+| [Stage reference] | [Prerequisite] | [Boundary or ownership change] | [Evidence reference] | [Role] |
 
-## Cutover and rollback
+## Cutover, rollback and forward recovery
 
-| Trigger | Authority | Action boundary | State preservation | Verification |
-| --- | --- | --- | --- | --- |
-| [Trigger] | [Authority] | [Action boundary] | [State preservation] | [Verification] |
+[Identify the cutover authority, trigger, health gates and state-preservation checks. State the last safe rollback point. After irreversible writes or incompatible changes, explain forward recovery and reconciliation instead of promising an impossible reversal.]
 
-## Acceptance and residual risk
+## Acceptance and residual risks
 
-| Claim / risk | Check | Pass criterion | Observed / planned evidence | Owner / unresolved condition |
-| --- | --- | --- | --- | --- |
-| [Claim / risk] | [Check] | [Pass criterion] | [Observed / planned evidence] | [Owner / unresolved condition] |
+[Trace transition obligations and stage gates to evidence and acceptance decisions. Explain gaps, owners and resolution conditions; distinguish a proposed migration from a completed one. State when temporary compatibility paths can be retired.]
 
 ## Sources and related documents
 
-| Source / document | Authority / relationship | Version | Link |
-| --- | --- | --- | --- |
-| [Source / document] | [Authority / relationship] | [Version] | [Link] |
+[Link governing requirements, architecture and evidence at their relevant claims. List remaining sources with their version and relationship to this design.]

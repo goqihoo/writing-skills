@@ -35,15 +35,20 @@ class SharedWritingContractTest(unittest.TestCase):
         self.assertIn("actual relationship", method)
         self.assertIn("prompt-like framing", method)
 
-    def test_tables_require_compact_comparison_across_peer_items(self) -> None:
-        method = PROSE_METHOD.read_text(encoding="utf-8")
-
-        self.assertIn(
-            "Use a table only when readers need to compare multiple peer items "
-            "across the same compact repeated fields; otherwise use prose, lists, "
-            "or a suitable visual.",
-            method,
-        )
+    def test_architecture_writers_reach_shared_expression_guidance(self) -> None:
+        # Check instruction reachability, not a particular prose formulation.
+        for owner in (
+            "write-architecture-knowledge",
+            "write-technical-architecture",
+            "write-technical-doc",
+        ):
+            with self.subTest(owner=owner):
+                skill_path = SKILLS_ROOT / owner / "SKILL.md"
+                skill = skill_path.read_text(encoding="utf-8")
+                for target in ("prose-quality.md", "architecture-documents.md"):
+                    pointer = "../../methods/" + target
+                    self.assertIn(pointer, skill)
+                    self.assertTrue((skill_path.parent / pointer).is_file())
 
     def test_natural_expression_avoids_unnecessary_enumeration(self) -> None:
         method = PROSE_METHOD.read_text(encoding="utf-8")
