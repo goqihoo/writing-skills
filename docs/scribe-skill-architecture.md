@@ -6,7 +6,7 @@ Scribe separates three authorities:
 
 - **Knowledge** is reusable across companies and projects. Domain, Product, Technical, and Architecture describe subjects, not ownership.
 - **Company Documentation** records the facts, policies, structures, and decisions maintained by one named company. This release covers Product Documentation and Technical Documentation.
-- **Project Documentation** records one customer, contract, engagement, plan, delivery state, and acceptance boundary. Its artifact system is outside the current Scribe scope.
+- **Project Documentation** records one customer, contract, engagement, plan, delivery state, and acceptance boundary. Project architecture delivery is supported; general project management remains outside scope.
 
 Moving an idea between authority scopes requires an explicit adoption or extraction decision. A reusable method does not become company policy automatically, and a company incident does not become general Knowledge merely because it taught a lesson.
 
@@ -67,3 +67,7 @@ System Architecture and justified Subsystem Architecture are Technical Documenta
 ## Completion contract
 
 The architecture is satisfied when every artifact has one authority scope and owner, presentation manuscripts preserve their source authorities as derived expressions, every directory has one materialization class, Public Skills and Internal Document Types remain distinct, Shared Methods stay non-invocable, each Public Skill completes independently, and public catalog surfaces expose the same names and boundaries.
+
+## Architecture document families
+
+Architecture Knowledge may be a multi-view system of entry points, object documents and specialized topics. Concrete delivery architecture follows the actual object and review/implementation/acceptance tasks, with supporting detail only where justified. Separate template families share reasoning and evidence rules through `methods/architecture-documents.md`; keep actual headings, tables and figure slots in assets. See [Architecture document families](architecture-document-families.md).

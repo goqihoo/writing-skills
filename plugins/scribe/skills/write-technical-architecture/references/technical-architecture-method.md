@@ -21,3 +21,7 @@ For every material choice, record the Architecture Object, governing scope, Auth
 ## Evolution tests
 
 Explain current and target states, transition constraints, compatibility, sequencing dependencies, retirement, and signals that require architecture review. Do not turn a roadmap or implementation plan into the architecture document.
+
+## Overview and evolution presentation
+
+Apply the Technical Architecture adaptive template assigned by the Writer registry. Lead with the requested structural view; apply the reader verification in the shared Architecture Reasoning Method before treating coverage checks as completion. Keep delivery status and decision status independent, and distinguish a full product-driven target from a delivery slice. Do not impose this template on Product-System Maps, occasional Architecture Topics, or another Writer's System Architecture.

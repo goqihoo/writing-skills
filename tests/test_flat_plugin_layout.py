@@ -1,4 +1,6 @@
 import json
+import shutil
+import tempfile
 import subprocess
 import unittest
 from pathlib import Path
@@ -92,6 +94,26 @@ class FlatPluginLayoutTest(unittest.TestCase):
             )
             self.assertNotIn("disable-model-invocation: true", skill)
             self.assertIn("allow_implicit_invocation: false", metadata)
+
+    def test_plugin_build_excludes_finder_metadata(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "scripts").mkdir()
+            shutil.copy2(REPO_ROOT / "scripts/build-codex-plugin.sh", root / "scripts/build-codex-plugin.sh")
+            (root / "skills/example").mkdir(parents=True)
+            (root / "skills/example/SKILL.md").write_text("---\nname: example\ndisable-model-invocation: true\n---\n# Example\n")
+            (root / "skills/.DS_Store").write_bytes(b"finder")
+            (root / "methods").mkdir()
+            (root / "methods/example.md").write_text("# Shared method\n")
+            manifest = root / "plugins/scribe/.codex-plugin/plugin.json"
+            manifest.parent.mkdir(parents=True)
+            manifest.write_text('{"name":"example"}')
+            script = root / "scripts/build-codex-plugin.sh"
+            subprocess.run(["bash", str(script)], check=True, capture_output=True)
+            generated = root / "plugins/scribe/skills"
+            self.assertFalse((generated / ".DS_Store").exists())
+            (generated / ".DS_Store").write_bytes(b"finder")
+            subprocess.run(["bash", str(script), "--check"], check=True, capture_output=True)
 
     def test_codex_package_is_in_sync_with_canonical_skills(self) -> None:
         subprocess.run(

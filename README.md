@@ -6,7 +6,7 @@ Scribe is a set of explicitly invoked skills for professional documents, present
 
 - **Knowledge** is reusable understanding not tied to one company. Domain, Product, Technical, and Architecture are possible Knowledge subjects.
 - **Company Documentation** is owned and maintained by one named company. Scribe currently covers **Product Documentation** and **Technical Documentation**.
-- **Project Documentation** belongs to one customer, contract, initiative, engagement, plan, or acceptance boundary. Its directory and artifact system is outside this release.
+- **Project Documentation** belongs to one customer, contract, initiative, engagement, plan, or acceptance boundary. Scribe supports its architecture delivery artifacts; general project management and its directory system remain outside scope.
 
 Company structures use **Stable Responsibility**, **Type Extension**, and **Event Collection** materialization rules. Repeated or audit-sensitive writer artifacts are registered as **Internal Document Types**; compatible occasional work remains a **Freeform Artifact**. The generated [Internal Document Type catalog](docs/internal-document-types.md) describes the current Product and Technical registries. Each Public Skill delivers one end-to-end result and applies cross-skill **Shared Methods** internally.
 
@@ -63,7 +63,7 @@ All Public Skills use the standard flat `skills/<skill-id>/SKILL.md` layout. Fou
 - [Structure Domain Docs](skills/structure-domain-docs/SKILL.md) (`structure-domain-docs`) — Structure an accepted Domain Knowledge set.
 - [Write Domain Doc](skills/write-domain-doc/SKILL.md) (`write-domain-doc`) — Write one common Domain Knowledge document.
 - [Write Knowledge](skills/write-knowledge/SKILL.md) (`write-knowledge`) — Create durable reusable Knowledge.
-- [Write Arch Knowledge](skills/write-architecture-knowledge/SKILL.md) (`write-architecture-knowledge`) — Create reusable Architecture Knowledge without a company commitment.
+- [Write Arch Knowledge](skills/write-architecture-knowledge/SKILL.md) (`write-architecture-knowledge`) — Create or organize reusable architecture knowledge systems with dedicated view, object, and topic templates.
 
 ### Product Documentation
 
@@ -79,8 +79,8 @@ All Public Skills use the standard flat `skills/<skill-id>/SKILL.md` layout. Fou
 ### Technical Documentation
 
 - [Structure Tech Docs](skills/structure-technical-docs/SKILL.md) (`structure-technical-docs`) — Propose, scaffold, audit, or migrate a company Technical Documentation Set.
-- [Write Tech Doc](skills/write-technical-doc/SKILL.md) (`write-technical-doc`) — Write one registered or occasional Technical artifact, including System or Subsystem Architecture.
-- [Write Tech Arch](skills/write-technical-architecture/SKILL.md) (`write-technical-architecture`) — Define company-level Technical Architecture, Product-System mapping, or a cross-System topic.
+- [Write Tech Doc](skills/write-technical-doc/SKILL.md) (`write-technical-doc`) — Write one registered or occasional Technical artifact, including stable System, Subsystem, or Component Architecture.
+- [Write Tech Arch](skills/write-technical-architecture/SKILL.md) (`write-technical-architecture`) — Define company architecture or a concrete Project architecture delivery with its required supporting documents.
 
 ### Visual
 
@@ -96,3 +96,5 @@ All Public Skills use the standard flat `skills/<skill-id>/SKILL.md` layout. Fou
 - [Scribe 0.7.1 packaging notes](docs/releases/0.7.1.md)
 - [Scribe 0.8.0 architecture and document-type notes](docs/releases/0.8.0.md)
 - [Scribe 0.9.0 presentation-manuscript notes](docs/releases/0.9.0.md)
+
+See the [Architecture template catalog](docs/architecture-template-catalog.md) for the actual Knowledge and delivery template files and [Architecture document families](docs/architecture-document-families.md) for their ownership and adaptation.

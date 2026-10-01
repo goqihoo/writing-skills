@@ -4,7 +4,7 @@ Apply this method proportionally to every human-readable passage produced by a P
 
 ## Reader-flow pass
 
-1. Name the primary reader, the question, and the action reading should enable.
+1. Name the primary reader, what they already know, the question, and the understanding, judgment, or action reading should enable. Calibrate explanation to that reader rather than assuming either expert knowledge or no prior knowledge.
 2. Lock the artifact plan before prose work. Preserve the owning skill's artifact type, outline, section responsibilities, required material, and authorized template branches.
 3. Place facts, reasoning, and examples in the sections that own them. Treat templates as coverage contracts rather than prose voices.
 4. Separate facts, interpretations, choices, assumptions, and open questions. Connect consequential claims to evidence, reasoning, or an example.
@@ -16,7 +16,9 @@ Apply this method proportionally to every human-readable passage produced by a P
 ## Prose contract
 
 - **Point first.** Open with the fact, action, judgment, or consequence the reader needs. Use document narration only when it changes how the reader should use the material.
-- **Concrete before abstract.** Give each new abstraction a recognizable object, event, decision, or result, then reuse one stable term.
+- **Concrete before abstract.** Give each unfamiliar abstraction a recognizable object, event, decision, or result. Explain what it refers to in this passage, not merely what other abstract category it belongs to. Where the meaning depends on a process, state who does what, to what, under which relevant conditions, and with what result; include only the elements needed to understand the claim. Preserve useful conceptual language once its meaning is established.
+- **Reader-calibrated terms.** Use familiar, precise words when they carry the same meaning. Retain necessary technical or formal terms and briefly explain them at first use when the reader is unlikely to know them. Use one stable name for one concept; distinguish related concepts explicitly instead of alternating near-synonyms. Treat jargon as a reader-context problem, not a universal banned-word list.
+- **Meaningful qualifiers.** Make consequential labels such as valid, appropriate, sufficient, or advanced understandable from the surrounding text. State the relevant criterion when it determines inclusion, comparison, action, or outcome. If the source does not supply that criterion, identify the uncertainty or seek clarification when necessary; do not invent a threshold or silently remove the qualification.
 - **Causal movement.** Move adjacent sentences by cause, consequence, contrast, condition, or sequence. Name that relationship instead of merely announcing the next topic.
 - **Human syntax.** Name actors and use ordinary, exact verbs. Unpack noun chains and sentences carrying several independent relationships.
 - **Natural expression.** Write as a competent human addressing the intended audience in the actual relationship and setting. Match the register to how the passage will be read or spoken. Express shared meaning as a natural, direct sentence. Enumerate only when the individual items are necessary to the reader's task. Remove prompt-like framing, mechanical parallelism, slogan fragments, and language that exposes the template or production process.
@@ -27,7 +29,7 @@ Apply this method proportionally to every human-readable passage produced by a P
 - **Consistent voice.** Treat a supplied writing sample as the strongest guide. Otherwise preserve the writer's relationship to the reader and level of formality without inventing anecdotes, emotions, opinions, quotations, or deliberate imperfections.
 - **Clean delivery.** Cut canned openings, generic importance claims, vague authority, promotional gloss, exposed template instructions, redundant summaries, and conversational handoffs the genre does not need.
 
-Scan for reader-flow failures before delivery: an opening about the document instead of the subject; several unexplained abstract nouns arriving together; consecutive paragraphs with the same sentence pattern; repeated template labels used as prose; and transitions that announce sections instead of relationships. Rewrite each failure inside the locked artifact plan.
+Scan for reader-flow failures before delivery: an opening about the document instead of the subject; several unexplained abstract nouns arriving together; labels whose criteria matter but remain unstated; internal workflow language standing in for an explanation; consecutive paragraphs with the same sentence pattern; repeated template labels used as prose; and transitions that announce sections instead of relationships. Rewrite each failure inside the locked artifact plan. Keep the explanation needed for the reader's current question nearby; place implementation detail in its owning section or reference when it would interrupt that explanation. Preserve required structure and do not impose a single outline on different genres.
 
 Keep code, commands, formulas, schemas, exact diagram labels, diagram syntax, structured data, quotations, and exact-format text outside this method.
 
@@ -39,4 +41,5 @@ Keep code, commands, formulas, schemas, exact diagram labels, diagram syntax, st
 - No fact, agreement, or material decision is invented or hidden.
 - The heading sequence, section responsibilities, and reasoning path match the artifact plan.
 - The point arrives early, abstractions have concrete anchors, sentences move through explicit relationships, and formatting serves the content.
+- The intended reader can paraphrase each consequential passage: what it refers to, what it says about that subject, and which conditions affect its meaning. For instructions, they can also identify the required action and expected result. Repair unclear meaning rather than merely shortening sentences; preserve genre, voice, precision, and uncertainty.
 - Readers can tell when to act and when the result needs revision.

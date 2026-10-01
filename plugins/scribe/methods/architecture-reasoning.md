@@ -99,6 +99,27 @@ objective and unsafe outcome
 
 Test missing, stale, conflicting, duplicate, delayed, partially applied, and unknown outcomes. “Log and continue” is not a safe default.
 
+## Turn reasoning into an architecture document
+
+For a full architecture artifact, establish a concrete structural model before expanding the prose. Name the participants, responsibility boundaries, authoritative information or state, and meaningful relationships at the requested scope. Explain why the important boundaries exist. Use a principal view when it materially helps the reader; keep its names and relationships consistent with the text through the shared visual production method.
+
+Demonstrate the model with a representative scenario: follow an input or decision through the participating owners, state changes, observable result, and a consequential failure or exception. For a static structural question, trace a concrete dependency or change impact instead. State the mechanism that preserves or restores the relevant invariant; naming a quality such as reliability is not an explanation. Keep illustrative scenarios visibly distinct from observed behavior.
+
+Connect each material recommendation to a driver, a structural consequence, an accepted cost, and evidence that could challenge it. Compare plausible alternatives on the same scenario and criteria. Report missing evidence at the affected claim; preserve a useful proposed model when the user requests design, labeling assumptions and unaccepted decisions explicitly.
+
+Use coverage checks to find omissions after drafting. Express the result through subject-specific explanations, views, and comparisons that let the reader reconstruct the architecture. Apply this process only to affected content for narrow edits and reviews.
+
+## Reader verification
+
+Before delivery, verify that the artifact lets its intended reader:
+
+- reconstruct the relevant structure, owners, and relationships without interpreting a taxonomy checklist;
+- follow the representative scenario or change impact and explain a material failure or exception;
+- understand why the proposed structure fits its drivers, what it costs, and what evidence would invalidate it;
+- distinguish established facts, illustrative examples, proposals, and accepted decisions.
+
+Revise the model or explanation when any relevant answer depends on an unexplained slogan, an empty section, or contradictory views. Use the owning Writer's template for the artifact-specific expression of these checks.
+
 ## Completion
 
 Architecture reasoning is complete when the object and scope are explicit, relevant domains and viewpoints are accounted for, authoritative facts and state have one owner, material controls trace authority through evidence, failure and recovery behavior preserve invariants, and every accepted tradeoff names its cost and review trigger.

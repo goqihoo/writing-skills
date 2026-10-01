@@ -44,8 +44,8 @@ Platform, Engineering, Data, Security, Quality, and Operations may become Type E
 | --- | --- |
 | **Reason Tech Docs** (`reason-technical`) | Company technical scope, Technical Landscape, Registered System admission, authority routing, and Technical Assessment decisions. |
 | **Structure Tech Docs** (`structure-technical-docs`) | Technical topology, navigation, Registered System core, materialization, audits, and approved migration. |
-| **Write Tech Doc** (`write-technical-doc`) | Registered and freeform Technical artifacts, including System Architecture and Subsystem Architecture. |
-| **Write Tech Arch** (`write-technical-architecture`) | Company-level Technical Architecture, Product-System Map, and cross-System Architecture Topics. |
+| **Write Tech Doc** (`write-technical-doc`) | Registered and freeform Technical artifacts, including stable System, Subsystem, and Component Architecture. |
+| **Write Tech Arch** (`write-technical-architecture`) | Company-level Technical Architecture, Product-System Map, cross-System Architecture Topics, and a separate Project delivery architecture branch. |
 
 ## Internal Document Types
 
@@ -62,3 +62,11 @@ Business and Product facts remain in their owning Company Documentation authorit
 ## Completion contract
 
 The Technical system is coherent when the logical Stable Responsibilities remain distinct in local language, every Registered System has its README and System Architecture, Architecture Objects, Scopes, Domains, Viewpoints, and Authority Levels are not conflated, conditional extensions and collections have evidence, each Writer's YAML remains the sole type configuration authority, active templates exactly match configured assignments, and Machine, Project, Product, and Business authorities remain linked rather than copied.
+
+## Company architecture presentation
+
+Technical Architecture now uses a registered adaptive template: lead with a comprehensible overall structure, explain responsibilities and exchanges, then cover data/runtime boundaries, choices and evolution. Delivery status and decision status are independent. System and Subsystem Architecture remain under Write Tech Doc and now use separately registered adaptive templates, preserving the existing coverage contract while providing a structural overview, concrete behavior, design rationale, and validation. This addresses observed documents that were complete as checklists but did not reveal the overall architecture.
+
+## Project delivery branch
+
+Write Tech Arch owns Project delivery architecture, not the broader project-management artifact system. Its entry, overall, subsystem, component, deployment, migration and validation templates describe a concrete delivery and link stable company/System authority. Project proposals do not overwrite stable design by default. Write Tech Doc retains stable architecture ownership; Component Architecture inherits its parent Authority Level.

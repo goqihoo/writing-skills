@@ -45,7 +45,7 @@ Explain and recommend. Leave every subsequent invocation and execution to the us
 | Structure an accepted Domain Knowledge set | **Structure Domain Docs** (`structure-domain-docs`) | Own domain topology and navigation. |
 | Write a common Domain Knowledge document | **Write Domain Doc** (`write-domain-doc`) | Own its internal domain document types. |
 | Write general reusable Knowledge | **Write Knowledge** (`write-knowledge`) | Own concepts, mechanisms, methods, patterns, cases, and references. |
-| Write reusable Architecture Knowledge | **Write Arch Knowledge** (`write-architecture-knowledge`) | Do not make one company's implementation commitment. |
+| Create or organize reusable Architecture Knowledge systems and documents | **Write Arch Knowledge** (`write-architecture-knowledge`) | Own view, object and topic templates and knowledge-set organization; do not make project commitments. |
 | Assess a product decision and artifact coverage | **Assess Product Lifecycle** (`assess-product-lifecycle`) | Own the Product Lifecycle Assessment, not missing artifacts. |
 | Structure company Product Documentation | **Structure Product Docs** (`structure-product-docs`) | Own Product topology and materialization. |
 | Write a standard or occasional Product document | **Write Product Doc** (`write-product-doc`) | Own registered types and compatible Freeform Artifacts; route public artifacts. |
@@ -55,8 +55,8 @@ Explain and recommend. Leave every subsequent invocation and execution to the us
 | Define one product change | **Write PRD** (`write-prd`) | Own observable behavior and acceptance. |
 | Define the product metric system | **Design Product Metrics** (`design-product-metrics`) | Own measure semantics and governance. |
 | Structure company Technical Documentation | **Structure Tech Docs** (`structure-technical-docs`) | Own Technical topology and materialization. |
-| Write a standard or occasional Technical document, including System or Subsystem Architecture | **Write Tech Doc** (`write-technical-doc`) | Own registered Technical types at their declared levels and compatible Freeform Artifacts; route company-level architecture. |
-| Define company overall architecture, a Product-System Map, or a cross-System topic | **Write Tech Arch** (`write-technical-architecture`) | Own company-level Technical Landscape structure. |
+| Write a standard or occasional Technical document, including stable System or Subsystem Architecture and Component Architecture | **Write Tech Doc** (`write-technical-doc`) | Own registered Technical types at their declared levels and compatible Freeform Artifacts; route company-level architecture. |
+| Define company overall architecture, a Product-System Map, a cross-System topic, or Project delivery architecture | **Write Tech Arch** (`write-technical-architecture`) | Own company-level Technical Landscape structure and concrete Project delivery architecture. |
 | Change a Technical directory, navigation, scaffold, audit, or migration | **Structure Tech Docs** (`structure-technical-docs`) | Own Technical topology and navigation, not document meaning. |
 | Create one architecture, data, process, planning, or quantitative visual | **Draw Diagram** (`draw-diagram`) | Own one of 39 Diagram Design visual forms; the source skill owns meaning. |
 
@@ -64,13 +64,13 @@ Explain and recommend. Leave every subsequent invocation and execution to the us
 
 - Domain Knowledge structure: `$Structure Domain Docs`
 - Domain Knowledge document: `$Write Domain Doc`
-- Architecture Knowledge: `$Write Arch Knowledge`
+- Architecture Knowledge systems and individual documents: `$Write Arch Knowledge`
 - Product Documentation structure: `$Structure Product Docs`
 - Product Internal Document Type: `$Write Product Doc`
 - Product lifecycle assessment: `$Assess Product Lifecycle`
 - Technical Documentation structure: `$Structure Tech Docs`
 - Technical Internal Document Type: `$Write Tech Doc`
-- Company Technical Architecture: `$Write Tech Arch`
+- Company Technical Architecture or Project architecture delivery: `$Write Tech Arch`
 - Dedicated prose revision or review: `$Write Doc`
 - Presentation manuscript: `$Write Deck`
 - Standalone visual creation or revision: `$Draw Diagram`
@@ -83,7 +83,9 @@ Route natural requests without requiring the user to know a type name:
 
 - Route a presentation, slide-sequenced talk, course deck, business presentation, product introduction, technical explanation, or proposal manuscript to `$Write Deck` when the requested result is the audience-facing deck source rather than an authoritative document or rendered presentation file.
 - Route company overall architecture, Product-System Map, or a cross-System concern to `$Write Tech Arch`.
-- Route System or Subsystem Architecture to `$Write Tech Doc`.
+- Route stable System or Subsystem Architecture and Component Architecture to `$Write Tech Doc`.
+- Route concrete Project architecture delivery, including its necessary detailed design, migration and validation artifacts, to `$Write Tech Arch`.
+- Route an architecture knowledge system, view overview, subsystem/component reference, governance/runtime topic, strategy or mechanism to `$Write Arch Knowledge`.
 - Route a compatible occasional Product or Technical document to its owning Writer as a Freeform Artifact.
 - Route a Product directory, navigation, scaffold, audit, or migration to `$Structure Product Docs`.
 - Route a Technical directory, navigation, scaffold, audit, or migration to `$Structure Tech Docs`.

@@ -96,6 +96,7 @@ class IndependentPublicSkillContractTest(unittest.TestCase):
     def test_shared_methods_are_complete_and_not_invocable(self) -> None:
         expected = {
             "architecture-reasoning.md",
+            "architecture-documents.md",
             "documentation-structure.md",
             "domain-reasoning.md",
             "internal-document-types.md",

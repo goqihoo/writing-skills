@@ -261,7 +261,7 @@ The concise identity and navigation record for one System, normally carried by t
 _Avoid_: System Architecture, code or configuration inventory
 
 **Technical Design**:
-A bounded project or downstream-system proposal for how one technical change should alter a concrete system. It is outside the current company Technical Documentation skill scope.
+A bounded project or downstream-system proposal for how one technical change should alter a concrete system. It remains Project authority, distinct from stable company Technical Documentation; Project delivery architecture expresses this design through concrete structure, decisions, and validation.
 _Avoid_: Technical Architecture, System Profile
 
 **Knowledge Adoption**:
@@ -275,3 +275,15 @@ _Avoid_: Treating a product review, incident review, or ADR as reusable Knowledg
 **Machine Authority**:
 An executable artifact such as a schema, migration, configuration definition, test, or codebase that owns a field- or behavior-level fact more reliably than duplicated prose.
 _Avoid_: Repeating the full executable definition in documentation
+
+**Architecture Knowledge System**:
+A reusable collection of architecture entry points, views, object descriptions, strategies and mechanisms with explicit document responsibilities and relationships. Its organization can follow the subject's knowledge structure without committing a company or project to the reference designs.
+_Avoid_: one generic architecture essay, mandatory one-file-per-view
+
+**Delivery Architecture**:
+The architecture artifacts for a named Project or engagement, connecting its baseline and target structure to concrete constraints, decisions, transition and acceptance evidence. It adopts or adapts reference Knowledge while preserving the authority of stable Company/System design.
+_Avoid_: reference architecture, deployment alone, implementation task list
+
+**Component Architecture**:
+An independently useful account of one component's responsibility, contracts, internal structure, lifecycle and validation, governed by its parent System or Subsystem. A component document does not create a new Technical Authority Level.
+_Avoid_: executable implementation specification, Subsystem Architecture

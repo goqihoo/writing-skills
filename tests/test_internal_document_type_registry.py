@@ -25,6 +25,13 @@ EXPECTED_TYPE_IDS = {
     "write-technical-architecture": {
         "technical-architecture",
         "product-system-map",
+        "delivery-index",
+        "delivery-architecture",
+        "delivery-subsystem",
+        "delivery-component",
+        "delivery-deployment",
+        "delivery-migration",
+        "delivery-validation",
     },
     "write-technical-doc": {
         "technical-strategy",
@@ -33,6 +40,7 @@ EXPECTED_TYPE_IDS = {
         "system-profile",
         "system-architecture",
         "subsystem-architecture",
+        "component-architecture",
         "technical-governance",
         "technical-standard",
         "architecture-decision",

@@ -29,6 +29,9 @@ build_snapshot() {
     cp -R "$skill_dir" "$target_root/skills/"
   done
 
+  # Finder metadata is not part of the portable plugin payload.
+  find "$target_root" -type f -name .DS_Store -delete
+
   # Test and validation runs may leave ignored Python bytecode beside shipped
   # scripts. Keep generated caches out of the reproducible plugin snapshot.
   find "$target_root/skills" -type f \( -name '*.pyc' -o -name '*.pyo' \) -delete
@@ -51,8 +54,8 @@ trap cleanup EXIT
 build_snapshot "$staging_root"
 
 if [[ "${1:-}" == "--check" ]]; then
-  diff -ru "$plugin_root/skills" "$staging_root/skills"
-  diff -ru "$plugin_root/methods" "$staging_root/methods"
+  diff -ru -x .DS_Store "$plugin_root/skills" "$staging_root/skills"
+  diff -ru -x .DS_Store "$plugin_root/methods" "$staging_root/methods"
   printf 'PASS: Codex plugin package matches the canonical flat skills and Shared Methods\n'
   exit 0
 fi

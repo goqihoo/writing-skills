@@ -83,7 +83,7 @@ class TechnicalDocumentationContractTest(unittest.TestCase):
         self.assertIn("Product-System Map", {entry["name"] for entry in architecture_registry["types"]})
         self.assertIn("Architecture Topic", architecture_skill)
         self.assertIn("Freeform Artifact", architecture_skill)
-        self.assertIn("Technical Architecture with Freeform Structure", architecture_skill)
+        self.assertEqual("adaptive", next(e for e in architecture_registry["types"] if e["id"] == "technical-architecture")["template"]["policy"])
         self.assertNotIn(
             "Draft Technical Architecture or an Architecture Topic as a Freeform Artifact",
             architecture_skill,
@@ -108,7 +108,7 @@ class TechnicalDocumentationContractTest(unittest.TestCase):
         self.assertIn("Machine Authority", template)
         self.assertIn("Do not copy", template)
 
-    def test_system_architecture_is_freeform_with_explicit_completion_coverage(self) -> None:
+    def test_system_architecture_has_adaptive_template_with_explicit_completion_coverage(self) -> None:
         registry = yaml.safe_load(
             read(
                 TECHNICAL_ROOT
@@ -122,7 +122,12 @@ class TechnicalDocumentationContractTest(unittest.TestCase):
             TECHNICAL_ROOT
             / "write-technical-doc/references/system-architecture-method.md"
         )
-        self.assertNotIn("template", system_architecture)
+        for type_id in ("system-architecture", "subsystem-architecture"):
+            entry = next(item for item in registry["types"] if item["id"] == type_id)
+            self.assertEqual("adaptive", entry["template"]["policy"])
+            asset = (TECHNICAL_ROOT / "write-technical-doc/references" / entry["template"]["path"]).resolve()
+            self.assertEqual(TECHNICAL_ROOT / "write-technical-doc/assets", asset.parent)
+            self.assertTrue(asset.is_file())
         for concept in [
             "non-goals",
             "external actors",
@@ -178,12 +183,13 @@ class TechnicalDocumentationContractTest(unittest.TestCase):
         self.assertIn("correctness", combined)
         self.assertIn("coverage", combined)
         self.assertIn("not", combined)
-        self.assertFalse(
-            (
-                TECHNICAL_ROOT
-                / "write-technical-architecture/assets/technical-architecture-template.md"
-            ).exists()
-        )
+        registry_path = TECHNICAL_ROOT / "write-technical-architecture/references/internal-document-types.yaml"
+        registry = yaml.safe_load(read(registry_path))
+        architecture = next(t for t in registry["types"] if t["id"] == "technical-architecture")
+        self.assertEqual(architecture["template"]["policy"], "adaptive")
+        assigned_template = registry_path.parent / architecture["template"]["path"]
+        self.assertTrue(assigned_template.is_file())
+        self.assertEqual(assigned_template.resolve().parent.name, "assets")
 
     def test_architecture_decisions_record_object_scope_and_authority(self) -> None:
         template = read(

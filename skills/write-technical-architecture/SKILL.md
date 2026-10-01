@@ -1,33 +1,31 @@
 ---
 name: write-technical-architecture
-description: Create, revise, or review company-level Technical Architecture, a Product-System Map, or one cross-System Architecture Topic.
+description: Create, revise, or review company Technical Architecture or a concrete project architecture delivery, including its necessary subsystem, component, deployment, migration, and validation documents.
 disable-model-invocation: true
 ---
 
 # Write Tech Arch
 
-Produce the company Technical Architecture that governs how its Technical Landscape is structured and evolves.
+Produce company Technical Architecture for a Technical Landscape or a coherent Project delivery architecture at the requested scope.
 
 ## Workflow
 
-1. Read `../../methods/technical-reasoning.md`, `../../methods/architecture-reasoning.md`, and `../../methods/internal-document-types.md`. Apply all three methods inside this workflow.
-2. Read the Technical Assessment when persisted, Technical navigation, strategy, system landscape and profiles, governance, accepted architecture decisions, and authoritative downstream links.
-3. Read `references/technical-architecture-method.md` and `references/internal-document-types.yaml` completely. Select Technical Architecture or Product-System Map when registered; treat an Architecture Topic as a Freeform Artifact.
-4. Lock the Architecture Object to the named company's Technical Landscape and the Authority Level to Company. Establish scope, current state, target concerns, principles, constraints, decision authority, and material evidence.
-5. Separate company facts, accepted architecture decisions, principles, constraints, proposals, downstream System Architecture, Project Documentation, and Machine Authority.
-6. Select the Business, Data, Application, and Technology domains and the Security, Governance, and Runtime viewpoints that materially affect the company-level reader decision. Use the four correctness concerns as coverage checks; define boundaries, ownership, critical relationships, controls, failure domains, and evolution without forcing one heading or document per domain or viewpoint.
-7. Compare material alternatives against the same drivers. Record accepted costs, rejected options, validation, and review triggers.
-8. Read `../../methods/prose-quality.md`, then use only the template assigned by the registry. Draft registered Technical Architecture with Freeform Structure; draft an unregistered Architecture Topic as a Freeform Artifact. Link System Profiles and governing System Architecture rather than copying their design.
-9. Read `../../methods/visual-production.md` when the request includes a visual or a central architecture relationship is materially clearer as one. Preserve accepted architecture meaning while applying its visual form and quality rules.
-10. Add a real link from existing Technical or Architecture navigation when creating or renaming an artifact without redesigning topology. Verify the selected completion profile, scope, authority, traceability, downstream links, evolution, and explicit unresolved decisions.
+1. Read `../../methods/architecture-reasoning.md`, `../../methods/architecture-documents.md`, and `../../methods/internal-document-types.md`.
+2. Establish whether the result is company-level architecture or Project delivery architecture. Use the user's intended authority and lifetime, not the word "architecture" alone. Read the target, actual sources, existing navigation and governing decisions.
+3. For company work, read `../../methods/technical-reasoning.md` and `references/technical-architecture-method.md`; identify the named Technical Landscape and Company Authority Level. For project work, read `references/delivery-architecture-method.md`; establish the delivery object, baseline, requirements and acceptance boundary.
+4. Read `references/internal-document-types.yaml`. Select the registered type and its actual template. Treat a compatible cross-System Architecture Topic or occasional Project architectural artifact as a Freeform Artifact. For a Project delivery set, choose its main artifact and only necessary supporting types.
+5. Read the selected assets. Develop structure, responsibilities, state, contracts, key flows, controls, deployment, material alternatives and validation at the requested level. Use the template fields and figure slots to express the architecture; preserve explicit user structure and output format.
+6. Keep observed facts, proposals, accepted decisions and implementation state distinct. For Project delivery, record material reference-knowledge adoption and compatibility/migration constraints. For company work, link governing System Architecture instead of copying internal design.
+7. Read `../../methods/visual-production.md` when a visual is requested or materially improves understanding, and `../../methods/prose-quality.md` before delivery. Use a principal view and responsibility explanation for a multi-System architecture.
+8. Update directly affected real navigation for document-set work; allow standalone documents without invented navigation. Verify the selected completion profile, the architecture-document reader checks and the relevant branch's completion conditions. Remove unfilled placeholders and unused figure slots.
 
 ## Boundaries
 
-- Own company-level Technical Architecture, Product-System Map, and cross-System Architecture Topics across the Technical Landscape.
-- Let `$Write Arch Knowledge` own reusable Architecture Knowledge.
-- Let `$Write Tech Doc` own System Architecture and Subsystem Architecture for one concrete Registered System.
-- Exclude project delivery architecture, Technical Design, implementation tasks, field schemas, configuration, code, and runbook procedures.
+- Own company-level Technical Architecture, Product-System Map, cross-System Architecture Topics, and Project delivery architecture with its directly required supporting documents.
+- Let `$Write Arch Knowledge` own reusable Architecture Knowledge and its document system.
+- Let `$Write Tech Doc` own stable System Architecture, Subsystem Architecture and Component Architecture. Keep Project proposals linked to those authorities rather than overwriting them.
+- Exclude implementation tasks, executable field schemas, configuration, code and runbook procedures; summarize architecture-significant contracts and link Machine Authority.
 
 ## Completion
 
-The work is complete when the selected registered type or Freeform Artifact satisfies its completion contract for the named company Technical Landscape, Architecture Object, Scope, and Authority Level are explicit, relevant domains and viewpoints are accounted for, boundaries and owners are visible, downstream authority links replace copied detail, evolution is governed where applicable, and unresolved material choices remain explicit.
+Complete when the named company or Project scope has an intelligible principal structure, consistent ownership and contracts, traceable choices and evidence, and explicit current/target, proposal/acceptance and unresolved-risk distinctions. For multi-file delivery, verify its main entry and supporting artifacts form one coherent reviewable set. Keep unverified acceptance and unsupported commitments explicit.

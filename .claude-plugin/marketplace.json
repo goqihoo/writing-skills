@@ -3,7 +3,7 @@
   "owner": {
     "name": "Andrew"
   },
-  "description": "Scribe skills for reusable Knowledge, Company Documentation, professional writing, presentation manuscripts, and technical visuals.",
+  "description": "Scribe skills for reusable Knowledge systems, Company Documentation, Project architecture delivery, professional writing, presentations, and visuals.",
   "plugins": [
     {
       "name": "scribe",

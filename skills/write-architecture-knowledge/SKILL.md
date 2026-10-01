@@ -1,33 +1,30 @@
 ---
 name: write-architecture-knowledge
-description: Create, revise, or review reusable Architecture Knowledge that is not tied to one company, system implementation, or project commitment.
+description: Create, organize, revise, or review a reusable Architecture Knowledge system or its overview, domain, subsystem, component, governance, runtime, strategy, and mechanism documents.
 disable-model-invocation: true
 ---
 
 # Write Arch Knowledge
 
-Build reusable Architecture Knowledge about boundaries, ownership, contracts, controls, failure, validation, alternatives, and evolution without making one company's implementation commitment.
+Own reusable Architecture Knowledge not tied to one company or project commitment, from a single detailed document to a coherent multi-view knowledge system.
 
 ## Workflow
 
-1. Read `../../methods/architecture-reasoning.md` and apply it inside this workflow.
-2. Read `references/architecture-knowledge-method.md`, relevant sources, the target knowledge set, navigation, and representative sibling documents.
-3. Establish the reader decision, applicability, evidence, Architecture Object or recurring problem, scope, concepts, constraints, and reusable architecture question.
-4. Separate general facts, principles, options, inference, examples, company decisions, and project commitments.
-5. Select only the Business, Data, Application, and Technology domains and the Security, Governance, and Runtime viewpoints that materially affect the question. Use the four correctness concerns as completion checks rather than output headings.
-6. Compare material options against common drivers. State fit, cost, failure behavior, validation, transition conditions, and limits.
-7. Use `assets/architecture-knowledge-template.md` adaptively. Preserve its content responsibilities while deriving subject-specific analysis headings; never materialize one heading per domain or viewpoint merely for coverage.
-8. Read `../../methods/visual-production.md` when the request includes a visual or a central architecture relationship is materially clearer as one. Preserve architecture meaning while applying its visual form and quality rules.
-9. Read `../../methods/prose-quality.md`, then update existing Knowledge navigation when the artifact is created or renamed.
-10. Verify applicability, sources, authority, option tradeoffs, failure behavior, validation, and separation from company or project commitments.
+1. Read `../../methods/architecture-reasoning.md`, `../../methods/architecture-documents.md`, and `references/architecture-knowledge-method.md`.
+2. Establish the requested subject, reader task, scope and mode: organize a knowledge system, write one document, revise, or review. Read the target, sources, navigation and representative siblings.
+3. Read `references/knowledge-system.md` for system organization, file placement, creation or migration. Inventory actual files and responsibilities before changing topology. Preserve a requested or established view-based knowledge structure.
+4. Read `references/architecture-templates.yaml`. Select the template by document responsibility, not merely topic keywords. Distinguish overall architecture, a view overview, subsystem, component, strategy and mechanism. Read each selected asset before drafting; create only the artifacts justified by the request.
+5. Establish the Architecture Object or recurring problem, Scope, assumptions, relevant domains/viewpoints, and evidence. Separate sourced facts, deductions, examples and project commitments.
+6. Build the structural model, concrete behavior or change-impact example, relevant failure/counterexample, variants, and validation. Use the template's actual headings, fields, tables and figures proportionally. Apply the reading-path guidance without replacing a detailed architecture with a generic essay.
+7. Read `../../methods/visual-production.md` when visuals are requested or materially clarify relationships; read `../../methods/prose-quality.md` for final expression. Honor explicit output formats.
+8. Maintain authorized parent/child and cross-view links. Verify the architecture-document reader checks and the knowledge-system completion conditions. Remove unfilled scaffold text and preserve evidence gaps honestly.
 
 ## Boundaries
 
-- Own reusable Architecture Knowledge not tied to one company.
-- Let `$Write Tech Arch` own one company's Technical Architecture.
-- Keep detailed System Architecture and project Technical Design in their downstream authority scopes.
-- Link examples and executable facts rather than treating them as general authority.
+- Keep reference models, options and project extraction reusable; let `$Write Tech Arch` own company Technical Architecture and concrete Project delivery architecture.
+- Let `$Write Tech Doc` own stable System, Subsystem and Component Architecture under company authority.
+- Organize the requested architecture knowledge set internally; use `$Structure Docs` only for a separately requested general documentation migration, without requiring another invocation.
 
 ## Completion
 
-The work is complete when readers can apply the knowledge without mistaking it for a company commitment, the object or recurring problem and scope are explicit, relevant domains and viewpoints are accounted for, each option states fit and cost, failure and validation are explicit, sources and examples are distinguishable, and navigation exposes the artifact.
+Complete when the requested document or knowledge set has the right templates, explicit boundaries, intelligible structure and mechanisms, applicable tradeoffs, evidence and validation limits, and coherent navigation where a set exists. Verify that readers can move from an overview to detailed views without conflicting ownership, duplicate authority, broken local links or unintended project commitments.
