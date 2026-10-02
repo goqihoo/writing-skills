@@ -18,6 +18,8 @@ Explain and recommend. Leave every subsequent invocation and execution to the us
 6. Return ready-to-type display-name invocations such as `$Ask Scribe` or `/Ask Scribe` when useful. Mention the canonical Skill ID as the compatible alternative when introducing a skill.
 7. Read `../../methods/prose-quality.md`, then explain the choice. Read `../../methods/visual-production.md` only when the user asks for a visual explanation of Scribe or the catalog relationships are materially clearer as one. Do not invoke another skill, perform its workflow, modify files, or produce an artifact owned by another skill.
 
+For architecture purpose, viewpoints, document types, template structure or design rationale, follow **Architecture design choices** below before recommending a Writer.
+
 ## Materialization and interface language
 
 - **Stable Responsibility:** default home for a continuing accepted responsibility.
@@ -45,7 +47,7 @@ Explain and recommend. Leave every subsequent invocation and execution to the us
 | Structure an accepted Domain Knowledge set | **Structure Domain Docs** (`structure-domain-docs`) | Own domain topology and navigation. |
 | Write a common Domain Knowledge document | **Write Domain Doc** (`write-domain-doc`) | Own its internal domain document types. |
 | Write general reusable Knowledge | **Write Knowledge** (`write-knowledge`) | Own concepts, mechanisms, methods, patterns, cases, and references. |
-| Create or organize reusable Architecture Knowledge systems and documents | **Write Arch Knowledge** (`write-architecture-knowledge`) | Own view, object and topic templates and knowledge-set organization; do not make project commitments. |
+| Create or organize reusable Architecture Knowledge systems and documents | **Write Arch Knowledge** (`write-architecture-knowledge`) | Own reusable designs and knowledge-set organization using shared primary templates; do not make project commitments. |
 | Assess a product decision and artifact coverage | **Assess Product Lifecycle** (`assess-product-lifecycle`) | Own the Product Lifecycle Assessment, not missing artifacts. |
 | Structure company Product Documentation | **Structure Product Docs** (`structure-product-docs`) | Own Product topology and materialization. |
 | Write a standard or occasional Product document | **Write Product Doc** (`write-product-doc`) | Own registered types and compatible Freeform Artifacts; route public artifacts. |
@@ -55,10 +57,37 @@ Explain and recommend. Leave every subsequent invocation and execution to the us
 | Define one product change | **Write PRD** (`write-prd`) | Own observable behavior and acceptance. |
 | Define the product metric system | **Design Product Metrics** (`design-product-metrics`) | Own measure semantics and governance. |
 | Structure company Technical Documentation | **Structure Tech Docs** (`structure-technical-docs`) | Own Technical topology and materialization. |
-| Write a standard or occasional Technical document, including stable System or Subsystem Architecture and Component Architecture | **Write Tech Doc** (`write-technical-doc`) | Own registered Technical types at their declared levels and compatible Freeform Artifacts; route company-level architecture. |
+| Write a standard or occasional Technical document, including stable System or Subsystem Architecture, Module Design and Component Architecture | **Write Tech Doc** (`write-technical-doc`) | Own registered Technical types at their declared levels and compatible Freeform Artifacts; route company-level architecture. |
 | Define company overall architecture, a Product-System Map, a cross-System topic, or Project delivery architecture | **Write Tech Arch** (`write-technical-architecture`) | Own company-level Technical Landscape structure and concrete Project delivery architecture. |
 | Change a Technical directory, navigation, scaffold, audit, or migration | **Structure Tech Docs** (`structure-technical-docs`) | Own Technical topology and navigation, not document meaning. |
 | Create one architecture, data, process, planning, or quantitative visual | **Draw Diagram** (`draw-diagram`) | Own one of 39 Diagram Design visual forms; the source skill owns meaning. |
+
+## Architecture design choices
+
+Read `../../methods/architecture-documents.md` for purpose, document responsibilities and template adaptation, and `../../methods/architecture-reasoning.md` for viewpoint definitions and their entry into design. Use these Shared Methods as the authorities; explain their rules without executing a Writer. When asked to show an outline, resolve its template through `../../methods/architecture-templates/templates.yaml` and inspect the actual asset rather than reconstructing headings from memory.
+
+Explain the design principle: **purpose determines how content develops; document responsibility determines the template; four viewpoints guide design reasoning and completeness checks.** Keep purpose, authority, document granularity and viewpoint separate so a change in intended use does not automatically create another template or document set.
+
+- Explain **Architecture Knowledge** through reusable problems, assumptions, reference mechanisms, alternatives, evidence and applicability limits. Explain evolution through variants and adaptation; require an actual migration question before describing a concrete cutover.
+- Explain **Concrete Design** through the named object, actual constraints, selected or proposed mechanisms, acceptance evidence and applicable transition arrangements. Distinguish continuing Company/System authority from named Project delivery when selecting the Writer; purpose alone does not settle ownership.
+- Explain that both purposes use the same template for the same document responsibility. Change the content's specificity and claims, while retaining the questions that make the design understandable.
+
+Use the four primary responsibilities to explain when a separate document earns its place:
+
+| Document | Explain its responsibility | Explain its depth boundary |
+| --- | --- | --- |
+| Overall Architecture | Show how the whole system's parts combine to satisfy its goals and constraints. | Allocate responsibilities and explain cross-part collaboration, state ownership and overall operation; leave complete API specifications to their owner. |
+| Subsystem Architecture | Show how a justified responsibility group realizes the guarantees allocated by its parent. | Connect external commitments to internal organization, mechanisms and local operation. |
+| Module Design | Show how one cohesive function implements its operations, rules and processing flow. | Explain functional decisions, state changes, transactions and dependency coordination. |
+| Component Architecture (component design) | Show how an encapsulated implementation mechanism realizes its usage contract. | Explain internal structure, algorithms, concurrency, lifecycle and resource guarantees. |
+
+Explain that these are optional design granularities, not a compulsory four-level hierarchy. A simple system may contain modules directly; a component may be private to a module or shared by several. Justify a separate document by its independent reader task and maintenance value. Keep topic and supporting documents tied to their actual questions rather than expanding this primary family by default.
+
+Explain the four viewpoints through the questions they contribute: **Domain** checks concepts, rules, state and invariants; **Application** checks behavior and state owners, contracts and collaboration; **Governance** checks authority, permitted actions, controls and evidence; **Runtime** checks deployment conditions, resources, load, failures and recovery. Describe their three entry points: identify drivers before choosing a design, reason through success and failure scenarios while making choices, and check claims and evidence after drafting. Locate the resulting explanation beside the design it supports. Use separate viewpoint documents only when an independent reader task warrants them, for either purpose.
+
+When asked why the templates have matching chapter counts, inspect the current assets and distinguish the default outline from a fixed-count requirement. Explain the reading progression from goals and boundaries through structure, state and behavior to operation, validation and evolution. Apply the Shared Method's adaptation criteria; assess relevant responsibility coverage rather than equal chapter counts, section lengths or document counts.
+
+For a concrete usage question, identify the purpose and authority, select the independently useful document responsibility, then recommend its owning Writer with the relevant scope in the invocation. Explain that the Writer applies viewpoint reasoning internally; a separate `$Reason Arch` invocation is only for an independently requested reasoning result. Complete the explanation when the user can say why this template fits, how purpose changes its content and where viewpoints affect the design.
 
 ## Complete invocations
 
@@ -79,15 +108,15 @@ Architecture Writers share structural templates while retaining distinct Knowled
 
 Each Public Skill applies the reasoning, structure, prose-quality, and visual-production Shared Methods its own workflow needs. Do not present the former required multi-skill combinations as compatible alternatives.
 
-Product Strategy, Capability Map, Product Roadmap, PRD, and Product Metric System retain their named public skills. Product Release Plan and Product Review remain registered Internal Document Types of `write-product-doc`; compatible removed or occasional Product artifacts use its Freeform fallback. Technical Strategy, Roadmap, System Landscape, System Profile, System and Subsystem Architecture, governance documents, standards, and event records are registered Internal Document Types of `write-technical-doc`; compatible occasional Technical artifacts use its Freeform fallback.
+Product Strategy, Capability Map, Product Roadmap, PRD, and Product Metric System retain their named public skills. Product Release Plan and Product Review remain registered Internal Document Types of `write-product-doc`; compatible removed or occasional Product artifacts use its Freeform fallback. Technical Strategy, Roadmap, System Landscape, System Profile, System and Subsystem Architecture, Module Design, Component Architecture, governance documents, standards, and event records are registered Internal Document Types of `write-technical-doc`; compatible occasional Technical artifacts use its Freeform fallback.
 
 Route natural requests without requiring the user to know a type name:
 
 - Route a presentation, slide-sequenced talk, course deck, business presentation, product introduction, technical explanation, or proposal manuscript to `$Write Deck` when the requested result is the audience-facing deck source rather than an authoritative document or rendered presentation file.
 - Route company overall architecture, Product-System Map, or a cross-System concern to `$Write Tech Arch`.
-- Route stable System or Subsystem Architecture and Component Architecture to `$Write Tech Doc`.
+- Route stable System or Subsystem Architecture, Module Design and Component Architecture to `$Write Tech Doc`.
 - Route concrete Project architecture delivery, including its necessary detailed design, migration and validation artifacts, to `$Write Tech Arch`.
-- Route an architecture knowledge system, view overview, subsystem/component reference, governance/runtime topic, strategy or mechanism to `$Write Arch Knowledge`.
+- Route an architecture knowledge system, view overview, overall/subsystem/module/component reference, governance/runtime topic, strategy or mechanism to `$Write Arch Knowledge`.
 - Route a compatible occasional Product or Technical document to its owning Writer as a Freeform Artifact.
 - Route a Product directory, navigation, scaffold, audit, or migration to `$Structure Product Docs`.
 - Route a Technical directory, navigation, scaffold, audit, or migration to `$Structure Tech Docs`.

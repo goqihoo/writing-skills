@@ -1,6 +1,6 @@
 # System Architecture method
 
-Use this method for System Architecture and proportionally for Subsystem Architecture and Component Architecture. A Component Architecture inherits its parent System or Subsystem Authority Level; it does not introduce another Authority Level. Lock the Architecture Object to the named System or Subsystem, set the Authority Level to System or Subsystem (inherit it for a Component), and keep the direct architecture document as the coherent entry point.
+Use this method for System Architecture and proportionally for Subsystem Architecture, Module Design and Component Architecture. Lock the Architecture Object to the named System, Subsystem, functional module or component. Let a module or component inherit its governing System or Subsystem Authority Level without introducing another level, and keep the direct design document as the coherent entry point.
 
 ## Drafting and verification
 

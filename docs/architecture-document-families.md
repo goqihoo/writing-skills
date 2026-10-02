@@ -1,6 +1,6 @@
 # Architecture document families
 
-Scribe distinguishes reusable Architecture Knowledge systems, stable company design, and Project architecture delivery. They share actual Markdown scaffolds with distinct structures by architectural responsibility. Knowledge and concrete-design profiles adapt purpose, evidence and commitments; delivery supplements cover entry, migration and acceptance. [The generated template catalog](architecture-template-catalog.md) links the files.
+Let purpose determine content development, document responsibility determine the template, and four viewpoints guide design reasoning and completeness. Distinguish Architecture Knowledge from Concrete Design, retaining stable company design and Project delivery as separate authorities within Concrete Design. [The generated template catalog](architecture-template-catalog.md) links the files.
 
 | Result | Owner | Template authority |
 | --- | --- | --- |
@@ -9,9 +9,24 @@ Scribe distinguishes reusable Architecture Knowledge systems, stable company des
 | Stable System, Subsystem or Component design | Write Tech Doc (`write-technical-doc`) | Writer Internal Document Type registry |
 | Project architecture and directly required delivery details | Write Tech Arch (`write-technical-architecture`) | Delivery entries in its Writer registry |
 
+## Primary architecture documents
+
+Maintain one shared template for each primary document responsibility:
+
+| Document | Responsibility |
+| --- | --- |
+| Overall Architecture | Explain the whole object's composition and how the parts jointly meet its requirements. |
+| Subsystem Architecture | Explain how a justified responsibility group realizes guarantees allocated by its parent. |
+| Module Design | Explain one cohesive function through operations, rules, state changes and processing coordination. |
+| Component Architecture | Explain one encapsulated mechanism through its usage contract, algorithm, lifecycle and operating guarantees. |
+
+Use these as optional design granularities. A System may contain modules directly; a component may be private or shared by multiple modules. Independent documentation requires a reader question and sufficient design substance. Existing specialist and support resources remain outside this primary-template change and do not require extra documents.
+
+Apply the four viewpoints through the shared Architecture Reasoning Method at three points: identify drivers and assumptions, derive mechanisms through success and failure scenarios, then verify combined guarantees and evidence. Put resulting decisions and gaps in their owning design sections. Viewpoints do not select templates or create four parallel document sets.
+
 ## Knowledge system
 
-Use Domain, Application, Governance and Runtime as the organizing and review framework. Separate a knowledge-set entry, view overview and collection index from substantive architecture. Use Overall Architecture to integrate the relevant views through shared outcomes and scenarios. Use Application Architecture for application decomposition, subsystems, components, engineering strategies and shared mechanisms. Do not add Data, Integration, Deployment or Security as separate categories or recommended splits while their organization is deferred. Retain their templates for explicitly requested specialist artifacts; a catalog resource is not an approved documentation topology. Reuse one template for multiple subjects rather than creating a new skill for every document.
+Organize around subjects, objects and reader questions. Use Domain, Application, Governance and Runtime to reason about the design and check coverage. Separate navigation from substantive architecture, and keep one coherent problem explanation together even when it spans all four viewpoints. Preserve useful established viewpoint organization or add it as optional retrieval navigation; link the owning explanations rather than copying them. Retain existing specialist resources for explicitly requested or established structures; a catalog resource is not an approved documentation topology. Reuse one template for multiple subjects rather than creating a new skill for every document.
 
 Preserve established topology, explicit user structure and local language. A request to organize a system includes inventories, gap/overlap assessment, appropriate writing and navigation within authorized scope. It does not require separate skill invocations. Link a shared explanation from its dependents; do not duplicate it or create placeholder documents for every possible topic. Keep navigation separate from substantive design judgments. Apply the shared cross-document scenario check to verify that the models jointly preserve the claimed outcome, including failure and recovery. Derive technical security mechanisms from threats as well as describing policy authority.
 
@@ -25,11 +40,11 @@ Preserve established topology, explicit user structure and local language. A req
 | Validation expectations | Requirement-to-design-to-evidence traceability |
 | Project extraction | Adopt/Adapt/Reject decisions and compatibility/migration constraints |
 
-Apply `methods/architecture-templates/concrete-design.md` to the same overall, subsystem, component, deployment and topic assets used for Knowledge. Keep delivery entry, migration and validation assets with their owning Writer. Use the delivery main document to integrate the relevant architecture concerns. Split subsystem, component, deployment, migration or validation documents only for independently useful detail. Keep stable System authorities linked; promotion of Project decisions requires evidence and authorization. Project architecture support does not expand into general task planning or executing deployment.
+Apply `methods/architecture-templates/concrete-design.md` to the same overall, subsystem, module and component assets used for Knowledge. Keep delivery entry, migration and validation assets with their owning Writer. Use the delivery main document to integrate the relevant architecture concerns. Split subsystem, module, component, deployment, migration or validation documents only for independently useful detail. Keep stable System authorities linked; promotion of Project decisions requires evidence and authorization. Project architecture support does not expand into general task planning or executing deployment.
 
 ## Reasoning and reader flow
 
-Follow the shared chain in `methods/architecture-documents.md`: problem and scenarios, strategy, structure and mechanism, tradeoffs, then evidence. Adapt that chain to each document responsibility. Overall architecture allocates responsibilities and requirements; subsystem architecture explains how internal components realize external commitments; component architecture explains the contract, invariants and mechanism under allocated constraints. Deployment connects operating targets to topology, capacity and recovery. Migration protects invariants through transitions and irreversible boundaries. Validation connects claims to scenarios, evidence and actual acceptance decisions.
+Follow the shared chain in `methods/architecture-documents.md`: problem and scenarios, strategy, structure and mechanism, tradeoffs, then evidence. Adapt that chain to each document responsibility. Overall architecture allocates responsibilities and requirements; subsystem architecture explains how its internal responsibilities realize external commitments; module design explains functional rules, state changes and dependency coordination; component architecture explains the contract, invariants and mechanism under allocated constraints. Deployment connects operating targets to topology, capacity and recovery. Migration protects invariants through transitions and irreversible boundaries. Validation connects claims to scenarios, evidence and actual acceptance decisions.
 
 Apply `methods/prose-quality.md` to choose expression. Develop reasoning in prose and explain relationships or behavior with figures. Retain tables for useful comparisons, navigation, matrices and traceable records. A template's coverage does not require a table for each concern or a fixed number of tables. Keep a decision or evidence record in one owning document and link it from overviews and dependent designs.
 
@@ -37,7 +52,7 @@ For a complete document, review the aggregate reading path as well as individual
 
 ## Design depth
 
-Use the implementation-readiness checks in `methods/architecture-documents.md` to distinguish a useful design from a responsibility inventory. Overall designs connect logical structure to software realization and integration; subsystems realize parent guarantees through internal contracts and transactions; components explain their actual algorithm or protocol. Keep architecture-significant data relationships and contract semantics in the design while executable detail remains with implementation. A proposed, evidence-bounded design is valid output before approval; a collection of unallocated future decisions is not a completed design.
+Use the implementation-readiness checks in `methods/architecture-documents.md` to distinguish a useful design from a responsibility inventory. Overall designs connect logical structure to software realization and integration; subsystems realize parent guarantees through internal contracts and transactions; modules explain their functional rules and processing coordination; components explain their actual algorithm or protocol. Keep architecture-significant data relationships and contract semantics in the design while executable detail remains with implementation. A proposed, evidence-bounded design is valid output before approval; a collection of unallocated future decisions is not a completed design.
 
 ## Maintenance and validation
 

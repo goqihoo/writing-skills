@@ -63,7 +63,7 @@ All Public Skills use the standard flat `skills/<skill-id>/SKILL.md` layout. Fou
 - [Structure Domain Docs](skills/structure-domain-docs/SKILL.md) (`structure-domain-docs`) — Structure an accepted Domain Knowledge set.
 - [Write Domain Doc](skills/write-domain-doc/SKILL.md) (`write-domain-doc`) — Write one common Domain Knowledge document.
 - [Write Knowledge](skills/write-knowledge/SKILL.md) (`write-knowledge`) — Create durable reusable Knowledge.
-- [Write Arch Knowledge](skills/write-architecture-knowledge/SKILL.md) (`write-architecture-knowledge`) — Create or organize reusable architecture knowledge systems with dedicated view, object, and topic templates.
+- [Write Arch Knowledge](skills/write-architecture-knowledge/SKILL.md) (`write-architecture-knowledge`) — Create or organize reusable architecture knowledge systems with shared overall, subsystem, module, and component templates and scoped topic guidance.
 
 ### Product Documentation
 
@@ -79,7 +79,7 @@ All Public Skills use the standard flat `skills/<skill-id>/SKILL.md` layout. Fou
 ### Technical Documentation
 
 - [Structure Tech Docs](skills/structure-technical-docs/SKILL.md) (`structure-technical-docs`) — Propose, scaffold, audit, or migrate a company Technical Documentation Set.
-- [Write Tech Doc](skills/write-technical-doc/SKILL.md) (`write-technical-doc`) — Write one registered or occasional Technical artifact, including stable System, Subsystem, or Component Architecture.
+- [Write Tech Doc](skills/write-technical-doc/SKILL.md) (`write-technical-doc`) — Write one registered or occasional Technical artifact, including stable System and Subsystem Architecture, Module Design, or Component Architecture.
 - [Write Tech Arch](skills/write-technical-architecture/SKILL.md) (`write-technical-architecture`) — Define company architecture or a concrete Project architecture delivery with its required supporting documents.
 
 ### Visual

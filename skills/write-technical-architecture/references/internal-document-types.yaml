@@ -47,6 +47,15 @@ types:
   template:
     path: ../../../methods/architecture-templates/assets/subsystem-architecture-template.md
     policy: adaptive
+- id: delivery-module
+  name: Delivery module — Design
+  description: Design one cohesive function within a concrete delivery.
+  reader_question: How does this delivery module implement its operations, rules, state changes and processing flow?
+  authority: One named Project delivery; link governing System or Subsystem authority without introducing a module authority level.
+  completion: Functional responsibility, inherited constraints, operations, rules, state and transaction boundaries, dependency contracts, processing and failure mechanisms, validation, compatibility and pending decisions are coherent; the design remains distinct from stable technical truth and executable implementation detail.
+  template:
+    path: ../../../methods/architecture-templates/assets/module-design-template.md
+    policy: adaptive
 - id: delivery-component
   name: Delivery component — Architecture
   description: Create delivery component — architecture for one concrete delivery.

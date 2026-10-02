@@ -1,12 +1,14 @@
 # [Overall Architecture]
 
+**Purpose:** [Architecture Knowledge / Concrete Design]
+
 **Status:** [Draft / Reviewed / Superseded]
 
 **Evidence baseline:** [Date, sources and verification limits]
 
 ## 1. Design goals and scope
 
-[Name the architecture object, scope and decision authority. Explain the problem, current baseline, intended outcomes, actors, external dependencies and non-goals; distinguish current and target design, proposals and accepted decisions, and planned and implemented behavior. Establish the critical scenarios, domain invariants, quality priorities, threats and operating constraints that drive the design. Cite requirements and evidence; keep missing budgets and applicability assumptions explicit. For reusable Knowledge, establish the intended context and applicability instead of inventing a delivery baseline.]
+[Name the architecture object, scope and decision authority. Explain the problem, current baseline, intended outcomes, actors, external dependencies and non-goals; distinguish current and target design, proposals and accepted decisions, and planned and implemented behavior. Establish the critical scenarios, domain invariants, quality priorities, threats and operating constraints that drive the design. Cite requirements and evidence; keep missing budgets and applicability assumptions explicit.]
 
 ## 2. Overall solution and key tradeoffs
 
@@ -34,4 +36,4 @@
 
 ## 8. Evolution and compatible migration
 
-[Explain which changes preserve the model and which invalidate it. For a concrete change, describe the baseline-to-target transition, intermediate states, sequencing dependencies, compatibility boundaries, state migration, cutover conditions, retirement and rollback limits; explain recovery after irreversible change. Link an existing migration design when it owns the detail. Keep task schedules and operational procedures in their owning artifacts. For reusable Knowledge, explain variants, adoption choices, adaptation prerequisites and unsuitable contexts. State the evidence and authority needed for a change without treating an unaccepted proposal as established technical truth.]
+[Explain which changes preserve the model and which invalidate it. For a concrete change, describe the baseline-to-target transition, intermediate states, sequencing dependencies, compatibility boundaries, state migration, cutover conditions, retirement and rollback limits; explain recovery after irreversible change. Link an existing migration design when it owns the detail. Keep task schedules and operational procedures in their owning artifacts. State the evidence and authority needed for a change without treating an unaccepted proposal as established technical truth.]

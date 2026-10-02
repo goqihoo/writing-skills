@@ -24,7 +24,7 @@ templates:
   template: assets/domain-architecture-template.md
 - id: overall-architecture
   name: Overall Architecture
-  group: Overall
+  group: Primary
   reader_question: How do domain, data, application, protection and operating choices jointly deliver the intended outcomes?
   template: assets/overall-architecture-template.md
 - id: data-architecture
@@ -44,12 +44,17 @@ templates:
   template: assets/application-architecture-template.md
 - id: subsystem-architecture
   name: Subsystem Architecture
-  group: Application
+  group: Primary
   reader_question: How does this subsystem own state and collaborate?
   template: assets/subsystem-architecture-template.md
+- id: module-design
+  name: Module Design
+  group: Primary
+  reader_question: How does one cohesive function implement its operations, rules, state changes and processing flow?
+  template: assets/module-design-template.md
 - id: component-architecture
   name: Component Architecture
-  group: Application
+  group: Primary
   reader_question: What contract and internal mechanism define this component?
   template: assets/component-architecture-template.md
 - id: engineering-strategy

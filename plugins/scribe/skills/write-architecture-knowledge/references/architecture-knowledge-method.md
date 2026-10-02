@@ -4,7 +4,7 @@ Frame the reusable question before selecting structure:
 
 - name the Architecture Object when the knowledge concerns a class of objects, or name the recurring architecture problem when no single object applies;
 - bound applicability, exclusions, authority, evidence, and expected change;
-- apply Domain, Application, Governance and Runtime as the four organizing and review viewpoints, following the shared Architecture Reasoning Method;
+- apply Domain, Application, Governance and Runtime as the four design-reasoning and completeness viewpoints, following the shared Architecture Reasoning Method;
 - use their correctness questions as coverage checks, while the selected template governs document structure.
 
 For every proposed pattern or option, state:
@@ -34,7 +34,7 @@ Use structure to explain elements and dependencies, a state model to explain leg
 
 ## Apply the shared templates as knowledge
 
-Use `../../../methods/architecture-templates/templates.yaml` as the template catalog. Interpret common model and mechanism prompts as a concrete reusable reference realization; keep assumptions and illustrative scenarios explicit. Compare variants conditionally and use adaptation sections to explain project prerequisites and unsuitable contexts. Use review/evidence metadata for knowledge rather than inventing project approval or delivery status. Preserve the topic's substantive design depth and the knowledge-system organization rules.
+Use `../../../methods/architecture-templates/templates.yaml` as the template catalog. Interpret common model and mechanism prompts as a concrete reusable reference realization; keep assumptions and illustrative scenarios explicit. Compare variants conditionally and use adaptation sections to explain project prerequisites and unsuitable contexts. Set the purpose to Architecture Knowledge. Use review/evidence metadata rather than inventing project approval or delivery status. Interpret goals and scope as the reusable problem and applicability, choices as a worked reference realization with conditional variants, validation as evidence and limits, and evolution as adaptation and change impact; describe migration only when it is part of the actual knowledge question. Preserve the topic's substantive design depth and the knowledge-system organization rules.
 
 ## Learning and transfer
 

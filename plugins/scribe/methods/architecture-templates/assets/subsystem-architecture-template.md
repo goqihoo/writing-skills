@@ -1,12 +1,14 @@
 # [Subsystem Architecture]
 
+**Purpose:** [Architecture Knowledge / Concrete Design]
+
 **Status:** [Draft / Reviewed / Superseded]
 
 **Evidence baseline:** [Date, sources and verification limits]
 
 ## 1. Responsibility, scope and parent constraints
 
-[Explain why this responsibility group warrants a Subsystem, what it owns and excludes, and the intended result. Link the parent architecture and identify the guarantees, invariants, quality priorities and operating constraints allocated to this Subsystem. Establish a representative caller scenario and relevant local design pressures. Keep inherited commitments, locally owned choices and changes requiring parent coordination distinct. For a concrete design, establish the baseline, current or target state and decision status; for reusable Knowledge, establish applicability and parent assumptions.]
+[Explain why this responsibility group warrants a Subsystem, what it owns and excludes, and the intended result. Link the parent architecture and identify the guarantees, invariants, quality priorities and operating constraints allocated to this Subsystem. Establish a representative caller scenario and relevant local design pressures. Keep inherited commitments, locally owned choices and changes requiring parent coordination distinct. Establish the relevant baseline, assumptions and decision status.]
 
 ## 2. External collaboration and key guarantees
 
@@ -40,4 +42,4 @@
 
 ## 8. Evolution and compatible migration
 
-[Explain which internal changes preserve the model and which alter the Subsystem's boundaries, external guarantees or parent commitments. Identify effects on callers, dependencies and authoritative state, distinguishing local decisions from changes requiring parent coordination. For a concrete change, describe compatibility boundaries, intermediate states, migration dependencies, cutover conditions, rollback limits and recovery after irreversible change; link an existing migration design when it owns the detail. Keep task schedules and operating procedures in their owning artifacts. For reusable Knowledge, explain design variants, adaptation prerequisites, substitution costs and unsuitable contexts. State the evidence and decision authority needed before relying on the changed design.]
+[Explain which internal changes preserve the model and which alter the Subsystem's boundaries, external guarantees or parent commitments. Identify effects on callers, dependencies and authoritative state, distinguishing local decisions from changes requiring parent coordination. For a concrete change, describe compatibility boundaries, intermediate states, migration dependencies, cutover conditions, rollback limits and recovery after irreversible change; link an existing migration design when it owns the detail. Keep task schedules and operating procedures in their owning artifacts. State the evidence and decision authority needed before relying on the changed design.]

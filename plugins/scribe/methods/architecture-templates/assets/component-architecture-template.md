@@ -1,61 +1,43 @@
 # [Component Architecture]
 
+**Purpose:** [Architecture Knowledge / Concrete Design]
+
 **Status:** [Draft / Reviewed / Superseded]
 
 **Evidence baseline:** [Date, sources and verification limits]
 
-## Responsibility and boundary
+## 1. Responsibility, boundary and inherited constraints
 
-[Explain the component responsibility, exclusions, callers and dependencies. State the inherited constraints and invariants that shape its mechanism, including relevant concurrency or resource assumptions.]
+[Name the encapsulated mechanism, consumers, exclusions and governing System or Subsystem. Identify whether it is private to one module or shared, and the guarantees, invariants, concurrency and resource constraints it inherits. Explain why independent component design is useful and which decisions remain with its consumers or parent.]
 
-## Inputs, outputs and contracts
+## 2. Interfaces and usage contracts
 
-[Explain input and output meaning, direction, preconditions, guarantees and failure or compatibility semantics. Show what callers can infer from an outcome and what remains unknown.]
+[Explain operations, input and output meaning, preconditions, guarantees and permitted usage. Specify what consumers can infer from completion, rejection, cancellation, failure or an unknown result. Identify dependency contracts and compatibility assumptions. Retain architecture-significant semantics here and link executable interface definitions, complete field schemas and exhaustive error catalogs.]
 
-## Internal ownership model
+## 3. Internal structure and mechanism choices
 
-[Explain how internal elements, state ownership and dependency boundaries realize the contract and why this decomposition is useful. Identify the source from which owned or derived state can be rebuilt.]
+[Explain the internal elements, dependency boundaries and ownership that realize the contract. Identify the selected or reference mechanism and why it fits the constraints. Compare meaningful alternatives through their costs and guarantees. Use the component's actual structure, without forcing a module hierarchy or turning consumers into its children. Link independently owned mechanisms and retain the explanation of how their combination works here.]
 
-[Figure: internal elements, owned state and dependencies; use the component’s actual structure rather than forcing a module hierarchy]
+[Figure: internal elements, owned state and dependencies]
 
-## Algorithm and concurrency model
+## 4. State, lifecycle and resource management
 
-[Explain the algorithm or protocol, input assumptions, atomic changes, ordering and concurrency where relevant. Show why the mechanism delivers the contract and how dependency failures or alternate implementations change its guarantees.]
+[Explain owned and derived state, meaningful lifecycle transitions, preconditions and reconstruction sources. Distinguish object-state transitions from initialization, readiness and shutdown. Explain resource ownership, acquisition, release, persistence and sensitive-data controls where material. For a stateless mechanism, identify the relevant input and resource assumptions without inventing persistent state.]
 
-## Lifecycle
+[Figure: meaningful state or resource lifecycle]
 
-[Explain meaningful lifecycle transitions, their preconditions, effects and completion conditions. Distinguish object-state transitions from process readiness when both matter.]
+## 5. Algorithms, concurrency and critical behavior
 
-[Figure: lifecycle transitions]
+[Explain the algorithm or protocol at the depth needed to implement the contract: input assumptions, ordering, atomic changes, synchronization and observable results where relevant. Work through a concrete input and significant intermediate states, showing how the invariant holds. Trace a failure or changed assumption that challenges the mechanism and distinguish required guarantees from replaceable implementation choices. Place authorization or control decisions at the actions they govern; link code while retaining the design explanation.]
 
-## Core behavior
+## 6. Failure handling and operating guarantees
 
-[Exercise the algorithm and lifecycle with a concrete input and observable result. Refer to their rules and show why the invariant holds at significant steps; merge this section with the mechanism when a separate example would repeat the same explanation.]
+[Explain detection, containment and safe behavior under dependency, process or resource failures relevant to this mechanism. Identify retry or replay ownership, duplicate and unknown outcomes, recovery sources and evidence required before normal behavior resumes. State latency, throughput, resource and isolation assumptions where material, with observation and completion signals. Connect local behavior to the consumer's recovery model and parent runtime rather than inventing an independent operating platform.]
 
-## Governed behavior
+## 7. Validation and open questions
 
-[Protected actions, enforcement points, authority and evidence]
+[Connect the contract, algorithm and lifecycle claims to representative inputs, concurrency or failure checks, sourced pass criteria and observed or planned evidence. Identify dependency assumptions, unsafe interleavings, resource limits or unsupported guarantees that remain unresolved. State the affected claim and what evidence or decision closes each gap, separating illustrative reasoning from verified behavior.]
 
-## Failure and recovery
+## 8. Extension, replacement and compatibility
 
-[Trace a relevant failure through containment, retry or replay and recovery. Explain duplicate or unknown outcomes where applicable and the evidence needed before normal behavior resumes.]
-
-## Design variants
-
-[Explain how an alternative component mechanism changes its contract, performance or recovery behavior under the same conditions. State its costs and substitution limits; use comparison only where it aids selection.]
-
-## Validation
-
-[Explain how the principal claims could be established or challenged. Connect a concrete example, experiment, review or operational observation to the claim it tests, the expected signal and the limits of the evidence. Distinguish illustrative reasoning, sourced observations and proposed checks.]
-
-## Extension and replacement
-
-[Extension points, compatibility, substitutability, replacement conditions]
-
-## Application and adaptation
-
-[Explain the assumptions that make the design valid, the changes that require adaptation and the consequences for dependent owners. Identify prerequisites, compatibility or transition limits, and evidence needed before relying on the changed model. Bound reusable claims with an unsuitable context where relevant.]
-
-## Related documents
-
-[Link parent, child, cross-view and source documents with a short explanation of what each contributes. Keep a shared mechanism in its owning document and point to it from dependents.]
+[Explain extension points, substitution conditions and the changes that affect consumers, state or resource ownership. Identify interface and behavior compatibility, transition constraints and recovery after irreversible change. Compare variants only where they aid selection or reuse, stating assumptions, costs and unsuitable contexts. Name changes requiring consumer or parent coordination and the evidence needed before relying on the replacement.]

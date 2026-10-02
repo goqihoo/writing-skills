@@ -8,13 +8,13 @@ Keep the design object, viewpoint and document structure separate:
 
 | Axis | Meaning | Examples |
 | --- | --- | --- |
-| Architecture Object | The entity being designed | Company Technical Landscape, System, Subsystem, Component |
+| Architecture Object | The entity being designed | Company Technical Landscape, System, Subsystem, Functional Module, Component |
 | Architecture Scope | The selected responsibility and environment boundary | One service and its dependencies, one company landscape |
-| Architecture Viewpoint | One of Scribe's four organizing and review perspectives | Domain, Application, Governance, Runtime |
+| Architecture Viewpoint | One of Scribe's four design-reasoning and completeness perspectives | Domain, Application, Governance, Runtime |
 | Architecture View | A concrete explanation of an object through a viewpoint | A service's application structure, its runtime behavior |
 | Authority Level | The scope owning a decision or technical artifact | Company, System, Subsystem |
 
-Use Domain, Application, Governance and Runtime as the shared framework for organization and coverage review. It is Scribe's working framework, not a claim that every architecture discipline uses the same taxonomy. Do not infer the viewpoint or template from a directory name, repository count or object size.
+Use Domain, Application, Governance and Runtime to derive design decisions and check completeness. Apply them to both Architecture Knowledge and Concrete Design at the object's scope. Let purpose and document responsibility govern expression through the Architecture Documents Method; viewpoints do not select templates or require headings, documents or directories. This is Scribe's working framework, not a universal architecture taxonomy.
 
 ## Responsibility decomposition
 
@@ -51,6 +51,12 @@ Link company Business and Product facts to their owning authorities. Explain the
 Do not introduce Data, Integration, Deployment or Security as additional peer viewpoints, predefined subcategories or recommended standalone documents. Their organization is deferred. Address necessary facts and mechanisms in the relevant explanation, allowing them to affect more than one viewpoint without imposing a fixed placement scheme. Preserve existing specialist templates as resources; use them for an explicitly requested specialist artifact, not to expand an ordinary architecture request.
 
 ## Correctness checks
+
+Apply the four viewpoints throughout the reasoning loop below:
+
+1. During Context and Drivers, identify the relevant rules and state invariants, behavior and information owners, controlled actions and evidence, and load or failure conditions. Turn them into sourced requirements or explicit assumptions; scale the questions to the object rather than repeating a company-wide checklist in each child.
+2. During Scenarios, Risks and Decisions, trace one outcome and a consequential failure through the relevant concerns together. Derive boundaries, mechanisms and tradeoffs from those drivers. For example, cancellation requires a valid state transition, an owner coordinating the action, permission to request it and a safe result when execution is already in progress; develop one coherent design rather than four accounts of the same flow.
+3. During Validation, check that the proposed mechanisms jointly uphold the claims and identify evidence gaps. Resolve each gap in the section or existing document that owns the affected decision. Keep this working coverage check internal unless the user requests it; report material uncertainty beside the claim.
 
 Check domain validity, application ownership, governed authority and runtime behavior through the four viewpoints. An important action must remain authorized and traceable through failure and recovery; information must have clear meaning and ownership. These are coverage checks, not mandatory headings or a requirement for four files.
 

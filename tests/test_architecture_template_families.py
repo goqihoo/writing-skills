@@ -19,7 +19,7 @@ class ArchitectureTemplateFamiliesTest(unittest.TestCase):
         expected = {
             'knowledge-set', 'view-overview', 'topic-index', 'domain-architecture',
             'overall-architecture', 'data-architecture', 'integration-architecture',
-            'application-architecture', 'subsystem-architecture', 'component-architecture',
+            'application-architecture', 'subsystem-architecture', 'module-design', 'component-architecture',
             'engineering-strategy', 'technical-mechanism', 'governance-architecture',
             'security-governance', 'compliance-governance', 'risk-governance',
             'control-command', 'audit-evidence', 'runtime-architecture',
@@ -67,12 +67,14 @@ class ArchitectureTemplateFamiliesTest(unittest.TestCase):
                     'technical-architecture': 'overall-architecture',
                     'delivery-architecture': 'overall-architecture',
                     'delivery-subsystem': 'subsystem-architecture',
+                    'delivery-module': 'module-design',
                     'delivery-component': 'component-architecture',
                     'delivery-deployment': 'deployment-architecture',
                 },
                 'write-technical-doc': {
                     'system-architecture': 'overall-architecture',
                     'subsystem-architecture': 'subsystem-architecture',
+                    'module-design': 'module-design',
                     'component-architecture': 'component-architecture',
                 },
             }
@@ -96,11 +98,11 @@ class ArchitectureTemplateFamiliesTest(unittest.TestCase):
             return {e['id']: e for e in yaml.safe_load(path.read_text())['types']}
         project = registry('write-technical-architecture')
         stable = registry('write-technical-doc')
-        for artifact in ('delivery-index', 'delivery-architecture', 'delivery-subsystem', 'delivery-component', 'delivery-deployment', 'delivery-migration', 'delivery-validation'):
+        for artifact in ('delivery-index', 'delivery-architecture', 'delivery-subsystem', 'delivery-module', 'delivery-component', 'delivery-deployment', 'delivery-migration', 'delivery-validation'):
             self.assertIn(artifact, project)
             self.assertNotIn(artifact, stable)
             self.assertIn('Project', project[artifact]['authority'])
-        for artifact in ('system-architecture', 'subsystem-architecture', 'component-architecture'):
+        for artifact in ('system-architecture', 'subsystem-architecture', 'module-design', 'component-architecture'):
             self.assertIn(artifact, stable)
             self.assertNotIn(artifact, project)
 

@@ -52,7 +52,7 @@ This is a single-context repository using root `CONTEXT.md` and `docs/adr/`. See
 - `write-product-doc` owns the Product Internal Document Types; Product Strategy, Capability Map, Product Roadmap, PRD, and Product Metric System retain independent public skills.
 - `reason-technical` owns company technical scope, Technical Landscape boundaries, responsibility admission, authority routing, and the Technical Assessment handoff.
 - `structure-technical-docs` owns the logical Technical stable responsibilities, Registered System topology, Type Extensions, Event Collections, navigation requirements, and technical-structure migrations.
-- `write-technical-doc` owns registered and freeform Technical artifacts, including stable System, Subsystem, and Component Architecture.
+- `write-technical-doc` owns registered and freeform Technical artifacts, including stable System and Subsystem Architecture, Module Design, and Component Architecture.
 - `write-technical-architecture` owns company-level Technical Architecture, Product-System Map, cross-System Architecture Topics, and Project delivery architecture with directly required detail, deployment, migration, and validation documents.
 - `write-architecture-knowledge` owns reusable architecture knowledge systems and their navigation, view, object, strategy, and mechanism documents; select actual templates through its architecture template manifest.
 - `methods/architecture-documents.md` owns shared architecture template use, knowledge-to-delivery adaptation, and document-set boundaries.

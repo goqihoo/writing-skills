@@ -95,6 +95,15 @@ types:
   template:
     path: ../assets/incident-review-template.md
     policy: sequence
+- id: module-design
+  name: Module Design
+  description: Design one independently documented functional module within a System or Subsystem.
+  reader_question: How does this module implement its operations, rules, state changes and processing flow?
+  authority: A functional module design governed by its parent System or Subsystem; module is not a new Authority Level.
+  completion: Functional scope, parent constraints, operations, rules, state and transaction boundaries, dependency contracts, processing and failure mechanisms, controls, validation, compatibility and authority links explain how the function works without duplicating component algorithms or executable definitions.
+  template:
+    path: ../../../methods/architecture-templates/assets/module-design-template.md
+    policy: adaptive
 - id: component-architecture
   name: Component Architecture
   description: Describe one independently documented component within a System or Subsystem.

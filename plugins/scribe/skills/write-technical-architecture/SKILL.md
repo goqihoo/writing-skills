@@ -1,6 +1,6 @@
 ---
 name: write-technical-architecture
-description: Create, revise, or review company Technical Architecture or a concrete project architecture delivery, including its necessary subsystem, component, deployment, migration, and validation documents.
+description: Create, revise, or review company Technical Architecture or a concrete project architecture delivery, including its necessary subsystem, module, component, deployment, migration, and validation documents.
 ---
 
 # Write Tech Arch
@@ -22,7 +22,7 @@ Produce company Technical Architecture for a Technical Landscape or a coherent P
 
 - Own company-level Technical Architecture, Product-System Map, cross-System Architecture Topics, and Project delivery architecture with its directly required supporting documents.
 - Let `$Write Arch Knowledge` own reusable Architecture Knowledge and its document system.
-- Let `$Write Tech Doc` own stable System Architecture, Subsystem Architecture and Component Architecture. Keep Project proposals linked to those authorities rather than overwriting them.
+- Let `$Write Tech Doc` own stable System Architecture, Subsystem Architecture, Module Design and Component Architecture. Keep Project proposals linked to those authorities rather than overwriting them.
 - Exclude implementation tasks, executable field schemas, configuration, code and runbook procedures; summarize architecture-significant contracts and link Machine Authority.
 
 ## Completion

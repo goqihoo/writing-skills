@@ -44,7 +44,7 @@ Platform, Engineering, Data, Security, Quality, and Operations may become Type E
 | --- | --- |
 | **Reason Tech Docs** (`reason-technical`) | Company technical scope, Technical Landscape, Registered System admission, authority routing, and Technical Assessment decisions. |
 | **Structure Tech Docs** (`structure-technical-docs`) | Technical topology, navigation, Registered System core, materialization, audits, and approved migration. |
-| **Write Tech Doc** (`write-technical-doc`) | Registered and freeform Technical artifacts, including stable System, Subsystem, and Component Architecture. |
+| **Write Tech Doc** (`write-technical-doc`) | Registered and freeform Technical artifacts, including stable System and Subsystem Architecture, Module Design, and Component Architecture. |
 | **Write Tech Arch** (`write-technical-architecture`) | Company-level Technical Architecture, Product-System Map, cross-System Architecture Topics, and a separate Project delivery architecture branch. |
 
 ## Internal Document Types
@@ -69,4 +69,4 @@ Technical Architecture now uses a registered adaptive template: lead with a comp
 
 ## Project delivery branch
 
-Write Tech Arch owns Project delivery architecture, not the broader project-management artifact system. Its overall, subsystem, component and deployment types reuse shared architecture templates with the concrete-design profile. Delivery entry, migration and validation remain specific supplements. All link stable company/System authority. Project proposals do not overwrite stable design by default. Write Tech Doc retains stable architecture ownership; Component Architecture inherits its parent Authority Level.
+Write Tech Arch owns Project delivery architecture, not the broader project-management artifact system. Its overall, subsystem, module, component and deployment types reuse shared architecture templates with the concrete-design profile. Delivery entry, migration and validation remain specific supplements. All link stable company/System authority. Project proposals do not overwrite stable design by default. Write Tech Doc retains stable architecture ownership; Module Design and Component Architecture inherit their governing System or Subsystem Authority Level.

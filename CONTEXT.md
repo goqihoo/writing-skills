@@ -188,8 +188,12 @@ _Avoid_: System Landscape, Product Portfolio, one-to-one Product-to-System hiera
 A company-level Technical Architecture artifact for an end-to-end concern whose state ownership, failure, recovery, release, or evolution crosses multiple Systems and cannot be owned by one System Architecture.
 _Avoid_: mandatory document per Product, System Architecture, Project Technical Design
 
+**Architecture Purpose**:
+The intended use of an architecture explanation: reusable Architecture Knowledge or Concrete Design for a named company, System or Project. Purpose changes applicability, choices, evidence and commitments while document responsibility determines the shared structural template.
+_Avoid_: viewpoint, template family per purpose, treating all concrete design as Project delivery
+
 **Architecture Object**:
-The entity whose architecture is being described, such as a company Technical Landscape, Product, Solution, Business Domain, System, or Subsystem. Scribe's company Technical writers directly govern the company Technical Landscape, System, and Subsystem objects within their authority.
+The entity whose architecture is being described, such as a company Technical Landscape, Product, Solution, Business Domain, System, Subsystem, functional module or component. Scribe's company Technical writers directly govern the company Technical Landscape, System, and Subsystem objects within their authority.
 _Avoid_: Architecture Viewpoint, Authority Level
 
 **Architecture Scope**:
@@ -197,7 +201,7 @@ The selected responsibility and environment boundary around one Architecture Obj
 _Avoid_: Architecture Object, Authority Level, directory path
 
 **Architecture Viewpoint**:
-One of Scribe's four organizing and review perspectives: Domain, Application, Governance, or Runtime. Select relevant concerns without forcing one file or section per viewpoint. Data, Integration, Deployment and Security are not additional predefined categories; their organization is deferred.
+One of Scribe's four perspectives for design reasoning and completeness: Domain, Application, Governance, or Runtime. It identifies relevant concerns and checks their combined consequences, without determining templates, headings or document boundaries.
 _Avoid_: Architecture Object, document template, mandatory directory
 
 **Architecture View**:
@@ -283,6 +287,10 @@ _Avoid_: one generic architecture essay, mandatory one-file-per-view
 **Delivery Architecture**:
 The architecture artifacts for a named Project or engagement, connecting its baseline and target structure to concrete constraints, decisions, transition and acceptance evidence. It adopts or adapts reference Knowledge while preserving the authority of stable Company/System design.
 _Avoid_: reference architecture, deployment alone, implementation task list
+
+**Module Design**:
+An independently useful account of one functional module's operations, rules, state changes, processing flow and dependency coordination, governed by its parent System or Subsystem. It may use private or shared components and does not create a new Technical Authority Level.
+_Avoid_: application-wide decomposition, mandatory child of a Subsystem, component algorithm duplicated as functional design
 
 **Component Architecture**:
 An independently useful account of one component's responsibility, contracts, internal structure, lifecycle and validation, governed by its parent System or Subsystem. A component document does not create a new Technical Authority Level.
