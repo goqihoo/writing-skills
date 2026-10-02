@@ -16,6 +16,27 @@ Keep the design object, viewpoint and document structure separate:
 
 Use Domain, Application, Governance and Runtime as the shared framework for organization and coverage review. It is Scribe's working framework, not a claim that every architecture discipline uses the same taxonomy. Do not infer the viewpoint or template from a directory name, repository count or object size.
 
+## Responsibility decomposition
+
+When designing or reviewing internal structure, choose the decomposition by responsibility before drawing nodes. Use the following distinctions; they are optional levels, not a mandatory System → Subsystem → Module → Component tree.
+
+| Element | Boundary evidence | Design obligation |
+| --- | --- | --- |
+| System | Stable business or technical responsibility, lifecycle and externally meaningful contracts | Identify accountable ownership, authoritative state where applicable, external guarantees and evolution boundary |
+| Subsystem | A cohesive group of responsibilities within a System whose complexity warrants independent design and maintenance | Explain its parent allocation, internal autonomy, contracts and why ordinary modules are insufficient |
+| Functional module | A cohesive function with identifiable operations, rules, outputs and state responsibility where applicable | Name the function and explain its collaboration with peer functions |
+| Implementation component | An encapsulated mechanism behind an explicit interface | Name its consumers, guarantees, owned or derived state and replacement constraints; it may be private to one module or shared |
+
+A System or Application can contain functional modules directly. A module may use several components, and several modules may share one component. Code repositories, API endpoints, Agents, Workers, databases and deployment instances are implementation evidence, not automatic System or Subsystem boundaries. Separate deployment is neither required nor sufficient for a logical split. A platform mechanism can itself justify a System when it has an independently governed technical responsibility; its technical name alone neither admits nor excludes it.
+
+For each proposed boundary, identify the outcome or technical service, operations and invariants, state and decision owner, callers and dependencies, and meaningful contract. Compare keeping it inside the parent with splitting it: explain the cohesion or independent evolution gained, the coordination and consistency cost, and the evidence that would change the decision. Prefer fewer boundaries when a split only renames a capability, table, process or team without changing responsibility. Use Product capabilities as requirements; preserve many-to-many mappings rather than converting each capability into a System.
+
+For a functional decomposition view, put peer functions at the same level. Place cross-cutting mechanisms such as versioning, authorization, idempotency, storage adapters and notification delivery in shared-component explanations, and place API processes, Workers and stores in realization or runtime views. Functional responsibilities may use those mechanisms without becoming subordinate to a technical pipeline. For example, Report Generation is a function; a model adapter is a component, and a report Worker is its runtime carrier. An Agent may implement planning and orchestration across functions; treat it as a functional module only when a distinct responsibility and contract justify that choice.
+
+An implementation view may show components and infrastructure together when their roles and boundaries are explicit. Keep each figure's chosen abstraction consistent and label any deliberate cross-level reference. Draw grouping boundaries when they distinguish responsibilities or internal from external participants; omit a redundant frame enclosing every node in a single group.
+
+Before accepting the decomposition, verify that readers can identify who decides, who owns each state, and how a request crosses the boundaries. Check that the functional view, implementation mapping, contracts and core flow use consistent names; a separately deployed component must not silently become a new subsystem. Materialize a separate document only when its independent reader task and maintenance value justify it, following the Architecture Documents Method.
+
 ## Four viewpoints
 
 | Viewpoint | Reader question and review responsibility |

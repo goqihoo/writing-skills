@@ -16,7 +16,7 @@
 
 [Explain how internal elements, state ownership and dependency boundaries realize the contract and why this decomposition is useful. Identify the source from which owned or derived state can be rebuilt.]
 
-[Figure: modules, owned state and dependencies]
+[Figure: internal elements, owned state and dependencies; use the component’s actual structure rather than forcing a module hierarchy]
 
 ## Algorithm and concurrency model
 

@@ -228,9 +228,13 @@ _Avoid_: System, Product, Subsystem
 A logical boundary within a System that owns a stable group of responsibilities and may warrant independent architecture detail when its complexity and maintenance value justify it.
 _Avoid_: System, Application, Module or Component
 
-**Module or Component**:
-An implementation unit inside a Subsystem whose existence alone does not establish a System or Subsystem boundary.
-_Avoid_: System, Subsystem, Codebase
+**Functional Module**:
+A cohesive function within a System, Application or Subsystem, with explicit operations, rules, outputs and state responsibility where applicable. It may use private or shared implementation components; a Subsystem layer is optional.
+_Avoid_: mandatory Subsystem layer, Runtime Unit, Product capability copied as a System
+
+**Implementation Component**:
+An encapsulated implementation mechanism with explicit interfaces and guarantees, private to a module or shared by several. Its existence or separate deployment does not alone establish a System or Subsystem boundary.
+_Avoid_: mandatory shared utility, Functional Module, Codebase
 
 **Codebase**:
 An implementation and version-management carrier that may implement several Modules, Subsystems, or Systems and does not define their architecture boundaries by itself.

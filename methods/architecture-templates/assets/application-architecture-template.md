@@ -16,11 +16,11 @@
 
 [Explain the scenarios, competing quality needs and constraints that make the problem difficult. Show how their priorities lead to the organizing idea and structural choices below; identify the assumptions and evidence behind those priorities.]
 
-## Subsystem decomposition
+## Functional decomposition
 
-[Explain why these subsystem boundaries divide the problem effectively, which responsibilities and state each owns, and how their relationships realize the organizing idea. Link details and keep internal mechanisms in their owning subsystem documents.]
+[Describe cohesive functional modules, or justified subsystems when independent internal design is needed. Explain their operations, rules, state ownership, collaboration and boundary tradeoffs. Use the actual level in the heading; an application need not contain subsystems. Keep shared mechanisms and runtime carriers in their respective explanations.]
 
-[Figure: subsystems and labeled relationships]
+[Figure: peer functional modules or justified subsystems and labeled relationships; group only where boundaries distinguish participants.]
 
 ## Software realization and integration model
 
@@ -34,7 +34,7 @@
 
 [Explain the important information model, authoritative owners and derived copies. Show how lifecycle and consistency boundaries influence subsystem collaboration and what must remain true when copies lag.]
 
-## Cross-subsystem contracts
+## Internal collaboration contracts
 
 [Explain the meaning of the principal exchanges, their producers and consumers, guarantees and failure consequences. Connect them to the information ownership model and the flow below.]
 
@@ -42,7 +42,7 @@
 
 [Walk a representative scenario through the subsystems, exchanged information and state changes to its result. Trace a failure or exception and show how the owners preserve or restore the guarantee.]
 
-[Figure: cross-subsystem interaction]
+[Figure: interaction among the named modules or subsystems]
 
 ## Architectural decisions and variants
 
