@@ -149,7 +149,7 @@ A Public Artifact Skill that routes one coherent company-document family to Inte
 _Avoid_: Hidden invocation of another Public Skill, unbounded miscellaneous writer
 
 **Explicit Skill Composition**:
-A workflow in which the user names a Public Skill for each independently requested artifact or assessment. Every Public Skill disables model invocation and implicit invocation, completes its own core workflow with Shared Methods, and routes requests for a different owned artifact to that artifact's Public Skill. Selecting an Internal Document Type, applying Shared Methods, and creating a supporting Assessment Record required by the invoked workflow are internal behavior, not additional skill invocation.
+A workflow in which the user names a Public Skill for each independently requested artifact or assessment. Every Public Skill disables model invocation and implicit invocation, completes its own core workflow with Shared Methods, and routes requests for a different owned artifact to that artifact's Public Skill. Selecting an Internal Document Type, applying Shared Methods, and creating a supporting Assessment Record required by the invoked workflow are internal behavior, not additional skill invocation. An explicitly requested adaptation declared by the active Writer may read another Writer's registered structure and completion profile directly while preserving its artifact ownership; it does not invoke that Writer or expand authority.
 _Avoid_: Implicit skill chaining, exposing Shared Methods as required invocations
 
 **Stable Responsibility**:
@@ -191,6 +191,10 @@ _Avoid_: mandatory document per Product, System Architecture, Project Technical 
 **Architecture Purpose**:
 The intended use of an architecture explanation: reusable Architecture Knowledge or Concrete Design for a named company, System or Project. Purpose changes applicability, choices, evidence and commitments while document responsibility determines the shared structural template.
 _Avoid_: viewpoint, template family per purpose, treating all concrete design as Project delivery
+
+**Architecture Design Argument**:
+The reader-visible explanation connecting a problem and constraints to prioritized architecture characteristics, applicable principles, an organizing style or strategies, realizing mechanisms, tradeoffs and validation. Apply the definitions and level-specific depth in `methods/architecture-reasoning.md`; keep this argument visible when adapting templates or polishing prose.
+_Avoid_: Internal coverage checklist, mechanism inventory, mandatory one-section-per-concept or one-file-per-view
 
 **Architecture Object**:
 The entity whose architecture is being described, such as a company Technical Landscape, Product, Solution, Business Domain, System, Subsystem, functional module or component. Scribe's company Technical writers directly govern the company Technical Landscape, System, and Subsystem objects within their authority.

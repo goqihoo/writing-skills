@@ -1,4 +1,4 @@
-# [Overall Architecture]
+# [总体架构]
 
 **Purpose:** [Architecture Knowledge / Concrete Design]
 
@@ -6,34 +6,146 @@
 
 **Evidence baseline:** [Date, sources and verification limits]
 
-## 1. Design goals and scope
+## 背景与范围
 
-[Name the architecture object, scope and decision authority. Explain the problem, current baseline, intended outcomes, actors, external dependencies and non-goals; distinguish current and target design, proposals and accepted decisions, and planned and implemented behavior. Establish the critical scenarios, domain invariants, quality priorities, threats and operating constraints that drive the design. Cite requirements and evidence; keep missing budgets and applicability assumptions explicit.]
+### 问题与目标
 
-## 2. Overall solution and key tradeoffs
+[Explain the motivating problem, intended outcomes and decisions this design supports. Ground the need in evidence or explicit assumptions; distinguish a technology choice from the outcome it serves.]
 
-[Explain the selected, proposed or reference solution through a principal architecture figure showing the main participants, boundaries and relationships. Connect the organizing strategy and important technology choices to the goals and constraints. Compare plausible alternatives, explain accepted costs and name evidence that would change the choice. Establish how the combination can meet the requirements before expanding individual responsibilities; place each mechanism's detailed rationale beside its design in the following sections.]
+### 设计范围
 
-## 3. System composition and responsibility boundaries
+[Name the object and authority, included responsibilities and lifecycle, meaningful exclusions, and relationships to governing, adjacent and detailed documents. Define scope through responsibility rather than repository or deployment counts.]
 
-[Explain what each part owns, provides and depends on, and allocate important guarantees to accountable owners. Justify System boundaries by stable responsibility, state ownership where applicable, contracts and lifecycle; use Subsystems only where internal complexity warrants them. Keep peer functional responsibilities distinct from shared implementation mechanisms and runtime carriers. Map logical responsibilities to software modules, components, processes, stores and adapters at the document's scope. Explain dependency direction and local versus remote interaction. Link governing or detailed architectures at their owning boundaries, keeping the complete assembly intelligible here.]
+### 外部上下文
 
-## 4. Core data and state design
+[Explain actors, callers and external dependencies, the requests, information and results crossing the boundary, and dependency assumptions. Treat the object as a black box in this view.]
 
-[Explain the core entities, identities, relationships, versions, lifecycle and state transitions. Identify authoritative and derived information, ownership, local transaction boundaries, cross-boundary consistency and reconstruction sources. Explain the mechanisms that preserve important invariants and protect sensitive information, including access, retention and audit consequences where material. Link detailed data models and executable schemas while retaining the meanings and state guarantees needed to understand the overall design.]
+[Figure: external context]
 
-## 5. Critical flows and collaboration mechanisms
+### 现状与设计起点
 
-[Follow a critical end-to-end scenario through the same participants, identities and state changes defined above to an observable outcome. Explain the necessary interactions: operations or events and their meaning, callers and owners, synchronous or asynchronous coordination, completion conditions and architecture-significant failure semantics. Trace a consequential failure and recovery, including timeout, duplicate, partial or unknown outcomes where relevant; identify the mechanism and owner that preserve or restore the guarantee. Show authorization and control enforcement at the relevant boundaries and connect the flow to operating behavior in section 6. Keep detailed endpoints, field schemas, protocol formats and exhaustive error catalogs in their owning interface or Machine Authority; retain a detail here only when it materially determines the overall solution. For a static structural question, demonstrate a concrete dependency or change impact.]
+[Explain the existing structure, assets and accepted decisions that constrain this design, separating observed baseline from target and proposals. For greenfield work describe the starting environment; for Knowledge describe applicability and assumptions. Keep evidence dates and limits identifiable.]
 
-## 6. Deployment and operational assurance
+## 架构驱动
 
-[Map logical responsibilities to deployment units, environments, placement, network relationships and failure domains. Explain runtime dependencies, workload and resource assumptions, capacity and performance mechanisms, observability, degradation, recovery and failover ownership. Explain trust boundaries, isolation, detection, response and durable evidence, connecting these protections to the data and action controls in sections 4 and 5. Distinguish deployment structure from operating behavior; link detailed deployment designs, configuration and runbooks while owning their combined consequences for the overall guarantees.]
+### 关键功能场景
 
-## 7. Architecture validation and open questions
+[Select scenarios whose actors, conditions and required outcomes affect boundaries, cooperation or guarantees. Establish what must be achieved before describing internal execution. Use a requirements-level activity figure only when useful.]
 
-[Connect important requirements and guarantees to their design mechanisms, validation scenarios, sourced pass criteria and observed or planned evidence. Use the critical flow and failure above to assess whether the parts compose into the promised result. Distinguish an illustrative walkthrough from demonstrated behavior and verified acceptance. Identify contradictory views, unallocated responsibilities, unverified dependency assumptions and pending decisions; name the commitment each gap prevents, the evidence or decision required to close it and its owner where known. State residual risks and review triggers without inventing approval or unsupported thresholds.]
+### 架构特性与优先级
 
-## 8. Evolution and compatible migration
+[Explain relevant characteristics through context, stimulus, response and observable satisfaction criteria, with priorities and conflicts. Distinguish sourced targets, design assumptions and unresolved budgets; use bounded qualitative criteria where numerical targets lack evidence.]
 
-[Explain which changes preserve the model and which invalidate it. For a concrete change, describe the baseline-to-target transition, intermediate states, sequencing dependencies, compatibility boundaries, state migration, cutover conditions, retirement and rollback limits; explain recovery after irreversible change. Link an existing migration design when it owns the detail. Keep task schedules and operational procedures in their owning artifacts. State the evidence and authority needed for a change without treating an unaccepted proposal as established technical truth.]
+### 约束与不变量
+
+[Identify binding constraints and invariants, their sources, scope and design consequences. Include quality targets that are genuinely binding. Separate established restrictions from proposed technologies and link inherited governing principles.]
+
+## 总体方案
+
+### 方案概览
+
+[Explain the core arrangement and how its parts jointly produce the intended outcome. Walk a short representative working path before introducing detailed state and contracts. Distinguish material baseline-to-target changes.]
+
+[Figure: overall architecture]
+
+### 设计原则
+
+[Explain applicable decision-guiding principles, their rationale, scope and local consequences. Distinguish inherited rules from locally chosen principles and identify established exception authority where relevant.]
+
+### 架构风格与组织方式
+
+[Name or precisely describe the actual organization and its scope. Explain its structural evidence, dependency rules, interaction modes and mixed-style boundaries. Show how this object applies that organization rather than reproducing a generic style specimen.]
+
+[Figure: architecture style and organizing rules; reference the overall figure when it explicitly covers this question]
+
+### 关键策略与取舍
+
+[Connect major strategies to their drivers, realizing mechanisms, reasons for fit, accepted costs, meaningful alternatives and review triggers. Distinguish accepted decisions, proposals and inferred rationale. Link detailed decision records where they exist.]
+
+## 结构与职责
+
+### 组成与责任边界
+
+[Explain each principal part's responsibilities, provided guarantees, exclusions and boundary rationale. Distinguish peer functions, shared mechanisms and containment/use relationships; allocate overall guarantees without requiring extra design levels. Link owned detail.]
+
+### 数据与状态
+
+[Explain core identities, relationships, versions, authoritative and derived state, and decision/change ownership. Define architecturally important state meanings, legal transitions, guards and invariants; distinguish storage from decision authority. Locate local transactions and cross-boundary consistency, access, retention, lineage and reconstruction responsibilities where material. Link detailed models and executable schemas.]
+
+[Conditional figure: important state transitions]
+
+### 契约与依赖
+
+[Explain significant operations, commands, events or queries; their callers, owners, information meaning, preconditions, and accepted/completed/rejected/failed/unknown semantics. Specify dependency direction, local/remote and synchronous/asynchronous relationships, compatibility and assumptions. Locate authorization responsibility while leaving common enforcement design to its owning topic.]
+
+### 实现对应关系
+
+[Map logical responsibilities to actual or proposed applications, packages, components, stores and adapters. Separate implementation facts from proposed or reference realizations. Leave deployment placement to 部署与运行; combine this explanation with 组成与责任边界 when a simple mapping is already clear.]
+
+## 关键流程与协作
+
+### [关键流程名称]
+
+[Explain the trigger, preconditions, inputs or versions and observable result. Follow the participants through actions, data/state changes, contracts, transaction boundaries and handoffs. Explain consequential branches, competition, duplicates, partial or unknown outcomes where relevant; locate detection, recovery responsibility, retry/compensation permissions and evidence for continuation. State any temporarily weakened guarantee. Reference common mechanisms instead of repeating them.]
+
+[Figure: this key flow, including important branches or supplemental failure/recovery views]
+
+[Repeat this subsection for each selected key flow; name subsections after actual flows. For a static model, trace a concrete change impact.]
+
+## 共性技术设计
+
+### [共性技术主题名称]
+
+[Explain a technical concern shared by multiple parts or flows: motivating requirement, scope, common rules and guarantees, realizing mechanism, provider/consumer responsibilities, boundaries and exceptions. Link the architecture characteristics served. Keep business rules with their owning function; reference existing governing standards and explain local application or deviation.]
+
+[Add a mechanism figure when it clarifies the design; give any independently explained key flow its own corresponding figure. Repeat only for actual shared technical concerns.]
+
+## 部署与运行
+
+### 部署结构与环境
+
+[Map logical responsibilities to runtime and deployment units, infrastructure, networks, external dependencies and significant isolation/failure boundaries. Explain architecture-significant environment differences. Distinguish current deployment from proposed topology or illustrative reference realization; link complete configuration and runbooks.]
+
+[Figure: deployment structure]
+
+### 运行方式与资源管理
+
+[Explain significant startup/readiness/shutdown dependencies, workload and resource assumptions, concurrency and capacity controls, bottlenecks, scaling limits and overload behavior. Distinguish measured capacity from estimates and unverified budgets.]
+
+### 故障应对与运行保障
+
+[Explain failure propagation, detection and action conditions, operating ownership, isolation, degradation, recovery/failover and checks for restored availability and data correctness. Reference shared security, audit and observability mechanisms and the local failure semantics of key flows. Include a corresponding figure for each independently explained operating recovery flow.]
+
+### 发布与变更
+
+[Explain routine release order, prerequisites, mixed-version compatibility, configuration/interface/data-change coordination, post-release checks and stopping conditions. State rollback limits and forward-repair paths for irreversible changes. Include a corresponding figure for each independently explained release flow; leave structural migration stages to 演进与迁移.]
+
+## 架构验证与风险
+
+### 验证目标与方法
+
+[Trace important characteristics, constraints, invariants and uncertain design assumptions to validation objects, methods, conditions and pass criteria. Verify how the chosen principles, organization and strategies are realized and whether their mechanisms jointly produce the claimed result. Prioritize consequential uncertainty.]
+
+### 验证结果与证据
+
+[Separate planned, partial and completed checks. Summarize evidence and the conditions under which each conclusion holds; link existing reports or observations and state remaining coverage gaps.]
+
+### 剩余风险与待决事项
+
+[Explain risk triggers, affected guarantees, contradictory assumptions, unallocated responsibilities and pending choices. State the response or reason for accepting exposure and the evidence or decision needed for closure. Name owners and timing only where established.]
+
+## 演进与迁移
+
+### 演进方向与触发条件
+
+[Separate established evolution commitments from conditional directions. Explain applicability limits and what evidence would require reconsidering boundaries, styles or strategies. For Knowledge, explain variants and adoption conditions; distinguish local changes from those requiring governing authority.]
+
+### 实施阶段与过渡状态
+
+[For staged change, explain each stage's usable outcome, prerequisites, viable intermediate structure and completion conditions. Locate responsibility, request routing and authoritative data during coexistence; keep task schedules in their owning plan.]
+
+[Conditional figure: important transition architectures during coexistence, authority transfer or phased replacement]
+
+### 迁移、切换与退出
+
+[Explain actual migration scope, integrity/correctness checks, coexistence read/write rules, cutover conditions and decision authority, post-cutover verification, rollback limits or forward repair, and retirement conditions. Include a corresponding figure for every independently explained migration, cutover or recovery flow. Link an existing migration design where it owns detail.]

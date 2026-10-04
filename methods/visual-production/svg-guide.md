@@ -26,6 +26,7 @@ Put a necessary legend in a horizontal strip below the diagram. Keep it out of t
 For the upstream 160 × 64 px architecture example at (240, 240), keep this mask / shape / tag / name / sublabel hierarchy. Resolve paint slots using the selected theme. This example uses category 1; use the enclosing group's assigned number for a grouped node. Omit a tag or sublabel only for content reasons, never because of skin selection.
 
 ```svg
+<g data-label-layout="center" data-label-inset-top="24">
 <rect x="240" y="240" width="160" height="64" rx="6" fill="var(--dd-paper, #FFFFFF)"/>
 <rect class="node" data-category="1" x="240" y="240" width="160" height="64" rx="6"
       fill="var(--dd-category-1-tint, #E9EBFE)" stroke="var(--dd-category-1, #4F5BD5)" stroke-width="1"/>
@@ -33,13 +34,24 @@ For the upstream 160 × 64 px architecture example at (240, 240), keep this mask
       stroke="var(--dd-ink-a400, rgba(34,38,58,0.4))" stroke-width="0.8"/>
 <text x="262" y="257" font-size="7" font-family="'Geist Mono', monospace"
       fill="var(--dd-ink, #22263A)" text-anchor="middle" letter-spacing="0.08em">API</text>
-<text x="320" y="276" font-size="12" font-weight="600" font-family="'Geist', sans-serif"
+<text data-node-label="true" x="320" y="279.54" style="font-size:12px" font-weight="600" font-family="'Geist', sans-serif"
       fill="var(--dd-ink, #22263A)" text-anchor="middle">Node Name</text>
-<text x="320" y="292" font-size="9" font-family="'Geist Mono', monospace"
+<text data-node-label="true" x="320" y="295.54" style="font-size:9px" font-family="'Geist Mono', monospace"
       fill="var(--dd-muted, #596174)" text-anchor="middle">tech:port</text>
+</g>
 ```
 
 Define the original arrowhead as `markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"`, with polygon `0 0, 8 3, 0 6`. Preserve the type's connector widths and rounded elbows. Keep optional dot patterns, indices, and callouts separate from theme selection.
+
+### Node label alignment
+
+For a simple node, center the name and all description lines as one block within its content region. Recompute their positions whenever the box height, line count, or optional tag changes. Reserve a top or bottom inset for a separate header or tag; remove that inset when the header is removed. Keep boundary titles, list cards, annotations, and other intentionally edge-aligned text in their intended positions. Do not change layout during a color-only restyle.
+
+Treat SVG `y` as an alphabetic baseline; `text-anchor="middle"` centers text horizontally only. Estimate each line's bounds using the ascent and descent in `typography.md`, then translate the entire block so its union's center matches the content region's center. Preserve line spacing. For example, a 12 px title and 9 px description 20 px apart in an untagged 88 px box need baselines about 37.54 and 57.54 px below its top, rather than reusing the 64 px box's offsets of 25.54 and 45.54 px. Allow fractional baselines instead of snapping them to the shape grid.
+
+Mark each simple centered rectangular node group with `data-label-layout="center"`. Keep one direct rectangle with class `node` (or `data-node-box="true"`) and direct text lines marked `data-node-label="true"`, each with numeric `x` and `y`, explicit `text-anchor="middle"`, and inline `style="font-size:12px"` or its actual size. Use optional numeric `data-label-inset-top` and `data-label-inset-bottom` on the group for reserved space. Leave separate headers unmarked. Use ordinary alphabetic baselines and shared group coordinates; avoid independent text transforms, offsets, and nested spans in this checkable form.
+
+Run `validate_svg.py` to detect horizontal offsets, overflow, or a nominal block-center error greater than 3 px in marked nodes. Treat this as a stale-offset regression check, not font measurement: render and inspect actual glyphs and balanced whitespace, especially with CJK fallback fonts. Inspect complex or intentionally different layouts visually rather than falsely marking them as this simple form.
 
 ## Connector grammar
 
@@ -75,6 +87,7 @@ Inspect source and render at full size and at the destination width. Check:
 - the selected theme is the only color system and meaning survives without color;
 - the Scribe source-adaptation profile passes;
 - CJK fallback fonts render and labels fit their boxes;
+- centered node names and descriptions form a balanced block, with reserved headers and intentional edge alignment preserved;
 - the image has no unintended crop, malformed glyph, external asset, or watermark.
 
 ## Pre-output check

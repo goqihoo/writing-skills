@@ -70,7 +70,7 @@ Keep names in sans and reserve mono for technical content. Add appropriate CJK f
 | `radius-lg` | 8 | Containers |
 | `grid` | 4 | General layout grid |
 
-Use no shadows. Keep every coordinate, width, height, padding, and gap on the 4 px grid unless the chosen primitive specifies an exception. Preserve the upstream full node's 2 px tag radius, 7 px tag text, 9 px sublabel, and type-specific stroke widths; the general grid must not round those into different components.
+Use no shadows. Keep shape coordinates, widths, heights, padding, and gaps on the 4 px grid unless the chosen primitive specifies an exception. Calculate text baselines through [node label alignment](svg-guide.md#node-label-alignment); allow fractional baselines for a balanced text block. Preserve the upstream full node's 2 px tag radius, 7 px tag text, 9 px sublabel, and type-specific stroke widths; the general grid must not round those into different components.
 
 Size boxes to their names and padding, using the selected type's proportions. The architecture specimen uses 128–160 × 64 px nodes; those are examples, not a universal fixed width. Keep peer nodes aligned and equally sized when their roles and content permit it. Keep the whole component's scale consistent at destination width; widening the canvas or boxes independently makes the same 1 px border look weak.
 

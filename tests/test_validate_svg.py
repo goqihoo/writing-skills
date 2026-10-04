@@ -2,6 +2,7 @@ import importlib.util
 import tempfile
 import textwrap
 import unittest
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 
@@ -86,6 +87,69 @@ class ValidateSvgConnectorLabelTest(unittest.TestCase):
         errors, _ = VALIDATOR.validate(self.paths[0])
 
         self.assertNotIn("connector label mask must stay at least 6px from every connector", errors)
+
+
+class ValidateSvgNodeAlignmentTest(unittest.TestCase):
+    def node(self, baselines=(37.54, 57.54), height=88, extra=""):
+        labels = "".join(
+            f'<text data-node-label="true" x="80" y="{y}" text-anchor="middle" '
+            f'style="font-size:{12 if i == 0 else 9}px">标签</text>'
+            for i, y in enumerate(baselines)
+        )
+        return ET.fromstring(
+            f'<g data-label-layout="center" {extra}>'
+            f'<rect class="node" x="0" y="0" width="160" height="{height}"/>'
+            f'{labels}</g>'
+        )
+
+    def test_resized_node_requires_recentering_the_whole_block(self):
+        errors = VALIDATOR.validate_node_label_layout(self.node((24, 44)))
+        self.assertTrue(any("not vertically centered" in e for e in errors))
+        self.assertEqual([], VALIDATOR.validate_node_label_layout(self.node()))
+
+    def test_single_and_multiple_lines_can_be_centered(self):
+        for baselines in ((47.24,), (29.54, 49.54, 65.54)):
+            with self.subTest(baselines=baselines):
+                self.assertEqual([], VALIDATOR.validate_node_label_layout(self.node(baselines)))
+
+    def test_reserved_header_does_not_join_body_block(self):
+        node = self.node((39.54, 55.54), height=64, extra='data-label-inset-top="24"')
+        ET.SubElement(node, "text", {"x": "8", "y": "16"}).text = "Header"
+        self.assertEqual([], VALIDATOR.validate_node_label_layout(node))
+
+    def test_intentional_edge_alignment_is_not_rejected(self):
+        node = self.node((24, 44))
+        del node.attrib["data-label-layout"]
+        self.assertEqual([], VALIDATOR.validate_node_label_layout(node))
+
+    def test_off_center_and_overflow_are_rejected(self):
+        node = self.node()
+        node[1].set("x", "90")
+        self.assertTrue(any("not horizontally centered" in e for e in VALIDATOR.validate_node_label_layout(node)))
+        errors = VALIDATOR.validate_node_label_layout(self.node((0, 20)))
+        self.assertTrue(any("exceeds its content region" in e for e in errors))
+
+    def test_invalid_or_unsupported_marked_geometry_is_explicit(self):
+        for attr, value in (("style", ""), ("y", "nan"), ("dy", "2"),
+                            ("transform", "translate(0 10)"), ("dominant-baseline", "middle")):
+            with self.subTest(attribute=attr):
+                node = self.node()
+                node[1].set(attr, value)
+                errors = VALIDATOR.validate_node_label_layout(node)
+                self.assertTrue(any("unsupported or invalid" in e for e in errors))
+
+    def test_shared_group_translation_preserves_alignment(self):
+        self.assertEqual([], VALIDATOR.validate_node_label_layout(
+            self.node(extra='transform="translate(100 200)"')))
+
+    def test_bundled_node_templates_are_marked_and_centered(self):
+        assets = VALIDATOR_PATH.parent.parent / "assets"
+        for name, count in (("editorial-diagram-template.svg", 2),
+                            ("editorial-grouped-template.svg", 6)):
+            with self.subTest(template=name):
+                root = ET.parse(assets / name).getroot()
+                self.assertEqual(count, sum(e.get("data-label-layout") == "center" for e in root.iter()))
+                self.assertEqual([], VALIDATOR.validate_node_label_layout(root))
 
 
 class ValidateSvgScribeColorContractTest(unittest.TestCase):

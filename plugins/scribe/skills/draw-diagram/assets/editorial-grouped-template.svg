@@ -50,45 +50,45 @@
     <text class="connector-label" x="420" y="444" text-anchor="middle">Next version</text>
   </g>
   <g data-category="3">
-    <g class="component" id="input">
+    <g class="component" id="input" data-label-layout="center">
       <rect class="mask" x="76" y="128" width="160" height="64" rx="6" fill="var(--dd-paper, #FFFFFF)"/>
       <rect class="node" x="76" y="128" width="160" height="64" rx="6" stroke-width="1" fill="var(--dd-category-3-tint, #F3E9FE)" stroke="var(--dd-category-3, #8240C9)"/>
-      <text class="node-title" x="156" y="156" text-anchor="middle">Data preparation</text>
-      <text class="detail" x="156" y="176" text-anchor="middle">Collect and normalize</text>
+      <text class="node-title" x="156" y="153.54" text-anchor="middle" data-node-label="true" style="font-size:12px">Data preparation</text>
+      <text class="detail" x="156" y="173.54" text-anchor="middle" data-node-label="true" style="font-size:9px">Collect and normalize</text>
     </g>
-    <g class="component" id="verification">
+    <g class="component" id="verification" data-label-layout="center">
       <rect class="mask" x="76" y="288" width="160" height="64" rx="6" fill="var(--dd-paper, #FFFFFF)"/>
       <rect class="node" x="76" y="288" width="160" height="64" rx="6" stroke-width="1" fill="var(--dd-category-3-tint, #F3E9FE)" stroke="var(--dd-category-3, #8240C9)"/>
-      <text class="node-title" x="156" y="316" text-anchor="middle">Verification</text>
-      <text class="detail" x="156" y="336" text-anchor="middle">Check evidence</text>
+      <text class="node-title" x="156" y="313.54" text-anchor="middle" data-node-label="true" style="font-size:12px">Verification</text>
+      <text class="detail" x="156" y="333.54" text-anchor="middle" data-node-label="true" style="font-size:9px">Check evidence</text>
     </g>
   </g>
   <g data-category="1">
-    <g class="component" id="processing">
+    <g class="component" id="processing" data-label-layout="center">
       <rect class="mask" x="348" y="128" width="160" height="64" rx="6" fill="var(--dd-paper, #FFFFFF)"/>
       <rect class="node" x="348" y="128" width="160" height="64" rx="6" stroke-width="1" fill="var(--dd-category-1-tint, #E9EBFE)" stroke="var(--dd-category-1, #4F5BD5)"/>
-      <text class="node-title" x="428" y="156" text-anchor="middle">Processing</text>
-      <text class="detail" x="428" y="176" text-anchor="middle">Assess current state</text>
+      <text class="node-title" x="428" y="153.54" text-anchor="middle" data-node-label="true" style="font-size:12px">Processing</text>
+      <text class="detail" x="428" y="173.54" text-anchor="middle" data-node-label="true" style="font-size:9px">Assess current state</text>
     </g>
-    <g class="component" id="evaluation">
+    <g class="component" id="evaluation" data-label-layout="center">
       <rect class="mask" x="348" y="288" width="160" height="64" rx="6" fill="var(--dd-paper, #FFFFFF)"/>
       <rect class="node" x="348" y="288" width="160" height="64" rx="6" stroke-width="1" fill="var(--dd-category-1-tint, #E9EBFE)" stroke="var(--dd-category-1, #4F5BD5)"/>
-      <text class="node-title" x="428" y="316" text-anchor="middle">Evaluation</text>
-      <text class="detail" x="428" y="336" text-anchor="middle">Estimate outcomes</text>
+      <text class="node-title" x="428" y="313.54" text-anchor="middle" data-node-label="true" style="font-size:12px">Evaluation</text>
+      <text class="detail" x="428" y="333.54" text-anchor="middle" data-node-label="true" style="font-size:9px">Estimate outcomes</text>
     </g>
   </g>
   <g data-category="2">
-    <g class="component" id="actions">
+    <g class="component" id="actions" data-label-layout="center">
       <rect class="mask" x="620" y="128" width="160" height="64" rx="6" fill="var(--dd-paper, #FFFFFF)"/>
       <rect class="node" x="620" y="128" width="160" height="64" rx="6" stroke-width="1" fill="var(--dd-category-2-tint, #DDF8F0)" stroke="var(--dd-category-2, #007A59)"/>
-      <text class="node-title" x="700" y="156" text-anchor="middle">Actions</text>
-      <text class="detail" x="700" y="176" text-anchor="middle">Plan the response</text>
+      <text class="node-title" x="700" y="153.54" text-anchor="middle" data-node-label="true" style="font-size:12px">Actions</text>
+      <text class="detail" x="700" y="173.54" text-anchor="middle" data-node-label="true" style="font-size:9px">Plan the response</text>
     </g>
-    <g class="component" id="feedback">
+    <g class="component" id="feedback" data-label-layout="center">
       <rect class="mask" x="620" y="288" width="160" height="64" rx="6" fill="var(--dd-paper, #FFFFFF)"/>
       <rect class="node" x="620" y="288" width="160" height="64" rx="6" stroke-width="1" fill="var(--dd-category-2-tint, #DDF8F0)" stroke="var(--dd-category-2, #007A59)"/>
-      <text class="node-title" x="700" y="316" text-anchor="middle">Feedback</text>
-      <text class="detail" x="700" y="336" text-anchor="middle">Validate the next version</text>
+      <text class="node-title" x="700" y="313.54" text-anchor="middle" data-node-label="true" style="font-size:12px">Feedback</text>
+      <text class="detail" x="700" y="333.54" text-anchor="middle" data-node-label="true" style="font-size:9px">Validate the next version</text>
     </g>
   </g>
 </svg>

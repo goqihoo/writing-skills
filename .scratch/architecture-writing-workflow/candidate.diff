@@ -1,0 +1,196 @@
+diff --git a/CONTEXT.md b/CONTEXT.md
+index 5196c82..332c95e 100644
+--- a/CONTEXT.md
++++ b/CONTEXT.md
+@@ -149,7 +149,7 @@ A Public Artifact Skill that routes one coherent company-document family to Inte
+ _Avoid_: Hidden invocation of another Public Skill, unbounded miscellaneous writer
+ 
+ **Explicit Skill Composition**:
+-A workflow in which the user names a Public Skill for each independently requested artifact or assessment. Every Public Skill disables model invocation and implicit invocation, completes its own core workflow with Shared Methods, and routes requests for a different owned artifact to that artifact's Public Skill. Selecting an Internal Document Type, applying Shared Methods, and creating a supporting Assessment Record required by the invoked workflow are internal behavior, not additional skill invocation.
++A workflow in which the user names a Public Skill for each independently requested artifact or assessment. Every Public Skill disables model invocation and implicit invocation, completes its own core workflow with Shared Methods, and routes requests for a different owned artifact to that artifact's Public Skill. Selecting an Internal Document Type, applying Shared Methods, and creating a supporting Assessment Record required by the invoked workflow are internal behavior, not additional skill invocation. An explicitly requested adaptation declared by the active Writer may read another Writer's registered structure and completion profile directly while preserving its artifact ownership; it does not invoke that Writer or expand authority.
+ _Avoid_: Implicit skill chaining, exposing Shared Methods as required invocations
+ 
+ **Stable Responsibility**:
+diff --git a/docs/architecture-document-families.md b/docs/architecture-document-families.md
+index 2046b48..0724e2e 100644
+--- a/docs/architecture-document-families.md
++++ b/docs/architecture-document-families.md
+@@ -6,9 +6,13 @@ Let purpose determine content development, document responsibility determine the
+ | --- | --- | --- |
+ | Knowledge system or detailed reference document | Write Arch Knowledge (`write-architecture-knowledge`) | `methods/architecture-templates/templates.yaml` |
+ | Company landscape and Product-System mapping | Write Tech Arch (`write-technical-architecture`) | Writer Internal Document Type registry |
+-| Stable System, Subsystem or Component design | Write Tech Doc (`write-technical-doc`) | Writer Internal Document Type registry |
++| Stable System, Subsystem, Module or Component design | Write Tech Doc (`write-technical-doc`) | Writer Internal Document Type registry |
+ | Project architecture and directly required delivery details | Write Tech Arch (`write-technical-architecture`) | Delivery entries in its Writer registry |
+ 
++Default Writer ownership determines recommendations. When a user explicitly invokes Write Tech Arch for stable System, Subsystem, Module or Component design, apply the explicit stable-design adaptation in `methods/architecture-documents.md`. Use the stable Writer registry and completion profile without invoking another skill, changing the document authority or inventing Project commitments.
++
++Plan each applicable section's reader question, contribution and evidence before drafting. Keep writing-process checks in working notes, retain substantive controls and local uncertainty in the artifact, then edit the complete argument and recheck technical constraints through `methods/prose-quality.md`. Use its Chinese examples when reviewing Chinese technical explanations.
++
+ ## Primary architecture documents
+ 
+ Maintain one shared template for each primary document responsibility:
+diff --git a/docs/technical-documentation-skill-architecture.md b/docs/technical-documentation-skill-architecture.md
+index 0383c2f..4db5f9c 100644
+--- a/docs/technical-documentation-skill-architecture.md
++++ b/docs/technical-documentation-skill-architecture.md
+@@ -69,4 +69,4 @@ Technical Architecture now uses a registered adaptive template: lead with a comp
+ 
+ ## Project delivery branch
+ 
+-Write Tech Arch owns Project delivery architecture, not the broader project-management artifact system. Its overall, subsystem, module, component and deployment types reuse shared architecture templates with the concrete-design profile. Delivery entry, migration and validation remain specific supplements. All link stable company/System authority. Project proposals do not overwrite stable design by default. Write Tech Doc retains stable architecture ownership; Module Design and Component Architecture inherit their governing System or Subsystem Authority Level.
++Write Tech Arch owns Project delivery architecture, not the broader project-management artifact system. Its overall, subsystem, module, component and deployment types reuse shared architecture templates with the concrete-design profile. Delivery entry, migration and validation remain specific supplements. All link stable company/System authority. Project proposals do not overwrite stable design by default. Write Tech Doc retains stable architecture ownership; Module Design and Component Architecture inherit their governing System or Subsystem Authority Level. When the user explicitly asks Write Tech Arch to handle such a stable design, apply the shared explicit-adaptation branch and the owning stable registry; preserve the document's authority and avoid inventing a Project identity.
+diff --git a/methods/architecture-documents.md b/methods/architecture-documents.md
+index c0c3be2..9d381d5 100644
+--- a/methods/architecture-documents.md
++++ b/methods/architecture-documents.md
+@@ -21,6 +21,24 @@ Read only the selected template and directly relevant references. Use the Writer
+ 
+ Treat section counts as properties of the current default outlines, not fixed requirements. The four primary templates currently use eight sections to support a comparable reading progression; preserve relevant responsibilities when adapting an outline under the criteria above. Do not add empty sections or force equal chapter counts across documents to preserve that coincidence.
+ 
++## Adapt an explicitly requested stable design
++
++Apply this branch when the user explicitly invokes Write Tech Arch and explicitly requests a stable System Architecture, Subsystem Architecture, Module Design or Component Architecture. Retain Write Tech Doc as the default recommendation and registry owner for those artifacts. Use the user's requested result and the target's established authority to preserve its purpose, lifetime and location; selecting a subsystem template alone does not establish Project delivery.
++
++Read the matching entry in `../skills/write-technical-doc/references/internal-document-types.yaml` and its assigned template, `../skills/write-technical-doc/references/system-architecture-method.md`, and `architecture-templates/concrete-design.md`. Apply that entry's stable authority and completion profile inside the current invocation. Read these resources directly without invoking another Public Skill, requiring another user invocation, duplicating the registry entry or registering a delivery alias for stable work. Resolve this explicit adaptation before the ordinary Internal Document Type routing stop.
++
++Keep existing design status and distinguish newly proposed mechanisms from established facts. Introduce Project acceptance, cutover or delivery commitments only when an actual Project scope supports them. Preserve the distinction between describing a stable design proposal and approving it as established technical truth. If the object or authority is materially unclear, resolve that uncertainty from sources or ask about that specific missing fact; do not invent a project to fit the Writer.
++
++Complete the adaptation when the selected stable type, governing authority, assigned template and completion profile agree with the requested object, and the artifact has no unsupported Project identity or commitments.
++
++## Plan section questions before drafting
++
++After selecting the template and purpose profile, plan each applicable section's reader question, new information, supporting sources or proposed choices, and material owned elsewhere. Include the source requirements that constrain the object's guarantees and mechanisms in this compact working plan; distinguish them from optional explanatory detail. Check coverage independently for each standalone document. Assign each repeated fact one primary explanation; retain a local reminder only when it is needed to understand a different mechanism or decision. For a narrow revision, plan the affected sections and inspect their transitions rather than replanning unrelated content.
++
++For example, let an external-collaboration section establish what callers can request and infer from completion; let internal design allocate those commitments to participants; let data design establish authoritative state and atomic changes; let a worked flow show those participants changing that state; let operation explain behavior under dependency and process failures. Explain a selected choice's rationale beside that choice. Reference an earlier explanation rather than copying its responsibility list into every section.
++
++Complete the plan when applicable sections contribute distinct answers, consequential facts and assumptions have an owning section, and the reader can move from the design's purpose to its mechanism and verification without a missing step. Preserve the chosen template's relevant responsibilities and adapt it only under the criteria above.
++
+ ## Preserve the reasoning chain
+ 
+ Connect the motivating problem, baseline, constraints and critical scenarios to the organizing strategy before expanding the design. Explain each important boundary or mechanism through the requirement it serves, why the choice fits, its accepted cost and the evidence that could challenge it. Keep rationale beside the affected design; use a decision section for cross-cutting tradeoffs and links. Use an early scenario to establish the required outcome and a later worked flow to demonstrate the design's behavior, rather than repeating the same account.
+diff --git a/methods/internal-document-types.md b/methods/internal-document-types.md
+index c9a0a8c..2fedccf 100644
+--- a/methods/internal-document-types.md
++++ b/methods/internal-document-types.md
+@@ -4,11 +4,11 @@ Use this method inside a Writer that owns registered Internal Document Types and
+ 
+ ## Registry routing
+ 
+-1. Read the Writer's `references/internal-document-types.yaml` as its configuration authority.
++1. Read the owning Writer's `references/internal-document-types.yaml` as the configuration authority; preserve that owner when the active Writer declares an explicit adaptation.
+ 2. Select a registered type from the user's explicit result first. Use the target title, path, reader question, content, and healthy siblings only to confirm or infer an underspecified request.
+-3. Route an independently owned Public Skill result to that skill without invoking it.
++3. Apply an explicit user-request adaptation branch declared by the active Writer before ordinary routing, preserving the owning registry and authority. Otherwise route an independently owned Public Skill result to that skill without invoking it.
+ 4. Treat a compatible occasional artifact that matches the Writer's authority but no registered type as a Freeform Artifact. Do not reject it or create a permanent type automatically.
+-5. Stop when the requested artifact belongs to another authority scope or drafting would formalize an unsupported company or product boundary.
++5. After resolving any declared adaptation, stop when the requested artifact still belongs to an unsupported authority scope or drafting would formalize an unsupported company or product boundary.
+ 
+ ## Structure modes
+ 
+diff --git a/methods/prose-quality.md b/methods/prose-quality.md
+index 98659d7..38981aa 100644
+--- a/methods/prose-quality.md
++++ b/methods/prose-quality.md
+@@ -32,10 +32,20 @@ Apply this method proportionally to every human-readable passage produced by a P
+ 
+ Scan for reader-flow failures before delivery: an opening about the document instead of the subject; several unexplained abstract nouns arriving together; labels whose criteria matter but remain unstated; internal workflow language standing in for an explanation; consecutive paragraphs with the same sentence pattern; repeated template labels used as prose; and transitions that announce sections instead of relationships. Rewrite each failure inside the locked artifact plan. Keep the explanation needed for the reader's current question nearby; place implementation detail in its owning section or reference when it would interrupt that explanation. Preserve required structure and do not impose a single outline on different genres.
+ 
++## Keep working checks separate from reader-facing content
++
++Keep checks about following a skill, avoiding scope expansion or choosing a template in working notes. During the final edit, remove sentences whose only contribution is explaining why a path, reference, threshold or approval was not invented; put a relevant workflow limitation in the delivery note. Preserve the actual missing dependency, undecided budget or unverified guarantee beside the design it affects. Present the conclusions readers need: establish the document-wide scope, baseline and status once, then place consequential local assumptions, uncertainty and limitations beside the affected claim. Preserve security, authorization, audit and recovery controls as substantive design content; an internal writing check and a system control have different readers and purposes. Retain a repeated qualification only where omitting it would make the local passage misleading.
++
++For Chinese technical explanations, read `references/prose-examples-zh.md` during expression review. Use its source-bounded examples to clarify actors, actions and conditions while preserving terminology and evidence. Treat missing mechanism details as gaps or labeled proposals, not facts supplied by a style rewrite.
++
+ ## Whole-document expression review
+ 
+ Review the completed document continuously, including the transition into and out of each figure, table and list. Follow explicit user and local document rules when they constrain format more narrowly than this method.
+ 
++Edit the complete argument before polishing isolated sentences. For each section and paragraph, identify the understanding or decision it adds. Consolidate repeated claims into their primary explanation, remove declarations that add neither meaning nor a necessary qualification, and repair missing transitions. Split sentences that combine independently important claims; make the actor, action, object and applicable conditions recoverable from the local context. Keep required technical terms and explain their purpose when the reader needs it.
++
++After deleting or merging content, reread the actual sources beside each complete standalone artifact, not just its outline, working notes or companion document. Account for each source requirement that constrains the requested design by locating its explanation in that artifact or recording why it is outside scope in working notes. Preserve source-mandated information needed to implement a mechanism, including persistent recovery state, without copying full executable schemas. Then compare against the section plan. Restore any lost responsibility, condition, state transition, transaction or concurrency guarantee, permission, failure behavior, uncertainty or evidence distinction. Keep a useful reminder when a reader needs it at a separate decision point; brevity alone is not the acceptance criterion. Complete this edit when each consequential passage adds a clear answer and no material constraint was lost or invented.
++
+ For each table, identify its distinct reader task and compare its information with neighboring prose, figures and other tables. Keep the table when simultaneous comparison or lookup materially helps and cells stay compact. Consolidate repeated facts into their owning explanation; retain a brief summary only when it serves a distinct navigation or decision task. Explain process, causality and recovery in connected prose or an appropriate diagram, then use a compact index only if readers still need one. Avoid restating every row as a paragraph or replacing a table with an equally fragmented list.
+ 
+ Review the aggregate effect as well as each individual table. Several individually defensible tables can still fragment the argument or repeat the same responsibilities under different labels. Reorganize around the reader's questions until the main reasoning is continuous and each retained structured block contributes a distinct function. Preserve requirements, qualifications, decisions, identifiers, evidence states and source relationships when merging content. Evaluate substantial revisions on an actual full-length document at the intended scope; short excerpts can check local expression but do not establish whole-document readability.
+diff --git a/skills/ask-scribe/SKILL.md b/skills/ask-scribe/SKILL.md
+index 6164513..a18a056 100644
+--- a/skills/ask-scribe/SKILL.md
++++ b/skills/ask-scribe/SKILL.md
+@@ -87,6 +87,8 @@ Explain the four viewpoints through the questions they contribute: **Domain** ch
+ 
+ When asked why the templates have matching chapter counts, inspect the current assets and distinguish the default outline from a fixed-count requirement. Explain the reading progression from goals and boundaries through structure, state and behavior to operation, validation and evolution. Apply the Shared Method's adaptation criteria; assess relevant responsibility coverage rather than equal chapter counts, section lengths or document counts.
+ 
++Explain default routing separately from explicit adaptation: recommend Write Tech Doc for stable object design, but honor an explicit request to use Write Tech Arch for that result through **Adapt an explicitly requested stable design** in the Architecture Documents Method. Explain that this preserves the stable registry, authority and template without invoking another skill or creating an unsupported Project identity.
++
+ For a concrete usage question, identify the purpose and authority, select the independently useful document responsibility, then recommend its owning Writer with the relevant scope in the invocation. Explain that the Writer applies viewpoint reasoning internally; a separate `$Reason Arch` invocation is only for an independently requested reasoning result. Complete the explanation when the user can say why this template fits, how purpose changes its content and where viewpoints affect the design.
+ 
+ ## Complete invocations
+diff --git a/skills/write-architecture-knowledge/SKILL.md b/skills/write-architecture-knowledge/SKILL.md
+index a0d3cdd..97c68f7 100644
+--- a/skills/write-architecture-knowledge/SKILL.md
++++ b/skills/write-architecture-knowledge/SKILL.md
+@@ -15,8 +15,8 @@ Own reusable Architecture Knowledge not tied to one company or project commitmen
+ 3. Read `references/knowledge-system.md` for system organization, file placement, creation or migration. Inventory actual files and responsibilities before changing topology. Preserve a requested or established healthy structure; default to objects, topics and reader questions.
+ 4. Read `../../methods/architecture-templates/templates.yaml`. Select the template by document responsibility, not merely topic keywords. Use the four primary object-design templates according to the responsibility rules in the Architecture Documents Method. Keep topics and navigation scoped to their actual questions; existing specialist resources do not require extra artifacts. Read each selected asset before drafting; create only the artifacts justified by the request.
+ 5. Establish the Architecture Object or recurring problem, Scope, assumptions, relevant domains/viewpoints, and evidence. Separate sourced facts, deductions, examples and project commitments.
+-6. Build a concrete reference model with contract realization, state relationships and mechanisms, a worked behavior or change-impact example, failure/counterexample, variants and validation. Apply the usable-design checks in the Architecture Documents Method while keeping choices reusable. Use the selected template's section responsibilities and explanatory prompts; apply `../../methods/prose-quality.md` when choosing prose, figures and tables. Apply the reading-path guidance without replacing a detailed architecture with a generic essay.
+-7. Read `../../methods/visual-production.md` when visuals are requested or materially clarify relationships; read `../../methods/prose-quality.md` for final expression. Honor explicit output formats.
++6. Read `../../methods/prose-quality.md` and apply **Plan section questions before drafting** in the Architecture Documents Method. Build a concrete reference model with contract realization, state relationships and mechanisms, a worked behavior or change-impact example, failure/counterexample, variants and validation. Apply the usable-design checks in the Architecture Documents Method while keeping choices reusable. Use the selected template's section responsibilities and explanatory prompts; apply `../../methods/prose-quality.md` when choosing prose, figures and tables. Apply the reading-path guidance without replacing a detailed architecture with a generic essay.
++7. Read `../../methods/visual-production.md` when visuals are requested or materially clarify relationships; apply the complete argument edit and source recheck in `../../methods/prose-quality.md` before final expression review. Keep working checks separate from reader-facing conclusions. Honor explicit output formats.
+ 8. Maintain authorized parent/child, dependency and source links. Verify the architecture-document reader checks, cross-document scenario check and knowledge-system completion conditions. Remove unfilled scaffold text and preserve evidence gaps honestly.
+ 
+ ## Boundaries
+diff --git a/skills/write-technical-architecture/SKILL.md b/skills/write-technical-architecture/SKILL.md
+index 82ad99e..c5b70ab 100644
+--- a/skills/write-technical-architecture/SKILL.md
++++ b/skills/write-technical-architecture/SKILL.md
+@@ -11,21 +11,22 @@ Produce company Technical Architecture for a Technical Landscape or a coherent P
+ ## Workflow
+ 
+ 1. Read `../../methods/architecture-reasoning.md`, `../../methods/architecture-documents.md`, and `../../methods/internal-document-types.md`.
+-2. Establish whether the result is company-level architecture or Project delivery architecture. Use the user's intended authority and lifetime, not the word "architecture" alone. Read the target, actual sources, existing navigation and governing decisions.
+-3. For company work, read `../../methods/technical-reasoning.md` and `references/technical-architecture-method.md`; identify the named Technical Landscape and Company Authority Level. For project work, read `references/delivery-architecture-method.md`; establish the delivery object, baseline, requirements and acceptance boundary.
+-4. Read `references/internal-document-types.yaml`. Select the registered type and its actual template. Treat a compatible cross-System Architecture Topic or occasional Project architectural artifact as a Freeform Artifact. For a Project delivery set, choose its main artifact and only necessary supporting types.
+-5. Read the selected assets. For shared architecture templates, apply `../../methods/architecture-templates/concrete-design.md`; use its shared catalog for independently useful supporting topics within the requested scope. Develop the implementation or reference model at the requested level: software realization, logical data relationships, contract semantics, transaction and failure mechanisms, technology choices, controls and validation. Apply the usable-design checks in the Architecture Documents Method. Use the template explanations and relevant figure or record slots to connect design choices to their drivers; preserve explicit user structure and output format.
+-6. Keep observed facts, proposals, accepted decisions and implementation state distinct. For Project delivery, record material reference-knowledge adoption and compatibility/migration constraints. For company work, link governing System Architecture instead of copying internal design.
+-7. Read `../../methods/visual-production.md` when a visual is requested or materially improves understanding, and `../../methods/prose-quality.md` before delivery. Use a principal view and responsibility explanation for a multi-System architecture.
+-8. Update directly affected real navigation for document-set work; allow standalone documents without invented navigation. Verify the selected completion profile, the architecture-document reader checks and the relevant branch's completion conditions. Remove unfilled placeholders and unused figure slots.
++2. Establish the requested object, purpose, authority and lifetime from the user's request, target, sources and governing decisions. Select company-level architecture or Project delivery; when the user explicitly requests stable object design through this skill, apply **Adapt an explicitly requested stable design** in the Architecture Documents Method before routing. Preserve the actual scope rather than inferring a Project from a template.
++3. For company work, read `../../methods/technical-reasoning.md` and `references/technical-architecture-method.md`; identify the named Technical Landscape and Company Authority Level. For project work, read `references/delivery-architecture-method.md`; establish the delivery object, baseline, requirements and acceptance boundary. For explicit stable adaptation, use the stable resources and completion profile selected by the shared branch.
++4. Read `references/internal-document-types.yaml` for company and Project work; use the owning stable registry for explicit stable adaptation. Select the registered type and actual template. Treat a compatible cross-System Architecture Topic or occasional Project architectural artifact as a Freeform Artifact. Choose only independently useful supporting documents.
++5. Read the selected assets, `../../methods/architecture-templates/concrete-design.md` for shared templates, and `../../methods/prose-quality.md`. Apply **Plan section questions before drafting** in the Architecture Documents Method; preserve explicit user structure and output format.
++6. Develop the model at the requested level: software realization, data relationships, contract semantics, transaction and failure mechanisms, technology choices, controls and validation. Apply the usable-design checks and connect choices to their drivers inside the sections that own them.
++7. Keep facts, proposals, accepted decisions and implementation state distinct. For Project delivery, record material reference-knowledge adoption and compatibility/migration constraints. For company work, link governing System Architecture instead of copying internal design. For stable adaptation, preserve the governing System/Subsystem authority.
++8. Read `../../methods/visual-production.md` when a visual is requested or materially improves understanding. Use a principal view and responsibility explanation for a multi-System architecture. Apply the complete argument edit and source recheck in the Prose Quality Method before final expression review; keep working checks separate from reader-facing conclusions.
++9. Update directly affected real navigation for document-set work; allow standalone documents without invented navigation. Verify the selected completion profile, architecture-document reader checks and branch conditions. Remove unfilled placeholders and unused figure slots.
+ 
+ ## Boundaries
+ 
+ - Own company-level Technical Architecture, Product-System Map, cross-System Architecture Topics, and Project delivery architecture with its directly required supporting documents.
+ - Let `$Write Arch Knowledge` own reusable Architecture Knowledge and its document system.
+-- Let `$Write Tech Doc` own stable System Architecture, Subsystem Architecture, Module Design and Component Architecture. Keep Project proposals linked to those authorities rather than overwriting them.
++- Let `$Write Tech Doc` own stable System Architecture, Subsystem Architecture, Module Design and Component Architecture by default. Honor explicit stable-design requests through the shared adaptation branch without changing registry ownership. Keep Project proposals linked to stable authorities rather than overwriting them.
+ - Exclude implementation tasks, executable field schemas, configuration, code and runbook procedures; summarize architecture-significant contracts and link Machine Authority.
+ 
+ ## Completion
+ 
+-Complete when the named company or Project scope has an intelligible principal structure, consistent ownership and contracts, traceable choices and evidence, and explicit current/target, proposal/acceptance and unresolved-risk distinctions. For multi-file delivery, verify its main entry and supporting artifacts form one coherent reviewable set. Keep unverified acceptance and unsupported commitments explicit.
++Complete when the selected company, Project or explicitly adapted stable scope satisfies its owning completion profile and has an intelligible principal structure, consistent ownership and contracts, traceable choices and evidence, and explicit current/target, proposal/acceptance and unresolved-risk distinctions. For multi-file delivery, verify its main entry and supporting artifacts form one coherent reviewable set. Keep unverified acceptance and unsupported commitments explicit.
+diff --git a/skills/write-technical-doc/SKILL.md b/skills/write-technical-doc/SKILL.md
+index c828b18..38c56b4 100644
+--- a/skills/write-technical-doc/SKILL.md
++++ b/skills/write-technical-doc/SKILL.md
+@@ -17,10 +17,10 @@ Use one Technical Common Writer for registered and occasional company technical
+ 5. Read `references/internal-document-types.yaml`. Select one registered Internal Document Type or classify the requested result as a Freeform Artifact. When the result is System Architecture, Subsystem Architecture, Module Design or Component Architecture, also read `../../methods/architecture-reasoning.md` and `references/system-architecture-method.md`.
+ 6. Lock the reader question, Architecture Object and Authority Level when applicable, structure mode, scope, validity, evidence, canonical sources, and excluded downstream detail.
+ 7. Separate observed facts, accepted policy, current technical truth, proposals, decisions, evidence, exceptions, and open questions.
+-8. Read `../../methods/architecture-documents.md` for architecture artifacts and `../../methods/prose-quality.md`, then use only the template assigned by the registry. For System Architecture, Subsystem Architecture, Module Design or Component Architecture, read `../../methods/architecture-templates/concrete-design.md` and apply its assigned shared adaptive template, the usable-design checks in the Architecture Documents Method and the reader verification in the Architecture Reasoning Method. Draft a Freeform Artifact without forcing a template. Read `../../methods/visual-production.md` when the request includes a visual or a central relationship is materially clearer as one. Link Machine Authority instead of copying code, schemas, configuration, protocols, tests, or runbooks.
++8. Read `../../methods/architecture-documents.md` for architecture artifacts and `../../methods/prose-quality.md`, then use only the template assigned by the registry. For architecture artifacts, apply **Plan section questions before drafting** in the Architecture Documents Method before developing prose. For System Architecture, Subsystem Architecture, Module Design or Component Architecture, read `../../methods/architecture-templates/concrete-design.md` and apply its assigned shared adaptive template, the usable-design checks in the Architecture Documents Method and the reader verification in the Architecture Reasoning Method. Draft a Freeform Artifact without forcing a template. Read `../../methods/visual-production.md` when the request includes a visual or a central relationship is materially clearer as one. Link Machine Authority instead of copying code, schemas, configuration, protocols, tests, or runbooks.
+ 9. A System Profile writes the Registered System's System Responsibility README. System Architecture, Subsystem Architecture, Module Design and Component Architecture may split supporting documents only when each has an independent reader question, authority, change cadence, and navigation need; update the direct architecture document otherwise.
+ 10. Add or repair real navigation when creating or renaming a document in an existing documentation set. Treat a requested standalone document as complete without a navigation file; keep repository-integration notes outside its reader-facing body. Do not link planned nonexistent files.
+-11. Verify the Internal Document Type, authority boundary, evidence, validity, links, completion profile, and absence of company-level Technical Architecture or Project Documentation responsibilities.
++11. Apply the complete argument edit and source recheck in the Prose Quality Method; keep working checks separate from reader-facing conclusions. Verify the Internal Document Type, authority boundary, evidence, validity, links, completion profile, and absence of company-level Technical Architecture or Project Documentation responsibilities.
+ 
+ ## Boundaries
+ 

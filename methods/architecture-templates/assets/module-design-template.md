@@ -1,4 +1,4 @@
-# [Module Design]
+# [模块设计]
 
 **Purpose:** [Architecture Knowledge / Concrete Design]
 
@@ -6,38 +6,88 @@
 
 **Evidence baseline:** [Date, sources and verification limits]
 
-## 1. Functional responsibility and scope
+## 功能说明
 
-[Name the cohesive function, intended result, callers and exclusions. Identify the parent System or Subsystem and the requirements, invariants and quality constraints allocated to this module. Explain why this function needs independent design detail. Distinguish locally owned rules from inherited commitments and changes requiring parent coordination; a module does not introduce a new authority level or require its own deployment.]
+### 场景与结果
 
-## 2. Operations, rules and external collaboration
+[Explain a cohesive business or technical function through a representative actor, use condition, intended action and observable result. Establish the purpose before implementation; select scenarios that reveal the function rather than listing every screen or endpoint.]
 
-[Explain the operations the module provides, their input and output meaning, preconditions, business or technical rules and completion conditions. Identify callers, dependencies, allowed actions and externally visible failure or unknown outcomes. State the guarantees required from dependencies and the assumptions under which this function is valid. Link complete interface specifications while retaining the semantics needed to implement and use the function.]
+### 功能范围
 
-## 3. Internal design and dependency organization
+[Explain owned decisions, actions, facts and results, supported responsibilities and meaningful exclusions. Identify external capabilities the module uses and why its rules, state or coordination warrant independent design. Bound responsibility rather than copying repository folders.]
 
-[Explain how internal responsibilities, rule evaluation and coordination realize the function. Identify private or shared implementation components and why each is needed; keep peer functions distinct from the mechanisms they use. Explain dependency direction, important technology choices, alternatives and costs. Use a simple internal model when sufficient; create no child component merely to fill a hierarchy. Link independently owned component designs without repeating their algorithms.]
+### 上层要求
 
-[Figure: internal responsibilities, dependencies and private or shared components]
+[Identify the governing System or Subsystem and allocated guarantees, characteristics, data authority, interface/runtime constraints and principles. Explain their local consequences and which changes require coordination. Keep unallocated budgets explicit. Preserve direct System-to-module relationships without inventing a Subsystem or independent deployment.]
 
-## 4. Data, state and transaction boundaries
+### 现状与设计起点
 
-[Explain the entities, identities, relationships and state transitions relevant to the function. Identify authoritative state, derived information, owners and reconstruction sources. Specify local atomic changes, cross-boundary consistency requirements and the invariants that processing must preserve. Explain the data access, retention and evidence requirements that affect these choices. Link executable schemas rather than duplicating their complete definitions.]
+[Explain existing capabilities, interfaces/data/behavior to retain, and what this design adds or changes. Distinguish observed facts, accepted decisions, proposals and assumptions. For new work describe actual prerequisites and dependencies; for Knowledge describe applicability. Combine with 功能范围 when the baseline is brief.]
 
-## 5. Processing flows and coordination mechanisms
+## 规则与接口
 
-[Walk a representative operation from input through rule evaluation, participating owners, state changes and observable result. Explain how sequencing, transactions, concurrency and synchronous or asynchronous coordination uphold the functional guarantees. Trace a consequential exception, duplicate, partial or unknown outcome and its recovery, naming who decides and what evidence permits continuation. Explain local orchestration and the required behavior of dependencies; keep a component's independently owned algorithm in its design.]
+### 支持的操作
 
-[Figure: processing flow, decisions and state changes]
+[Describe independently meaningful operations, their purposes, use conditions and responsibility boundaries. Group interfaces that expose the same operation; select actual capabilities without forcing CRUD. Link full interface catalogs.]
 
-## 6. Failure handling and operating constraints
+### 输入、输出与完成条件
 
-[Explain the module's behavior under dependency failure, cancellation, overload and resource limits where relevant. Identify timeouts, retry ownership, backpressure, degradation, reconciliation and completion signals, connecting them to the processing flow above. Locate control enforcement and durable evidence. State assumptions about the parent runtime, isolation and recovery arrangements, and identify the module's own responsibilities without inventing a separate deployment.]
+[Explain object identity, input/output meaning, identity/version/context and preconditions. Specify observable completion and what the caller may do next; distinguish acceptance, completed processing and external effects where relevant. Retain implementation-significant semantics while linking complete field and protocol definitions.]
 
-## 7. Validation and open questions
+### 处理规则与限制
 
-[Connect the function's rules and inherited guarantees to scenario checks, sourced pass criteria and observed or planned evidence. Include boundary, failure and recovery behavior that could challenge the design. Identify unmet dependency assumptions and pending decisions with the affected guarantee, required evidence and owner where known. Distinguish illustrative examples from demonstrated behavior and keep unverified acceptance explicit.]
+[Explain applicable business or technical rules for eligibility, permissions, judgment/calculation, allowed state-dependent actions, conflicts and priorities. Specify invalid, failed or uncertain outcomes. Link externally owned policy and explain local application; keep unresolved rules explicit with their implementation consequence. Leave the state model to 数据与状态 and execution order to 处理流程.]
 
-## 8. Evolution and compatibility
+### 调用关系与依赖
 
-[Explain how rule, state, operation and dependency changes affect callers and parent commitments. Identify extension points, compatible changes, state-transition requirements and rollback or recovery limits. State which changes can be made locally and which require coordination. Compare relevant variants through their assumptions, costs and guarantees; identify conditions that require redesign or prevent reuse.]
+[Identify permitted callers, external dependencies and guarantees each party supplies. Specify local/remote and synchronous/asynchronous behavior, duplicate/order/timeout/cancellation handling and compatibility where material. Explain whether retries are safe and how an unknown result can be resolved. Add a relationship figure when needed for clarity.]
+
+## 实现设计
+
+### 内部结构与职责
+
+[Show responsibilities for rule evaluation, processing coordination and dependency access, their dependency direction and boundary rationale. Distinguish private implementation from shared components and map logical duties to actual or proposed code organization. Keep simple functions simple; link independently owned mechanisms without requiring extra component documents.]
+
+[Figure: implementation structure and important dependencies]
+
+### 数据与状态
+
+[Explain core entities, identities, relationships and versions; distinguish maintained, referenced and derived data and their owners. Define important state meanings, legal transitions, guards and change permissions. Locate atomic changes and cross-boundary consistency, durable recovery/reconstruction evidence, access, retention and traceability needs. Link executable schemas rather than copying them.]
+
+[Conditional figure: important state transitions]
+
+### 实现选择与取舍
+
+[Explain consequential choices in rule organization, coordination, algorithms, storage and existing components. Connect each choice to actual functional/quality requirements, inherited principles and style, realizing mechanisms, applicability and accepted costs. Discuss meaningful alternatives without manufacturing a separate style, deployment or option quota.]
+
+### 扩展与兼容
+
+[Explain the impact of actual rule, operation, state, interface, data or dependency changes on callers and parent commitments. Introduce extension points only for justified change needs. Locate compatible changes, data and unfinished-work transition requirements, rollback/recovery limits and changes requiring coordination. Add or link substantive migration detail where needed and give any independently explained migration/cutover/recovery flow a corresponding figure.]
+
+## 处理流程
+
+### [关键处理流程名称]
+
+[Explain the triggering operation, input/identity/version/state preconditions and observable result. Follow rule evaluation, decisions, participants, dependency calls, intermediate state, atomic commits and responsibility handoffs. Explain significant branches, concurrency, repeats, ordering, waiting or cancellation where relevant. Locate authorization and durable control evidence at affected actions. Explain exceptions beside those steps: completed effects, result certainty, retry/recovery/compensation ownership, durable state and continuation evidence. Retain resource limits, overload, backpressure, degradation and completion signals where they affect the function, with parent runtime/isolation assumptions explicit.]
+
+[Figure: this key processing flow, including consequential branches or supplemental failure/recovery views]
+
+[Repeat for actual selected key flows. Group equivalent operation variants around shared behavior and meaningful differences; give independently useful recovery flows their own corresponding figure.]
+
+## 设计验证
+
+### 功能与规则验证
+
+[Connect supported operations, decisions/calculations, permission/state rules, conflicts/priorities and completion effects to meaningful input conditions, expected outcomes and sourced pass criteria. Verify consequential implementation choices and allocated characteristics as well as successful behavior. Preserve unknown business standards rather than inventing numeric or policy answers. Link detailed test cases or test code.]
+
+### 边界与故障验证
+
+[Select relevant invalid/stale input or state, concurrent/repeated operations, dependency failures/timeouts, resource limits, partial processing/recovery and compatibility changes. Check these against actual mechanisms, contracts and parent guarantees. Distinguish local checks from required integration with real dependencies, shared transactions and external effects.]
+
+### 验证结果与证据
+
+[Separate planned, partial and completed checks with implementation version, conditions, scope, evidence and remaining gaps. Explain what existing results establish and what still requires integration or broader validation; keep illustrative reasoning distinct from observed evidence.]
+
+### 风险与待决事项
+
+[Identify unresolved rules, dependency conditions, assumptions and choices, the affected operation/result/guarantee, interim handling, limitations and closure evidence. Distinguish local implementation decisions from business-rule, contract or parent-guarantee changes requiring their actual decision owner. Name owners and timing only when established, and identify conditions that require redesign or limit reuse.]

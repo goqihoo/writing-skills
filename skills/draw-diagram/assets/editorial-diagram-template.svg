@@ -35,17 +35,17 @@
     <path id="request-flow" class="flow" d="M 400 272 H 640" marker-end="url(#arrow)"/>
   </g>
   <g id="nodes" data-category="1">
-    <g id="source-component">
+    <g id="source-component" data-label-layout="center">
       <rect class="mask" x="240" y="240" width="160" height="64" rx="6"/>
       <rect class="node category-1" x="240" y="240" width="160" height="64" rx="6"/>
-      <text class="node-title" x="320" y="276" text-anchor="middle">Source component</text>
-      <text class="detail" x="320" y="292" text-anchor="middle">Short responsibility</text>
+      <text class="node-title" x="320" y="267.54" text-anchor="middle" data-node-label="true" style="font-size:12px">Source component</text>
+      <text class="detail" x="320" y="283.54" text-anchor="middle" data-node-label="true" style="font-size:9px">Short responsibility</text>
     </g>
-    <g id="target-component">
+    <g id="target-component" data-label-layout="center">
       <rect class="mask" x="640" y="240" width="160" height="64" rx="6"/>
       <rect class="node category-1" x="640" y="240" width="160" height="64" rx="6"/>
-      <text class="node-title" x="720" y="276" text-anchor="middle">Target component</text>
-      <text class="detail" x="720" y="292" text-anchor="middle">Short responsibility</text>
+      <text class="node-title" x="720" y="267.54" text-anchor="middle" data-node-label="true" style="font-size:12px">Target component</text>
+      <text class="detail" x="720" y="283.54" text-anchor="middle" data-node-label="true" style="font-size:9px">Short responsibility</text>
     </g>
   </g>
 </svg>

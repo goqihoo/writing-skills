@@ -1,0 +1,22 @@
+{
+  "baseline_commit": "483a148be304c57139448776f362363b85a7db64",
+  "execution_date": "2026-10-03",
+  "snapshot_root": "/var/folders/32/j8l0yn2s2x92jjs31z7v4xl80000gn/T/scribe-writing-eval-qmodn9ro",
+  "configuration": "Both generation agents used inherited default model and reasoning settings, with no overrides; exact runtime model identity is not exposed here.",
+  "fixtures": {
+    "source.md": "0ff7ebddf73e800e20281446358287888d7786bb0360080dca179bfd50b0ff46",
+    "request.md": "c9ba61f00449a656c3e4a16e263311d1cef968b75c441369b99bc18e98fc0c1b",
+    "evaluation.md": "419e024467067cd5ce008339b25813daf3483fa901c2384b3510fcb08d1fddf0"
+  },
+  "snapshot_hashes": {
+    "before": "5347c5755ee5cc4358c54240e32639c23fd56a85a713258d2f89aa3fdc438c76",
+    "after": "42c59da4e29f986ddcecfd0ccfafe86de37f45a980b1c438e7d0b8f84f2704df",
+    "final": "9d8c508999aa4d0f350823d327d1cc06b2ca2ed1fbb64a14807547e7ef41d97c"
+  },
+  "candidate_followup": "Final snapshot moves Chinese samples under methods/references, clarifies adaptation routing, and strengthens per-artifact source recheck and removal of writing-process statements after initial review. Final outputs are revision trials, not new independent first drafts.",
+  "final_artifacts": {
+    "final-output/stable.md": "4bc1779336cd5cf8604a1c7aa69280e107e32887e0887c280d25c2961f07ea6d",
+    "final-output/project.md": "bb8491070ef687b9b113883b722418c502d379db0052dd815698910b39808a61"
+  },
+  "result": "Initial routing failure resolved; material omission detected in initial candidate and recovered in final revision; final full review found no new material source/authority regressions and retained one minor prose finding."
+}

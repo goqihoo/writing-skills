@@ -1,0 +1,6 @@
+# Preserve captured evaluation artifacts byte-for-byte, including Markdown hard
+# breaks and unified-diff context lines. Source and test whitespace checks remain.
+.scratch/architecture-writing-workflow/before-output/*.md whitespace=-blank-at-eol
+.scratch/architecture-writing-workflow/after-output/*.md whitespace=-blank-at-eol
+.scratch/architecture-writing-workflow/final-output/*.md whitespace=-blank-at-eol
+.scratch/architecture-writing-workflow/candidate.diff whitespace=-blank-at-eol,-blank-at-eof

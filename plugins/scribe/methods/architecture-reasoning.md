@@ -83,16 +83,22 @@ Revisit an earlier judgment only when new evidence invalidates it, then trace th
 
 ## Architecture judgment
 
-Distinguish:
+Use these distinctions when deriving and explaining a design:
 
-- **Constraint:** cannot be violated in the stated context.
-- **Quality:** can improve or degrade and must be prioritized.
-- **Principle:** guides later choices.
-- **Pattern:** a reusable structural response.
-- **Decision:** binds the current object and scope and records accepted cost.
-- **Validation:** evidence that tests a named judgment.
+- **Constraint:** a boundary that cannot be violated in the stated context; identify its authority. Keep mandatory correctness and authorization obligations distinct from negotiable quality targets.
+- **Architecture characteristic (quality):** a quality the object must exhibit. Prioritize it through a concrete operating or change scenario, an observable response and a sourced target or explicit unresolved target. Explain conflicts between qualities rather than promising all of them equally.
+- **Architecture principle:** a durable rule guiding multiple choices. State its rationale, scope, practical consequence and exception authority where known; distinguish inherited principles from local proposals. A product name or a single mechanism is not a principle.
+- **Architecture style:** an organizing form that constrains elements and relationships at a named scope. Explain the structural properties that justify the label, relevant alternatives, accepted costs and change triggers. Separate logical organization, deployment units and local interaction patterns; a queue alone does not make the entire architecture event-driven. Use a precise structural description when no established style fits.
+- **Architecture strategy:** a coordinated approach to a significant problem or characteristic. Connect it to the principles and constraints it respects, the mechanisms that realize it, the cost it introduces and the scenario that tests it.
+- **Pattern and mechanism:** a reusable response and its concrete realization. Explain how the selected transaction, algorithm, protocol or operating arrangement supports the strategy, rather than treating its name as proof.
+- **Decision:** a scoped choice with evidence, alternatives, accepted cost and decision status. Distinguish an inherited choice, an interpretation of existing structure and a newly proposed choice.
+- **Validation:** evidence that tests a named judgment and the conditions that would challenge it.
 
-Pressure-test each choice for **fit**, **simplicity**, and **evolution**.
+Trace significant choices from problem and constraints through prioritized characteristics and applicable principles to style or strategy, realizing mechanisms and validation. Revisit these relationships when a choice exposes a conflict; use the trace as a reasoning aid, not a forced linear process or a requirement for one document per concept. Apply the four viewpoints to discover and challenge these choices; viewpoints do not replace these design elements.
+
+For Overall and Subsystem Architecture, explain the applicable style and major strategies explicitly. For Module and Component design, inherit the enclosing style and principles, then explain local quality scenarios, strategies and mechanism choices; propose a separate style only when the local structure warrants one. For Knowledge, explain conditions, variants and counterexamples; for Concrete Design, explain the object's actual or proposed choices and unresolved evidence. Pressure-test each choice for **fit**, **simplicity**, and **evolution**.
+
+Complete the judgment when readers can identify the relevant characteristics, principles, organizing form and strategies, follow their consequences into mechanisms, and explain the cost and evidence that could change a material choice. A list of quality words or mechanisms alone does not satisfy this condition.
 
 ## Control trace
 
@@ -133,4 +139,4 @@ Revise the model or explanation when any relevant answer depends on an unexplain
 
 ## Completion
 
-Architecture reasoning is complete when the object and scope are explicit, the four viewpoints have been reviewed for relevant concerns, authoritative facts and state have one owner, material controls trace authority through evidence, failure and recovery behavior preserve invariants, and every accepted tradeoff names its cost and review trigger.
+Architecture reasoning is complete when the object and scope are explicit, the four viewpoints have been reviewed for relevant concerns, authoritative facts and state have one owner, material controls trace authority through evidence, failure and recovery behavior preserve invariants, the Architecture judgment completion condition is satisfied in the explanation, and every accepted tradeoff names its cost and review trigger.

@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import math
 import re
 import shutil
 import subprocess
@@ -334,6 +335,68 @@ def has_connector_label_collision(root: ET.Element) -> bool:
     return False
 
 
+def validate_node_label_layout(root: ET.Element) -> list[str]:
+    """Check explicitly centered, simple rectangular labels using nominal font bounds.
+
+    This detects stale offsets after resizing; actual glyph/optical alignment still
+    needs render inspection. Unmarked groups (including boundary titles) are untouched.
+    """
+    errors: list[str] = []
+
+    def number(value: str) -> float:
+        result = float(value)
+        if not math.isfinite(result):
+            raise ValueError("non-finite coordinate")
+        return result
+
+    for index, group in enumerate(root.iter()):
+        if group.get("data-label-layout") != "center":
+            continue
+        name = group.get("id", f"group-{index}")
+        prefix = f"centered node {name}: "
+        boxes = [e for e in group if local_name(e.tag) == "rect" and
+                 ("node" in class_tokens(e) or e.get("data-node-box") == "true")]
+        labels = [e for e in group if local_name(e.tag) == "text" and
+                  e.get("data-node-label") == "true"]
+        if len(boxes) != 1 or not labels:
+            errors.append(prefix + "requires one direct node rectangle and marked text lines")
+            continue
+        box = boxes[0]
+        try:
+            x, y, width, height = [number(box.get(k, "0")) for k in ("x", "y", "width", "height")]
+            top = number(group.get("data-label-inset-top", "0"))
+            bottom = number(group.get("data-label-inset-bottom", "0"))
+            if width <= 0 or height <= 0 or min(top, bottom) < 0 or top + bottom >= height:
+                raise ValueError("invalid content region")
+            if box.get("transform"):
+                raise ValueError("use shared group coordinates")
+            bounds = []
+            for label in labels:
+                # Inline px size makes the checked size explicit, independent of a
+                # class's font shorthand. Complex text must use rendered bounds.
+                size_match = re.search(r"(?:^|;)\s*font-size\s*:\s*([\d.]+)px\s*(?:;|$)", label.get("style", ""))
+                if not size_match or len(label) or label.get("transform") or label.get("dy") or label.get("dx"):
+                    raise ValueError("requires plain text lines with inline font-size in px")
+                if label.get("dominant-baseline", "alphabetic") != "alphabetic":
+                    raise ValueError("requires alphabetic baselines")
+                size = number(size_match.group(1))
+                if size <= 0:
+                    raise ValueError("invalid font size")
+                lx, ly = number(label.attrib["x"]), number(label.attrib["y"])
+                if label.get("text-anchor") != "middle" or abs(lx - (x + width / 2)) > 1:
+                    errors.append(prefix + "text line is not horizontally centered")
+                bounds.append((ly - 0.74 * size, ly + 0.20 * size))
+            low, high = min(b[0] for b in bounds), max(b[1] for b in bounds)
+            region_top, region_bottom = y + top, y + height - bottom
+            if low < region_top or high > region_bottom:
+                errors.append(prefix + "nominal text block exceeds its content region")
+            if abs((low + high - region_top - region_bottom) / 2) > 3:
+                errors.append(prefix + "nominal text block is not vertically centered (3px tolerance)")
+        except (ValueError, KeyError) as exc:
+            errors.append(prefix + f"unsupported or invalid label geometry: {exc}")
+    return errors
+
+
 def validate(
     path: Path,
     require_scribe_color: bool = False,
@@ -386,6 +449,7 @@ def validate(
         warnings.append("embedded raster image found")
     if has_connector_label_collision(root):
         errors.append("connector label mask must stay at least 6px from every connector")
+    errors.extend(validate_node_label_layout(root))
     if require_scribe_color:
         errors.extend(validate_scribe_color_contract(root))
 

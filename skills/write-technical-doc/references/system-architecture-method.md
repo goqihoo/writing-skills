@@ -21,7 +21,7 @@ Address the relevant evidence for:
 - Governance permissions, controlled commands, last responsible control points, decision authority, exceptions, and durable evidence;
 - Deployment Architecture responsibilities, deployment units, placement, network, topology, and failure domains where material;
 - Runtime dependencies, load, degradation, observability, replay, recovery, and failover behavior;
-- principles, constraints, material decisions, alternatives, and accepted costs;
+- the design elements and level-specific argument required by Architecture judgment in the shared Architecture Reasoning Method, including material decisions, alternatives and accepted costs;
 - validation, operating evidence, fitness checks, and review triggers;
 - current facts, accepted target direction, evaluated proposals, compatibility, migration, and evolution boundaries;
 - downstream Subsystem Architecture, interface definitions, deployments, runbooks, code repositories, Project Technical Design, and Machine Authority links.

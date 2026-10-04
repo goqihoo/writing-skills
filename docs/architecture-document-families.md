@@ -6,8 +6,14 @@ Let purpose determine content development, document responsibility determine the
 | --- | --- | --- |
 | Knowledge system or detailed reference document | Write Arch Knowledge (`write-architecture-knowledge`) | `methods/architecture-templates/templates.yaml` |
 | Company landscape and Product-System mapping | Write Tech Arch (`write-technical-architecture`) | Writer Internal Document Type registry |
-| Stable System, Subsystem or Component design | Write Tech Doc (`write-technical-doc`) | Writer Internal Document Type registry |
+| Stable System, Subsystem, Module or Component design | Write Tech Doc (`write-technical-doc`) | Writer Internal Document Type registry |
 | Project architecture and directly required delivery details | Write Tech Arch (`write-technical-architecture`) | Delivery entries in its Writer registry |
+
+Default Writer ownership determines recommendations. When a user explicitly invokes Write Tech Arch for stable System, Subsystem, Module or Component design, apply the explicit stable-design adaptation in `methods/architecture-documents.md`. Use the stable Writer registry and completion profile without invoking another skill, changing the document authority or inventing Project commitments.
+
+Plan each applicable section's reader question, contribution and evidence before drafting. Keep writing-process checks in working notes, retain substantive controls and local uncertainty in the artifact, then edit the complete argument and recheck technical constraints through `methods/prose-quality.md`. Use its Chinese examples when reviewing Chinese technical explanations.
+
+Preserve the design argument as well as technical constraints. Use Architecture judgment in [`methods/architecture-reasoning.md`](../methods/architecture-reasoning.md) to connect characteristics, principles, styles and strategies to mechanisms, tradeoffs and validation. The primary templates expose these explanations at the appropriate scope; child designs inherit the enclosing style and explain local consequences. Check old-to-new content coverage when merging template sections, and inspect complete generated artifacts rather than relying on structural tests.
 
 ## Primary architecture documents
 
@@ -18,7 +24,17 @@ Maintain one shared template for each primary document responsibility:
 | Overall Architecture | Explain the whole object's composition and how the parts jointly meet its requirements. |
 | Subsystem Architecture | Explain how a justified responsibility group realizes guarantees allocated by its parent. |
 | Module Design | Explain one cohesive function through operations, rules, state changes and processing coordination. |
-| Component Architecture | Explain one encapsulated mechanism through its usage contract, algorithm, lifecycle and operating guarantees. |
+| Component Architecture | Explain how encapsulated mechanisms realize a component's usage contract and required guarantees. |
+
+Follow the reader progression of each current asset. Overall Architecture establishes the whole before decomposition and collaboration. Subsystem Architecture starts with allocated responsibility and external commitments, then explains their internal realization. Module Design starts with use and rules, then develops implementation and processing. Component Architecture starts with responsibility and contract, then selects and explains the mechanisms that realize its actual guarantees. Use short headings; chapter counts follow these responsibilities rather than a common outline. Keep migration and compatibility obligations beside contracts and implementation changes, adding independent migration detail when the actual scope warrants it.
+
+For Overall Architecture, use the approved nine-chapter scaffold: 背景与范围 → 架构驱动 → 总体方案 → 结构与职责 → 关键流程与协作 → 共性技术设计 → 部署与运行 → 架构验证与风险 → 演进与迁移. Read the [overall writing contract](../methods/references/overall-architecture-writing.md) through the Architecture Documents Method for chapter boundaries, scope adaptation, mandatory figures and conditional state/transition views. Keep the template as the outline authority and that reference as the selection and completion authority.
+
+For Subsystem Architecture, use the seven-chapter scaffold: 定位与设计要求 → 外部协作 → 内部方案 → 关键流程与协作 → 运行保障 → 架构验证与风险 → 演进与迁移. Read the [subsystem writing contract](../methods/references/subsystem-architecture-writing.md) for local realization of parent commitments, internal state before flows, runtime within the parent, required views and conditional migration. Inherit governing choices and explain local consequences rather than repeating the overall architecture.
+
+For Module Design, use the five-chapter scaffold: 功能说明 → 规则与接口 → 实现设计 → 处理流程 → 设计验证. Read the [module writing contract](../methods/references/module-design-writing.md) for functional rules, interface semantics, implementation/state ownership, named processing flows, required views and local versus integration evidence. Keep runtime effects with affected processing and extension/compatibility with implementation rather than imposing additional platform or migration chapters.
+
+For Component Architecture, use the four-chapter scaffold: 组件职责 → 接口设计 → 实现机制 → 设计验证. Read the [component writing contract](../methods/references/component-architecture-writing.md) for guarantee-driven mechanism selection, consumer duties, compatibility, required views and matching verification. Choose actual mechanism topics instead of a mandatory concurrency section; apply state/resources and algorithm/protocol detail only where relevant.
 
 Use these as optional design granularities. A System may contain modules directly; a component may be private or shared by multiple modules. Independent documentation requires a reader question and sufficient design substance. Existing specialist and support resources remain outside this primary-template change and do not require extra documents.
 
@@ -52,7 +68,7 @@ For a complete document, review the aggregate reading path as well as individual
 
 ## Design depth
 
-Use the implementation-readiness checks in `methods/architecture-documents.md` to distinguish a useful design from a responsibility inventory. Overall designs connect logical structure to software realization and integration; subsystems realize parent guarantees through internal contracts and transactions; modules explain their functional rules and processing coordination; components explain their actual algorithm or protocol. Keep architecture-significant data relationships and contract semantics in the design while executable detail remains with implementation. A proposed, evidence-bounded design is valid output before approval; a collection of unallocated future decisions is not a completed design.
+Use the implementation-readiness checks in `methods/architecture-documents.md` to distinguish a useful design from a responsibility inventory. Overall designs connect logical structure to software realization and integration; subsystems realize parent guarantees through internal contracts and transactions; modules explain their functional rules and processing coordination; components explain the actual mechanisms behind each important guarantee, including relevant assumptions and failure boundaries. Keep architecture-significant data relationships and contract semantics in the design while executable detail remains with implementation. A proposed, evidence-bounded design is valid output before approval; a collection of unallocated future decisions is not a completed design.
 
 ## Maintenance and validation
 

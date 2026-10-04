@@ -14,5 +14,6 @@ Use Diagram Design’s Instrument Serif / Geist / Geist Mono families for every 
 | `font-mono-advance` | `0.62` | Conservative mono-glyph advance in em for `font-mono` |
 | `font-wide-advance` | `1.00` | Conservative wide/full-width glyph advance in em |
 | `font-ascent` | `0.74` | Conservative ascent in em |
+| `font-descent` | `0.20` | Nominal descent in em for block alignment |
 
 Use these conservative measurement estimates for static label-fit verification; inspect the actual render with the chosen fonts before delivery.

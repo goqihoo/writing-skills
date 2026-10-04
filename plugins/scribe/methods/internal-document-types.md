@@ -4,11 +4,11 @@ Use this method inside a Writer that owns registered Internal Document Types and
 
 ## Registry routing
 
-1. Read the Writer's `references/internal-document-types.yaml` as its configuration authority.
+1. Read the owning Writer's `references/internal-document-types.yaml` as the configuration authority; preserve that owner when the active Writer declares an explicit adaptation.
 2. Select a registered type from the user's explicit result first. Use the target title, path, reader question, content, and healthy siblings only to confirm or infer an underspecified request.
-3. Route an independently owned Public Skill result to that skill without invoking it.
+3. Apply an explicit user-request adaptation branch declared by the active Writer before ordinary routing, preserving the owning registry and authority. Otherwise route an independently owned Public Skill result to that skill without invoking it.
 4. Treat a compatible occasional artifact that matches the Writer's authority but no registered type as a Freeform Artifact. Do not reject it or create a permanent type automatically.
-5. Stop when the requested artifact belongs to another authority scope or drafting would formalize an unsupported company or product boundary.
+5. After resolving any declared adaptation, stop when the requested artifact still belongs to an unsupported authority scope or drafting would formalize an unsupported company or product boundary.
 
 ## Structure modes
 
