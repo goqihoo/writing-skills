@@ -1,6 +1,0 @@
-interface:
-  display_name: "Ask Scribe"
-  short_description: "Find the right Scribe skill for your document"
-  default_prompt: "Use $ask-scribe to choose the right skill for this document task."
-policy:
-  allow_implicit_invocation: false

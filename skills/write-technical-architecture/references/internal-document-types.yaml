@@ -1,0 +1,103 @@
+schema_version: 1
+owner_skill: write-technical-architecture
+model: Company Technical Architecture and Project Delivery Architecture
+types:
+- id: technical-architecture
+  name: Technical Architecture
+  description: Describe company-level Technical Landscape structure, principles, boundaries, relationships, failure domains, and evolution.
+  reader_question: How does the company's Technical Landscape fit together and evolve as a system of Systems?
+  authority: Company-level Technical Architecture; the artifact title need not contain the word company.
+  completion: The named Technical Landscape Architecture Object, Scope, Company Authority Level, relevant domains and viewpoints, principles, constraints, Systems, boundaries, owners, critical relationships, controls, deployment and runtime concerns, decisions, validation, and evolution are coherent and traceable; the principal view and responsibility explanation let the reader identify Systems, their connections, and current versus intended state.
+  template:
+    path: ../../../methods/architecture-templates/assets/overall-architecture-template.md
+    policy: adaptive
+- id: product-system-map
+  name: Product-System Map
+  description: Maintain many-to-many Product, System, and capability relationships without redefining Product or System authorities.
+  reader_question: Which Systems realize each Product and capability, and which Products depend on each System?
+  authority: Company-level mapping among accepted Product and System authorities, excluding Product definitions and System internal design.
+  completion: Architecture Object, Scope, Company Authority Level, Product, capability, and System relationships, owners, validity, critical dependencies, and authority links are current.
+  template:
+    path: ../assets/product-system-map-template.md
+    policy: adaptive
+- id: delivery-index
+  name: Architecture Delivery Entry
+  description: Create architecture delivery entry for one concrete delivery.
+  reader_question: Where are the delivery architecture artifacts, decisions and acceptance evidence?
+  authority: One named Project delivery; link governing company/System architecture and Machine Authority.
+  completion: Scope, baseline, selected or proposed design, decision authority, dependencies, compatibility, and evidence are traceable; acceptance is never asserted without supporting results.
+  template:
+    path: ../assets/delivery-index-template.md
+    policy: adaptive
+- id: delivery-architecture
+  name: Delivery name — Overall Architecture
+  description: Create delivery name — overall architecture for one concrete delivery.
+  reader_question: How will this concrete delivery work across its architecture boundaries?
+  authority: One named Project delivery; link governing company/System architecture and Machine Authority.
+  completion: Scope, baseline, selected or proposed design, decision authority, dependencies, compatibility, and evidence are traceable; acceptance is never asserted without supporting results.
+  template:
+    path: ../../../methods/architecture-templates/assets/overall-architecture-template.md
+    policy: adaptive
+- id: delivery-subsystem
+  name: Delivery subsystem — Architecture
+  description: Create delivery subsystem — architecture for one concrete delivery.
+  reader_question: How does this delivery subsystem meet its parent contracts?
+  authority: One named Project delivery; link governing company/System architecture and Machine Authority.
+  completion: Scope, baseline, selected or proposed design, decision authority, dependencies, compatibility, and evidence are traceable; acceptance is never asserted without supporting results.
+  template:
+    path: ../../../methods/architecture-templates/assets/subsystem-architecture-template.md
+    policy: adaptive
+- id: delivery-module
+  name: Delivery module — Design
+  description: Design one cohesive function within a concrete delivery.
+  reader_question: How does this delivery module implement its operations, rules, state changes and processing flow?
+  authority: One named Project delivery; link governing System or Subsystem authority without introducing a module authority level.
+  completion: Functional responsibility, inherited constraints, operations, rules, state and transaction boundaries, dependency contracts, processing and failure mechanisms, validation, compatibility and pending decisions are coherent; the design remains distinct from stable technical truth and executable implementation detail.
+  template:
+    path: ../../../methods/architecture-templates/assets/module-design-template.md
+    policy: adaptive
+- id: delivery-component
+  name: Delivery component — Architecture
+  description: Create delivery component — architecture for one concrete delivery.
+  reader_question: How does this delivery component behave and integrate?
+  authority: One named Project delivery; link governing company/System architecture and Machine Authority.
+  completion: Scope, baseline, selected or proposed design, decision authority, dependencies, compatibility, and evidence are traceable; acceptance is never asserted without supporting results.
+  template:
+    path: ../../../methods/architecture-templates/assets/component-architecture-template.md
+    policy: adaptive
+- id: delivery-database-design
+  name: Delivery Database Design
+  description: Design a database or database change for one concrete delivery.
+  reader_question: How will this delivery realize its data model, constraints, access paths and transactions, including required compatibility and migration?
+  authority: One named Project delivery; link governing System or Subsystem database design and Machine Authority without promoting proposals to stable technical truth.
+  completion: Data relationships, ownership, complete per-table physical field definitions, explicit constraints and indexes, access paths and atomic changes realize the delivery requirements; unresolved definitions block schema-generation readiness and relevant conflicts, compatibility, migration and validation are explicit, with proposals and unverified acceptance distinguished.
+  template:
+    path: ../../../methods/architecture-templates/assets/database-design-template.md
+    policy: adaptive
+- id: delivery-deployment
+  name: Delivery Deployment Architecture
+  description: Create delivery deployment architecture for one concrete delivery.
+  reader_question: How are delivery responsibilities deployed, isolated and operated?
+  authority: One named Project delivery; link governing company/System architecture and Machine Authority.
+  completion: Scope, baseline, selected or proposed design, decision authority, dependencies, compatibility, and evidence are traceable; acceptance is never asserted without supporting results.
+  template:
+    path: ../../../methods/architecture-templates/assets/deployment-architecture-template.md
+    policy: adaptive
+- id: delivery-migration
+  name: Delivery Architecture Migration
+  description: Create delivery architecture migration for one concrete delivery.
+  reader_question: How can the baseline move to the target with compatible and recoverable transitions?
+  authority: One named Project delivery; link governing company/System architecture and Machine Authority.
+  completion: Scope, baseline, selected or proposed design, decision authority, dependencies, compatibility, and evidence are traceable; acceptance is never asserted without supporting results.
+  template:
+    path: ../assets/delivery-migration-template.md
+    policy: adaptive
+- id: delivery-validation
+  name: Architecture Validation and Acceptance
+  description: Create architecture validation and acceptance for one concrete delivery.
+  reader_question: Which architecture claims have passed validation and what remains unverified?
+  authority: One named Project delivery; link governing company/System architecture and Machine Authority.
+  completion: Scope, baseline, selected or proposed design, decision authority, dependencies, compatibility, and evidence are traceable; acceptance is never asserted without supporting results.
+  template:
+    path: ../assets/delivery-validation-template.md
+    policy: adaptive

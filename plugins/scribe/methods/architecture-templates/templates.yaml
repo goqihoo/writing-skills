@@ -1,0 +1,147 @@
+schema_version: 1
+owner_method: architecture-templates
+policy: adaptive
+templates:
+- id: knowledge-set
+  name: Architecture Knowledge Set
+  group: Navigation
+  reader_question: How is this knowledge set organized and entered?
+  template: assets/knowledge-set-template.md
+- id: view-overview
+  name: Architecture View Overview
+  group: Navigation
+  reader_question: What does this view own and how does it relate to other views?
+  template: assets/view-overview-template.md
+- id: topic-index
+  name: Architecture Topic Collection
+  group: Navigation
+  reader_question: Which topics belong here and when should readers use them?
+  template: assets/topic-index-template.md
+- id: domain-architecture
+  name: Domain Architecture
+  group: Domain
+  reader_question: Which concepts, rules and capability boundaries define this domain?
+  template: assets/domain-architecture-template.md
+- id: overall-architecture
+  name: Overall Architecture
+  group: Primary
+  reader_question: How do domain, data, application, protection and operating choices jointly deliver the intended outcomes?
+  template: assets/overall-architecture-template.md
+- id: data-architecture
+  name: Data Architecture
+  group: Data
+  reader_question: How are information meaning, authority, lifecycle and consistency preserved?
+  template: assets/data-architecture-template.md
+- id: database-design
+  name: Database Design
+  group: Supporting
+  reader_question: How do the data model, tables, constraints, access paths and transactions realize the owning design's data requirements?
+  template: assets/database-design-template.md
+- id: integration-architecture
+  name: Integration Architecture
+  group: Integration
+  reader_question: How do independent participants exchange information and achieve a verifiable business effect?
+  template: assets/integration-architecture-template.md
+- id: application-architecture
+  name: Application Architecture
+  group: Application
+  reader_question: How do application responsibilities, subsystems and shared components realize allocated guarantees?
+  template: assets/application-architecture-template.md
+- id: subsystem-architecture
+  name: Subsystem Architecture
+  group: Primary
+  reader_question: How does this subsystem own state and collaborate?
+  template: assets/subsystem-architecture-template.md
+- id: module-design
+  name: Module Design
+  group: Primary
+  reader_question: How does one cohesive function implement its operations, rules, state changes and processing flow?
+  template: assets/module-design-template.md
+- id: component-architecture
+  name: Component Architecture
+  group: Primary
+  reader_question: What contract and internal mechanism define this component?
+  template: assets/component-architecture-template.md
+- id: engineering-strategy
+  name: Engineering Strategy
+  group: Engineering
+  reader_question: How should a recurring hard architecture problem be handled?
+  template: assets/engineering-strategy-template.md
+- id: technical-mechanism
+  name: Technical Mechanism
+  group: Engineering
+  reader_question: How does this reusable mechanism work and where does it fail?
+  template: assets/technical-mechanism-template.md
+- id: governance-architecture
+  name: Governance Architecture
+  group: Governance
+  reader_question: How does governance architecture constrain and evidence architectural
+    behavior?
+  template: assets/governance-architecture-template.md
+- id: security-governance
+  name: Security Governance
+  group: Governance
+  reader_question: How does security governance constrain and evidence architectural
+    behavior?
+  template: assets/security-governance-template.md
+- id: compliance-governance
+  name: Compliance Governance
+  group: Governance
+  reader_question: How does compliance governance constrain and evidence architectural
+    behavior?
+  template: assets/compliance-governance-template.md
+- id: risk-governance
+  name: Risk Governance
+  group: Governance
+  reader_question: How does risk governance constrain and evidence architectural behavior?
+  template: assets/risk-governance-template.md
+- id: control-command
+  name: Control Command Architecture
+  group: Governance
+  reader_question: How does control command architecture constrain and evidence architectural
+    behavior?
+  template: assets/control-command-template.md
+- id: audit-evidence
+  name: Audit Evidence Architecture
+  group: Governance
+  reader_question: How does audit evidence architecture constrain and evidence architectural
+    behavior?
+  template: assets/audit-evidence-template.md
+- id: runtime-architecture
+  name: Runtime Architecture
+  group: Runtime
+  reader_question: Which runtime architecture patterns fit and what do they guarantee?
+  template: assets/runtime-architecture-template.md
+- id: deployment-architecture
+  name: Deployment Architecture
+  group: Runtime
+  reader_question: Which deployment architecture patterns fit and what do they guarantee?
+  template: assets/deployment-architecture-template.md
+- id: network-architecture
+  name: Network Architecture
+  group: Runtime
+  reader_question: Which network architecture patterns fit and what do they guarantee?
+  template: assets/network-architecture-template.md
+- id: runtime-state-messaging
+  name: Runtime State and Messaging Architecture
+  group: Runtime
+  reader_question: Which runtime state and messaging architecture patterns fit and
+    what do they guarantee?
+  template: assets/runtime-state-messaging-template.md
+- id: observability-architecture
+  name: Observability Architecture
+  group: Runtime
+  reader_question: Which observability architecture patterns fit and what do they
+    guarantee?
+  template: assets/observability-architecture-template.md
+- id: resilience-architecture
+  name: Resilience Architecture
+  group: Runtime
+  reader_question: Which resilience architecture patterns fit and what do they guarantee?
+  template: assets/resilience-architecture-template.md
+- id: capacity-performance
+  name: Capacity and Performance Architecture
+  group: Runtime
+  reader_question: Which capacity and performance architecture patterns fit and what
+    do they guarantee?
+  template: assets/capacity-performance-template.md

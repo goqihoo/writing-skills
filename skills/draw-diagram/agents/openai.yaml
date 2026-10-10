@@ -1,0 +1,6 @@
+interface:
+  display_name: "Draw Diagram"
+  short_description: "Create one clear, verified diagram or chart"
+  default_prompt: "Use $Draw Diagram to choose and create the clearest Diagram Design visual for this content."
+policy:
+  allow_implicit_invocation: false

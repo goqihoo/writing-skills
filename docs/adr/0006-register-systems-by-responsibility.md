@@ -1,0 +1,3 @@
+# Register systems by stable technical responsibility
+
+Scribe registers a System only when it has a stable name, technical responsibility boundary, owner, and lifecycle status; authoritative state, external contracts, independent release, and failure boundaries are supporting evidence rather than mandatory conditions. Every Registered System receives a Responsibility README and System Architecture, while implementation instructions and codebase inventories remain with their code-side authorities and are linked instead of duplicated in company Technical Documentation. This admits legitimate stateless Systems without letting Products, Applications, repositories, or temporary projects create unsupported System directories.

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Write Deck"
+  short_description: "Write an audience-facing presentation manuscript"
+  default_prompt: "Use $Write Deck to turn this material into a coherent Markdown presentation manuscript."
+policy:
+  allow_implicit_invocation: false

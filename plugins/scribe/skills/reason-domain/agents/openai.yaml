@@ -1,0 +1,6 @@
+interface:
+  display_name: "Reason Domain"
+  short_description: "Assess domain boundaries and knowledge ownership"
+  default_prompt: "Use $Reason Domain to decide whether this subject forms a reusable domain and record its boundary."
+policy:
+  allow_implicit_invocation: false

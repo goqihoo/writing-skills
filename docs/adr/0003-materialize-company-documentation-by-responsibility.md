@@ -1,0 +1,3 @@
+# Materialize company documentation by responsibility
+
+Scribe will scaffold company Product and Technical documentation around stable responsibilities, not lifecycle stages or every possible document type. Stable responsibilities receive default directories and Responsibility READMEs; type extensions appear only when independent ownership, governance, or navigation is proven; event collections appear only with their first real event. This yields a useful default structure without empty speculative directories, while accepting that different companies will materialize different extensions over time.

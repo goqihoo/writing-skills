@@ -1,0 +1,6 @@
+interface:
+  display_name: "Write Tech Arch"
+  short_description: "Design company and delivery architecture"
+  default_prompt: "Use $Write Tech Arch to create this company or Project delivery architecture with the necessary supporting documents."
+policy:
+  allow_implicit_invocation: false

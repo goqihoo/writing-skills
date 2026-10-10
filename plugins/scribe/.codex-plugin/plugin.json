@@ -1,0 +1,41 @@
+{
+  "name": "scribe",
+  "version": "0.9.0+codex.20261005013149",
+  "description": "Independent end-to-end skills for reusable Knowledge systems, company Product and Technical Documentation, Project architecture delivery, professional writing, presentation manuscripts, and technical visuals.",
+  "author": {
+    "name": "Andrew",
+    "url": "https://github.com/goqihoo"
+  },
+  "repository": "https://github.com/goqihoo/writing-skills",
+  "keywords": [
+    "writing",
+    "documentation",
+    "knowledge",
+    "product",
+    "technical",
+    "architecture",
+    "diagrams",
+    "presentations"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Scribe Skills",
+    "shortDescription": "Structure and write documents and deck manuscripts.",
+    "longDescription": "Choose one complete skill to organize reusable Knowledge, write company documentation or Project architecture delivery, produce a presentation manuscript, or create a verified visual. Shared methods are applied internally.",
+    "developerName": "goqihoo",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "Review",
+      "Organize",
+      "Present",
+      "Diagram"
+    ],
+    "defaultPrompt": [
+      "Use $Ask Scribe to identify the single Scribe skill that owns my requested result and return its complete invocation.",
+      "Use $Structure Docs to plan a coherent documentation structure and migration map.",
+      "Use $Write Deck to turn this material into a coherent Markdown presentation manuscript.",
+      "Use $Draw Diagram to create and verify one useful visual for this document."
+    ]
+  }
+}

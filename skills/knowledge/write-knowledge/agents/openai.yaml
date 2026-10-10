@@ -1,4 +1,0 @@
-interface:
-  display_name: "Write Knowledge"
-  short_description: "Create reusable knowledge documents by type"
-  default_prompt: "Use $write-knowledge to turn this material into reusable knowledge."

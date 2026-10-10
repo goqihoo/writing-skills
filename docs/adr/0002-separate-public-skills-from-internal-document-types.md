@@ -1,0 +1,3 @@
+# Separate public skills from internal document types
+
+Scribe previously tended to expose one skill for each standard document, which made the invocation surface grow with every template. Scribe now creates a Public Skill only for a high-frequency task that recurs across companies or products and has distinct reasoning, workflow, and a checkable completion contract. Lower-frequency standard documents remain Internal Document Types owned by a coherent common writer and may be promoted only after repeated use proves that a separate interface is warranted. This keeps standard document coverage broad without making the skill catalog mirror the directory tree.

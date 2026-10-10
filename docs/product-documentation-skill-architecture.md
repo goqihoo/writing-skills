@@ -1,0 +1,57 @@
+# Product Documentation Skill Architecture
+
+## Scope
+
+Product Documentation is Company Documentation for how one company defines, organizes, governs, evolves, measures, and operates its commercial products. It is distinct from reusable Product Knowledge and from Project Documentation for customer or delivery work.
+
+## Structure
+
+The company Product Stable Responsibilities are:
+
+```text
+Product/
+├── Portfolio/
+├── Governance/
+└── Products/
+    └── {Product}/
+        ├── Definition/
+        ├── Capabilities/
+        ├── Planning/
+        └── Measurement/
+```
+
+Product lines are classification views inside Portfolio, not default parents of product directories. `Solutions/` and `Experience/` are Type Extensions. `Initiatives/`, `Evidence/`, `Releases/`, and `Decisions/` are Event Collections created with their first real entries.
+
+## Public skills
+
+| Skill | Ownership |
+| --- | --- |
+| **Reason Product** (`reason-product`) | Company portfolio, product line, product, responsibility admission, and Product Assessment decisions. |
+| **Assess Product Lifecycle** (`assess-product-lifecycle`) | Product decision, evidence, and artifact coverage. |
+| **Structure Product Docs** (`structure-product-docs`) | Product topology, materialization, navigation, scaffolding, audits, and approved migration. |
+| **Write Product Doc** (`write-product-doc`) | Product Common Writer and its Internal Document Types. |
+| **Write Product Strategy** (`write-product-strategy`) | Durable product direction and choices. |
+| **Map Product Capabilities** (`map-product-capabilities`) | Product capability responsibilities and relationships. |
+| **Write Product Roadmap** (`write-product-roadmap`) | Product outcome and decision sequence. |
+| **Write PRD** (`write-prd`) | One product change's behavior and acceptance. |
+| **Design Product Metrics** (`design-product-metrics`) | Metric semantics, hierarchy, guardrails, and governance. |
+
+## Common Writer boundary
+
+`write-product-doc` owns the ten registered Product Internal Document Types listed in the generated catalog and compatible occasional Product Freeform Artifacts. `structure-product-docs` owns Product root and responsibility navigation. The Writer routes Product Strategy, Capability Map, Product Roadmap, PRD, and Product Metric System to their single owning Public Skill.
+
+## Lifecycle
+
+Product Lifecycle is a governance view across existing authoritative documents, not another directory tree. Company Product scaffolding does not require a Product Lifecycle Assessment. Use the assessment when entering a specific product decision or evaluating its evidence and artifact coverage.
+
+## Authority boundaries
+
+Product Documentation links reusable Knowledge, Technical Documentation, Project Documentation, and Machine Authority. A Product Initiative changes shared product behavior; a delivery project coordinates customer, contract, plan, task, state, and acceptance.
+
+## Independent execution
+
+Every Product Public Skill applies product reasoning, documentation structure, prose quality, and visual production internally as needed. Use `$Reason Product`, `$Structure Docs`, `$Write Doc`, or `$Draw Diagram` only when that standalone result is the user's goal. Evidence, approval, or ownership gaps may stop unsafe work; a missing skill invocation may not.
+
+## Completion contract
+
+The Product system is coherent when every accepted product appears directly below Products, Stable Responsibility homes exist, extensions and events are evidence-backed, the YAML registry is the sole type configuration authority, active templates exactly match configured assignments, high-frequency artifacts retain public owners, and Product Knowledge is never presented as company commitment.

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Write Arch Knowledge"
+  short_description: "Build architecture knowledge systems"
+  default_prompt: "Use $Write Arch Knowledge to create or organize this reusable architecture knowledge system or document."
+policy:
+  allow_implicit_invocation: false

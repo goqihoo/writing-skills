@@ -1,0 +1,6 @@
+interface:
+  display_name: "Assess Product Lifecycle"
+  short_description: "Assess decision readiness and artifact coverage"
+  default_prompt: "Use $Assess Product Lifecycle to assess the next product decision and its required evidence and artifacts."
+policy:
+  allow_implicit_invocation: false

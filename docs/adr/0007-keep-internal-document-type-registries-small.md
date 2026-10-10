@@ -1,0 +1,3 @@
+# Keep Internal Document Type registries small
+
+Scribe registers an Internal Document Type only when repeated use or audit-critical consistency justifies a stable description, authority boundary, completion profile, and optional template. Compatible occasional documents remain Freeform Artifacts of their owning Writer and may be promoted after real use proves the need; Product and Technical registries will retain only their core recurring or audit-critical types while optional topics move to the Freeform fallback, and the Domain type system remains unchanged until a separate audit justifies migration. This prevents early registries and template catalogs from encoding speculative document taxonomies.

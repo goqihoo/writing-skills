@@ -1,0 +1,3 @@
+# Configure Internal Document Types per Writer
+
+Scribe stores Product and Technical Internal Document Types in one YAML registry per owning Writer, uses a Shared Method for registry and template behavior, and generates one human-readable catalog from those registries so prose and configuration cannot become competing authorities. Every entry carries identity, description, reader question, authority boundary, completion profile, and an optional template assignment; no template means Freeform Structure, while assigned templates declare `fixed`, `sequence`, or `adaptive` policy. Domain types keep their current Markdown contract in this change, and company- or project-level template overrides remain outside scope until precedence and compatibility are designed explicitly.

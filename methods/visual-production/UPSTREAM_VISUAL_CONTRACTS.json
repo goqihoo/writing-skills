@@ -1,0 +1,206 @@
+{
+  "upstream_commit": "ac490fd1ac4b4014100f93e729cb4ad198700bd4",
+  "normalization": "Replace only hex/RGBA paints (or an entire --dd- color slot) with COLOR; retain every other byte.",
+  "assets": {
+    "examples/example-architecture.html": {
+      "upstream_path": "skills/diagram-design/assets/example-architecture.html",
+      "upstream_sha256": "03716fdb0a4ad641c30a5267b14a4c573d699f0f31ab3d8a0ba4e2b74ad56177",
+      "non_color_sha256": "b931c2d9768acc1079fe749cae771e9f1367931d12e579ca98f90d0fe3bff69b"
+    },
+    "examples/example-bar.html": {
+      "upstream_path": "skills/diagram-design/assets/example-bar.html",
+      "upstream_sha256": "1bbd708cdca419c137160056ed9862532a3402ba65d9335bae1be0aef90c7abb",
+      "non_color_sha256": "eb10461b9ba2a61132d82fab3fcf50e9679c641d4e3d8b3ae944ff9bb3d900e7"
+    },
+    "examples/example-data-flow.html": {
+      "upstream_path": "skills/diagram-design/assets/example-data-flow.html",
+      "upstream_sha256": "511788f809b9d674e2f92568955e5fc0c5f5f7a3960eaa0049e136ec93957add",
+      "non_color_sha256": "624f24ee8b72e00bf3daee1813f09bf34d7f9b29da5edf5a646eba315dc0fa7b"
+    },
+    "examples/example-db-schema.html": {
+      "upstream_path": "skills/diagram-design/assets/example-db-schema.html",
+      "upstream_sha256": "58d473906c57670fecee29bc55377df5b433549445962204412ebd2c081b76db",
+      "non_color_sha256": "f610f996821a809e9a7496fadc16d6a5e463d400f1b55e5dd57f86c6ea707d66"
+    },
+    "examples/example-dependency.html": {
+      "upstream_path": "skills/diagram-design/assets/example-dependency.html",
+      "upstream_sha256": "973f7b5f5ac1746bb018e9ea8de9f6853b5f14ff41173e64abcf9855ea5f353b",
+      "non_color_sha256": "c0f896734f38fe4778220b08d80e999a3dc963788f93962a914c15b87ed9f151"
+    },
+    "examples/example-deployment.html": {
+      "upstream_path": "skills/diagram-design/assets/example-deployment.html",
+      "upstream_sha256": "6e28f0eee98dd728bfa6b5210b1885caf2b39992fdd06a680e37bbc8863e89b2",
+      "non_color_sha256": "4140529c373a27f6275d7d85f78659988df818c8b37544fa4cb7f7831ec05c73"
+    },
+    "examples/example-dp-integration.html": {
+      "upstream_path": "skills/diagram-design/assets/example-dp-integration.html",
+      "upstream_sha256": "929b6aaefa9a362d4cd18fb1801a57f28d32aa8dd78ba577375a11926ee2cc94",
+      "non_color_sha256": "645cc0560d2f5905e5bb49fcc0d8d23e5a9c6db13be427a142925b023abe4357"
+    },
+    "examples/example-dp-security-matrix.html": {
+      "upstream_path": "skills/diagram-design/assets/example-dp-security-matrix.html",
+      "upstream_sha256": "88d7a3fb9788300082274924f1f95dfd0a5a8b3bfca3fcd91b424cc8caa50044",
+      "non_color_sha256": "2ac524e1d6c4eb403eb8f4870eeca36f4262545fef937eb2731717644bc51ee7"
+    },
+    "examples/example-er.html": {
+      "upstream_path": "skills/diagram-design/assets/example-er.html",
+      "upstream_sha256": "aee470dcf37af317f14d21cd9420f6bcb1b65f0fb0047483a42b8afc0cab2774",
+      "non_color_sha256": "c9bb86637152375cc244dd407bbaeef83d832e2d7ef5f931e5915072e38b4f40"
+    },
+    "examples/example-fishbone.html": {
+      "upstream_path": "skills/diagram-design/assets/example-fishbone.html",
+      "upstream_sha256": "cd7079857240a9f6228804d3492af0add2eb36343798c9e0ef90657f2a246d04",
+      "non_color_sha256": "3dab8a68cf399c81d8bebf5f2b12b2747d3f0433390c5e7987c21132eec13e3c"
+    },
+    "examples/example-flowchart.html": {
+      "upstream_path": "skills/diagram-design/assets/example-flowchart.html",
+      "upstream_sha256": "ba0a39df57d5fd4beccebeb51d62028b420371b30793b2658d308df04d571ff3",
+      "non_color_sha256": "70fcad4be1a02b196dec0d40334879dd90cb7a4cd32551c1327af44188e926eb"
+    },
+    "examples/example-gantt.html": {
+      "upstream_path": "skills/diagram-design/assets/example-gantt.html",
+      "upstream_sha256": "607745921006b312ab710c3166036aebeb31a2b7cd40df36713a850a28cb73f3",
+      "non_color_sha256": "2bda160c93f3f50e274eb10bf07a2595d26d9963bd8f2e01a050098e22f1082c"
+    },
+    "examples/example-high-level.html": {
+      "upstream_path": "skills/diagram-design/assets/example-high-level.html",
+      "upstream_sha256": "33789942cb06be5228ffa6e450602d1f7c9344b7d263fa2674b7ba5e6dd7e788",
+      "non_color_sha256": "e504d2a6620a0949629e22a6114d798c5ef37c18f722da51694fec023db56858"
+    },
+    "examples/example-it-state.html": {
+      "upstream_path": "skills/diagram-design/assets/example-it-state.html",
+      "upstream_sha256": "59103bffa775b744828643e361b71f4b80e5ef8a0042abe9ce65c81e3d5dd21e",
+      "non_color_sha256": "3fee0b15d77774dfed4f3e38cbf69b2a5a9be57428b2337d0ffb463edc547415"
+    },
+    "examples/example-journey.html": {
+      "upstream_path": "skills/diagram-design/assets/example-journey.html",
+      "upstream_sha256": "b01e32ff87d63fddf6d1db47155906dd624acc13327856269114f760afc754f0",
+      "non_color_sha256": "1a71de6dd54340de48d81eb96f63d97957dda6a50d6e52d7740bb503de226731"
+    },
+    "examples/example-kanban.html": {
+      "upstream_path": "skills/diagram-design/assets/example-kanban.html",
+      "upstream_sha256": "3b19fb185019e0e341496de095bb1d92bd1fe4705c1502562ef47cb88329b2bb",
+      "non_color_sha256": "9791ef870acd6f9587cfeb883c5324bc5c83f29a697a2337d2ec17ed61a33bbd"
+    },
+    "examples/example-layers.html": {
+      "upstream_path": "skills/diagram-design/assets/example-layers.html",
+      "upstream_sha256": "196f3cd9866d64da9e04323f258534b1a51d1116140c0db2c8e330adb516a809",
+      "non_color_sha256": "95dce81f86df221fa0dac7c060e142f83fa608476940c4e8a15c0897030c7acc"
+    },
+    "examples/example-line.html": {
+      "upstream_path": "skills/diagram-design/assets/example-line.html",
+      "upstream_sha256": "83f5e305d6ce509b25371db6f6e73fa6f3982b7a8dbe09451091c0a15f3b1d90",
+      "non_color_sha256": "a53c8c52d1fed9334ce55c081f547e859c9b2f34f40507de889e6de09a7ff0c9"
+    },
+    "examples/example-loop.html": {
+      "upstream_path": "skills/diagram-design/assets/example-loop.html",
+      "upstream_sha256": "b5d0e37b14614ba95d95cdbc5ecdfb84c6c03d7cf664124e029cecb97af340bc",
+      "non_color_sha256": "a04c67e396f6fa23027c779bbd687a2cfb422922a291dab406db2285aeb68a22"
+    },
+    "examples/example-medallion.html": {
+      "upstream_path": "skills/diagram-design/assets/example-medallion.html",
+      "upstream_sha256": "e88a5b1f1f67a7bf6ad83c5144a7f79973a732f68972ba648ec81968579032eb",
+      "non_color_sha256": "e8031605606f8b7e289930c9ad79804e9f4b8f0d5ed4b878c0339a31fd5c2b57"
+    },
+    "examples/example-nested.html": {
+      "upstream_path": "skills/diagram-design/assets/example-nested.html",
+      "upstream_sha256": "17648e5a26604bf678d7cd256ec0d84a54f7f2c6920fb56c030226e6ffc6557a",
+      "non_color_sha256": "694019a213a573b700a7f996d8152d6edf8024baac68a957b42343b647e32d50"
+    },
+    "examples/example-org-chart.html": {
+      "upstream_path": "skills/diagram-design/assets/example-org-chart.html",
+      "upstream_sha256": "8c4e95ee52d597f28743673ea11f01ecfcf1a230d6f3dfb6d5ad641b770af46c",
+      "non_color_sha256": "2cc7da78306a519a376b34e40a7a15a6943650d447398b726ea37eecb88123af"
+    },
+    "examples/example-polar.html": {
+      "upstream_path": "skills/diagram-design/assets/example-polar.html",
+      "upstream_sha256": "596e2042f18044ef1fa2c2eb849f39fa5c7767b2a17e272617ebd27e10bc86b1",
+      "non_color_sha256": "fbd0c1d812e5941d7548ae4d19d7a0e740c6f3b7f9fe1eb22e496d5f8b8a150e"
+    },
+    "examples/example-process.html": {
+      "upstream_path": "skills/diagram-design/assets/example-process.html",
+      "upstream_sha256": "50ca0b9e6a3e9f5ba8102ff3c6fb87b6a66b1d59f272777b72a97639d4fe2375",
+      "non_color_sha256": "beca816c0c7ce8bc69208f2095f3594157cf54791f7a16129d4afd04e67f40e1"
+    },
+    "examples/example-pyramid.html": {
+      "upstream_path": "skills/diagram-design/assets/example-pyramid.html",
+      "upstream_sha256": "d12cf7c4c921f3bbd66026af9ed947ff23acdcf414a4309b59c173377d9bdd80",
+      "non_color_sha256": "d1f34de0261096cf505c19c6ba2d3b393cbe0952c5e85f59b02333fe91de58cb"
+    },
+    "examples/example-quadrant.html": {
+      "upstream_path": "skills/diagram-design/assets/example-quadrant.html",
+      "upstream_sha256": "a147cc85f78958da824d53d226067bff687f3e35a64601394c3075f55c675648",
+      "non_color_sha256": "2d9f08c934219f6a01460bcb764a4148996b00ac931a321e96d839108412b1f4"
+    },
+    "examples/example-radar.html": {
+      "upstream_path": "skills/diagram-design/assets/example-radar.html",
+      "upstream_sha256": "767b6a52116665a75b5895c1bde6d96a6a3277449229ff7e21b33afff9b9fcdf",
+      "non_color_sha256": "f6bed156095dfb7ec4fc913dc6133e04c950780e6b5c2c322e6da72c1e14b6b5"
+    },
+    "examples/example-sankey.html": {
+      "upstream_path": "skills/diagram-design/assets/example-sankey.html",
+      "upstream_sha256": "f9196488b04763405fe56a56ed201630ce63aa86c96dcf8ba652d3927093707c",
+      "non_color_sha256": "66de86cd693c1b7b48bae10ac5a2fe817a3175caed9fac0276360475311c0ffc"
+    },
+    "examples/example-scatter.html": {
+      "upstream_path": "skills/diagram-design/assets/example-scatter.html",
+      "upstream_sha256": "576e0061f65b1885cf5fccb794c2827b19fbea66cc14e8284f3fa075ef755d06",
+      "non_color_sha256": "cafcfdf2dc35a835d8a7d5d858df32a9b9f16c02a9d3cc9f829eda7f601bdbc7"
+    },
+    "examples/example-sequence.html": {
+      "upstream_path": "skills/diagram-design/assets/example-sequence.html",
+      "upstream_sha256": "12dcedc98c28d15f7a455f1266c8d8bd93bebe1ed8f352d89bc20703eaa00fad",
+      "non_color_sha256": "dc779cfd7f5c747c0a678df3a18744b8579bdb31dbfbed7708f45b0a4416d33a"
+    },
+    "examples/example-state.html": {
+      "upstream_path": "skills/diagram-design/assets/example-state.html",
+      "upstream_sha256": "75521144ce5aaf477096f355e86ae2d3301eb136391a6bd0702a844a8fe7ce30",
+      "non_color_sha256": "65dce70284a9dc1c5f10b419ea23acf36cc4e2b07c1865d80a283114f1708332"
+    },
+    "examples/example-story-map.html": {
+      "upstream_path": "skills/diagram-design/assets/example-story-map.html",
+      "upstream_sha256": "40f737ca1c2a9f46cd8a3ad1a377faabc1adc546a410ff8395e6622b4e773da1",
+      "non_color_sha256": "ed7eb8752e85b5e4f31f5f5e9ed33cd43ca961b937c6351d24a4cb98bbece134"
+    },
+    "examples/example-swimlane.html": {
+      "upstream_path": "skills/diagram-design/assets/example-swimlane.html",
+      "upstream_sha256": "75fc463ad3282dd0faaa4328c6b07f7e853184eeb1edcff2add8f7ed1876ab3b",
+      "non_color_sha256": "9a07249fbb45246d16728224abc9bc2b0ab3aa6f40556957fdea9e7e1bad786a"
+    },
+    "examples/example-timeline.html": {
+      "upstream_path": "skills/diagram-design/assets/example-timeline.html",
+      "upstream_sha256": "1a58e3824eb2bb89ff6e57439b61c38d6e4c08b187143436f50108d8e60bfc45",
+      "non_color_sha256": "2329196dc23374e3311af35081dc7593738eb2baeab35e53c851b87a2f072dd5"
+    },
+    "examples/example-tree.html": {
+      "upstream_path": "skills/diagram-design/assets/example-tree.html",
+      "upstream_sha256": "5de9151661ad9e1b21809d58494390472cdd82ca1ef1ddcde88b6f14e667afcd",
+      "non_color_sha256": "a322ca8a0e008c808e7f9b94569941ead8dc5b16f960d93f920dfdde166b82c2"
+    },
+    "examples/example-treemap.html": {
+      "upstream_path": "skills/diagram-design/assets/example-treemap.html",
+      "upstream_sha256": "e7014bd22d5bc1a5b173747caca0dc6d2916cec5a3038d2b953187e45245e1b4",
+      "non_color_sha256": "6e50ed63c016a9f77c7a4f290dc05ff4cc247fda82c96d6549361ccb7328ca87"
+    },
+    "examples/example-uml-class.html": {
+      "upstream_path": "skills/diagram-design/assets/example-uml-class.html",
+      "upstream_sha256": "c6c353f4d53c476fc3530f20d09cdb9d4b47a2bd22d0f3c56c807732534a685d",
+      "non_color_sha256": "18e8d50b02d1d63dfd51809ab99bde2ac7d697be60397bed3fe537ef511ad12d"
+    },
+    "examples/example-venn.html": {
+      "upstream_path": "skills/diagram-design/assets/example-venn.html",
+      "upstream_sha256": "86d763a94bc20fb3038cb00b9ef0fedd1e00cd8009df50852eac77d92e3965da",
+      "non_color_sha256": "196de7a5d9d1bd73a0f627a5429208b1a237a986566b812d43133ce551d807f0"
+    },
+    "examples/example-wardley.html": {
+      "upstream_path": "skills/diagram-design/assets/example-wardley.html",
+      "upstream_sha256": "b0ffc8f5bde65a8d77d863f22cd6c0d0211490c059dbcb503798851d1413860a",
+      "non_color_sha256": "e60996eff0b7ec6c0c94907d9901e4617d38353ef93861f7026b4641673ef2d0"
+    },
+    "editorial-diagram-template.html": {
+      "upstream_path": "skills/diagram-design/assets/template.html",
+      "upstream_sha256": "b0da611ef61bfecb0a3d775071dc7b237b14c7386cbc7b2d0241d1da36bd7510",
+      "non_color_sha256": "095b8f51a56ef8162e38d04c93424fe046bb8aad2d186a461c62ad38f0c91739"
+    }
+  }
+}
