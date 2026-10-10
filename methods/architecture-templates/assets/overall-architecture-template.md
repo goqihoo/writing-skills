@@ -44,7 +44,7 @@
 
 ### 方案概览
 
-[Explain the core arrangement and how its parts jointly produce the intended outcome. Walk a short representative working path before introducing detailed state and contracts. Distinguish material baseline-to-target changes.]
+[Explain the core arrangement and how its parts jointly produce the intended outcome. Establish the defining relationships and, for an operating system, who initiates work, what controls its next action and how completion is recognized. Walk a short representative working path before detailed state and contracts. Distinguish material baseline-to-target changes and unresolved choices. Select a subject-specific subsection when this core model needs independent explanation; keep it visible here even when later flows or shared mechanisms expand it.]
 
 [Figure: overall architecture]
 
@@ -66,7 +66,7 @@
 
 ### 组成与责任边界
 
-[Explain each principal part's responsibilities, provided guarantees, exclusions and boundary rationale. Distinguish peer functions, shared mechanisms and containment/use relationships; allocate overall guarantees without requiring extra design levels. Link owned detail.]
+[Explain each principal part's responsibilities, provided guarantees, exclusions and boundary rationale, including the applications, packages, components, stores or adapters that realize it where known. Distinguish peer functions, shared mechanisms and containment/use relationships; allocate overall guarantees without requiring extra design levels. Separate actual implementation from target design. Link owned detail. Develop a separate, specifically named mapping explanation only when the realization is complex enough to answer an independent reader question; leave process placement to 部署与运行.]
 
 ### 数据与状态
 
@@ -78,19 +78,19 @@
 
 [Explain significant operations, commands, events or queries; their callers, owners, information meaning, preconditions, and accepted/completed/rejected/failed/unknown semantics. Specify dependency direction, local/remote and synchronous/asynchronous relationships, compatibility and assumptions. Locate authorization responsibility while leaving common enforcement design to its owning topic.]
 
-### 实现对应关系
-
-[Map logical responsibilities to actual or proposed applications, packages, components, stores and adapters. Separate implementation facts from proposed or reference realizations. Leave deployment placement to 部署与运行; combine this explanation with 组成与责任边界 when a simple mapping is already clear.]
-
 ## 关键流程与协作
+
+[When multiple entry points, optional stages or independent/composed execution apply, introduce request selection and reusable operations through Show independent and composed execution in `../../references/overall-architecture-writing.md`. Keep this overview before the selected detailed flows; omit it for a simple single-path design.]
+
+[Conditional figure: flow selection, prerequisites, reuse and completion across independent requests and the composed run; choose the type through Visual-type routing in the shared Visual Production Method]
 
 ### [关键流程名称]
 
-[Explain the trigger, preconditions, inputs or versions and observable result. Follow the participants through actions, data/state changes, contracts, transaction boundaries and handoffs. Explain consequential branches, competition, duplicates, partial or unknown outcomes where relevant; locate detection, recovery responsibility, retry/compensation permissions and evidence for continuation. State any temporarily weakened guarantee. Reference common mechanisms instead of repeating them.]
+[Explain the trigger, preconditions, inputs or versions and observable result. Follow the named responsibility owners from 结构与职责 and participants from 外部上下文 through actions, data/state changes, contracts, transaction boundaries and handoffs, applying Structure-to-flow traceability in the shared Architecture Reasoning Method. Explain consequential branches, competition, duplicates, partial or unknown outcomes where relevant; locate detection, recovery responsibility, retry/compensation permissions and evidence for continuation. State any temporarily weakened guarantee. Reference common mechanisms instead of repeating them.]
 
-[Figure: this key flow, including important branches or supplemental failure/recovery views]
+[Figure: collaboration among the whole object's principal responsibility owners, including important branches or supplemental failure/recovery views]
 
-[Repeat this subsection for each selected key flow; name subsections after actual flows. For a static model, trace a concrete change impact.]
+[Repeat this subsection for each selected key flow; name subsections after actual flows. Apply Select flows and shared technical topics in `../../references/overall-architecture-writing.md` when deciding which scenarios need their own subsections. Apply the Overall / System expansion boundary in Structure-to-flow traceability; reference an existing local processing explanation at the operation it realizes. For a static model, trace a concrete change impact.]
 
 ## 共性技术设计
 
@@ -98,7 +98,7 @@
 
 [Explain a technical concern shared by multiple parts or flows: motivating requirement, scope, common rules and guarantees, realizing mechanism, provider/consumer responsibilities, boundaries and exceptions. Link the architecture characteristics served. Keep business rules with their owning function; reference existing governing standards and explain local application or deviation.]
 
-[Add a mechanism figure when it clarifies the design; give any independently explained key flow its own corresponding figure. Repeat only for actual shared technical concerns.]
+[Add a mechanism figure when it clarifies the design; give any independently explained key flow its own corresponding figure. Apply Select flows and shared technical topics in `../../references/overall-architecture-writing.md` to retain qualifying topics or omit this chapter.]
 
 ## 部署与运行
 

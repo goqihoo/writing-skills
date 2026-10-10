@@ -9,7 +9,7 @@ Use the real object's title and the document set's language. Set the purpose to 
 ## Adapt the common sections
 
 - Turn problem and applicability into the named scope, baseline, requirements, stakeholders and constraints, with sources and priorities. Keep missing quality budgets explicit.
-- Turn the model and mechanisms into the selected or proposed realization: modules, technologies, identities, transactions, contract completion and errors, concurrency, recovery and operating ownership. Apply the implementation-depth checks in `../architecture-documents.md`.
+- Turn the model into the selected or proposed realization at this object's scope. Apply **Make the design usable** in `../architecture-documents.md` while developing its mechanism and operating explanation; use the reader reconstruction to determine the detail that matters.
 - Use scenarios to demonstrate the actual proposed design, including a consequential failure. Label illustrative walkthroughs and observed evidence separately.
 - Turn variants into evaluated alternatives and the adopted or proposed choice, its cost, authority and review trigger. Explain rationale beside the affected mechanism rather than leaving a menu of options.
 - Turn adaptation and evolution into compatibility, state transition, rollout, rollback limits and recovery after irreversible change. Link a migration design only when it exists and owns the detail.

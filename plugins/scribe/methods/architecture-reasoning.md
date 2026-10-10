@@ -35,7 +35,30 @@ For a functional decomposition view, put peer functions at the same level. Place
 
 An implementation view may show components and infrastructure together when their roles and boundaries are explicit. Keep each figure's chosen abstraction consistent and label any deliberate cross-level reference. Draw grouping boundaries when they distinguish responsibilities or internal from external participants; omit a redundant frame enclosing every node in a single group.
 
-Before accepting the decomposition, verify that readers can identify who decides, who owns each state, and how a request crosses the boundaries. Check that the functional view, implementation mapping, contracts and core flow use consistent names; a separately deployed component must not silently become a new subsystem. Materialize a separate document only when its independent reader task and maintenance value justify it, following the Architecture Documents Method.
+Before accepting the decomposition, verify that readers can identify who decides, who owns each state, and how a request crosses the boundaries. Apply Structure-to-flow traceability below; a separately deployed component must not silently become a new subsystem. Materialize a separate document only when its independent reader task and maintenance value justify it, following the Architecture Documents Method.
+
+## Structure-to-flow traceability
+
+Build each core flow from the responsibility owners established in the structural model. Use the decomposition justified for that object without adding intermediate levels. Preserve many-to-many relationships between flows and participants; select the participants needed for each outcome rather than visiting every structural element.
+
+Choose the flow's question and expansion boundary by document responsibility. Reuse a scenario across levels when useful, but develop the contribution owned at each level:
+
+| Document responsibility | Flow question and expansion boundary |
+| --- | --- |
+| Overall / System Architecture | Explain how the whole object's outcome follows from collaboration among its principal responsibility owners: Systems at company scope, or actual Subsystems/modules at System scope. Follow cross-boundary contracts, authoritative state changes, completion and coordinated failure/recovery. Treat each participant's internal processing as an operation with observable semantics. |
+| Subsystem Architecture | Expand the responsibility allocated to this Subsystem into collaboration among its internal modules or components. Start and end at its external contract; retain callers and adjacent parts as context and dependencies. Explain local coordination, transaction boundaries and recovery that jointly realize that contract. |
+| Module Design | Expand a supported operation into rule evaluation, decisions, internal processing, state transitions, atomic commits and dependency use. Show how the module's internal parts or cohesive processing steps realize its contract, including local failure and recovery. Keep peer modules at their dependency contracts. |
+| Component Architecture | Expand a component operation into the algorithm, protocol or state/resource mechanism that establishes its usage guarantee. Keep consumer workflows at the interface and explain only the mechanism this component owns. |
+
+Connect a child flow to the parent operation or handoff it realizes, using the same input and identity meaning, preconditions, completion, externally visible effects and failure semantics. Let one parent step expand into several child steps; add local rules and mechanisms while preserving the parent's observable promise. For example, a System's inventory-reservation handoff can expand in Module Design into duplicate detection, availability checks and an atomic reservation commit. Treat newly required caller duties or changed completion/failure behavior as a parent-contract decision rather than silently redefining them locally.
+
+Keep internal details in the integrating flow only when they determine a cross-boundary guarantee or coordination decision; explain their consequence and leave the full local sequence to its owning explanation. When no child document exists, include necessary local detail in a clearly scoped subsection of the same document. Create neither extra levels nor supporting documents solely to separate flows.
+
+Use consistent participant names in structure, contracts, flow prose and figures. Map any lower-level component or runtime carrier used in a flow to its logical responsibility owner, and make deliberate changes of abstraction explicit. When a flow reveals a new participant, add its responsibility and relationships to the structural model or identify it in the external context before using it.
+
+Assign every architecturally significant action, decision and state change to a participant. Connect cross-boundary handoffs through the established command, event, query or other contract, including the receiving owner's responsibility and completion meaning. Trace consequential failures through detection, recovery ownership and the state or evidence that permits continuation. Use this collaboration to explain how the structure produces the scenario's observable outcome; a sequence of business activities alone is insufficient.
+
+Complete this check when readers can locate every flow participant in the structure or external context, trace lower-level realizations to their owners, and follow actions, state changes, contract handoffs, completion and recovery without encountering unexplained participants or conflicting responsibilities. Verify that each flow answers its document-level question and, where parent and child explanations exist, the child adds the owned realization while preserving the parent contract. Revise repeated parent/child sequences or figures that add no local explanation. Resolve mismatches in the owning structural or contract definition and the affected flows together.
 
 ## Four viewpoints
 
@@ -74,7 +97,7 @@ Context → Drivers → Scenarios and flows → Risks → Decisions → Validati
 | --- | --- |
 | Context | Object, scope, authority, facts, stakeholders, unknowns, and change assumptions |
 | Drivers | Invariants, information authority, ownership needs, constraints, control obligations, runtime conditions, and ranked qualities |
-| Scenarios and flows | Concrete success, failure, duplicate, delayed, partial, unknown, replay, recovery, and evolution paths |
+| Scenarios and flows | Concrete operations or change impacts that expose consequential guarantees, conditions and risks at this object's scope |
 | Risks | Unsafe assumptions, bypasses, inconsistency, overload, unrecoverable states, and evidence gaps |
 | Decisions | Boundaries, ownership, contracts, controls, deployment structure, patterns, and accepted costs |
 | Validation | Tests, reviews, drills, operating evidence, and signals that prove or challenge each judgment |
@@ -118,24 +141,11 @@ Test missing, stale, conflicting, duplicate, delayed, partially applied, and unk
 
 ## Turn reasoning into an architecture document
 
-For a full architecture artifact, establish a concrete structural model before expanding the prose. Name the participants, responsibility boundaries, authoritative information or state, and meaningful relationships at the requested scope. Explain why the important boundaries exist. Use a principal view when it materially helps the reader; keep its names and relationships consistent with the text through the shared visual production method.
-
-Demonstrate the model with a representative scenario: follow an input or decision through the participating owners, state changes, observable result, and a consequential failure or exception. For a static structural question, trace a concrete dependency or change impact instead. State the mechanism that preserves or restores the relevant invariant; naming a quality such as reliability is not an explanation. Keep illustrative scenarios visibly distinct from observed behavior.
-
-Connect each material recommendation to a driver, a structural consequence, an accepted cost, and evidence that could challenge it. Compare plausible alternatives on the same scenario and criteria. Report missing evidence at the affected claim; preserve a useful proposed model when the user requests design, labeling assumptions and unaccepted decisions explicitly.
-
-Use coverage checks to find omissions after drafting. Express the result through subject-specific explanations, views, and comparisons that let the reader reconstruct the architecture. Apply this process only to affected content for narrow edits and reviews.
+Carry the structural model, scenario-derived mechanisms and Architecture judgment into the owning Writer's selected document. Use **Structure-to-flow traceability** to preserve responsibility and expansion boundaries. Keep sources, illustrative behavior, proposals and accepted decisions distinct; compare alternatives against the same drivers and scenarios. Use the section plan and explanation-and-repair loop in `architecture-documents.md` to turn this reasoning into a reader-usable account. Apply only the affected judgments for narrow edits and reviews.
 
 ## Reader verification
 
-Before delivery, verify that the artifact lets its intended reader:
-
-- reconstruct the relevant structure, owners, and relationships without interpreting a taxonomy checklist;
-- follow the representative scenario or change impact and explain a material failure or exception;
-- understand why the proposed structure fits its drivers, what it costs, and what evidence would invalidate it;
-- distinguish established facts, illustrative examples, proposals, and accepted decisions.
-
-Revise the model or explanation when any relevant answer depends on an unexplained slogan, an empty section, or contradictory views. Use the owning Writer's template for the artifact-specific expression of these checks.
+Apply **Make the design usable** and **Review before completion** in `architecture-documents.md` to the delivered artifact. That method owns the reader reconstruction, evidence comparison and repair loop; use this method's judgments and expansion boundaries to determine what must be understood. Treat viewpoint coverage as a way to find an overlooked commitment, not as evidence that its explanation works. Keep design validation distinct from verification that the document explains the design.
 
 ## Completion
 

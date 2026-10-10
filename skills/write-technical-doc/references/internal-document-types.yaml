@@ -53,6 +53,15 @@ types:
   template:
     path: ../../../methods/architecture-templates/assets/subsystem-architecture-template.md
     policy: adaptive
+- id: database-design
+  name: Database Design
+  description: Design the data model, tables, constraints, access paths and transactions for a stable technical scope.
+  reader_question: How does this database realize its owning System, module or component's data and operation requirements?
+  authority: Supporting database design governed by its System or Subsystem; preserve module/component data ownership and link Machine Authority rather than creating another Authority Level.
+  completion: Data ownership, relationships, complete per-table physical field definitions, explicit integrity constraints and indexes, atomic changes, relevant conflict and change handling, and validation evidence are coherent with governing designs and available schema; unresolved definitions block schema-generation readiness and conditional topics follow actual scope.
+  template:
+    path: ../../../methods/architecture-templates/assets/database-design-template.md
+    policy: adaptive
 - id: technical-governance
   name: Technical Governance
   description: Define company Technical decision rights, policies, evidence, exceptions, and review.

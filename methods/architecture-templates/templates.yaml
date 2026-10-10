@@ -32,6 +32,11 @@ templates:
   group: Data
   reader_question: How are information meaning, authority, lifecycle and consistency preserved?
   template: assets/data-architecture-template.md
+- id: database-design
+  name: Database Design
+  group: Supporting
+  reader_question: How do the data model, tables, constraints, access paths and transactions realize the owning design's data requirements?
+  template: assets/database-design-template.md
 - id: integration-architecture
   name: Integration Architecture
   group: Integration

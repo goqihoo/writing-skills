@@ -18,7 +18,7 @@ class ArchitectureTemplateFamiliesTest(unittest.TestCase):
         entries = catalog.architecture_templates()
         expected = {
             'knowledge-set', 'view-overview', 'topic-index', 'domain-architecture',
-            'overall-architecture', 'data-architecture', 'integration-architecture',
+            'overall-architecture', 'data-architecture', 'database-design', 'integration-architecture',
             'application-architecture', 'subsystem-architecture', 'module-design', 'component-architecture',
             'engineering-strategy', 'technical-mechanism', 'governance-architecture',
             'security-governance', 'compliance-governance', 'risk-governance',
@@ -27,6 +27,10 @@ class ArchitectureTemplateFamiliesTest(unittest.TestCase):
             'observability-architecture', 'resilience-architecture', 'capacity-performance',
         }
         self.assertEqual(expected, {e['id'] for e in entries})
+        self.assertEqual(
+            {'overall-architecture', 'subsystem-architecture', 'module-design', 'component-architecture'},
+            {e['id'] for e in entries if e['group'] == 'Primary'},
+        )
         headings = set()
         for entry in entries:
             path = ROOT / catalog.SHARED / entry['template']
@@ -69,6 +73,7 @@ class ArchitectureTemplateFamiliesTest(unittest.TestCase):
                     'delivery-subsystem': 'subsystem-architecture',
                     'delivery-module': 'module-design',
                     'delivery-component': 'component-architecture',
+                    'delivery-database-design': 'database-design',
                     'delivery-deployment': 'deployment-architecture',
                 },
                 'write-technical-doc': {
@@ -76,6 +81,7 @@ class ArchitectureTemplateFamiliesTest(unittest.TestCase):
                     'subsystem-architecture': 'subsystem-architecture',
                     'module-design': 'module-design',
                     'component-architecture': 'component-architecture',
+                    'database-design': 'database-design',
                 },
             }
             for owner, assignments in mappings.items():
@@ -92,17 +98,29 @@ class ArchitectureTemplateFamiliesTest(unittest.TestCase):
     def test_catalog_is_current(self):
         subprocess.run(['python3', str(SCRIPT), '--check'], check=True, capture_output=True)
 
+    def test_database_design_uses_one_shared_physical_field_schema(self):
+        expected = ['字段名', '数据类型', '可空', '默认值', '主键序号', '生成方式', '字段说明']
+        for root in (ROOT, ROOT / 'plugins/scribe'):
+            asset = root / catalog.SHARED / 'assets/database-design-template.md'
+            contract = root / 'methods/references/database-design-writing.md'
+            for path in (asset, contract):
+                headers = [line for line in path.read_text().splitlines()
+                           if line.startswith('| 字段名 |')]
+                self.assertEqual(len(headers), 1, str(path))
+                self.assertEqual([cell.strip() for cell in headers[0].split('|')[1:-1]], expected)
+            self.assertTrue((asset.parent / '../../references/database-design-writing.md').resolve().is_file())
+
     def test_project_and_stable_design_keep_distinct_artifact_authorities(self):
         def registry(owner):
             path = ROOT / 'skills' / owner / 'references/internal-document-types.yaml'
             return {e['id']: e for e in yaml.safe_load(path.read_text())['types']}
         project = registry('write-technical-architecture')
         stable = registry('write-technical-doc')
-        for artifact in ('delivery-index', 'delivery-architecture', 'delivery-subsystem', 'delivery-module', 'delivery-component', 'delivery-deployment', 'delivery-migration', 'delivery-validation'):
+        for artifact in ('delivery-index', 'delivery-architecture', 'delivery-subsystem', 'delivery-module', 'delivery-component', 'delivery-database-design', 'delivery-deployment', 'delivery-migration', 'delivery-validation'):
             self.assertIn(artifact, project)
             self.assertNotIn(artifact, stable)
             self.assertIn('Project', project[artifact]['authority'])
-        for artifact in ('system-architecture', 'subsystem-architecture', 'module-design', 'component-architecture'):
+        for artifact in ('system-architecture', 'subsystem-architecture', 'module-design', 'component-architecture', 'database-design'):
             self.assertIn(artifact, stable)
             self.assertNotIn(artifact, project)
 

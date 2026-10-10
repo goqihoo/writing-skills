@@ -108,7 +108,7 @@ class TechnicalDocumentationContractTest(unittest.TestCase):
         self.assertIn("Machine Authority", template)
         self.assertIn("Do not copy", template)
 
-    def test_system_architecture_has_adaptive_template_with_explicit_completion_coverage(self) -> None:
+    def test_system_architecture_routes_adaptive_template_and_shared_explanation_methods(self) -> None:
         registry = yaml.safe_load(
             read(
                 TECHNICAL_ROOT
@@ -128,43 +128,13 @@ class TechnicalDocumentationContractTest(unittest.TestCase):
             asset = (TECHNICAL_ROOT / "write-technical-doc/references" / entry["template"]["path"]).resolve()
             self.assertEqual(TECHNICAL_ROOT.parent / "methods/architecture-templates/assets", asset.parent)
             self.assertTrue(asset.is_file())
-        for concept in [
-            "non-goals",
-            "external actors",
-            "Applications",
-            "Subsystems",
-            "state",
-            "consistency",
-            "contracts",
-            "commands",
-            "events",
-            "queries",
-            "duplicate",
-            "timeout",
-            "ordering",
-            "partial",
-            "unknown",
-            "permissions",
-            "controls",
-            "durable evidence",
-            "deployment",
-            "dependencies",
-            "failure domains",
-            "degradation",
-            "recovery",
-            "observability",
-            "alternatives",
-            "accepted costs",
-            "validation",
-            "operating evidence",
-            "fitness",
-            "review triggers",
-            "compatibility",
-            "migration",
-            "evolution",
-            "Machine Authority",
-        ]:
-            self.assertIn(concept, system_architecture["completion"] + method)
+        # These checks establish resource routing only. Explanation quality is
+        # exercised by the architecture-explanation behavioral fixture.
+        method_path = TECHNICAL_ROOT / "write-technical-doc/references/system-architecture-method.md"
+        for target in ("architecture-documents.md", "architecture-reasoning.md"):
+            pointer = "../../../methods/" + target
+            self.assertIn(pointer, method)
+            self.assertTrue((method_path.parent / pointer).is_file())
 
     def test_architecture_axes_are_separate_and_not_output_structure(self) -> None:
         method = read(REPO_ROOT / "methods/architecture-reasoning.md")

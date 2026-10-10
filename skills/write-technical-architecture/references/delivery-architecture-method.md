@@ -10,6 +10,8 @@ Use an existing Architecture Decision record where its owning authority already 
 
 ## Use shared structure
 
+Select `delivery-database-design` for a requested database design or independently useful database detail. Apply `../../../methods/references/database-design-writing.md` for its scope and placement, lightweight structure, conditional mechanisms and validation; embed small database concerns in their owning design.
+
 Read `../../../methods/architecture-templates/concrete-design.md` with the assigned shared template. Use the same overall, subsystem, module and component structures as Architecture Knowledge; retain existing deployment resources for their explicit branch. Apply the four viewpoints through the shared Architecture Reasoning Method during driver identification, mechanism design and completeness checks. Keep an explicitly requested specialist artifact within this delivery's authority as a Freeform Artifact when no registered type applies. Integrate small topics in the main architecture rather than creating one file per view.
 
 Retain delivery entry, migration and validation assets for their distinct navigation, transition and acceptance responsibilities. Merge their relevant content into a single deliverable when separate files add no reader value. Let the main architecture remain readable without following every supporting link.

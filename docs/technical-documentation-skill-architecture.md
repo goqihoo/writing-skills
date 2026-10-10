@@ -44,7 +44,7 @@ Platform, Engineering, Data, Security, Quality, and Operations may become Type E
 | --- | --- |
 | **Reason Tech Docs** (`reason-technical`) | Company technical scope, Technical Landscape, Registered System admission, authority routing, and Technical Assessment decisions. |
 | **Structure Tech Docs** (`structure-technical-docs`) | Technical topology, navigation, Registered System core, materialization, audits, and approved migration. |
-| **Write Tech Doc** (`write-technical-doc`) | Registered and freeform Technical artifacts, including stable System and Subsystem Architecture, Module Design, and Component Architecture. |
+| **Write Tech Doc** (`write-technical-doc`) | Registered and freeform Technical artifacts, including stable System and Subsystem Architecture, Module Design, Component Architecture, and Database Design. |
 | **Write Tech Arch** (`write-technical-architecture`) | Company-level Technical Architecture, Product-System Map, cross-System Architecture Topics, and a separate Project delivery architecture branch. |
 
 ## Internal Document Types
@@ -54,6 +54,8 @@ Each Technical Writer owns one YAML registry. The generated [Internal Document T
 `write-technical-architecture` registers Technical Architecture and Product-System Map. A cross-System Architecture Topic remains freeform. `write-technical-doc` registers the smaller set of recurring strategy, roadmap, system, governance, standard, decision, exception, and incident artifacts, including System and Subsystem Architecture.
 
 ## Authority boundaries
+
+Database Design is a registered supporting design under the owning System or Subsystem authority. Use the shared [database writing contract](../methods/references/database-design-writing.md) for embedded or standalone placement, scope-based detail and verification. Project database delivery uses the same template under Write Tech Arch's separate delivery registry entry. Neither registration creates another Public Skill, architecture granularity or mandatory System-core file.
 
 System and Subsystem Architecture link interface definitions, deployments, configuration, schemas, code, tests, and runbooks in Machine Authority instead of copying them. Project Technical Design owns a bounded proposed change for a delivery effort. Company-level architecture links the governing System Architecture. Higher Authority Levels link or summarize lower-level decisions without duplicating their authoritative records.
 

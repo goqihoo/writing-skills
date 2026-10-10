@@ -65,6 +65,15 @@ types:
   template:
     path: ../../../methods/architecture-templates/assets/component-architecture-template.md
     policy: adaptive
+- id: delivery-database-design
+  name: Delivery Database Design
+  description: Design a database or database change for one concrete delivery.
+  reader_question: How will this delivery realize its data model, constraints, access paths and transactions, including required compatibility and migration?
+  authority: One named Project delivery; link governing System or Subsystem database design and Machine Authority without promoting proposals to stable technical truth.
+  completion: Data relationships, ownership, complete per-table physical field definitions, explicit constraints and indexes, access paths and atomic changes realize the delivery requirements; unresolved definitions block schema-generation readiness and relevant conflicts, compatibility, migration and validation are explicit, with proposals and unverified acceptance distinguished.
+  template:
+    path: ../../../methods/architecture-templates/assets/database-design-template.md
+    policy: adaptive
 - id: delivery-deployment
   name: Delivery Deployment Architecture
   description: Create delivery deployment architecture for one concrete delivery.

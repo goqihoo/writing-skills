@@ -13,6 +13,14 @@ Use this guide with the selected type reference and `style-guide.md`. The type r
 
 ## Core components
 
+### Component semantics
+
+Choose component forms within the selected visual type. Map the prepared object roles and relationship meanings to that type's defining grammar before applying a theme or copying a starter. Use its decision and branch symbols for conditional routing, participant lifelines and message/return lines for interactions, state and transition notation for lifecycle behavior, and entity/cardinality or host/artifact notation for the corresponding data or deployment view.
+
+Keep an object's representation appropriate to the view: a database may be a tagged store node in Architecture, a participant in Sequence, or the subject of tables and foreign keys in Database schema. A shared shape is valid when the type uses it for several roles and names, tags, or boundaries preserve the needed distinction. Use specialized shapes when the type assigns them meaning; assigning a different shape to every technical noun is not a substitute for semantic mapping. Preserve those encodings when adapting a generic template.
+
+### Shared primitives
+
 Use one `paper` canvas from the selected theme. Apply the group and node paint assignments from `scribe-profile.md` by default; reserve `group-surface` and `object` for neutral treatments. Supporting elements may use transparent fill. A node consists of an opaque mask, its styled shape, an optional small rectangular type tag, a short name, and a subordinate 9 px sublabel only when needed. Preserve the full upstream pattern below; the tag is conditional on source-supported content.
 
 Define arrow markers for ordinary, accent, and external relationships using `muted`, `accent`, and `link`. Draw connectors before boxes so node surfaces mask the connector ends cleanly.

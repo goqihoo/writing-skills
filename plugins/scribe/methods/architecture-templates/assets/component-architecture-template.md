@@ -58,7 +58,7 @@
 
 ### 算法或协议
 
-[Where applicable, explain implementable input assumptions, processing decisions, intermediate results, outputs and termination. Walk a concrete input or interaction through the mechanism and show why the contract holds. Use formulas, pseudocode or exact examples when needed while linking full code; distinguish required behavior from replaceable details.]
+[Where applicable, explain implementable input assumptions, processing decisions, intermediate results, outputs and termination. Apply the Component Architecture expansion boundary in Structure-to-flow traceability in the shared Architecture Reasoning Method. Walk a concrete input or interaction from 接口设计 through the internal mechanism and show why the contract holds. Use formulas, pseudocode or exact examples when needed while linking full code; distinguish required behavior from replaceable details.]
 
 [Figure: each independently explained key algorithm flow or protocol interaction, with consequential branches]
 

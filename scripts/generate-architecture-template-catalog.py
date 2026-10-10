@@ -56,7 +56,7 @@ def render(root=ROOT):
         registry_path = root / 'skills' / owner / 'references/internal-document-types.yaml'
         reg = yaml.safe_load(registry_path.read_text())
         for e in reg['types']:
-            if 'template' in e and (owner == 'write-technical-architecture' or e['id'] in ('system-architecture', 'subsystem-architecture', 'module-design', 'component-architecture', 'architecture-decision')):
+            if 'template' in e and (owner == 'write-technical-architecture' or e['id'] in ('system-architecture', 'subsystem-architecture', 'module-design', 'component-architecture', 'database-design', 'architecture-decision')):
                 asset = (registry_path.parent / e['template']['path']).resolve()
                 file = asset.name
                 relative = asset.relative_to(root.resolve()).as_posix()

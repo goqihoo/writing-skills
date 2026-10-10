@@ -66,11 +66,11 @@
 
 ### [关键流程名称]
 
-[Explain trigger, preconditions, input and observable completion of an external promise. Follow internal participants, actions, data/state changes, transactions and handoffs. Explain consequential branches, concurrency, ordering, waiting, duplicates or cancellation where relevant, including who may commit. Trace failures, partial/unknown outcomes, durable recovery state, retry/reconciliation ownership and evidence for continuation; identify temporarily weakened guarantees. Reference established state and shared mechanisms rather than defining them again.]
+[Explain trigger, preconditions, input and observable completion of an external promise. Follow the named internal parts from 内部方案 and callers or dependencies from 外部协作 through actions, data/state changes, transactions and handoffs, applying Structure-to-flow traceability in the shared Architecture Reasoning Method. Explain consequential branches, concurrency, ordering, waiting, duplicates or cancellation where relevant, including who may commit. Trace failures, partial/unknown outcomes, durable recovery state, retry/reconciliation ownership and evidence for continuation; identify temporarily weakened guarantees. Reference established state and shared mechanisms rather than defining them again.]
 
-[Figure: this key flow, including important branches or supplemental failure/recovery views]
+[Figure: collaboration among this Subsystem's internal parts from external trigger to local completion, including important branches or supplemental failure/recovery views]
 
-[Repeat this subsection for each selected key flow. Add internal detail to a parent scenario; use a concrete change-impact flow for a static reference model. Give an independently explained recovery flow its own corresponding figure.]
+[Repeat this subsection for each selected key flow. Apply the Subsystem expansion boundary in Structure-to-flow traceability and identify the parent operation or allocated promise realized here; use a concrete change-impact flow for a static reference model. Give an independently explained recovery flow its own corresponding figure.]
 
 ## 运行保障
 

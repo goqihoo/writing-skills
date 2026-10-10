@@ -46,9 +46,9 @@
 
 ### 内部结构与职责
 
-[Show responsibilities for rule evaluation, processing coordination and dependency access, their dependency direction and boundary rationale. Distinguish private implementation from shared components and map logical duties to actual or proposed code organization. Keep simple functions simple; link independently owned mechanisms without requiring extra component documents.]
+[Explain which internal parts implement this module, what each owns and how they collaborate. Apply **Explain internal composition and collaboration** in `../../references/module-design-writing.md` to the figure and prose. Explain the responsibility split and map logical parts to actual or proposed code organization at the available evidence depth; link independently owned mechanisms without requiring extra component documents.]
 
-[Figure: implementation structure and important dependencies]
+[Figure: module internal composition, each part's responsibility and meaningful collaboration relationships; distinguish relevant external dependencies from internal parts]
 
 ### 数据与状态
 
@@ -68,9 +68,9 @@
 
 ### [关键处理流程名称]
 
-[Explain the triggering operation, input/identity/version/state preconditions and observable result. Follow rule evaluation, decisions, participants, dependency calls, intermediate state, atomic commits and responsibility handoffs. Explain significant branches, concurrency, repeats, ordering, waiting or cancellation where relevant. Locate authorization and durable control evidence at affected actions. Explain exceptions beside those steps: completed effects, result certainty, retry/recovery/compensation ownership, durable state and continuation evidence. Retain resource limits, overload, backpressure, degradation and completion signals where they affect the function, with parent runtime/isolation assumptions explicit.]
+[Explain the triggering operation from 规则与接口, input/identity/version/state preconditions and observable result. Apply the Module Design expansion boundary in Structure-to-flow traceability in the shared Architecture Reasoning Method. Follow the internal responsibilities from 实现设计 through rule evaluation, decisions, dependency calls, intermediate state, atomic commits and responsibility handoffs. Explain significant branches, concurrency, repeats, ordering, waiting or cancellation where relevant. Locate authorization and durable control evidence at affected actions. Explain exceptions beside those steps: completed effects, result certainty, retry/recovery/compensation ownership, durable state and continuation evidence. Retain resource limits, overload, backpressure, degradation and completion signals where they affect the function, with parent runtime/isolation assumptions explicit.]
 
-[Figure: this key processing flow, including consequential branches or supplemental failure/recovery views]
+[Figure: internal realization of this module operation, with callers and dependency contracts at its boundary, including consequential branches or supplemental failure/recovery views]
 
 [Repeat for actual selected key flows. Group equivalent operation variants around shared behavior and meaningful differences; give independently useful recovery flows their own corresponding figure.]
 

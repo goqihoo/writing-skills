@@ -6,10 +6,10 @@ Let purpose determine content development, document responsibility determine the
 | --- | --- | --- |
 | Knowledge system or detailed reference document | Write Arch Knowledge (`write-architecture-knowledge`) | `methods/architecture-templates/templates.yaml` |
 | Company landscape and Product-System mapping | Write Tech Arch (`write-technical-architecture`) | Writer Internal Document Type registry |
-| Stable System, Subsystem, Module or Component design | Write Tech Doc (`write-technical-doc`) | Writer Internal Document Type registry |
+| Stable System, Subsystem, Module or Component design, including supporting Database Design | Write Tech Doc (`write-technical-doc`) | Writer Internal Document Type registry |
 | Project architecture and directly required delivery details | Write Tech Arch (`write-technical-architecture`) | Delivery entries in its Writer registry |
 
-Default Writer ownership determines recommendations. When a user explicitly invokes Write Tech Arch for stable System, Subsystem, Module or Component design, apply the explicit stable-design adaptation in `methods/architecture-documents.md`. Use the stable Writer registry and completion profile without invoking another skill, changing the document authority or inventing Project commitments.
+Default Writer ownership determines recommendations. When a user explicitly invokes Write Tech Arch for stable System, Subsystem, Module, Component or Database Design, apply the explicit stable-design adaptation in `methods/architecture-documents.md`. Use the stable Writer registry and completion profile without invoking another skill, changing the document authority or inventing Project commitments.
 
 Plan each applicable section's reader question, contribution and evidence before drafting. Keep writing-process checks in working notes, retain substantive controls and local uncertainty in the artifact, then edit the complete argument and recheck technical constraints through `methods/prose-quality.md`. Use its Chinese examples when reviewing Chinese technical explanations.
 
@@ -39,6 +39,10 @@ For Component Architecture, use the four-chapter scaffold: 组件职责 → 接�
 Use these as optional design granularities. A System may contain modules directly; a component may be private or shared by multiple modules. Independent documentation requires a reader question and sufficient design substance. Existing specialist and support resources remain outside this primary-template change and do not require extra documents.
 
 Apply the four viewpoints through the shared Architecture Reasoning Method at three points: identify drivers and assumptions, derive mechanisms through success and failure scenarios, then verify combined guarantees and evidence. Put resulting decisions and gaps in their owning design sections. Viewpoints do not select templates or create four parallel document sets.
+
+## Database design
+
+Use the shared [Database Design template](../methods/architecture-templates/assets/database-design-template.md) and [writing contract](../methods/references/database-design-writing.md) for the lightweight supporting design. Write Tech Doc registers stable Database Design; Write Tech Arch registers Delivery Database Design. Keep their authority distinct while sharing one structure, with conditional concurrency, physical storage and migration detail. Embed small scopes in their owning design; place independently maintained system-wide database design beside System Architecture, or private persistence beside its module/component design. This does not add a fifth primary document granularity or require three separate data-model documents. Keep broader information authority and exchange concerns with Data Architecture.
 
 ## Knowledge system
 

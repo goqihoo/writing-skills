@@ -79,8 +79,8 @@ All Public Skills use the standard flat `skills/<skill-id>/SKILL.md` layout. Fou
 ### Technical Documentation
 
 - [Structure Tech Docs](skills/structure-technical-docs/SKILL.md) (`structure-technical-docs`) — Propose, scaffold, audit, or migrate a company Technical Documentation Set.
-- [Write Tech Doc](skills/write-technical-doc/SKILL.md) (`write-technical-doc`) — Write one registered or occasional Technical artifact, including stable System and Subsystem Architecture, Module Design, or Component Architecture.
-- [Write Tech Arch](skills/write-technical-architecture/SKILL.md) (`write-technical-architecture`) — Define company architecture or a concrete Project architecture delivery with its required supporting documents.
+- [Write Tech Doc](skills/write-technical-doc/SKILL.md) (`write-technical-doc`) — Write one registered or occasional Technical artifact, including stable System and Subsystem Architecture, Module Design, Component Architecture, or Database Design.
+- [Write Tech Arch](skills/write-technical-architecture/SKILL.md) (`write-technical-architecture`) — Define company architecture or a concrete Project architecture delivery with its required supporting documents, including Database Design.
 
 ### Visual
 

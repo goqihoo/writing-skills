@@ -260,6 +260,10 @@ _Avoid_: Technical Architecture, System Profile, Subsystem Architecture, Machine
 The Technical Documentation authority for one justified Subsystem within a System. Materialize it independently only when the Subsystem has a stable responsibility boundary, sufficient complexity, and continuing maintenance value.
 _Avoid_: System Architecture, Module or Component, Project Technical Design
 
+**Database Design**:
+A supporting design that explains how data relationships, tables, constraints, access paths and transactions realize the owning System, module or component's data requirements. It may be embedded or independently maintained without introducing an architecture granularity or Authority Level. Stable design belongs to Technical Documentation; a delivery-specific design retains Project authority. Executable schemas and migrations remain Machine Authority.
+_Avoid_: Data Architecture, mandatory document per database, Component Architecture merely because data is persisted
+
 **Architecture Decision**:
 An accepted architectural choice for an explicit Architecture Object and Scope, owned at the narrowest Authority Level that governs its consequences. Higher levels link or summarize the decision instead of duplicating its authoritative record.
 _Avoid_: centralizing every decision at company level, implementation task, unresolved option

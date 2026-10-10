@@ -4,29 +4,13 @@ Use this method for System Architecture and proportionally for Subsystem Archite
 
 ## Drafting and verification
 
-Read the shared adaptive template assigned to the selected type in the Writer registry and apply `../../../methods/architecture-templates/concrete-design.md`. Use the shared Architecture Reasoning Method to build and demonstrate the structural model, then use the coverage contract below to find missing material. Apply the reader verification in the shared Architecture Reasoning Method and the template-use checks in `../../../methods/architecture-documents.md` before treating coverage as completion. Templates contain document scaffolds; keep review instructions in this method.
+Read the assigned shared adaptive template and `../../../methods/architecture-templates/concrete-design.md`. Use the Architecture Reasoning Method to develop the model at the selected object's scope. Apply **Plan section questions before drafting**, **Make the design usable** and **Review before completion** in [the Architecture Documents Method](../../../methods/architecture-documents.md) while developing the artifact. Let the selected branch contract own chapter responsibilities and required views; let that Shared Method own explanation testing and repair.
 
-## Coverage contract
+## Select relevant concerns
 
-Address the relevant evidence for:
+Derive explanatory depth from the object's commitments, source requirements and reader decisions. Use the Domain, Application, Governance and Runtime correctness checks in [the Architecture Reasoning Method](../../../methods/architecture-reasoning.md) to find an overlooked concern, then explain its consequence in the owning section. Preserve linked Business/Product authority and stable Company/System decisions. Map relevant logical responsibilities to their realization and operating conditions without assuming every function is a separately deployed unit or that every object owns persistent state.
 
-- object, purpose, scope, stable responsibilities, and non-goals;
-- linked Business and Product context, external actors, and reader-relevant journeys without redefining their authority;
-- Data meaning, information authority, lifecycle, ownership, consistency, lineage, and retention where material;
-- Application context, boundaries, Applications, Subsystems, internal responsibility splits, authoritative state, and dependency direction;
-- interfaces, commands, events, queries, and cross-boundary contracts;
-- normal flows and failure semantics, including duplicate, timeout, ordering, partial, stale, conflicting, and unknown outcomes;
-- Technology platforms, infrastructure, storage, messaging, networks, environments, and constraints where they shape the System;
-- Security assets, identities, trust boundaries, threats, protection, detection, response, and evidence where material;
-- Governance permissions, controlled commands, last responsible control points, decision authority, exceptions, and durable evidence;
-- Deployment Architecture responsibilities, deployment units, placement, network, topology, and failure domains where material;
-- Runtime dependencies, load, degradation, observability, replay, recovery, and failover behavior;
-- the design elements and level-specific argument required by Architecture judgment in the shared Architecture Reasoning Method, including material decisions, alternatives and accepted costs;
-- validation, operating evidence, fitness checks, and review triggers;
-- current facts, accepted target direction, evaluated proposals, compatibility, migration, and evolution boundaries;
-- downstream Subsystem Architecture, interface definitions, deployments, runbooks, code repositories, Project Technical Design, and Machine Authority links.
-
-Use domain, application, governance, and runtime correctness as final checks. Omit an area only when it is genuinely irrelevant, and make material evidence gaps explicit. Do not force one heading or supporting file per viewpoint.
+Use source facts and concrete scenarios to distinguish missing explanation from unresolved design. Keep Machine Authority responsible for executable detail while retaining the semantics needed to understand and constrain that implementation. Coverage diagnoses an omission; apply the shared reader reconstruction to determine whether the delivered explanation actually resolves it.
 
 ## Supporting files
 
@@ -34,4 +18,4 @@ Split a supporting file only when it has an independent reader task, authority, 
 
 ## Completion
 
-The architecture family is complete when the named Architecture Object and Scope are explicit, the direct System or Subsystem Architecture remains a coherent entry point, relevant concerns across the four viewpoints are evidence-backed, Deployment Architecture and Runtime behavior are distinguishable, authority links replace implementation duplication, and omissions, open decisions, validation, and evolution triggers are explicit.
+Complete the shared explanation review at the requested scope and apply the owning type's completion profile. Keep the direct architecture a coherent entry point with correct authority links. Distinguish completed writing from design readiness wherever a necessary judgment remains unresolved.

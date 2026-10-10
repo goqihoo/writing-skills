@@ -57,7 +57,7 @@ For architecture purpose, viewpoints, document types, template structure or desi
 | Define one product change | **Write PRD** (`write-prd`) | Own observable behavior and acceptance. |
 | Define the product metric system | **Design Product Metrics** (`design-product-metrics`) | Own measure semantics and governance. |
 | Structure company Technical Documentation | **Structure Tech Docs** (`structure-technical-docs`) | Own Technical topology and materialization. |
-| Write a standard or occasional Technical document, including stable System or Subsystem Architecture, Module Design and Component Architecture | **Write Tech Doc** (`write-technical-doc`) | Own registered Technical types at their declared levels and compatible Freeform Artifacts; route company-level architecture. |
+| Write a standard or occasional Technical document, including stable System or Subsystem Architecture, Module Design, Component Architecture and Database Design | **Write Tech Doc** (`write-technical-doc`) | Own registered Technical types at their declared levels and compatible Freeform Artifacts; route company-level architecture. |
 | Define company overall architecture, a Product-System Map, a cross-System topic, or Project delivery architecture | **Write Tech Arch** (`write-technical-architecture`) | Own company-level Technical Landscape structure and concrete Project delivery architecture. |
 | Change a Technical directory, navigation, scaffold, audit, or migration | **Structure Tech Docs** (`structure-technical-docs`) | Own Technical topology and navigation, not document meaning. |
 | Create one architecture, data, process, planning, or quantitative visual | **Draw Diagram** (`draw-diagram`) | Own one of 39 Diagram Design visual forms; the source skill owns meaning. |
@@ -67,6 +67,8 @@ For architecture purpose, viewpoints, document types, template structure or desi
 Read `../../methods/architecture-documents.md` for purpose, document responsibilities and template adaptation, and `../../methods/architecture-reasoning.md` for viewpoint definitions and their entry into design. Use these Shared Methods as the authorities; explain their rules without executing a Writer.
 
 For generation logic, adaptation, diagrams or completion questions, read the selected template's branch contract linked from Architecture Documents. For exact outlines, resolve the template through the owning Writer's registry or `../../methods/architecture-templates/templates.yaml` and inspect the actual asset. Read only the resources needed for the question. Keep chapter lists, required-view matrices and detailed writing rules in those authorities rather than maintaining another copy here.
+
+For Database Design questions, read `../../methods/references/database-design-writing.md` and its shared template. Explain the supporting design's relationship to System, module or component ownership, embedded versus standalone use, and its narrower responsibility than Data Architecture. Use the stable or Project routing below and preserve explicit stable adaptation when requested.
 
 Explain the design principle: **purpose determines how content develops; document responsibility determines the template; four viewpoints guide design reasoning and completeness checks.** Keep purpose, authority, document granularity and viewpoint separate so a change in intended use does not automatically create another template or document set.
 
@@ -124,14 +126,14 @@ Architecture Writers share structural templates while retaining distinct Knowled
 
 Each Public Skill applies the reasoning, structure, prose-quality, and visual-production Shared Methods its own workflow needs. Do not present the former required multi-skill combinations as compatible alternatives.
 
-Product Strategy, Capability Map, Product Roadmap, PRD, and Product Metric System retain their named public skills. Product Release Plan and Product Review remain registered Internal Document Types of `write-product-doc`; compatible removed or occasional Product artifacts use its Freeform fallback. Technical Strategy, Roadmap, System Landscape, System Profile, System and Subsystem Architecture, Module Design, Component Architecture, governance documents, standards, and event records are registered Internal Document Types of `write-technical-doc`; compatible occasional Technical artifacts use its Freeform fallback.
+Product Strategy, Capability Map, Product Roadmap, PRD, and Product Metric System retain their named public skills. Product Release Plan and Product Review remain registered Internal Document Types of `write-product-doc`; compatible removed or occasional Product artifacts use its Freeform fallback. Technical Strategy, Roadmap, System Landscape, System Profile, System and Subsystem Architecture, Module Design, Component Architecture, Database Design, governance documents, standards, and event records are registered Internal Document Types of `write-technical-doc`; compatible occasional Technical artifacts use its Freeform fallback.
 
 Route natural requests without requiring the user to know a type name:
 
 - Route a presentation, slide-sequenced talk, course deck, business presentation, product introduction, technical explanation, or proposal manuscript to `$Write Deck` when the requested result is the audience-facing deck source rather than an authoritative document or rendered presentation file.
 - Route company overall architecture, Product-System Map, or a cross-System concern to `$Write Tech Arch`.
-- Route stable System or Subsystem Architecture, Module Design and Component Architecture to `$Write Tech Doc`.
-- Route concrete Project architecture delivery, including its necessary detailed design, migration and validation artifacts, to `$Write Tech Arch`.
+- Route stable System or Subsystem Architecture, Module Design, Component Architecture and Database Design to `$Write Tech Doc`.
+- Route concrete Project architecture delivery, including its necessary database design, other detailed design, migration and validation artifacts, to `$Write Tech Arch`.
 - Route an architecture knowledge system, view overview, overall/subsystem/module/component reference, governance/runtime topic, strategy or mechanism to `$Write Arch Knowledge`.
 - Route a compatible occasional Product or Technical document to its owning Writer as a Freeform Artifact.
 - Route a Product directory, navigation, scaffold, audit, or migration to `$Structure Product Docs`.

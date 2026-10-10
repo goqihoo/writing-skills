@@ -24,6 +24,7 @@ Retained specialist and navigation resources are outside the primary-template fa
 | Navigation | [Architecture Topic Collection](../methods/architecture-templates/assets/topic-index-template.md) | Which topics belong here and when should readers use them? |
 | Domain | [Domain Architecture](../methods/architecture-templates/assets/domain-architecture-template.md) | Which concepts, rules and capability boundaries define this domain? |
 | Data | [Data Architecture](../methods/architecture-templates/assets/data-architecture-template.md) | How are information meaning, authority, lifecycle and consistency preserved? |
+| Supporting | [Database Design](../methods/architecture-templates/assets/database-design-template.md) | How do the data model, tables, constraints, access paths and transactions realize the owning design's data requirements? |
 | Integration | [Integration Architecture](../methods/architecture-templates/assets/integration-architecture-template.md) | How do independent participants exchange information and achieve a verifiable business effect? |
 | Application | [Application Architecture](../methods/architecture-templates/assets/application-architecture-template.md) | How do application responsibilities, subsystems and shared components realize allocated guarantees? |
 | Engineering | [Engineering Strategy](../methods/architecture-templates/assets/engineering-strategy-template.md) | How should a recurring hard architecture problem be handled? |
@@ -55,11 +56,13 @@ Registered artifact identities and authority remain with their Writers. Shared f
 | `write-technical-architecture` | Delivery subsystem — Architecture | [subsystem-architecture-template.md](../methods/architecture-templates/assets/subsystem-architecture-template.md) |
 | `write-technical-architecture` | Delivery module — Design | [module-design-template.md](../methods/architecture-templates/assets/module-design-template.md) |
 | `write-technical-architecture` | Delivery component — Architecture | [component-architecture-template.md](../methods/architecture-templates/assets/component-architecture-template.md) |
+| `write-technical-architecture` | Delivery Database Design | [database-design-template.md](../methods/architecture-templates/assets/database-design-template.md) |
 | `write-technical-architecture` | Delivery Deployment Architecture | [deployment-architecture-template.md](../methods/architecture-templates/assets/deployment-architecture-template.md) |
 | `write-technical-architecture` | Delivery Architecture Migration | [delivery-migration-template.md](../skills/write-technical-architecture/assets/delivery-migration-template.md) |
 | `write-technical-architecture` | Architecture Validation and Acceptance | [delivery-validation-template.md](../skills/write-technical-architecture/assets/delivery-validation-template.md) |
 | `write-technical-doc` | System Architecture | [overall-architecture-template.md](../methods/architecture-templates/assets/overall-architecture-template.md) |
 | `write-technical-doc` | Subsystem Architecture | [subsystem-architecture-template.md](../methods/architecture-templates/assets/subsystem-architecture-template.md) |
+| `write-technical-doc` | Database Design | [database-design-template.md](../methods/architecture-templates/assets/database-design-template.md) |
 | `write-technical-doc` | Architecture Decision | [architecture-decision-template.md](../skills/write-technical-doc/assets/architecture-decision-template.md) |
 | `write-technical-doc` | Module Design | [module-design-template.md](../methods/architecture-templates/assets/module-design-template.md) |
 | `write-technical-doc` | Component Architecture | [component-architecture-template.md](../methods/architecture-templates/assets/component-architecture-template.md) |
